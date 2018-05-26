@@ -4,3 +4,38 @@
     <view>待收货</view>
     <view>待评价</view>
 </view>
+<view>
+    <block wx:for="{{myorder}}">
+        <block wx:if="{{item.order_status == '2'}}">
+            <view class="order-time-status">
+                <view class="order-time">{{item.order_time}}</view>
+                <view class="order-status">{{item.order_status }}</view>
+            </view>
+            <block wx:for="{{item.order_goods}}" wx:for-item="vv">
+                <view class="myorder_each">
+                    <view class="goods-info">
+                        <view class="goods-img">
+                            <!-- <image src="../../images/comment-img.png"></image> -->
+                            <image src="{{vv.goods_img}}"></image>
+                        </view>
+                        <view class="goods-name">
+                            <view>
+                                <!-- 奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红酒葡萄酒 -->
+                                {{vv.goods_name}}
+                            </view>
+                            <view class="guige">
+                                商品规格: {{vv.goods_guige}}
+                            </view>
+                        </view>
+                        <view class="goods-price">
+                            <view class="buy-price">¥{{vv.goods_buyprice}}</view>
+                            <view class="huaxian-price">¥{{vv.goods_yuanjia}}</view>
+                            <view class="buy-number">x{{vv.goods_number}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view>共{{item.order_goods.length}}件商品 合计</view>
+        </block>
+    </block>
+</view>

@@ -8,21 +8,22 @@ Page({
         myorder:[
             {
                 order_time:'2018-05-08', 
-                order_status: '卖家已发货',
+                // order_status: '卖家已发货',
+                order_status: '2',
                 order_goods:[
                     {
-                        goods_img:'../../images/hongjiu.com',
+                        goods_img:'../../images/hongjiu.png',
                         goods_name:'奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红葡萄酒', 
-                        goods_buyprice:'¥39.00',
-                        goods_yuanjia:'¥39.00',
+                        goods_buyprice:'39.00',
+                        goods_yuanjia:'39.00',
                         goods_guige: '750ml 6*1箱',
                         goods_number: '1'
                     },
                     {
-                        goods_img: '../../images/hongjiu.com',
+                        goods_img: '../../images/hongjiu.png',
                         goods_name: '奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红葡萄酒',
-                        goods_buyprice: '¥39.00',
-                        goods_yuanjia: '¥39.00',
+                        goods_buyprice: '39.00',
+                        goods_yuanjia: '39.00',
                         goods_guige: '750ml 6*1箱',
                         goods_number: '1'
                     }
@@ -30,21 +31,22 @@ Page({
             },
             {
                 order_time: '2018-05-08',
-                order_status: '卖家未发货',
+                // order_status: '卖家未发货',
+                order_status: '1',
                 order_goods: [
                     {
-                        goods_img: '../../images/hongjiu.com',
+                        goods_img: '../../images/hongjiu.png',
                         goods_name: '奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红葡萄酒',
-                        goods_buyprice: '¥39.00',
-                        goods_yuanjia: '¥39.00',
+                        goods_buyprice: '39.00',
+                        goods_yuanjia: '39.00',
                         goods_guige: '750ml 6*1箱',
                         goods_number: '1'
                     },
                     {
-                        goods_img: '../../images/hongjiu.com',
+                        goods_img: '../../images/hongjiu.png',
                         goods_name: '奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红葡萄酒',
-                        goods_buyprice: '¥39.00',
-                        goods_yuanjia: '¥39.00',
+                        goods_buyprice: '39.00',
+                        goods_yuanjia: '39.00',
                         goods_guige: '750ml 6*1箱',
                         goods_number: '1'
                     }
@@ -52,21 +54,22 @@ Page({
             },
             {
                 order_time: '2018-05-08',
-                order_status: '交易成功',
+                // order_status: '交易成功',
+                order_status: '3',
                 order_goods: [
                     {
-                        goods_img: '../../images/hongjiu.com',
+                        goods_img: '../../images/hongjiu.png',
                         goods_name: '奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红葡萄酒',
-                        goods_buyprice: '¥39.00',
-                        goods_yuanjia: '¥39.00',
+                        goods_buyprice: '39.00',
+                        goods_yuanjia: '39.00',
                         goods_guige: '750ml 6*1箱',
                         goods_number: '1'
                     },
                     {
-                        goods_img: '../../images/hongjiu.com',
+                        goods_img: '../../images/hongjiu.png',
                         goods_name: '奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红葡萄酒',
-                        goods_buyprice: '¥39.00',
-                        goods_yuanjia: '¥39.00',
+                        goods_buyprice: '39.00',
+                        goods_yuanjia: '39.00',
                         goods_guige: '750ml 6*1箱',
                         goods_number: '1'
                     }

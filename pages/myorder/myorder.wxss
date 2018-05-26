@@ -1,5 +1,5 @@
 page{
-    background-color: #eee;
+     background-color: #eee; 
 }
 .four-btn{
     margin-top: 20rpx;
@@ -19,4 +19,85 @@ page{
     border-bottom:4rpx solid red;
     color: red; 
 }
-
+.order-time-status{
+    margin-top: 20rpx;
+    display: flex;
+    justify-content:space-between;
+    padding: 20rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+     /* border: 1px solid red;  */
+}
+.order-time{
+    font-size: 28rpx;
+    color: #666;
+}
+.order-status{
+    font-size: 28rpx;
+    color: red;
+}
+.myorder_each{
+    /* height: 220rpx;  */
+    background-color: #fff;
+}
+.goods-info{
+    position: relative;
+    width: 100%;
+     height: 190rpx; 
+    /* background-color: #eee; */
+     /* border: 1px solid red;  */
+}
+.goods-info view{
+    position: absolute;
+}
+.goods-info .goods-img{
+    top: 20rpx;
+    left: 20rpx;
+    /* width:100rpx;
+    height: 100rpx;  */
+}
+.goods-info .goods-img image{
+    width:150rpx;
+    height: 150rpx;
+}
+.goods-info .goods-name{
+    position: absolute;
+    top: 20rpx;
+    left: 210rpx;
+    width:400rpx;
+    height: 100rpx;
+    font-size: 25rpx; 
+    /* border: 1px solid red; */
+}
+.guige{
+    position: absolute;
+    top: 100rpx;
+    color: #bbb;
+}
+.goods-price{
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    width: 100rpx;
+    height: 150rpx;
+    font-size: 28rpx;
+    /* border: 1px solid red;  */
+}
+.goods-price .buy-price{
+      position: absolute; 
+      right: 0;
+     color: red;
+}
+.goods-price .huaxian-price{
+    position: absolute;
+    top: 40rpx;
+    right: 0;
+    text-decoration: line-through;
+    font-size: 25rpx;
+    color: #aaa;
+}
+.goods-price .buy-number{
+    top: 75rpx;
+    right: 0;
+    color: #aaa;
+}
