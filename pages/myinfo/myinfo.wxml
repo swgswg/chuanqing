@@ -1,0 +1,72 @@
+<view class="header">
+    <view class="xiaoxi">
+        <image src="../../images/email.png" style="width:50rpx;height:50rpx;"></image>
+    </view>
+    <view class="shehzhi">
+        <image src="../../images/gear_09.png" style="width:50rpx;height:50rpx;"></image>
+    </view>
+    <view class="profile">
+         <image src="../../images/comment-img.png"></image> 
+         <view class="nickname">还没有设置昵称</view>
+    </view>
+    <view class="ad">
+        <image src="../../images/nav_right_adv.png"></image>
+    </view>
+</view>
+<view class="myorder">
+    <view class="myorder-font">
+        <view class="myorder-font-1">我的订单</view>
+        <view class="myorder-font-2">查看全部由订单 〉</view>
+    </view>
+    <view class="line"></view>
+    <view class="four-wait">
+        <view class="four-wait-each">
+            <view><image src="../../images/daifukuan.png"></image></view>
+            <view class="four-wait-each-font">待付款</view>
+        </view>
+        <view class="four-wait-each">
+            <view><image src="../../images/daifahuo.png"></image></view>
+            <view class="four-wait-each-font">待发货</view>
+        </view>
+        <view class="four-wait-each">
+            <view><image src="../../images/daishouhuo.png"></image></view>
+            <view class="four-wait-each-font">待收货</view>
+        </view>
+        <view class="four-wait-each">
+            <view><image src="../../images/daipingjia.png"></image></view>
+            <view class="four-wait-each-font">待评价</view>
+        </view>
+    </view>
+</view>
+<view class="jianju" style="background-color:#eee;margin-top:20rpx;height:20rpx;"></view>
+<view class="three-caozuo">
+    <view class="four-wait-each">
+        <view><image src="../../images/zuji.png"></image></view>
+        <view class="four-wait-each-font">浏览足迹</view>
+    </view>
+    <view class="four-wait-each">
+        <view><image src="../../images/tihuo.png"></image></view>
+        <view class="four-wait-each-font">提货</view>
+    </view>
+    <view class="four-wait-each">
+        <view><image src="../../images/kefu.png"></image></view>
+        <view class="four-wait-each-font">客服</view>
+    </view>
+</view>
+<view class="jianju" style="height:80rpx;"></view>
+<view class="bottom">
+    <view class="bottom-ad">
+        <image src="../../images/woyaomaijiu.png"></image>
+    </view>
+    <view class="membership-privilege">
+        <view class="membership-privilege-font">会员尊享</view>
+         <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+            <block wx:for="{{membershipPrivilege}}">
+                <view class="membership-privilege-scroll">
+                    <image src="{{item.img}}"></image>
+                    <view>{{item.price}}</view>
+                </view>
+            </block>
+        </scroll-view> 
+    </view>
+</view>

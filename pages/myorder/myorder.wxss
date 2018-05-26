@@ -1,0 +1,22 @@
+page{
+    background-color: #eee;
+}
+.four-btn{
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    width: 100%;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+}
+.four-btn view{
+    width: 160rpx;
+    font-size: 30rpx;
+}
+.clickbtn{
+    border-bottom:4rpx solid red;
+    color: red; 
+}
+

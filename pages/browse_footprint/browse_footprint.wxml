@@ -1,0 +1,18 @@
+ <view> 
+    <block wx:for="{{browseFootprint}}">
+    <view>
+        <view class="guess">{{item.time}}</view> 
+        <view class="youlike">
+            <block wx:for="{{item.info}}" >
+                <view class="youlike-each">
+                    <image src="{{item.img}}"></image>
+                    <view>{{item.name}}</view>
+                    <view style='color:red;'>{{item.price}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view style="clear:both"></view>
+    </block>
+ </view> 
+

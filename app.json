@@ -1,0 +1,63 @@
+{
+    "pages":[
+        "pages/myorder/myorder",
+        "pages/goods_cate/goods_cate",
+        "pages/after_sale/after_sale",
+        "pages/intercalate/intercalate",
+        "pages/browse_footprint/browse_footprint",
+        "pages/comment/comment",
+        "pages/sales_promotion/sales_promotion",
+        "pages/myinfo/myinfo",  
+        "pages/goods_list/goods_list",
+        "pages/goods_detail/goods_detail",
+        "pages/stock_detail/stock_detail",
+        "pages/goods_stock/goods_stock",
+        "pages/goods_competitive/goods_competitive",
+        "pages/seckill/seckill",
+        "pages/index/index",
+        "pages/logs/logs"  
+    ],
+    "window":{
+        "backgroundTextStyle":"light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "redWind",
+        "navigationBarTextStyle":"black"
+    },
+    "tabBar": {
+        "color": "#2c2c2c",
+        "selectedColor": "#d81e06",
+        "backgroundColor": "#fafafa",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/icon_home.png",
+                "selectedIconPath": "images/icon_home_active.png"
+            },
+            {
+                "pagePath": "pages/goods_cate/goods_cate",
+                "text": "分类",
+                "iconPath": "images/icon_catalog.png",
+                "selectedIconPath": "images/icon_catalog_active.png"
+            },
+            {
+                "pagePath": "pages/logs/logs",
+                "text": "购物车",
+                "iconPath": "images/icon_cart.png",
+                "selectedIconPath": "images/icon_cart_active.png"
+            },
+            {
+                "pagePath": "pages/myinfo/myinfo",
+                "text": "我的",
+                "iconPath": "images/icon_member.png",
+                "selectedIconPath": "images/icon_member_active.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    },
+    "debug": true
+}

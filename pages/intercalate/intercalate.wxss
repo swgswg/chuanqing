@@ -1,0 +1,14 @@
+page{
+    background-color: #eee;
+}
+.intercalate{
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    justify-content:space-between;
+    margin-top: 20rpx;
+    padding: 20rpx; 
+    box-sizing: border-box;
+    font-size: 30rpx;
+    background-color: #fff;
+}

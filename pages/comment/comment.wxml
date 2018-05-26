@@ -1,0 +1,18 @@
+<view class="comment">
+    <view class="goods-info">
+        <view class="goods-img">
+            <image src="../../images/comment-img.png"></image>
+        </view>
+        <view class="goods-name">
+            奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红酒葡萄酒
+        </view>
+    </view>
+    <view class="mycomment">
+        <textarea bindblur="bindTextAreaBlur"  auto-focus maxlength="-1" placeholder="宝贝满足你的需要吗?说说他有什么优点和不足的地方" />
+    </view>
+    <view class="addimage">
+        <image src="../../images/addimage.png"></image>
+    </view>
+    <button type='default'>确定</button>
+</view>
+

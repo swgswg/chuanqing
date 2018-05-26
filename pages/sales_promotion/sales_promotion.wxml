@@ -1,0 +1,6 @@
+<view class="news">
+    <view><image src="../../images/xiajiang.png"></image></view>
+    <view class="news-font">你关注的智利红酒魅力干红降价了少时诵诗书所所</view>
+    <view class="news-time">15:25</view>
+</view>
+<view style="clear:both;"></view>

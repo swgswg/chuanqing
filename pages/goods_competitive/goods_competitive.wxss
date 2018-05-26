@@ -1,0 +1,43 @@
+/* pages/goods_competitive/goods_competitive.wxss */
+.hot-selling {
+    background-color: #f0f0f0;
+}
+.hot-selling .rexiao {
+    width: 100%;
+    height: 80rpx;
+    /* border: 1px solid red; */
+    text-align: center;
+    line-height: 80rpx;
+}
+
+.goods-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    width: 100%;
+    /* background-color: red; */
+}
+.goods-info {
+    width: 45%;
+    height: 480rpx;
+    margin: 15rpx;
+    /* border: 1px solid red; */
+    background-color: #fff;
+}
+.goods-img{
+    text-align: center;
+}
+.goods-name{
+    padding:0 20rpx;
+    font-size: 28rpx;
+    /* overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap; */
+}
+.price-cart{
+    display: flex;
+    justify-content:space-between;
+    padding: 20rpx;
+    color: #ee5353;
+
+}

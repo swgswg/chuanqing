@@ -1,0 +1,122 @@
+ <!--轮播图start  -->
+<view class="swiper">
+    <swiper indicator-dots="true" autoplay="true" circular="true">
+        <block wx:for="{{imgUrls}}">
+            <swiper-item>
+                <image src="{{item}}" />
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<!--轮播图end  -->
+<view class="goods-name">
+    路易拉菲2009男爵古堡干红葡萄酒红酒礼盒木盒装750ml*2
+</view>
+<view class="price-cart">
+    <view>¥119.00</view>
+    <view class="member-price">会员价: 79.00</view>
+</view>
+<view class="jianju" style="height:20rpx;background-color:#eee"></view>
+<view class="number">
+    <view style="float:left;font-size:35rpx;">数量</view>
+    <view class="jian">-</view>
+    <view class="num">1</view>
+    <view class="jia">+</view>
+</view>
+<view class="address">
+    送至: 北京 北京市 西城区 明月小区208
+    <view> 〉</view>
+</view>
+<view class="msg">有货,预计3天内到达</view>
+<view class="jianju" style="height:20rpx;background-color:#eee"></view>
+<view class="comment">
+    <view>商品评价 (385)</view>
+    <view style='color:red;'>查看全部 
+        <view style='float:right;color:#aaa;margin-left:8rpx;'> 〉</view>
+    </view>
+</view>
+<view style="border-bottom:4rpx solid #eee;">
+    <view class="short-comment">一坛好酒</view>
+    <view class="long-comment">
+        东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
+        东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
+    </view>
+    <view class="comment-img">
+        <block wx:for="{{commentImg}}">
+            <image src="{{item}}" />
+        </block>
+    </view>
+</view>
+<view style="border-bottom:4rpx solid #eee;">
+    <view class="short-comment">一坛好酒</view>
+    <view class="long-comment">
+        东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
+        东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
+    </view>
+    <view class="comment-img">
+        <block wx:for="{{commentImg}}">
+            <image src="{{item}}" />
+        </block>
+    </view>
+</view>
+<view style="border-bottom:4rpx solid #eee;">
+    <view class="short-comment">一坛好酒</view>
+    <view class="long-comment">
+        东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
+        东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
+    </view>
+</view>
+<view class="jianju" style="height:80rpx;"></view>
+ <view> 
+    <view class="guess">猜你喜欢</view>
+    <view class="youlike">
+        <block wx:for="{{youLike}}">
+            <view class="youlike-each">
+                <image src="{{item.img}}"></image>
+                <view>{{item.name}}</view>
+                <view style='color:#666;'>{{item.price}}</view>
+            </view>
+        </block>
+    </view>
+ </view> 
+<view style="clear:both"></view>
+<view class="jianju" style="height:20rpx;background-color:#eee"></view>
+<view>
+    <view class="specification-parameter">规格参数</view>
+    <view class="specification-parameter-info">
+        <view>最佳饮用期: 72小时内</view>
+        <view>建议醒酒时间: 30-60分钟</view>
+        <view>参考年份: 见背标</view>
+        <view>瓶塞: 木塞</view>
+        <view>香味: 水果味</view>
+        <view>葡萄品种: 赤霞珠</view>
+        <view>净含量: 750ml*2</view>
+        <view>箱规: 1*2</view>
+    </view>
+</view>
+<view class="jianju" style="height:20rpx;background-color:#eee"></view>
+<view>
+    <view class="goods-info">商品详情</view>
+    <view style="text-align:center;">
+        <image src="../../images/goods-detail.png" style="width:700rpx;height:900rpx;"></image>
+    </view>
+</view>
+<view class="jianju" style="height:100rpx;"></view>
+    <view class="bottom-btn">
+        <view class="custom-service">
+            <view class=""><image src='../../images/kefu.png'></image></view>
+            <view style="margin-top:-10rpx;">在线客服</view>
+        </view>
+        <view class="custom-service">
+            <view class=""><image src='../../images/collection.png'></image></view>
+            <view style="margin-top:-10rpx;">加入收藏</view>
+        </view>
+        <view class="custom-service ziti">
+            <!-- <view class=""><image src='../../images/huigou.png'></image></view> -->
+            <view>加入购物车</view>
+        </view>
+         <view class="custom-service immediate-sale">
+            <!-- <view class=""><image src='../../images/huigou.png'></image></view> -->
+            <view>立即购买</view>
+        </view>
+    </view>

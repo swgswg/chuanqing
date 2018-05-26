@@ -1,0 +1,6 @@
+<view class="four-btn">
+    <view class="clickbtn">全部</view>
+    <view>待发货</view>
+    <view>待收货</view>
+    <view>待评价</view>
+</view>

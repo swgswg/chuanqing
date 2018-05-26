@@ -1,0 +1,54 @@
+<!--pages/seckill/seckill.wxml-->
+<view class="container">
+    <view class="goods-seckill">
+        <view class="goods-list">
+            <view class="goods-info">
+                <view class="goods-img">
+                    <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+                </view>
+                <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒</view>
+                <view class="price-cart">
+                    <view>¥39.00</view>
+                    <view style="font-size:26rpx;color:#bbb;padding-top:10rpx;">¥39.00</view>
+                    <view><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
+                </view>
+            </view>
+            <view class="goods-info">
+                <view class="goods-img">
+                    <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+                </view>
+                
+                <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒</view>
+                <view class="price-cart">
+                    <view>¥39.00</view>
+                    <view style="font-size:26rpx;color:#bbb;padding-top:10rpx;">¥39.00</view>
+                    <view><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
+                </view>
+            </view>
+            <view class="goods-info">
+                <view class="goods-img">
+                    <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+                </view>
+                
+                <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒</view>
+                <view class="price-cart">
+                    <view>¥39.00</view>
+                    <view style="font-size:26rpx;color:#bbb;padding-top:10rpx;">¥39.00</view>
+                    <view><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
+                </view>
+            </view>
+            <view class="goods-info">
+                <view class="goods-img">
+                    <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+                </view>
+                
+                <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒</view>
+                <view class="price-cart">
+                    <view>¥39.00</view>
+                    <view style="font-size:26rpx;color:#bbb;padding-top:10rpx;">¥39.00</view>
+                    <view><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

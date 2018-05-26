@@ -1,0 +1,36 @@
+/** 修改默认的navigator点击态 **/
+.biaoti {
+    display: flex;
+    justify-content: space-around;
+}
+.goods-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    width: 100%;
+    background-color: #f0f0f0;
+}
+.goods-info {
+    width: 45%;
+    height: 450rpx;
+    margin: 15rpx;
+    /* border: 1px solid red; */
+    background-color: #fff;
+}
+.goods-img{
+    text-align: center;
+}
+.goods-name{
+    padding:0 20rpx;
+    font-size: 28rpx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.price-cart{
+    display: flex;
+    justify-content:space-between;
+    padding: 20rpx;
+    color: #ee5353;
+
+}

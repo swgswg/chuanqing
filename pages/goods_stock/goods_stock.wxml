@@ -1,0 +1,55 @@
+<view>
+    <image src="../../images/goods_competitive.png" style='width:100%;height:300rpx'></image>
+</view>
+<view class="hot-selling">
+    <view class="rexiao">库存</view>
+    <view class="goods-list">
+            <view class="goods-info">
+                <view class="goods-img">
+                    <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+                </view>
+                <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒</view>
+                <view class="stock">库存: 100</view>
+                <view class="price-cart">
+                    <view>¥39.00</view>
+                    <view class="del-price">¥39.00</view>
+                </view>
+            </view>
+            <view class="goods-info">
+                <view class="goods-img">
+                    <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+                </view>
+                
+                <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒</view>
+                <view class="stock">库存: 100</view>
+                <view class="price-cart">
+                    <view>¥39.00</view>
+                    <view class="del-price">¥39.00</view>
+                </view>
+            </view>
+            <view class="goods-info">
+                <view class="goods-img">
+                    <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+                </view>
+                
+                <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒</view>
+                 <view class="stock">库存: 100</view>
+                <view class="price-cart">
+                    <view>¥39.00</view>
+                    <view class="del-price">¥39.00</view>
+                </view>
+            </view>
+            <view class="goods-info">
+                <view class="goods-img">
+                    <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+                </view>
+                
+                <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒</view>
+                <view class="stock">库存: 100</view>
+                <view class="price-cart">
+                    <view>¥39.00</view>
+                    <view class="del-price">¥39.00</view>
+                </view>
+            </view>
+        </view>
+</view>

@@ -1,0 +1,85 @@
+<view class="biaoti">
+    <view class="zonghe" style='position:relative;'>
+        <view>综合</view>
+        <view style="position:absolute;top:-7rpx;left:80rpx;">
+            <image src="../../images/font-456.png" style='width:33rpx;height:33rpx;'></image>
+        </view>
+        <view style="position:absolute;top:10rpx;left:80rpx;">
+            <image src="../../images/font-459.png" style='width:33rpx;height:33rpx;'></image>
+        </view>
+    </view>
+    <view class="xiaoliang" style="position:relative;">
+        <view>销量</view>
+        <view style="position:absolute;top:-7rpx;left:80rpx;">
+            <image src="../../images/font-456.png" style='width:33rpx;height:33rpx;'></image>
+        </view>
+        <view style="position:absolute;top:10rpx;left:80rpx;">
+            <image src="../../images/font-459.png" style='width:33rpx;height:33rpx;'></image>
+        </view>
+    </view>
+    <view class="xinpin" style="position:relative;">
+        <view>新品</view>
+        <view style="position:absolute;top:-7rpx;left:80rpx;">
+            <image src="../../images/font-456.png" style='width:33rpx;height:33rpx;'></image>
+        </view>
+        <view style="position:absolute;top:10rpx;left:80rpx;">
+            <image src="../../images/font-459.png" style='width:33rpx;height:33rpx;'></image>
+        </view>
+    </view>
+    <view class="jiage" style="position:relative;">
+        <view>价格</view>
+        <view style="position:absolute;top:-7rpx;left:80rpx;">
+            <image src="../../images/font-456.png" style='width:33rpx;height:33rpx;'></image>
+        </view>
+        <view style="position:absolute;top:10rpx;left:80rpx;">
+            <image src="../../images/font-459.png" style='width:33rpx;height:33rpx;'></image>
+        </view>
+    </view>
+</view>
+<view class='jianju'></view>
+<view class='jianju'></view>
+<view class="goods-list">
+    <view class="goods-info">
+        <view class="goods-img">
+            <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+        </view>
+        <view class="goods-name">路易拉菲2009男爵古堡aa</view>
+        <view class="price-cart">
+            <view>¥39.00</view>
+            <view><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
+        </view>
+    </view>
+    <view class="goods-info">
+        <view class="goods-img">
+            <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+        </view>
+        
+        <view class="goods-name">路易拉菲2009男爵古堡</view>
+        <view class="price-cart">
+            <view>¥39.00</view>
+            <view><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
+        </view>
+    </view>
+     <view class="goods-info">
+        <view class="goods-img">
+            <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+        </view>
+        
+        <view class="goods-name">路易拉菲2009男爵古堡</view>
+        <view class="price-cart">
+            <view>¥39.00</view>
+            <view><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
+        </view>
+    </view>
+    <view class="goods-info">
+        <view class="goods-img">
+            <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+        </view>
+        
+        <view class="goods-name">路易拉菲2009男爵古堡</view>
+        <view class="price-cart">
+            <view>¥39.00</view>
+            <view><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
+        </view>
+    </view>
+</view>

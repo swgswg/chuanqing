@@ -1,0 +1,21 @@
+ <view class="after-sale"> 
+    <view class="goods-info">
+        <view class="goods-img">
+            <image src="../../images/comment-img.png"></image>
+        </view>
+        <view class="goods-name">
+            <view>
+                奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红酒葡萄酒
+            </view>
+            <view class="guige">
+                商品规格: 750ml 6*1箱
+            </view>
+        </view>
+    </view>
+</view>
+<view style='height:20rpx;'></view>
+<view class="lianxikefu">
+    <image src="../../images/kefu1.png"></image>
+    <view class="lianxikefu-font1">联系客服</view>
+    <view class="lianxikefu-font2">联系客服为您提供贴心服务</view>
+</view>
