@@ -1,0 +1,29 @@
+page{
+    background-color: #eee;
+}
+.lianxikefu{
+    position: relative;
+    width: 100%;
+    height: 160rpx;
+    background-color: #fff;
+    border-top: 2rpx solid #eee; 
+}
+.lianxikefu image{
+    position: absolute;
+    top: 30rpx;
+    left: 40rpx;
+    width: 100rpx;
+    height: 100rpx;
+}
+.lianxikefu view{
+    position: absolute;
+    left: 160rpx;
+    font-size: 30rpx;
+}
+.lianxikefu-font1{
+    top: 40rpx;
+}
+.lianxikefu-font2{
+    top:80rpx;
+    color: #bbb; 
+}

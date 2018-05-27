@@ -1,5 +1,7 @@
 {
     "pages":[
+        "pages/commit_order/commit_order",
+        "pages/news/news",
         "pages/myorder/myorder",
         "pages/goods_cate/goods_cate",
         "pages/after_sale/after_sale",

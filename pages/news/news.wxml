@@ -1,0 +1,22 @@
+<view style="margin-top:20rpx;">
+    <view class="lianxikefu">
+        <image src="../../images/cuxiaotongzhi.png"></image>
+        <view class="lianxikefu-font1">促销活动</view>
+        <view class="lianxikefu-font2">促销活动会显示在这里</view>
+    </view>
+    <view class="lianxikefu">
+        <image src="../../images/jiangjiatongzhi.png"></image>
+        <view class="lianxikefu-font1">降价通知</view>
+        <view class="lianxikefu-font2">降价通知会显示在这里</view>
+    </view>
+    <view class="lianxikefu">
+        <image src="../../images/xitongtongzhi.png"></image>
+        <view class="lianxikefu-font1">系统通知</view>
+        <view class="lianxikefu-font2">系统通知会显示在这里</view>
+    </view>
+    <view class="lianxikefu">
+        <image src="../../images/kefutongzhi.png"></image>
+        <view class="lianxikefu-font1">客服通知</view>
+        <view class="lianxikefu-font2">客服通知会显示在这里</view>
+    </view>
+</view>
