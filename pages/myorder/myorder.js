@@ -27,7 +27,9 @@ Page({
                         goods_guige: '750ml 6*1箱',
                         goods_number: '1'
                     }
-                ]
+                ],
+                order_total:'78.00',
+                order_expressage: '0.00'
             },
             {
                 order_time: '2018-05-08',
@@ -50,7 +52,9 @@ Page({
                         goods_guige: '750ml 6*1箱',
                         goods_number: '1'
                     }
-                ]
+                ],
+                order_total:'78.00',
+                order_expressage: '0.00'
             },
             {
                 order_time: '2018-05-08',
@@ -73,7 +77,9 @@ Page({
                         goods_guige: '750ml 6*1箱',
                         goods_number: '1'
                     }
-                ]
+                ],
+                order_total:'78.00',
+                order_expressage:'0.00'
             }
 
         ]

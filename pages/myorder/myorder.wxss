@@ -38,7 +38,7 @@ page{
 }
 .myorder_each{
     /* height: 220rpx;  */
-    background-color: #fff;
+     background-color: #eee; 
 }
 .goods-info{
     position: relative;
@@ -100,4 +100,42 @@ page{
     top: 75rpx;
     right: 0;
     color: #aaa;
+}
+.order-summary{
+    width: 100%;
+    height: 80rpx;
+    margin-top: -30rpx;
+    background-color: #fff;
+    padding-top: 25rpx;
+    padding-left: 225rpx;
+    box-sizing: border-box;
+    font-size: 30rpx;
+    /* border:1px solid red; */
+}
+.order-btn{
+    display: flex;
+    justify-content:flex-end;
+    width: 100%;
+    height: 100rpx;
+    padding-top: 20rpx; 
+    box-sizing: border-box;
+    font-size: 30rpx;
+    background-color: #fff;
+    border: 4rpx solid #eee; 
+}
+.order-btn1,.order-btn2{
+     width: 140rpx;
+     height: 40rpx;
+     text-align: center;
+     line-height: 40rpx;
+     border-radius: 20rpx;
+     font-size: 25rpx;
+     border: 1px solid #aaa;
+     margin-right: 20rpx;
+     color: #999;
+     
+}
+.order-btn2{
+    color: red;
+    border: 1px solid red;
 }
