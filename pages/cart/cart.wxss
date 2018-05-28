@@ -1,0 +1,217 @@
+page{
+     background-color: #eee; 
+}
+.edit{
+    width:100%;
+    height: 80rpx;
+     margin-top: 20rpx;  
+    padding: 20rpx;
+    box-sizing: border-box;
+    font-size: 30rpx;
+    text-align: right;
+    /* line-height: 80rpx;  */
+    background-color: #fff;
+    /* border: 1px solid red; */
+}
+.cart-empty{
+    width: 100%;
+    height: 500rpx;
+    text-align: center;
+    font-size: 30rpx;
+}
+.cart-empty image{
+    width: 200rpx;
+    height: 200rpx;
+    margin-top: 100rpx; 
+    margin-bottom: 20rpx;
+}
+.cart-empty .cart-empty-font2{
+    width: 220rpx; 
+    height: 80rpx;  
+    /* border: 1px solid red;  */
+    margin-top: 20rpx;
+    margin-bottom:150rpx;
+    margin-left: 270rpx;
+    text-align: center;
+    line-height: 80rpx;
+    background-color: #aaa;
+    color: #fff;
+    border-radius: 10rpx;
+} 
+
+.buy-goods{
+    position: relative;
+    width: 100%;
+    height: 220rpx;
+    /* margin-top:20rpx;  */
+    padding: 20rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 27rpx;
+    border-bottom: 2rpx solid #ddd;
+}
+.buy-goods .checkbox{
+    position: absolute;
+    top: 80rpx;
+}
+.buy-goods .checkbox checkbox{
+    border-radius:50%; 
+}
+.buy-goods .goods-img{
+    position: absolute;
+    top: 20rpx;
+    left: 80rpx;
+}
+.buy-goods .goods-img image{
+    width: 180rpx;
+    height: 180rpx;
+    /* border: 1px solid red; */
+}
+.buy-goods .goods-name{
+    position: absolute;
+    top: 20rpx;
+    left: 300rpx;
+    width: 400rpx;
+    height: 70rpx; 
+    /* border: 1px solid red;  */
+}
+.buy-goods .goods-pricee{
+    position: absolute;
+    top: 105rpx;
+    left: 300rpx;
+    color: red;
+}
+.number{
+    position: absolute;
+    top: 80rpx;
+    left:480rpx; 
+    width: 100%;
+    height: 50rpx;
+    padding: 20rpx;
+    font-size: 40rpx;
+    line-height: 50rpx;
+    color: #777;
+    /* border: 1px solid red;  */
+}
+.jian,.num,.jia{
+    width: 50rpx;
+    height: 50rpx;
+    border: 2rpx solid #ccc;
+    text-align: center;
+    line-height: 50rpx; 
+     font-size: 50rpx; 
+    float: left; 
+}
+.jian{
+    margin-left:30rpx; 
+}
+.num{
+    width: 80rpx;
+    border-left:0;
+    border-right:0;
+    font-size: 30rpx;
+}
+.tishi{
+    position: absolute;
+    top: 175rpx;
+    left: 300rpx;
+    font-size: 25rpx;
+    color: #999; 
+}
+.youlike{
+    width: 100%;
+    height: 100rpx;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 100rpx;
+    display: flex;
+    justify-content: space-between;
+    /* border:1px solid red; */
+}
+.youlike .youlike-line1,.youlike-line2{
+    width: 280rpx;
+    height:0; 
+    margin-top:50rpx;  
+     border: 1rpx solid #aaa; 
+}
+.goods-info{
+    width: 350rpx;
+    height: 380rpx;
+    margin-bottom: 20rpx;
+    margin-left: 20rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    text-align: center;
+    background-color: #fff;
+
+}
+.goods-info image{
+    width: 250rpx;
+    height: 250rpx;
+      /* border: 1px solid red;   */
+}
+.goods-info .goods-name{
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.goods-info .goods-price{
+    margin-top:20rpx;
+    text-align: left;
+    color: red;
+}
+.commit-cart{
+    position: fixed;
+    top: 1010rpx;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100rpx;
+    font-size: 30rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    line-height: 100rpx;
+    background-color: #fff;
+    /* border: 1px solid red; */
+}
+ .commit-cart-quanxuan{
+    width: 150rpx;
+    margin-left:20rpx; 
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+    font-size: 25rpx;
+}
+.commit-cart-heji{
+    width: 350rpx;
+    /* border: 1px solid red; */
+}
+.commit-cart-jiesuan{
+    width: 250rpx;
+    text-align: center;
+    background-color: #cc0033;
+    color: #fff;
+    /* border: 1px solid red; */
+}
+
+.cart-edit{
+    position: fixed;
+    top: 1010rpx;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100rpx;
+    font-size: 30rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    line-height: 100rpx;
+    background-color: #fff;
+}
+.commit-cart-yirushoucang{
+    width: 250rpx;
+    margin-left: 80rpx;
+    text-align: center;
+    background-color: #ffb97a;
+    color: #fff;
+}

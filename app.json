@@ -1,6 +1,9 @@
 {
     "pages":[
+        
         "pages/commit_order/commit_order",
+        "pages/cart/cart",
+        "pages/cart_edit/cart_edit",
         "pages/news/news",
         "pages/myorder/myorder",
         "pages/goods_cate/goods_cate",
@@ -44,7 +47,7 @@
                 "selectedIconPath": "images/icon_catalog_active.png"
             },
             {
-                "pagePath": "pages/logs/logs",
+                "pagePath": "pages/cart/cart",
                 "text": "购物车",
                 "iconPath": "images/icon_cart.png",
                 "selectedIconPath": "images/icon_cart_active.png"

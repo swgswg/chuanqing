@@ -1,1 +1,170 @@
-/* pages/commit_order/commit_order.wxss */
+page{
+    background-color: #eee;
+}
+.consignee{
+    position: relative;
+    width: 100%;
+    height: 170rpx;
+    background-color: #fff;
+    font-size: 30rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+    /* border:1px solid red; */
+}
+.consignee .consignee-font2{
+    margin-top: 20rpx;
+    font-size: 25rpx;
+    color: #aaa;
+}
+.consignee .consignee-btn{
+    position: absolute;
+    top: 40%;
+    left: 95%;
+}
+.myorder_each{
+    /* height: 220rpx;  */
+     background-color: #fff; 
+}
+.goods-info{
+    position: relative;
+    width: 100%;
+     height: 160rpx; 
+    /* background-color: #eee; */
+     /* border: 1px solid red;  */
+}
+.goods-info view{
+    position: absolute;
+}
+.goods-info .goods-img{
+    top: 20rpx;
+    left: 20rpx;
+    /* width:100rpx;
+    height: 100rpx;  */
+}
+.goods-info .goods-img image{
+    width:120rpx;
+    height: 120rpx;
+}
+.goods-info .goods-name{
+    position: absolute;
+    top: 30rpx;
+    left: 180rpx;
+    width:400rpx;
+    height: 100rpx;
+    font-size: 25rpx; 
+    /* border: 1px solid red; */
+}
+.goods-price{
+    position: absolute;
+    top: 30rpx;
+    right: 20rpx;
+    width: 100rpx;
+    height: 150rpx;
+    font-size: 28rpx;
+    /* border: 1px solid red;  */
+}
+.goods-price .buy-price{
+    position: absolute; 
+    right: 0;
+    color: red;
+}
+.goods-price .huaxian-price{
+    position: absolute;
+    top: 40rpx;
+    right: 0;
+    text-decoration: line-through;
+    font-size: 25rpx;
+    color: #aaa;
+}
+.goods-price .buy-number{
+    top: 75rpx;
+    right: 0;
+    color: #aaa;
+}
+.order-summary{
+    width: 100%;
+    height: 80rpx;
+    margin-top: -30rpx;
+    background-color: #fff;
+    padding-top: 25rpx;
+    padding-left: 225rpx;
+    box-sizing: border-box;
+    font-size: 30rpx;
+    /* border:1px solid red; */
+}
+.invoice-information{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 50rpx;
+    margin-top:20rpx; 
+    padding: 20rpx;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    background-color: #fff; 
+     /* border:1px solid red;  */
+}
+.invoice-information input{
+    margin-left: 30rpx;
+    width: 70%;
+    font-size: 25rpx;
+    color: #aaa;
+     /* border:1px solid red;  */
+}
+.remarks{
+    width: 100%;
+    margin-top: 20rpx;
+    padding: 20rpx;
+    background-color: #fff;
+}
+.remarks textarea{
+    width: 94%;
+    height: 150rpx;
+    border-radius: 15rpx;
+    font-size: 25rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+}
+.goods-total{
+    margin-top:20rpx; 
+    padding: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    font-size: 30rpx;
+    background-color: #fff;
+    border-bottom: 1rpx solid #eee;
+}
+.goods-total-font2{
+    font-size: 25rpx;
+    color: red;
+}
+.qurenziti{
+    position: fixed;
+    top: 1105rpx;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 150rpx;
+    font-size: 35rpx;
+    background-color: #fff;
+}
+.qurenziti .qurenziti-font{
+    display: inline-block;
+    width: 450rpx;
+    height: 100rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+.qurenziti .qurenziti-btn{
+    display: inline-block;
+    width: 300rpx;
+    height: 100rpx; 
+    text-align: center;
+    line-height: 90rpx; 
+    /* font-size: 35rpx; */
+    /* border: 1px solid red; */
+    background-color: #ce000d;
+    color: #fff;
+}

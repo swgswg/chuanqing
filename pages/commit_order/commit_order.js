@@ -5,7 +5,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      btnText:'确认自提',
+    commit_order:[
+        {
+            consignee: ' Miss-蹊',
+            consignee_tel: '13112343131',
+            consignee_addr: '北京市西城区明月小区',
+            goods_total:'432.00',
+            goods_info:[
+                {
+                    goods_img:'../../images/hongjiu.png',
+                    goods_name:'路易拉菲2009男爵古堡干红葡萄酒礼盒木盒装750ml*2',
+                    goods_price:'36.00',
+                    goods_number:12
+                },
+                {
+                    goods_img: '../../images/hongjiu.png',
+                    goods_name: '路易拉菲2009男爵古堡干红葡萄酒礼盒木盒装750ml*2',
+                    goods_price: '36.00',
+                    goods_number: 12
+                }
+            ]
+        }
+        
+    ]
   },
 
   /**
@@ -26,7 +49,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+      //获取上一级页面
+      var pages = getCurrentPages() //获取加载的页面
+      console.log(pages);
+      var currentPage = pages[pages.length - 2] //获取当前页面的对象
+    //   var url = currentPage.route;
+      var url = currentPage.route;
+    //   console.log(url);
+      if (url == 'pages/cart/cart'){
+          this.setData({
+              btnText: '提交订单'
+          });
+      }
   },
 
   /**
@@ -62,5 +96,8 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
+
+
 })
