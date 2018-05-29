@@ -54,8 +54,12 @@
      font-size: 50rpx; 
     float: left; 
 }
+.jia{
+     border-radius: 0 5rpx 5rpx 0; 
+}
 .jian{
-    margin-left:30rpx; 
+    margin-left:30rpx;
+    border-radius: 5rpx 0 0 5rpx; 
 }
 .num{
     width: 80rpx;
@@ -138,3 +142,83 @@
     color: #fff;
     background-color: #ce000d;
 }
+/*遮盖层  */
+.covering-layer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#bbb;
+    opacity: 0.5; 
+    z-index: 8888; 
+}
+.application-for-repurchase{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    /* height: 5rpx; */
+    font-size: 25rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.application-for-repurchase-each{
+    margin-left:50rpx;
+    width: 100%;
+    height: 60rpx;
+    line-height: 60rpx;
+    color:#999;
+     /* border: 1px solid red;   */
+}
+radio .wx-radio-input{
+   border-radius: 50%;/* 圆角 */
+   width: 30rpx;
+   height: 30rpx;
+}
+.immediate-sales{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height:500rpx;
+    padding: 20rpx;
+    font-size: 30rpx;
+    background-color: #fff; 
+}
+.immediate-sales image{
+    position: absolute;
+    top: -150rpx;
+    left: 20rpx;
+    width: 210rpx;
+    height:325rpx;
+    border: 1px solid red;
+}
+.immediate-sale-text1{
+    position: absolute;
+    top: 30rpx;
+    left: 260rpx;
+}
+.immediate-sale-text2{
+    position: absolute;
+    top: 90rpx;
+    left: 260rpx;
+    width: 410rpx;
+    height:85rpx;
+     /* border: 1px solid red;  */
+}
+.immediate-sales .number{
+    position: absolute;
+    top: 250rpx;
+    left: 490rpx;
+}
+ .immediate-sales button{
+    position: absolute;
+    bottom: 20rpx;
+    left: 20rpx;
+    width: 710rpx;
+    height: 90rpx;
+} 

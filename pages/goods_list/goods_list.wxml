@@ -38,48 +38,21 @@
 </view>
 <view class='jianju'></view>
 <view class='jianju'></view>
-<view class="goods-list">
-    <view class="goods-info">
-        <view class="goods-img">
-            <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+ <view style='width:100%;height:{{height}}px;background-color: #f0f0f0;'> 
+    <scroll-view scroll-y="ture" style='width:100%;height:100%;'>
+        <view wx:for="{{goods}}" class="goods-list">
+            <view class="goods-info">
+                <navigator url='../goods_detail/goods_detail?id={{item.id}}'>  
+                    <view class="goods-img">
+                        <image style="width:300rpx; height: 300rpx;"  src='{{item.img}}'></image>
+                    </view>
+                    <view class="goods-name">{{item.name}}</view>
+                </navigator> 
+                <view class="price-cart">
+                    <view>¥{{item.price}}</view>
+                    <view bindtap="add_to_cart" data-id="{{item.id}}"><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
+                </view>
+            </view>
         </view>
-        <view class="goods-name">路易拉菲2009男爵古堡aa</view>
-        <view class="price-cart">
-            <view>¥39.00</view>
-            <view><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
-        </view>
-    </view>
-    <view class="goods-info">
-        <view class="goods-img">
-            <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
-        </view>
-        
-        <view class="goods-name">路易拉菲2009男爵古堡</view>
-        <view class="price-cart">
-            <view>¥39.00</view>
-            <view><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
-        </view>
-    </view>
-     <view class="goods-info">
-        <view class="goods-img">
-            <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
-        </view>
-        
-        <view class="goods-name">路易拉菲2009男爵古堡</view>
-        <view class="price-cart">
-            <view>¥39.00</view>
-            <view><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
-        </view>
-    </view>
-    <view class="goods-info">
-        <view class="goods-img">
-            <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
-        </view>
-        
-        <view class="goods-name">路易拉菲2009男爵古堡</view>
-        <view class="price-cart">
-            <view>¥39.00</view>
-            <view><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
-        </view>
-    </view>
-</view>
+    </scroll-view>
+ </view> 

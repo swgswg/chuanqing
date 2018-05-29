@@ -1,21 +1,21 @@
 {
     "pages":[
-        
+        "pages/goods_cate/goods_cate",
+        "pages/stock_detail/stock_detail",
+        "pages/goods_list/goods_list",
+        "pages/goods_detail/goods_detail",
         "pages/commit_order/commit_order",
         "pages/cart/cart",
         "pages/cart_edit/cart_edit",
         "pages/news/news",
         "pages/myorder/myorder",
-        "pages/goods_cate/goods_cate",
+       
         "pages/after_sale/after_sale",
         "pages/intercalate/intercalate",
         "pages/browse_footprint/browse_footprint",
         "pages/comment/comment",
         "pages/sales_promotion/sales_promotion",
         "pages/myinfo/myinfo",  
-        "pages/goods_list/goods_list",
-        "pages/goods_detail/goods_detail",
-        "pages/stock_detail/stock_detail",
         "pages/goods_stock/goods_stock",
         "pages/goods_competitive/goods_competitive",
         "pages/seckill/seckill",

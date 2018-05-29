@@ -12,36 +12,12 @@
     <!--分类联动start  -->
     <view class='containers'> 
         <view class="nav_left">
-            <block>
-                <view class="nav_left_items" bindtap="switchRightTab"
-                data-index="1" data-id="1">
-                    品牌
+            <block wx:for="{{goodsGroup}}">
+                <view class="nav_left_items {{item.id==current_id ? '.active' : ''}}" bindtap="goods_group" data-index="{{item.id}}" data-id="{{item.id}}">
+                    {{item.name}}
                 </view>
             </block>
-            <block >
-                <view class="nav_left_items" bindtap="switchRightTab"
-                data-index="2" data-id="2">
-                    颜色
-                </view>
-            </block>
-            <block >
-                <view class="nav_left_items" bindtap="switchRightTab"
-                data-index="3" data-id="3">
-                    类型
-                </view>
-            </block>
-            <block >
-                <view class="nav_left_items active" bindtap="switchRightTab"
-                data-index="4" data-id="4">
-                    品种
-                </view>
-            </block>
-            <block >
-                <view class="nav_left_items" bindtap="switchRightTab"
-                data-index="4" data-id="4">
-                    品种
-                </view>
-            </block>
+            
         </view>
         <view class="nav_right">
             <view class="nav_right_adv">
@@ -49,60 +25,17 @@
             </view>
             <!-- <view wx:if="{{navRightItems[curIndex].tree.nodes[1].tree.nodes}}"> -->
             <view>
-                <block>
+                <block wx:for="{{goodsClass}}">
                     <view class="nav_right_items">
                         <navigator url="">
-                            <view style='background:url(../../images/icon_collect_selected.png) no-repeat 0rpx 0rpx;'>        
-                                赤霞珠
+                            <view style='background:url({{item.class_img}}) no-repeat 0rpx 0rpx;'>        
+                                {{item.name}}
                             </view>
                         </navigator>
                     </view>
                 </block>
-                <block>
-                    <view class="nav_right_items">
-                        <navigator url="">
-                            <view style='background:url(../../images/icon_collect_selected.png) no-repeat 0rpx 0rpx;'>
-                               
-                                    佳丽酿
-                                
-                            </view>
-                        </navigator>
-                    </view>
-                </block>
-                <block>
-                    <view class="nav_right_items">
-                        <navigator url="">
-                            <view>
-                                
-                                    蛇龙珠
-                                
-                            </view>
-                        </navigator>
-                    </view>
-                </block>
-                <block>
-                    <view class="nav_right_items">
-                        <navigator url="">
-                            <view>
-                                
-                                    品丽珠
-                               
-                            </view>
-                        </navigator>
-                    </view>
-                </block>
-                <block>
-                    <view class="nav_right_items">
-                        <navigator url="">
-                            <view>
-                                
-                                    梅鹿辄
-                                
-                            </view>
-                        </navigator>
-                    </view>
-                </block>
-                </view>
+               
+            </view>
             <!-- <view wx:else> -->
                 <!-- 暂无数据 -->
         </view>

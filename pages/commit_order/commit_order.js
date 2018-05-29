@@ -49,18 +49,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      //获取上一级页面
-      var pages = getCurrentPages() //获取加载的页面
-      console.log(pages);
-      var currentPage = pages[pages.length - 2] //获取当前页面的对象
-    //   var url = currentPage.route;
-      var url = currentPage.route;
-    //   console.log(url);
-      if (url == 'pages/cart/cart'){
-          this.setData({
-              btnText: '提交订单'
-          });
-      }
+    //获取上一级页面
+    var pages = getCurrentPages(); //获取加载的页面
+    var porevPage = pages[pages.length - 2]; //获取上一级页面的对象
+    if (porevPage){
+        var url = prevPage.route;
+        if (url == 'pages/cart/cart') {
+            this.setData({
+                btnText: '提交订单'
+            });
+        }
+    }
   },
 
   /**

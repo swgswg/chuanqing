@@ -1,4 +1,7 @@
 {
-  "navigationBarTitleText": "赤珠霞",
-  "navigationBarTextStyle": "black"
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+     "navigationBarTitleText": "赤珠霞",
+     "navigationBarTextStyle": "black"
+  
 }

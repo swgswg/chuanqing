@@ -44,13 +44,45 @@ function getCurrentPageUrlWithArgs() {
 function getPrevPageUrl() {
     var pages = getCurrentPages() //获取加载的页面
     var prevPage = pages[pages.length - 2] //获取当前页面的对象
-    var url = prevPage.route //当前页面url
+    var url = prevPage.route //上一个页面url
     return url
+}
+
+/**
+ * 加入购物车
+ */
+function addToCart(id){
+    // 获取商品的id
+    // var id = e.currentTarget.dataset.id;
+    // 调用接口
+    wx.request({
+        url: '',
+        method:'POST',
+        data:{id:id},
+        success: function(res){
+            if(res.status == 1){
+                wx.showToast({
+                    title: res.msg,
+                    icon: 'succes',
+                    duration: 1000,
+                    mask: true
+                });
+            } else {
+                wx.showToast({
+                    title: '重新加入购物车',
+                    image:'../../images/fail3.png',
+                    duration: 1000,
+                    mask: true
+                });
+            }
+        }
+    });
 }
 
 module.exports = {
   formatTime: formatTime,
   getCurrentPageUrl: getCurrentPageUrl,
   getCurrentPageUrlWithArgs: getCurrentPageUrlWithArgs,
-  getPrevPageUrl: getPrevPageUrl
+  getPrevPageUrl: getPrevPageUrl,
+  addToCart: addToCart
 }
