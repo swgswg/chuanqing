@@ -1,15 +1,15 @@
 {
     "pages":[
+        "pages/goods_list/goods_list",
         "pages/goods_cate/goods_cate",
         "pages/stock_detail/stock_detail",
-        "pages/goods_list/goods_list",
+        
         "pages/goods_detail/goods_detail",
         "pages/commit_order/commit_order",
         "pages/cart/cart",
         "pages/cart_edit/cart_edit",
         "pages/news/news",
         "pages/myorder/myorder",
-       
         "pages/after_sale/after_sale",
         "pages/intercalate/intercalate",
         "pages/browse_footprint/browse_footprint",

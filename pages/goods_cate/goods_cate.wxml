@@ -3,8 +3,10 @@
     <!-- 搜索栏start  -->
     <view class="search">
         <view class="form">
-            <input class="input"  placeholder="输入商品名称" bindinput="bindKeywordInput" confirm-type="search" bindconfirm="bindKeywordConfirm"/>
-            <image class="btn" src="/images/icon_search.png" bindtap="bindSearchTap"></image>
+            <input class="input" type="text"  placeholder="输入商品名称" confirm-type="search" 
+            bindblur="input_blur" 
+            bindconfirm="input_confirm"/>
+            <image class="btn" src="/images/icon_search.png" bindtap="search_goods"></image>
         </view>
     </view>
     <!-- 搜索栏end  -->
@@ -23,21 +25,17 @@
             <view class="nav_right_adv">
                 <image src="../../images/nav_right_adv.png" style='width:100%;height:160rpx'></image>
             </view>
-            <!-- <view wx:if="{{navRightItems[curIndex].tree.nodes[1].tree.nodes}}"> -->
             <view>
                 <block wx:for="{{goodsClass}}">
                     <view class="nav_right_items">
-                        <navigator url="">
+                        <navigator url="../goods_list/goods_list?goods_class_id={{item.id}}&goods_class_name={{item.name}}">
                             <view style='background:url({{item.class_img}}) no-repeat 0rpx 0rpx;'>        
                                 {{item.name}}
                             </view>
                         </navigator>
                     </view>
                 </block>
-               
             </view>
-            <!-- <view wx:else> -->
-                <!-- 暂无数据 -->
         </view>
     </view>    
     <!--分类联动end  -->

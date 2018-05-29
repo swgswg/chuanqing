@@ -1,39 +1,33 @@
 <view class="biaoti">
-    <view class="zonghe" style='position:relative;'>
+    <view bindtap='multiple' class="zonghe" style='position:relative;'>
         <view>综合</view>
-        <view style="position:absolute;top:-7rpx;left:80rpx;">
-            <image src="../../images/font-456.png" style='width:33rpx;height:33rpx;'></image>
-        </view>
-        <view style="position:absolute;top:10rpx;left:80rpx;">
-            <image src="../../images/font-459.png" style='width:33rpx;height:33rpx;'></image>
+        <view style="position:absolute;top:7rpx;left:80rpx;">
+            <image src="{{zonghe_png}}" style='width:40rpx;height:40rpx;'></image>
         </view>
     </view>
-    <view class="xiaoliang" style="position:relative;">
+    <view bindtap='sales_volume' class="xiaoliang" style="position:relative;">
         <view>销量</view>
-        <view style="position:absolute;top:-7rpx;left:80rpx;">
-            <image src="../../images/font-456.png" style='width:33rpx;height:33rpx;'></image>
-        </view>
-        <view style="position:absolute;top:10rpx;left:80rpx;">
-            <image src="../../images/font-459.png" style='width:33rpx;height:33rpx;'></image>
+        <view style="position:absolute;top:7rpx;left:80rpx;">
+            <image src="{{xiaoliang_png}}" style='width:40rpx;height:40rpx;'></image>
         </view>
     </view>
-    <view class="xinpin" style="position:relative;">
+    <view bindtap='new_product' class="xinpin" style="position:relative;">
         <view>新品</view>
-        <view style="position:absolute;top:-7rpx;left:80rpx;">
-            <image src="../../images/font-456.png" style='width:33rpx;height:33rpx;'></image>
-        </view>
-        <view style="position:absolute;top:10rpx;left:80rpx;">
-            <image src="../../images/font-459.png" style='width:33rpx;height:33rpx;'></image>
+        <view style="position:absolute;top:7rpx;left:80rpx;">
+            <image src="{{xinpin_png}}" style='width:40rpx;height:40rpx;'></image>
         </view>
     </view>
-    <view class="jiage" style="position:relative;">
+    <view bindtap='my_price' class="jiage" style="position:relative;">
         <view>价格</view>
-        <view style="position:absolute;top:-7rpx;left:80rpx;">
+        <view style="position:absolute;top:7rpx;left:80rpx;">
+            <image src="{{jiage_png}}" style='width:40rpx;height:40rpx;'></image>
+        </view>
+        <!-- <view style="position:absolute;top:-7rpx;left:80rpx;">
             <image src="../../images/font-456.png" style='width:33rpx;height:33rpx;'></image>
-        </view>
-        <view style="position:absolute;top:10rpx;left:80rpx;">
+        </view> -->
+        <!-- <view style="position:absolute;top:10rpx;left:80rpx;">
             <image src="../../images/font-459.png" style='width:33rpx;height:33rpx;'></image>
-        </view>
+        </view> -->
     </view>
 </view>
 <view class='jianju'></view>

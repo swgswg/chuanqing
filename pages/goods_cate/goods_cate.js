@@ -1,4 +1,5 @@
 // pages/goods_cate/goods_cate.js
+var input_value = '';
 Page({
 
     /**
@@ -14,11 +15,11 @@ Page({
         ],
         current_id:1,
         goodsClass:[
-            { group_id: 1, id: 1, name: '赤霞珠', class_img:'../../images/icon_collect_selected.png'},
-            { group_id: 1, id: 1, name: '赤霞珠', class_img: '../../images/icon_collect_selected.png' },
-            { group_id: 1, id: 1, name: '赤霞珠', class_img: '../../images/icon_collect_selected.png' },
-            { group_id: 1, id: 1, name: '赤霞珠', class_img: '../../images/icon_collect_selected.png' },
-            { group_id: 1, id: 1, name: '赤霞珠', class_img: '../../images/icon_collect_selected.png' }
+            { group_id: 1, id: 1, name: '赤霞珠a', class_img:'../../images/icon_collect_selected.png'},
+            { group_id: 1, id: 1, name: '赤霞珠b', class_img: '../../images/icon_collect_selected.png' },
+            { group_id: 1, id: 1, name: '赤霞珠c', class_img: '../../images/icon_collect_selected.png' },
+            { group_id: 1, id: 1, name: '赤霞珠d', class_img: '../../images/icon_collect_selected.png' },
+            { group_id: 1, id: 1, name: '赤霞珠e', class_img: '../../images/icon_collect_selected.png' }
         ]
     },
 
@@ -92,6 +93,7 @@ Page({
      */
     goods_group:function(e){
         var that = this;
+        console.log(e.target);
         // 获取组id
         var id = e.currentTarget.dataset.id;
         that.setData({
@@ -108,29 +110,37 @@ Page({
         //     }
         // });
 
+    },
+
+    /**
+     * 搜索框失去焦点时
+     */
+    input_blur:function(e){        
+        input_value = e.detail.value;
+    },
+
+    /**
+     * 搜索商品
+     */
+    search_goods:function(){
+        var input_val = input_value;
+        my_search(input_val);
+    },
+    /**
+     * 点击完成按钮时触发
+     */
+    input_confirm:function(e){
+        // 获取输入的值
+        var val = e.detail.value;
+        // 搜索
+        my_search(val);
     }
 
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
+/**
+ * 搜索的方法
+ */
+function my_search(val) {
+    console.log(val);
+}
