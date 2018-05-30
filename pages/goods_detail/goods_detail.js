@@ -136,11 +136,11 @@ Page({
     /**
      * 添加到购物车按钮
      */
-    add_to_cart: function (e) {
+    addToCart: function (e) {
         // 获取id
         var id = e.currentTarget.dataset.id;
         // 调用 加入购物车 全局方法
-        util.addToCart(id);
+        util.addToCartFun(id);
     }
 
 

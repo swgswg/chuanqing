@@ -60,8 +60,8 @@
     color: #999;
 }
 .line{
-    margin-left: 5%;
-    width: 90%;
+    margin-left: 20rpx;
+    width: 93%;
     height: 4rpx;
     background-color: #ddd;
 }

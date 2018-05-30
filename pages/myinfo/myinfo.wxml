@@ -1,14 +1,20 @@
 <view class="header">
-    <view class="xiaoxi">
-        <image src="../../images/email.png" style="width:50rpx;height:50rpx;"></image>
-    </view>
-    <view class="shehzhi">
-        <image src="../../images/gear_09.png" style="width:50rpx;height:50rpx;"></image>
-    </view>
-    <view class="profile">
-         <image src="../../images/comment-img.png"></image> 
-         <view class="nickname">还没有设置昵称</view>
-    </view>
+    <navigator url="../news/news">
+        <view class="xiaoxi">
+            <image src="../../images/email.png" style="width:50rpx;height:50rpx;"></image>
+        </view>
+    </navigator>
+    <navigator url='../intercalate/intercalate'>
+        <view class="shehzhi">
+            <image src="../../images/gear_09.png" style="width:50rpx;height:50rpx;"></image>
+        </view>
+    </navigator>
+    <navigator url="../users/users/users">
+        <view class="profile">
+            <image src="../../images/comment-img.png"></image> 
+            <view class="nickname">还没有设置昵称</view>
+        </view>
+    </navigator>
     <view class="ad">
         <image src="../../images/nav_right_adv.png"></image>
     </view>
@@ -16,7 +22,9 @@
 <view class="myorder">
     <view class="myorder-font">
         <view class="myorder-font-1">我的订单</view>
-        <view class="myorder-font-2">查看全部由订单 〉</view>
+        <navigator url="../myorder/myorder">
+            <view class="myorder-font-2">查看全部由订单 〉</view>
+        </navigator>
     </view>
     <view class="line"></view>
     <view class="four-wait">
@@ -40,10 +48,12 @@
 </view>
 <view class="jianju" style="background-color:#eee;margin-top:20rpx;height:20rpx;"></view>
 <view class="three-caozuo">
-    <view class="four-wait-each">
-        <view><image src="../../images/zuji.png"></image></view>
-        <view class="four-wait-each-font">浏览足迹</view>
-    </view>
+    <navigator url="../browse_footprint/browse_footprint">
+        <view class="four-wait-each">
+            <view><image src="../../images/zuji.png"></image></view>
+            <view class="four-wait-each-font">浏览足迹</view>
+        </view>
+    </navigator>
     <view class="four-wait-each">
         <view><image src="../../images/tihuo.png"></image></view>
         <view class="four-wait-each-font">提货</view>
@@ -55,9 +65,11 @@
 </view>
 <view class="jianju" style="height:80rpx;"></view>
 <view class="bottom">
-    <view class="bottom-ad">
-        <image src="../../images/woyaomaijiu.png"></image>
-    </view>
+    <navigator url='../trader/trader1/trader'>
+        <view class="bottom-ad">
+            <image src="../../images/woyaomaijiu.png"></image>
+        </view>
+    </navigator>
     <view class="membership-privilege">
         <view class="membership-privilege-font">会员尊享</view>
          <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">

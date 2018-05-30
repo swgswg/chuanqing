@@ -29,7 +29,9 @@
 </view>
 <view class="address">
     送至: 北京 北京市 西城区 明月小区208
-    <view> 〉</view>
+    <navigator url="">
+        <view> 〉</view>
+    </navigator>
 </view>
 <view class="msg">有货,预计3天内到达</view>
 <view class="jianju" style="height:20rpx;background-color:#eee"></view>

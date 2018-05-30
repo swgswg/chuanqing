@@ -6,7 +6,8 @@ Page({
    */
   data: {
         myorder:[
-            {
+            {   
+                id:1,
                 order_time:'2018-05-08', 
                 // order_status: '卖家已发货',
                 order_status: '2',
@@ -32,6 +33,7 @@ Page({
                 order_expressage: '0.00'
             },
             {
+                id: 2,
                 order_time: '2018-05-08',
                 // order_status: '卖家未发货',
                 order_status: '1',
@@ -57,6 +59,7 @@ Page({
                 order_expressage: '0.00'
             },
             {
+                id: 3,
                 order_time: '2018-05-08',
                 // order_status: '交易成功',
                 order_status: '3',

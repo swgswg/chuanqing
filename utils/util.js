@@ -51,7 +51,7 @@ function getPrevPageUrl() {
 /**
  * 加入购物车
  */
-function addToCart(id){
+function addToCartFun(id){
     // 获取商品的id
     // var id = e.currentTarget.dataset.id;
     // 调用接口
@@ -84,5 +84,5 @@ module.exports = {
   getCurrentPageUrl: getCurrentPageUrl,
   getCurrentPageUrlWithArgs: getCurrentPageUrlWithArgs,
   getPrevPageUrl: getPrevPageUrl,
-  addToCart: addToCart
+  addToCartFun: addToCartFun
 }
