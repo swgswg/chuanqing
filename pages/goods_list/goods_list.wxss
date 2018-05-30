@@ -1,37 +1,66 @@
-/** 修改默认的navigator点击态 **/
-.biaoti {
+page{
+    background-color: #f0f0f0;
+}
+.nav{
     display: flex;
     justify-content: space-around;
+     padding:0 20rpx; 
+     box-sizing: border-box; 
+    width: 100%;
+    height: 88rpx;
+    background-color: #fff;
+}
+.nav-each{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 178rpx;
+    height: 88rpx;
+}
+.nav-each text{
+    margin-right: 10rpx;
+}
+.nav-each image{
+    width: 25rpx;
+    height: 30rpx;
 }
 .goods-list{
-    display: flex;
-    /* flex-direction: raw; */
-    /* flex-wrap: wrap;  */
-    justify-content: space-around; 
-    width: 350rpx;
-    margin-top: 15rpx;
-    margin-left: 16rpx;
-    background-color: #fff;  
-    float: left;
+    width: 100%;
+    height: 1115rpx;
 }
-.goods-info {
-    width: 352rpx;
-    height: 450rpx;
+.goods-list-all{
+    float: left;
+    margin:20rpx 0 0 20rpx; 
+}
+.goods-list-each{
+    width:342rpx;
+     height: 395rpx; 
+    padding: 20rpx;
+    box-sizing: border-box;
+    background-color: #fff;
 }
 .goods-img{
-    text-align: center;
+    width: 304rpx;
+    height: 240rpx;
+    border:1rpx solid red;
 }
 .goods-name{
-    padding:0 20rpx;
-    font-size: 28rpx;
+    margin-top:10rpx; 
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 26rpx;
+    color: #333;
 }
-.price-cart{
+.goods-price{
     display: flex;
-    justify-content:space-between;
-    padding: 20rpx;
-    color: #ee5353;
-
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20rpx;
+    font-size: 30rpx;
+    color: #ec2525;
+}
+.icon-cart{
+    width: 30rpx;
+    height: 30rpx;
 }

@@ -11,7 +11,9 @@
 .jianju{
     height: 10rpx;
 }
-
+page{
+    font-family: PingFang SC;
+}
 /* 多选框样式  */
 checkbox .wx-checkbox-input{
    border-radius: 50%;/* 圆角 */

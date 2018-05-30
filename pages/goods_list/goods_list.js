@@ -4,12 +4,12 @@ var multiple_flag = true;
 var sales_volume_flag = true;
 var new_product_flag = true;
 var my_price_flag = true;
+var scrollPage = 20;
 Page({
     /**
      * 页面的初始数据
      */
     data: {
-        height:0,
         goods:[],
         mysort:{
             ping:'../../images/ping.png',
@@ -27,34 +27,26 @@ Page({
      */
     onLoad: function (options) {
         var that = this;
-        wx.getSystemInfo({
-            success: function(res) {
-                // console.log(res);
-                that.setData({
-                    height: res.windowHeight-38
-                })
-            },
-        });
         // 动态设置页面标题
-        if (options){
+        if (options.classname){
             wx.setNavigationBarTitle({
                 title: options.classname
             });
         }
         // 通过类别id获取商品
-        wx.request({
-            url: 'http://192.168.3.25:8080/redwine/goods/getGoodsByClass',
-            data: { classId: options.classid },
-            method:'POST',
-            header: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
-            success: function (res) {
-                that.setData({
-                    goods: res.data.data
-                });
-            }
-        });
+        // wx.request({
+        //     url: 'http://192.168.3.25:8080/redwine/goods/getGoodsByClass',
+        //     data: { classId: options.classid, page: scrollPage },
+        //     method:'POST',
+        //     header: {
+        //         'content-type': 'application/x-www-form-urlencoded'
+        //     },
+        //     success: function (res) {
+        //         that.setData({
+        //             goods: res.data.data
+        //         });
+        //     }
+        // });
     },
 
     /**
@@ -68,19 +60,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        // wx.request({
-        //     url: 'test.php',
-        //     method: 'GET',
-        //     data: {},
-        //     header: {
-        //         'content-type': 'application/json' 
-        //     },
-        //     success: function (res) {
-        //         this.setData({
-        //             goods:res.data
-        //         });
-        //     }
-        // });
+     
     },
 
     /**
@@ -121,11 +101,11 @@ Page({
     /**
      * 添加到购物车按钮
      */
-    add_to_cart:function(e){
+    addToCart:function(e){
         // 获取id
         var id = e.currentTarget.dataset.id;
         // 调用 加入购物车 全局方法
-        util.addToCart(id);
+        util.addToCartFun(id);
     },
 
     /**
@@ -144,26 +124,14 @@ Page({
             });
             multiple_flag = true;
         }
-        // wx.request({
-        //     url: 'test.php',
-        //     method: 'GET',
-        //     data: {},
-        //     header: {
-        //         'content-type': 'application/json' 
-        //     },
-        //     success: function (res) {
-        //         this.setData({
-        //             goods:res.data
-        //         });
-        //     }
-        // });
+     
 
     },
 
     /**
      * 销量排序
      */
-    sales_volume:function(){
+    salesVolume:function(){
         var that = this;
         if (sales_volume_flag) {
             that.setData({
@@ -176,25 +144,13 @@ Page({
             });
             sales_volume_flag = true;
         }
-        // wx.request({
-        //     url: 'test.php',
-        //     method: 'GET',
-        //     data: {},
-        //     header: {
-        //         'content-type': 'application/json' 
-        //     },
-        //     success: function (res) {
-        //         this.setData({
-        //             goods:res.data
-        //         });
-        //     }
-        // });
+        
     },
     
     /**
      * 新品排序
      */
-    new_product:function(){
+    newProduct:function(){
         var that = this;
         if (new_product_flag) {
             that.setData({
@@ -207,24 +163,12 @@ Page({
             });
             new_product_flag = true;
         }
-        // wx.request({
-        //     url: 'test.php',
-        //     method: 'GET',
-        //     data: {},
-        //     header: {
-        //         'content-type': 'application/json' 
-        //     },
-        //     success: function (res) {
-        //         this.setData({
-        //             goods:res.data
-        //         });
-        //     }
-        // });
+     
     },
     /**
      * 价格排序
      */
-    my_price:function(){
+    myPrice:function(){
         var that = this;
         if (my_price_flag) {
             that.setData({
@@ -237,16 +181,24 @@ Page({
             });
             my_price_flag = true;
         }
+        
+    },
+
+    /**
+     * 滚动到底部触发
+     */
+    scrollToLower:function(){
+        scrollPage += 20;
         // wx.request({
-        //     url: 'test.php',
-        //     method: 'GET',
-        //     data: {},
+        //     url: 'http://192.168.3.25:8080/',
+        //     data: { classId: options.classid, page: scrollPage},
+        //     method:'POST',
         //     header: {
-        //         'content-type': 'application/json' 
+        //         'content-type': 'application/x-www-form-urlencoded'
         //     },
         //     success: function (res) {
-        //         this.setData({
-        //             goods:res.data
+        //         that.setData({
+        //             goods: res.data.data
         //         });
         //     }
         // });

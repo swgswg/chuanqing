@@ -1,56 +1,40 @@
-<view class="biaoti">
-    <view bindtap='multiple' class="zonghe" style='position:relative;'>
-        <view>综合</view>
-        <view style="position:absolute;top:7rpx;left:80rpx;">
-            <image src="{{zonghe_png}}" style='width:40rpx;height:40rpx;'></image>
-        </view>
+<!--导航排序 start  -->
+<view class="nav">
+    <view class="nav-each" bindtap='multiple'>
+        <text>综合</text>
+        <image src="{{zonghe_png}}" />
+    </view> 
+    <view class="nav-each" bindtap='salesVolume'>
+        <text>销量</text>
+        <image src="{{xiaoliang_png}}" />
     </view>
-    <view bindtap='sales_volume' class="xiaoliang" style="position:relative;">
-        <view>销量</view>
-        <view style="position:absolute;top:7rpx;left:80rpx;">
-            <image src="{{xiaoliang_png}}" style='width:40rpx;height:40rpx;'></image>
-        </view>
+    <view class="nav-each" bindtap='newProduct'> 
+        <text>新品</text>
+        <image src="{{xinpin_png}}" />
     </view>
-    <view bindtap='new_product' class="xinpin" style="position:relative;">
-        <view>新品</view>
-        <view style="position:absolute;top:7rpx;left:80rpx;">
-            <image src="{{xinpin_png}}" style='width:40rpx;height:40rpx;'></image>
-        </view>
-    </view>
-    <view bindtap='my_price' class="jiage" style="position:relative;">
-        <view>价格</view>
-        <view style="position:absolute;top:7rpx;left:80rpx;">
-            <image src="{{jiage_png}}" style='width:40rpx;height:40rpx;'></image>
-        </view>
-        <!-- <view style="position:absolute;top:-7rpx;left:80rpx;">
-            <image src="../../images/font-456.png" style='width:33rpx;height:33rpx;'></image>
-        </view> -->
-        <!-- <view style="position:absolute;top:10rpx;left:80rpx;">
-            <image src="../../images/font-459.png" style='width:33rpx;height:33rpx;'></image>
-        </view> -->
+    <view class="nav-each" bindtap='myPrice'>
+        <text>价格</text>
+        <image src="{{jiage_png}}" />
     </view>
 </view>
-<view class='jianju'></view>
-<view class='jianju'></view>
- <view style='width:100%;height:{{height}}px;background-color: #f0f0f0;'> 
-    <scroll-view scroll-y="ture" style='width:100%;height:100%;'>
+<!--导航排序 end  -->
 
-        <!--商品start  -->
-        <view wx:for="{{goods}}" class="goods-list">
-            <view class="goods-info">
-                <navigator url='../goods_detail/goods_detail?id={{item.id}}'>  
-                    <view class="goods-img">
-                        <image style="width:300rpx; height: 300rpx;"  src='{{item.img}}'></image>
-                    </view>
-                    <view class="goods-name">{{item.gname}}</view>
-                </navigator> 
-                <view class="price-cart">
-                    <view>¥{{item.price}}</view>
-                    <view bindtap="add_to_cart" data-id="{{item.id}}"><image style="width:50rpx; height: 50rpx;" src='../../images/icon_cart_active.png' mode="aspectFit"></image></view>
-                </view>
+ <!--商品列表 start  -->
+<view class="goods-list">
+    <scroll-view scroll-y="true" style='width:100%;height:100%;' bindscrolltolower="scrollToLower">
+        <view class="goods-list-all" wx:for="{{goods}}">
+        <view class="goods-list-each">
+            <navigator url='../goods_detail/goods_detail?id={{item.id}}'>  
+                <image class="goods-img" src="{{item.img}}" />
+                <view class="goods-name">{{item.gname}}</view>
+            </navigator>
+            <view class="goods-price">
+                <text>¥{{item.price}}</text>
+                <image bindtap="add_to_cart" data-id="{{item.id}}" class="icon-cart" src="../../images/cart.png" />
             </view>
         </view>
-        <!--商品end  -->
-
+        </view>
     </scroll-view>
- </view> 
+
+</view>
+<!--商品列表 end  -->
