@@ -1,30 +1,37 @@
 .swiper {
     text-align: center;
     width: 100%;
-    height: 500rpx;
-    /* border: 1px solid red; */
+    height: 750rpx;
+     /* border: 1px solid red;  */
 } 
 .swiper swiper{
      width: 100%; 
      height: 100%; 
 }
-
+.swiper image{
+    width: 100%; 
+    height: 750rpx;
+    /* border: 1px solid red; */
+}
 .goods-name{
     padding: 20rpx;
     font-size: 30rpx;
+    color: #333;
 }
 
 .price-cart{
     display: flex;
     justify-content:flex-start;
     padding-left: 20rpx; 
-    color: #ee5353;
+    margin-bottom: 20rpx;
+    font-size: 40rpx;
+    color: #ec2525;
 }
 .member-price{
     font-size:26rpx;
-    color:#baa589;
+    color:#b49e7d;
     padding-top:10rpx;
-    margin-left: 45rpx;
+    margin-left: 30rpx;
 }
 .stock{
     display: flex;
@@ -55,7 +62,11 @@
     float: left; 
 }
 .jian{
-    margin-left:30rpx; 
+    margin-left:30rpx;
+    border-radius: 5rpx 0 0 5rpx; 
+}
+.jia{
+    border-radius: 0 5rpx 5rpx 0;
 }
 .num{
     width: 80rpx;
@@ -68,7 +79,7 @@
     height: 30rpx;
     padding: 20rpx;
     font-size:30rpx;
-    color: #444;
+    color: #666;
       /* border: 1px solid red;   */
 }
 .address view{
@@ -77,27 +88,29 @@
 }
 .msg{
     margin-left: 110rpx;
-    font-size: 25rpx;
-    color: #aaa;
+    font-size: 24rpx;
+    color: #999;
     margin-bottom: 25rpx;
      /* border: 1px solid red;   */
 }
 .comment{
     display: flex;
     justify-content: space-between;
-    padding: 20rpx;
+    padding: 30rpx 20rpx;
+    box-sizing: border-box;
     font-size: 30rpx;
     color:#666;
 }
 .short-comment,.long-comment{
     margin:10rpx 20rpx;
-    font-size: 25rpx;
+    font-size: 26rpx;
     color:#666;
 }
 .comment-img{
     display: flex;
     justify-content:space-around;
-    margin-bottom:20rpx; 
+     margin-bottom:30rpx;  
+    padding: 0 10rpx;
 }
 .comment-img image{
     width:160rpx; 
