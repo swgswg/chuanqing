@@ -1,10 +1,13 @@
 {
     "pages":[
+
         "pages/goods_stock/goods_stock",
         "pages/myinfo/myinfo",
+        
+        "pages/goods_cate/goods_cate",
+        "pages/index/index",
         "pages/cart/cart",
         "pages/goods_list/goods_list",
-        "pages/goods_cate/goods_cate",
         "pages/stock_detail/stock_detail",
         "pages/goods_detail/goods_detail",
         "pages/commit_order/commit_order",
@@ -18,7 +21,21 @@
         "pages/sales_promotion/sales_promotion",
         "pages/goods_competitive/goods_competitive",
         "pages/seckill/seckill",
-        "pages/index/index",
+
+        "pages/trader/sell/sell",
+        "pages/trader/user/user",
+        "pages/trader/tixian/tixian",
+        "pages/trader/trader1/trader",
+        "pages/trader/note/note",
+        "pages/trader/index/index",
+        "pages/address/add/add",
+        "pages/address/insert/insert",
+        "pages/address/address1/address1",
+        "pages/address/address/address",
+        "pages/users/nechen/nechen",
+        "pages/users/users/users",
+        "pages/trader/huigou/huigou", 
+
         "pages/logs/logs"  
     ],
     "window":{
@@ -34,7 +51,7 @@
         "borderStyle": "white",
         "list": [
             {
-                "pagePath": "pages/index/index",
+                "pagePath": "pages/trader/index/index",
                 "text": "首页",
                 "iconPath": "images/icon_home.png",
                 "selectedIconPath": "images/icon_home_active.png"

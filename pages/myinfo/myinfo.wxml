@@ -65,11 +65,19 @@
 </view>
 <view class="jianju" style="height:80rpx;"></view>
 <view class="bottom">
+<<<<<<< HEAD
     <navigator url='../trader/trader1/trader'>
         <view class="bottom-ad">
             <image src="../../images/woyaomaijiu.png"></image>
         </view>
     </navigator>
+=======
+    <view class="bottom-ad">
+        <navigator url='/pages/trader/trader1/trader'>
+           <image src="../../images/woyaomaijiu.png"></image>
+        </navigator>
+    </view>
+>>>>>>> origin/fan
     <view class="membership-privilege">
         <view class="membership-privilege-font">会员尊享</view>
          <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">

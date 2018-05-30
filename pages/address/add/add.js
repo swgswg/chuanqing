@@ -1,20 +1,20 @@
-// pages/seckill/seckill.js
+// pages/address/add/add.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    region: ['广东省', '广州市', '海珠区'],
   },
 
-  //  商品详情
-  info: function(){
-     wx.navigateTo({
-       url: '/pages/goods_detail/goods_detail'
+  // 选择地区
+  bindRegionChange: function (e) {
+    this.setData({
+      diqu: e.detail.value
     })
   },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */

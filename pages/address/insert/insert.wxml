@@ -1,0 +1,39 @@
+<view>
+
+<view class="body">
+  <!--收货人  -->
+  <view class="user">
+  <text decode="{{true}}" space="{{true}}">收货人 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  1888888888</text>
+  </view>
+
+  <!--收货地址  -->
+   <view class="add">天津市滨海新区洞庭路汇融大厦</view> 
+  <!--边距线  -->
+  <view class="bianju"></view> 
+
+  <!--编辑  -->
+  <view>
+    <view>
+      <!-- 设置默认框 -->
+      <label class="radio" class="check">
+      <radio value="" checked=""/>
+      </label>
+      <text class="bianji">默认地址</text>
+         <navigator url="" style='float:left;'>
+            <!--编辑  -->
+           <text decode="{{true}}"  class="bianji" >&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;编辑</text>
+        </navigator>
+      <!--删除  -->
+        <navigator url=""  style='float:left;'>
+          <text decode="{{true}}"  class="bianji" > &nbsp;&nbsp; 删除</text>
+        </navigator>      
+    </view>  
+  </view>
+
+</view>
+
+<!--添加地址  -->
+<view class="insert">
+  <navigator url="/pages/address/add/add">添加新地址</navigator>
+</view>
+</view>

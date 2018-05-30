@@ -1,20 +1,30 @@
-// pages/seckill/seckill.js
+// pages/users/users/users.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    date: "生日有礼填写后不可修改 >",
+    baomi:0,
+    array: ['不可见 > ', '男', '女']
   },
 
-  //  商品详情
-  info: function(){
-     wx.navigateTo({
-       url: '/pages/goods_detail/goods_detail'
+// 日期单击事件
+  bindPicker: function (e) {
+    this.setData({
+      date:e.detail.value
     })
   },
-  
+
+//性别事件
+  bindPickerChange: function (e) {
+    this.setData({
+      baomi: e.detail.value
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */

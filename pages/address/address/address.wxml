@@ -1,0 +1,41 @@
+<view>
+  <!--温馨提示  -->
+  <view class='waibain'>
+    <!--温馨提示  -->
+    <view class="tishi">温馨提示</view>
+    
+    <!--内容  -->
+    <view>
+      <view style='margin-left:50px;'>您还没有创建收货地址</view>
+      <view style='margin-left:75px;'>是否立即创建</view>
+    </view>
+
+    <!--按钮  -->
+    <view>
+      <!--取消  -->
+      <view class="bt">
+      <navigator url="/pages/address/address1/address1">
+        <button style='border-radius:1px;'>取消</button>
+      </navigator>  
+      </view> 
+
+      <!--确定  -->
+      <view class="bt">
+      <navigator url="/pages/address/add/add">
+        <button type="warn" style='border-radius:2px;'>确定</button>
+      </navigator>
+      </view> 
+    </view>
+
+  </view>
+
+  <view class="juli"></view>
+
+  <!-- 页面内容   -->
+  <view class="insert">
+  <navigator url="/pages/address/add/add">
+  添加新地址
+  </navigator>
+  </view>
+</view>
+

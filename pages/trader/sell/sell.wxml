@@ -1,0 +1,30 @@
+<view >
+
+  <!--距离顶部  -->
+  <view class="padd"></view>
+
+
+  <!--循环出  -->
+  <block wx:for="{{sell}}">
+  <navigator url=''>
+    <view style='height:220rpx;'>
+      <!--图片  -->
+        <view class='picture'>
+          <image src="../../../images/1.png" style='width:200rpx;height:200rpx;'></image>
+        </view>
+
+      <!--内容  -->
+
+        <view calss="content">
+            <view class="name"> {{item.name}}</view>
+            <view class="price"> {{item.price}}</view>
+            <view class="text"><text decode='{{true}}' space='true'>销售中:{{item.selling}} 已售:{{item.sells}} 库存:{{item.see}}</text></view> 
+        </view>
+
+      <!--下划线  -->
+        <view class="xia"></view>  <view style='height:220rpx;'></view>
+      </view>
+    </navigator>  
+    </block>
+
+ </view> 

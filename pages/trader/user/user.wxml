@@ -1,0 +1,99 @@
+<view>
+  <!--头部呢称  -->
+ 
+  <view class="head">
+    <view class="file"><image src=""></image></view>
+    <navigator url='/pages/users/users/users'>
+      <view class="nechen">还没有设置呢称 </view>
+     </navigator>  
+    <view class="img"><image src="../../../images/tou.png"style="width:50rpx;height:40rpx;" ></image></view>
+  </view>
+
+  <!--查看订单  -->
+  <navigator url='/pages/myorder/myorder'>
+  <view style='display:flex;justify-content:flex-start;' >
+  <text class="ding"> 查看全部订</text>
+  <image src='../../../images/icon_right.png' style='width:30rpx;height:30rpx;margin-left:30rpx;margin-top:15rpx;'></image>
+  </view>
+  </navigator>
+
+  <view style='clear:both'></view>
+  <view class="xia"></view>
+
+  <!--图标  -->
+  <view class="tupiao">
+    
+    <view class="zhen">
+      <view><image src='../../../images/fu.png' class="biao"></image></view>
+      <view class="font">待付款</view>
+    </view>
+
+    <view  class="zhen">
+      <view><image src='../../../images/fa.png' class="biao"></image></view>
+      <view class="font">待发货</view>
+    </view>  
+
+    <view  class="zhen">
+      <view><image src='../../../images/shou.png' class="biao"></image></view>
+      <view class="font">待收货</view>
+    </view>  
+
+    <view  class="zhen">
+      <view><image src='../../../images/pings.png' class="biao"></image></view>
+      <view class="font">待评价</view>
+    </view>  
+    <view style='clear:both;'></view>
+    <view style='height:20rpx;background:#ddd;margin-top:15rpx;'></view>
+
+    <!--图标 2  -->
+    <navigator url='/pages/browse_footprint/browse_footprint'>
+      <view class="tu">
+          <view><image src='../../../images/zu.png' class="biao"></image></view>
+          <view class="font">浏览足迹</view>
+      </view>
+    </navigator>
+
+    <view  class="tu">
+      <view><image src='../../../images/can.png' class="biao"></image></view>
+      <view class="font">商品收藏</view>
+    </view>  
+
+    <view  class="tu">
+      <view><image src='../../../images/kefu.png' class="biao"></image></view>
+      <view class="font">客服</view>
+    </view>  
+
+    <view  class="tu">
+      <view><image src='../../../images/xiao.png' class="biao"></image></view>
+      <view class="font">正在销售</view>
+    </view>  
+
+    <view  class="tu">
+      <view><image src='../../../images/ku.png' class="biao"></image></view>
+      <view class="font">我的库存</view>
+    </view>  
+
+    <view  class="tu">
+      <view><image src='../../../images/ye.png' class="biao"></image></view>
+      <view class="font">销售业绩</view>
+    </view>  
+
+    <view style='clear:both'></view>
+  <!--会员尊享  -->
+    <view class="huiyuan">
+      <view class="zun">会员尊享</view>
+      <!--滚动会员  -->
+      <view style=' margin-top: 40rpx;'> 
+        <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+          <block wx:for="{{membershipPrivilege}}">
+          <view class="membership-privilege-scroll">
+          <image src="{{item.img}}"></image>
+          <view>{{item.price}}</view>
+          </view>
+          </block>
+        </scroll-view> 
+      </view>
+
+    </view>
+  </view>
+</view>
