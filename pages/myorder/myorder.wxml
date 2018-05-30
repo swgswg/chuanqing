@@ -52,8 +52,12 @@
                     <view class="order-btn2">确认收货</view>
                 </view>
                 <view class="order-btn" wx:if="{{item.order_status == '3'}}">
-                    <view class="order-btn1">申请售后</view>
-                    <view class="order-btn2">评价</view>
+                    <view class="order-btn1">
+                        <navigator url='/pages/after_sale/after_sale'> 申请售后 </navigator>
+                    </view>
+                    <view class="order-btn2">
+                         <navigator url='/pages/comment/comment'>  评价 </navigator>
+                    </view>
                 </view>
             <!-- </block> -->
         </view>

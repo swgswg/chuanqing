@@ -277,16 +277,3 @@ Page({
 
     
 });
-// function click_sort(a,mythis){
-//     if (a + '_flag') {
-//         mythis.setData({
-//             zonghe_png: '../../images/xia.png'
-//         });
-//         (a + '_flag') = false;
-//     } else {
-//         mythis.setData({
-//             zonghe_png: '../../images/shang.png'
-//         });
-//         (a + '_flag') = true;
-//     }
-// }

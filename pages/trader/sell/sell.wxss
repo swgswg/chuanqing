@@ -1,0 +1,44 @@
+
+/*图片样式  */
+.picture{
+  width:40%;
+  float:left; 
+  margin-left:30rpx
+}
+
+/*距离顶部  */
+.padd{
+  height: 20rpx;
+  width:100%;
+  background: #ddd;
+}
+
+/*下划线  */
+.xia{
+  height: 2rpx;
+  width:100%;
+  background: #ddd;
+}
+
+/*内容  */
+.content{
+  width:60%;
+  height:250rpx;
+}
+
+.name{
+  font-size: 30rpx;
+  margin-top:30rpx;
+}
+
+.price{
+  font-size: 30rpx;
+  color:red;
+   margin-top:25rpx;
+}
+
+.text{
+  font-size: 30rpx;
+  color:#ddd;
+  margin-top:25rpx;
+}

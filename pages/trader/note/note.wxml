@@ -1,0 +1,66 @@
+<view>
+  <!--距离顶部  -->
+  <view class="padd"></view>
+  <!--内容1  -->
+  <view class="content">
+    <view class="zhanhu">账户余额</view>
+    <view class="date">《 <text decode='{{true}}' space='{{true}}' >&nbsp;2018年5月&nbsp;</text> 》</view>
+    
+    <view style="clear:both"></view>
+    
+    <!--金额  -->
+    <view >
+      <view class="jine">￥3600.00 </view>
+      <view class="ti"><navigator url='/pages/trader/tixian/tixian'>提现</navigator> </view>
+      <view class="gou"><navigator url='/pages/trader/tixian/tixian'> 继续购买</navigator></view>
+    </view>
+  </view>
+
+  <!--内容 2  -->
+    <view class="padd"></view>
+    <view class="content">
+      <view>
+      <text decode='{{true}}' space='{{true}}' style='color:red;line-height:90rpx;font-size:30rpx;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥284.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥248.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+      </view>
+      <view>
+      <text decode='{{true}}' space='{{true}}' style='font-size:30rpx;' >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本月成交额&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总成交额&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+      </view>
+    </view>
+
+    <view class="padd"></view>
+
+   <!--内容3  -->
+   <view class="zongti">
+      <!--订单明细  -->
+      <view style="height:70rpx;">
+          <view style='display:flex;justify-content:flex-start;' >
+              <image src="../../../images/yeji.png" style='width:50rpx;height:50rpx;margin-left:30rpx;margin-top:15rpx;'></image>
+              <text decode='{{true}}'space="{{true}}"style="font-size:30rpx;margin-top:15rpx;" >&nbsp;&nbsp;&nbsp;&nbsp;订单明细</text>
+              <image src="../../../images/dayu.png"  style='width:50rpx;height:50rpx;margin-left:350rpx;margin-top:15rpx;'></image>
+          </view>
+      </view>
+
+      <!--下划线  -->
+      <view class="xia"></view>
+
+      <!--具体记录  -->
+      <view class="zongti2">
+        <view class="picture"><image src="../../../images/1.png" style='width:150rpx;height:150rpx;'></image></view>
+        <view class='name'>葡萄酒葡萄酒葡萄酒葡萄酒葡萄酒葡萄酒葡萄酒葡萄酒</view>
+        <view style='clear:both'></view>
+        <!--金额  -->
+        <view> 
+          <text decode='{{true}}' space='{{true}}' class="text">&nbsp;&nbsp;&nbsp;付款金额&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成交预估收入&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提成</text>
+        </view>
+        <view>
+          <text decode='{{true}}' space='{{true}}' class="text2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥139.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;139.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6%</text>
+        </view>
+
+        <!--时间  -->
+        <view class='jsdate'>
+          <text decode='{{true}}' space='{{true}}'>2018-05-08&nbsp;&nbsp;14:45:10&nbsp;&nbsp;&nbsp;结算</text>
+        </view>
+      </view>
+    </view>
+
+</view>

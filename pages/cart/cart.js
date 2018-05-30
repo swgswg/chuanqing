@@ -12,7 +12,8 @@ Page({
         totalPrice: 0.00,        // 总价，初始为0
         selectAllStatus: false,  // 全选状态  
         editStatus: true,        // 编辑按钮
-        editText:'编辑'           // 编辑还是完成
+        editText:'编辑',          // 编辑还是完成
+        youlike_hidden: false   
     },
 
     /**
@@ -169,15 +170,20 @@ Page({
     cartEdit: function(){
         if (flag) {
             var editText = '完成';
+            this.setData({
+                youlike_hidden:true
+            });
             flag = false;
         } else {
             var editText = '编辑';
+            this.setData({
+                youlike_hidden: false
+            });
             flag = true;
         }
         this.setData({
             editStatus: !this.data.editStatus,
             editText: editText
-            
         });
         this.cleanSelectAll();
     },

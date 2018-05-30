@@ -56,7 +56,9 @@
 <view class="jianju" style="height:80rpx;"></view>
 <view class="bottom">
     <view class="bottom-ad">
-        <image src="../../images/woyaomaijiu.png"></image>
+        <navigator url='/pages/trader/trader1/trader'>
+           <image src="../../images/woyaomaijiu.png"></image>
+        </navigator>
     </view>
     <view class="membership-privilege">
         <view class="membership-privilege-font">会员尊享</view>

@@ -1,0 +1,75 @@
+<view>
+  <!--搜索框  -->
+
+  <view class="search" style='background-image:url("../../../images/bj.png");background-repeat:no repeat;'>
+
+    <!-- -->
+    <view class="form">
+      <input class="input"  placeholder="输入商品名称" bindinput="bindKeywordInput" confirm-type="search" bindconfirm="bindKeywordConfirm"/>
+      <image class="btn" src="../../../images/icon_search.png" bindtap="bindSearchTap"></image>
+    </view>
+
+    <!--  -->
+    <view style='clear:both'></view>
+    <view catchtap='activity'  class='sha'>
+        <image src='../../../images/bj.png' style='width:640rpx;height:100rpx;'></image>
+    </view> 
+
+  </view>  
+
+  <!--国家  -->
+  <view class="">
+    <!--国家循环  -->
+    <block wx:for="{{country}}">
+      <view class="guojia">
+        <view class='tubiao'><image src="{{item.imgs}}" style='width:125rpx;height:125rpx;border-radius:80%;'></image></view>
+        <view class="zi">{{item.name}}</view>
+      </view>
+    </block>
+  
+  </view>
+
+  <view style='clear:both'></view>
+  <!--商品图片  -->
+  <view class="content">
+    <!--内容 1  -->
+    <view>
+      <view class="c1"><image src='../../../images/c1.png' style='width:300rpx;height:320rpx;'></image></view>
+
+      <view class="cc">
+        <view class="c2"><image src='../../../images/c2.png' style='width:300rpx;height:150rpx;'></image></view>
+        <view class="c3"><image src='../../../images/c3.png' style='width:300rpx;height:150rpx;'></image></view>
+      </view>
+
+    </view>
+    <view style='clear:both'></view>
+    <!--内容2  -->
+    <block wx:for="{{brand}}">
+      <!--品牌图标  -->
+      <view style='float:left;'>
+          <view class="c4"><image src='{{item.img}}' style='width:80rpx;height:80rpx;'></image></view>
+      </view>
+    </block>
+  </view>
+
+  <!--相关推荐  -->
+  <view style='clear:both'></view>
+  <view>
+    <view class="tui">相关推荐</view>
+  </view>
+
+  <!--相关推荐循环  -->
+    <block wx:for="{{recommend}}">
+      <navigator url="">
+        <view class='z2'>
+          <view><image src='{{item.img}}' style='width:300rpx;height:350rpx;'></image></view>
+          <view class='name'>{{item.name}}</view>
+          <view class="miaosu">{{item.content}}</view>
+          <view class="price">{{item.prices}}</view>
+        </view>  
+      </navigator>  
+    </block>
+
+
+
+</view>

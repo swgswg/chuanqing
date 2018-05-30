@@ -1,0 +1,54 @@
+/*背景颜色  */
+page{
+  background: #ddd;
+}
+
+/*温馨提示总边框  */
+.waibain{
+  width:80%;
+  height:400rpx;
+  margin-left: 80rpx;
+  margin-top: 240rpx;
+  background: white;
+  border-radius:20rpx; 
+}
+
+/*提示  */
+.tishi{
+  margin-left: 230rpx;
+  line-height: 140rpx;
+}
+
+/*按钮  */
+.bt{
+  width:50%;
+  height: 140rpx;
+  text-align: center;
+  float: left;
+  margin-top:90rpx; 
+}
+/*俩边框的距离  */
+.juli{
+  height:200rpx;
+  width:100%; 
+}
+
+/*收货地址  */
+.add{
+  line-height: 900rpx;
+  margin-left: 200rpx;
+  font-size: 30rpx;
+}
+
+/*添加新地址  */
+.insert{
+  width:80%;
+  height: 80rpx;
+  background: red;
+  line-height: 70rpx;
+  margin-left: 90rpx;
+  margin-top:150rpx; 
+  color:white;
+  text-align: center;
+  border-radius:10rpx; 
+}

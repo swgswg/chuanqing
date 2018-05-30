@@ -1,0 +1,15 @@
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+<!--账户余额  -->
+<view>
+  <view class="money"><text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;账户余额&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>￥9999</view>
+</view>
+
+<!--提现金额  -->
+<view class="number">
+<input name="input" placeholder="输入要体现的金额"   placeholder-style="color:red;margin-left:40rpx;margin-top:8rpx;" />
+</view>
+
+<!--确认  -->
+ <view class="submit" formType="submit">确认提现</view>
+ </form>

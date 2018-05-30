@@ -1,0 +1,136 @@
+/*背景颜色  */
+page{
+  background: #ddd;
+}
+
+/*距离顶部  */
+.padd{
+  height: 20rpx;
+  width:100%;
+}
+
+/*内容总体  */
+.content{
+  width: 100%;
+  height: 170rpx;
+  background: white;
+}
+
+/*账户余额  */
+.zhanhu{
+  width:30%;
+  margin-left: 30rpx;
+  float: left;
+  line-height: 90rpx;
+  font-size:30rpx
+}
+/*日期设置  */
+.date{
+  width:70%;
+  font-size: 30rpx;
+  color:red;
+  line-height: 90rpx;
+  font-size:30rpx
+}
+
+/*金额设置  */
+.jine{
+  margin-left:20rpx;
+  color:red;
+  width:30%;
+  float:left;
+  font-size:30rpx
+}
+/*跳转提现  */
+.ti{
+  width:20%;
+  border: 1px solid red;
+  border-radius: 50rpx;
+  text-align: center;
+  color:red;
+  font-size:30rpx;
+  margin-left: 60rpx;
+  float:left;
+}
+/*跳转购买  */
+.gou{
+  width:21%;
+  height:40rpx;
+  line-height:40rpx;
+  margin-left: 20rpx;
+  border:1px solid red;
+  border-radius: 50rpx;
+  text-align: center;
+  font-size:30rpx;
+  color:#ddd;
+  background:red;
+  float:left;
+}
+
+/*text文本  */
+
+.text{
+  width:83%; 
+  font-size: 30rpx;
+  line-height:100rpx;
+  float:left;
+}
+
+/*订单明细  */
+.zongti{
+  width:100%;
+  background: white;
+}
+
+.ding{
+  height:30rpx;
+  margin-top:30rpx;
+  float:left; 
+  font-size: 30rpx;
+}
+
+/*下划线  */
+.xia{
+  height:3rpx;
+  background: #ddd;
+}
+
+/*交易记录  */
+.zongti2{
+  width:100%;
+  height:360rpx;
+  background: white;
+}
+
+/*图片样式  */
+.picture{
+  width:30%;
+  float:left; 
+  margin-left:30rpx;
+  margin-top: 10rpx;
+}
+/*订单名称  */
+.name{
+  font-size: 27rpx;
+   margin-top:10rpx; 
+  width:85%;
+}
+/*名称  */
+.text{
+  font-size: 35rpx;
+  color:#ddd;
+  line-height: 60rpx;
+}
+
+.text2{
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+/*时间  */
+.jsdate{
+  font-size:30rpx;
+  color:#ddd;
+  float:right;
+  margin-right: 90rpx;
+  line-height: 80rpx;
+}

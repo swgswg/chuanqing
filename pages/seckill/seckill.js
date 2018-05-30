@@ -8,6 +8,13 @@ Page({
   
   },
 
+  //  商品详情
+  info: function(){
+     wx.navigateTo({
+       url: '/pages/goods_detail/goods_detail'
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
