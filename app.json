@@ -1,10 +1,8 @@
 {
     "pages":[
-
+        "pages/goods_cate/goods_cate",
         "pages/goods_stock/goods_stock",
         "pages/myinfo/myinfo",
-        
-        "pages/goods_cate/goods_cate",
         "pages/index/index",
         "pages/cart/cart",
         "pages/goods_list/goods_list",
@@ -21,7 +19,6 @@
         "pages/sales_promotion/sales_promotion",
         "pages/goods_competitive/goods_competitive",
         "pages/seckill/seckill",
-
         "pages/trader/sell/sell",
         "pages/trader/user/user",
         "pages/trader/tixian/tixian",
@@ -79,6 +76,6 @@
     "networkTimeout": {
         "request": 10000,
         "downloadFile": 10000
-    },
-    "debug": true
+    }
+
 }

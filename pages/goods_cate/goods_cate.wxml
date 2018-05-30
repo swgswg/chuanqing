@@ -1,42 +1,46 @@
-<!--pages/goods_cate/goods_cate.wxml-->
-<view class=''>
-    <!-- 搜索栏start  -->
-    <view class="search">
-        <view class="form">
-            <input class="input" type="text"  placeholder="输入商品名称" confirm-type="search" 
+<!--搜索start  -->
+<view class="search">
+    <view class="form">
+        <image class="btn" src="/images/icon_search.png" bindtap="search_goods"></image>
+        <input class="input" type="text"  placeholder="输入商品名称"  
+            confirm-type="search" 
             bindblur="input_blur" 
-            bindconfirm="input_confirm"/>
-            <image class="btn" src="/images/icon_search.png" bindtap="search_goods"></image>
-        </view>
+            bindconfirm="input_confirm" 
+        />       
     </view>
-    <!-- 搜索栏end  -->
-
-    <!--分类联动start  -->
-    <view class='containers'> 
-        <view class="nav_left">
+    <image src="../../images/lindang.png" bindtap="search_goods" />
+</view>
+<!--搜索end  -->
+<view class="group_class">
+    <view class="left_group">
+        <!--分类组start  -->
+        <view class="goods_group">
             <block wx:for="{{goodsGroup}}">
-                <view class="nav_left_items {{item.id==current_id ? '.active' : ''}}" bindtap="goods_group" data-index="{{item.id}}" data-id="{{item.id}}">
-                    {{item.name}}
-                </view>
+                <view class="good_group_each {{item.id==current_id ? '.active' : ''}}"
+                    bindtap="goodsGroup" data-index="{{item.id}}" data-id="{{item.id}}"
+                >{{item.name}}</view>
             </block>
-            
         </view>
-        <view class="nav_right" catchtap='cateinfo'>
-            <view class="nav_right_adv">
-                <image src="../../images/nav_right_adv.png" style='width:100%;height:160rpx'></image>
-            </view>
-            <view>
-                <block wx:for="{{goodsClass}}">
-                    <view class="nav_right_items">
-                        <navigator url="../goods_list/goods_list?goods_class_id={{item.id}}&goods_class_name={{item.name}}">
-                            <view style='background:url({{item.class_img}}) no-repeat 0rpx 0rpx;'>        
-                                {{item.name}}
-                            </view>
-                        </navigator>
-                    </view>
-                </block>
-            </view>
+        <!--分类组end  -->
+    </view>
+    <view class="adv_class">
+        <!--广告start  -->
+        <image class="adv" src=''></image>
+        <!--广告end  -->
+        <!--类别start  -->
+        <view class="goods-class">
+            <block wx:for="{{goodsClass}}" wx:for-item="goodsClass">
+                <view class="goods-class-each" 
+                    bindtap='classToGoods' 
+                    data-classid="{{goodsClass.id}}" 
+                    data-classname = "{{goodsClass.name}}"
+                >
+                    <image src="../../images/class_bg.png" />
+                    <text>{{goodsClass.name}}</text> 
+                </view>
+             </block>
         </view>
-    </view>    
-    <!--分类联动end  -->
+        <!--类别end  -->
+        
+    </view>
 </view>

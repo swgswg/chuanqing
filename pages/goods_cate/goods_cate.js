@@ -14,13 +14,7 @@ Page({
             { id: 5, name: '国家' },
         ],
         current_id:1,
-        goodsClass:[
-            { group_id: 1, id: 1, name: '赤霞珠a', class_img:'../../images/icon_collect_selected.png'},
-            { group_id: 1, id: 1, name: '赤霞珠b', class_img: '../../images/icon_collect_selected.png' },
-            { group_id: 1, id: 1, name: '赤霞珠c', class_img: '../../images/icon_collect_selected.png' },
-            { group_id: 1, id: 1, name: '赤霞珠d', class_img: '../../images/icon_collect_selected.png' },
-            { group_id: 1, id: 1, name: '赤霞珠e', class_img: '../../images/icon_collect_selected.png' }
-        ]
+        goodsClass:[]
     },
 
     /**
@@ -28,15 +22,30 @@ Page({
      */
     onLoad: function (options) {
         var that = this;
-        // wx.request({
-        //     url: '',
-        //     data: { goods_group: current_id},
-        //     success: function (res) {
-        //         that.setData({
-                        // goodsClass:
-        //         });
-        //     }
-        // });
+        wx.request({
+            url: 'http://192.168.3.25:8080/redwine/goodsGroup/getGroup',
+            data: {},
+            method: 'POST',
+            success: function (res) {
+                // { groupId: 1, name: "法国", id: 1, classImg: "1.jpg" }
+                that.setData({
+                    goodsGroup: res.data.data
+                });
+            }
+        });
+        wx.request({
+            url: 'http://192.168.3.25:8080/redwine/goodsClass/getGoodsClass',
+            data: { groupId: 1 },
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            method: 'POST',
+            success: function (res) {
+                that.setData({
+                    goodsClass: res.data.data
+                });
+            }
+        });
     },
 
     /**
@@ -57,7 +66,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-    
+
     },
 
     /**
@@ -96,26 +105,29 @@ Page({
     },
 
     /**
-     * 点击商品组获取类别
+     * 点击类别组获取类别
      */
-    goods_group:function(e){
+    goodsGroup:function(e){
         var that = this;
-        console.log(e.target);
         // 获取组id
         var id = e.currentTarget.dataset.id;
         that.setData({
             current_id:id
         });
         // 发送请求,获取类别
-        // wx.request({
-        //     url: '',
-        //     data: { goods_group: current_id},
-        //     success: function (res) {
-        //         that.setData({
-                         // goodsClass:
-        //         });
-        //     }
-        // });
+        wx.request({
+            url: 'http://192.168.3.25:8080/redwine/goodsClass/getGoodsClass',
+            data: {groupId:id},
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            method:'POST',
+            success: function (res) {
+                that.setData({
+                    goodsClass:res.data.data
+                });
+            }
+        });
 
     },
 
@@ -141,7 +153,23 @@ Page({
         var val = e.detail.value;
         // 搜索
         my_search(val);
+    },
+
+    /**
+     * 点击类别跳转到商品
+     */
+    classToGoods: function (e) {
+        var that = this;
+        // 获取类别id
+        var id = e.currentTarget.dataset.classid;
+        var classname = e.currentTarget.dataset.classname;
+        console.log(id,classname);
+        wx.navigateTo({
+            url: '../goods_list/goods_list?classid=' + id + '&classname=' + classname
+        });
     }
+    
+
 
 });
 
@@ -151,3 +179,5 @@ Page({
 function my_search(val) {
     console.log(val);
 }
+
+

@@ -10,16 +10,7 @@ Page({
      */
     data: {
         height:0,
-        goods:[
-            { id: 1, name: '张裕干红', price: '139.00', img: '../../images/hongjiu.png' },
-            { id: 2, name: '张裕干红', price: '239.00', img: '../../images/hongjiu.png' },
-            { id: 3, name: '张裕干红', price: '339.00', img: '../../images/hongjiu.png' },
-            { id: 4, name: '张裕干红', price: '439.00', img: '../../images/hongjiu.png' },
-            { id: 5, name: '张裕干红', price: '539.00', img: '../../images/hongjiu.png' },
-            { id: 6, name: '张裕干红', price: '639.00', img: '../../images/hongjiu.png' },
-            { id: 7, name: '张裕干红', price: '739.00', img: '../../images/hongjiu.png' },            
-            { id: 8, name: '张裕干红', price: '839.00', img: '../../images/hongjiu.png' }
-        ],
+        goods:[],
         mysort:{
             ping:'../../images/ping.png',
             shang:'../../images/shang.png',
@@ -44,28 +35,26 @@ Page({
                 })
             },
         });
-        
-        /**
-         * 动态设置页面标题
-         */
-        // if (options){
-        //     wx.setNavigationBarTitle({
-        //         title: options.goods_class_name
-        //     });
-        // }
-    
-
+        // 动态设置页面标题
+        if (options){
+            wx.setNavigationBarTitle({
+                title: options.classname
+            });
+        }
         // 通过类别id获取商品
-        // wx.request({
-        //     url: '',
-        //     data: { goods_class_id: options.id },
-        //     success: function (res) {
-        //         that.setData({
-        //             goods: {}
-        //         });
-        //     }
-        // });
-
+        wx.request({
+            url: 'http://192.168.3.25:8080/redwine/goods/getGoodsByClass',
+            data: { classId: options.classid },
+            method:'POST',
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+                that.setData({
+                    goods: res.data.data
+                });
+            }
+        });
     },
 
     /**
