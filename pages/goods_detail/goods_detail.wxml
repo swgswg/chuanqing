@@ -71,7 +71,7 @@
         东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
     </view>
 </view>
- <view class="jianju" style="height:80rpx;"></view> 
+ <view class="jianju" style="height:20rpx;background-color:#eee"></view> 
  <view style='margin-top:30rpx;'> 
     <view class="guess">猜你喜欢</view>
     <view class="youlike">
@@ -79,7 +79,7 @@
             <view class="youlike-each">
                 <image src="{{item.img}}"></image>
                 <view>{{item.name}}</view>
-                <view style='color:#666;'>{{item.price}}</view>
+                <view style='color:#333;'>{{item.price}}</view>
             </view>
         </block>
     </view>
@@ -107,21 +107,19 @@
     </view>
 </view>
 <view class="jianju" style="height:100rpx;"></view>
-    <view class="bottom-btn">
-        <view class="custom-service">
-            <view class=""><image src='../../images/kefu.png'></image></view>
-            <view style="margin-top:-10rpx;">在线客服</view>
-        </view>
-        <view class="custom-service">
-            <view class=""><image src='../../images/collection.png'></image></view>
-            <view style="margin-top:-10rpx;">加入收藏</view>
-        </view>
-        <view class="custom-service ziti">
-            <!-- <view class=""><image src='../../images/huigou.png'></image></view> -->
-            <view bindtap='add_to_cart' data-id="{{goodsInfo.id}}">加入购物车</view>
-        </view>
-         <view class="custom-service immediate-sale">
-            <!-- <view class=""><image src='../../images/huigou.png'></image></view> -->
-            <view bindtap='immediatePurchase' data-id="{{goodsInfo.id}}">立即购买</view>
-        </view>
+<view class="bottom-btn">
+    <view class="custom-service" style='margin-top:10rpx;'>
+        <view class=""><image src='../../images/kefu.png'></image></view>
+        <view style="margin-top:-10rpx;font-size:24rpx;color:#666">在线客服</view>
     </view>
+    <view class="custom-service"style='margin-top:10rpx;'>
+        <view class=""><image src='../../images/collection.png'></image></view>
+        <view style="margin-top:-10rpx;font-size:24rpx;color:#666">加入收藏</view>
+    </view>
+    <view class="custom-service ziti">
+        <view bindtap='addToCart' data-id="{{goodsInfo.id}}">加入购物车</view>
+    </view>
+        <view class="custom-service immediate-sale">
+        <view bindtap='immediatePurchase' data-id="{{goodsInfo.id}}">立即购买</view>
+    </view>
+</view>
