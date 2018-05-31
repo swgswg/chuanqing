@@ -1,0 +1,39 @@
+page{
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+.each-user{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.biaozhi{
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    background-color: #000;
+}
+.user-name{
+    margin-left:30rpx;
+    font-size: 26rpx; 
+    color: #666;
+}
+.user-comment{
+    margin-top:10rpx; 
+    font-size: 26rpx;
+    color:#666;
+}
+.comment-img{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10rpx;
+}
+.each-img{
+    width: 161rpx;
+    height: 161rpx;    
+}
+.comment-each{
+    width: 100%;
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid #ccc;
+}

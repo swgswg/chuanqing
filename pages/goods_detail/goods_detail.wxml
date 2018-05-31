@@ -1,9 +1,9 @@
  <!--轮播图start  -->
 <view class="swiper">
     <swiper indicator-dots="true" autoplay="true" circular="true" indicator-color="rgba(207,209,210,0.8)" indicator-active-color="#efe5c4">
-        <block wx:for="{{goodsInfo.goods_img}}">
+        <block wx:for="{{goodsInfo.picture}}" wx:for-item="goodsImg">
             <swiper-item>
-                <image src="{{item}}" />
+                <image src="{{goodsImg.img}}" />
             </swiper-item>
         </block>
     </swiper>
@@ -11,12 +11,12 @@
 <!--轮播图end  -->
 
 <view class="goods-name" data-id="{{goodsInfo.id}}">
-    {{goodsInfo.goods_name}}
+    {{goodsInfo.gname}}
 </view>
 
 <view class="price-cart">
-    <view>¥{{goodsInfo.goods_price}}</view>
-    <view class="member-price">会员价：{{goodsInfo.member_price}}</view>
+    <view>¥{{goodsInfo.price}}</view>
+    <!-- <view class="member-price">会员价：{{goodsInfo.member_price}}</view> -->
 </view>
 
 <view class="jianju" style="height:20rpx;background-color:#eee"></view>
@@ -36,11 +36,24 @@
 <view class="jianju" style="height:20rpx;background-color:#eee"></view>
 <view class="comment">
     <view>商品评价 (385)</view>
-    <view style='font-size:24rpx;color:#cf000d;'>查看全部 
+    <view bindtap='viewAllComment'  style='font-size:24rpx;color:#cf000d;'>查看全部 
         <image src="../../images/fanhui.png" style='float:right;width:14rpx;height:26rpx;;margin:3rpx 0 0 10rpx;' />
     </view>
 </view>
-<view style="border-bottom:4rpx solid #eee;">
+<block wx:for="{{commentInfo}}">
+    <view style="border-bottom:4rpx solid #eee;">
+        <view class="short-comment">{{item.userName}}</view>
+        <view class="long-comment">
+            {{item.detail}}
+        </view>
+        <view class="comment-img">
+            <block wx:for="{{item.img}}" wx:for-item="img">
+                <image src="{{img}}" />
+            </block>
+        </view>
+    </view>
+</block>
+<!-- <view style="border-bottom:4rpx solid #eee;">
     <view class="short-comment">一坛好酒</view>
     <view class="long-comment">
         东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
@@ -58,19 +71,9 @@
         东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
         东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
     </view>
-    <view class="comment-img">
-        <block wx:for="{{commentImg}}">
-            <image src="{{item}}" />
-        </block>
-    </view>
-</view>
-<view style="border-bottom:4rpx solid #eee;">
-    <view class="short-comment">一坛好酒</view>
-    <view class="long-comment">
-        东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
-        东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
-    </view>
-</view>
+</view> -->
+
+
  <view class="jianju" style="height:20rpx;background-color:#eee"></view> 
  <view style='margin-top:30rpx;'> 
     <view class="guess">猜你喜欢</view>
@@ -78,8 +81,8 @@
         <block wx:for="{{youLike}}">
             <view class="youlike-each">
                 <image src="{{item.img}}"></image>
-                <view>{{item.name}}</view>
-                <view style='color:#333;'>{{item.price}}</view>
+                <view>{{item.gname}}</view>
+                <view style='color:#333;'>¥{{item.price}}</view>
             </view>
         </block>
     </view>
@@ -112,7 +115,7 @@
         <view class=""><image src='../../images/kefu.png'></image></view>
         <view style="margin-top:-10rpx;font-size:24rpx;color:#666">在线客服</view>
     </view>
-    <view class="custom-service"style='margin-top:10rpx;'>
+    <view bindtap='joinTheCollection' data-goodsId="{{goodsInfo.id}}" class="custom-service"style='margin-top:10rpx;'>
         <view class=""><image src='../../images/collection.png'></image></view>
         <view style="margin-top:-10rpx;font-size:24rpx;color:#666">加入收藏</view>
     </view>

@@ -1,4 +1,5 @@
 //app.js
+var baseUrl = 'http://192.168.3.25:8080/';
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -7,11 +8,34 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    // wx.login({
+    //   success: res => {
+    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
+    //   }
+    // )}
+      wx.login({
+          success: function (res) {
+              if (res.code) {
+                  //发起网络请求
+                  wx.request({
+                      url: 'http://192.168.3.25:8080/redwine/user/userLogin',
+                      method: 'POST',
+                      data: {code: res.code},
+                      header: {
+                          'content-type': 'application/x-www-form-urlencoded'
+                      },
+                      success: function (data) {
+                          console.log(data);
+                        //   that.setData({
+                        //       goodsInfo: {}
+                        //   });
+                      }
+                  })
+              } else {
+                  console.log('登录失败！' + res.errMsg)
+              }
+          }
+      });
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -35,7 +59,16 @@ App({
   },
   globalData: {
     userInfo: null,
-    baseUrl:'http://39.107.70:8080/',
+    baseUrl:'http://192.168.3.25:8080/',
+    getAllCommetnUrl:baseUrl+'redwine/order/QueryComment',
+    getGroupUrl:baseUrl+'redwine/goodsGroup/getGroup',
+    getGoodsClassUrl: baseUrl +'redwine/goodsClass/getGoodsClass',
+    getGoodsByClassUrl: baseUrl +'redwine/goods/getGoodsByClass',
+    getGoodsDetailUrl: baseUrl +'redwine/goods/getGoodsDetail',
+    QueryCommentUrl: baseUrl +'redwine/order/QueryComment',
+    insertCollectionUrl: baseUrl +'redwine/collection/insertCollection',
+    getGoodsBySaleCountUrl: baseUrl + 'redwine/goods/getGoodsBySaleCount',
+    userLoginUrl: baseUrl+ 'redwine/user/userLogin'
   }
 
 })

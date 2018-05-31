@@ -1,0 +1,16 @@
+<block wx:for="{{[1,2,3,4,5,6]}}">
+    <view class="comment-each">
+        <view class="each-user">
+            <view class="biaozhi"></view>
+            <view class="user-name">用户名</view>
+        </view>
+        <view class="user-comment">
+            用户评论用户评论用户评论用户评论用户评论用户评论用户评论用户评论用户评论用户评论用户评论用户评论
+        </view>
+        <view class="comment-img">
+            <block wx:for="{{[1,2,3,4]}}">
+                <image class="each-img" src="../../images/comment-img.png" />
+            </block>
+        </view>
+    </view>
+</block>

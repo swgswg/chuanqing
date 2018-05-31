@@ -30,7 +30,7 @@
             </navigator>
             <view class="goods-price">
                 <text>¥{{item.price}}</text>
-                <image bindtap="add_to_cart" data-id="{{item.id}}" class="icon-cart" src="../../images/cart.png" />
+                <image bindtap="addToCart" data-id="{{item.id}}" data-price="{{item.price}}" class="icon-cart" src="../../images/cart.png" />
             </view>
         </view>
         </view>

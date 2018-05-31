@@ -50,15 +50,16 @@ function getPrevPageUrl() {
 
 /**
  * 加入购物车
+ * @param id 商品id
+ * @param price 商品价格
+ * @param price 商品数量
  */
-function addToCartFun(id){
-    // 获取商品的id
-    // var id = e.currentTarget.dataset.id;
-    // 调用接口
+function addToCartFun(id,price,num){
+    // console.log(id,price,num);
     wx.request({
-        url: '',
+        url: getApp().globalData.baseUrl +'redwine/carts/insertCarts',
         method:'POST',
-        data:{id:id},
+        data: { goodsId: id, cartsPrice:price, num:num },
         success: function(res){
             if(res.status == 1){
                 wx.showToast({

@@ -1,10 +1,14 @@
 // pages/goods_list/goods_list.js
+const app = getApp();
 var util = require('../../utils/util.js');
 var multiple_flag = true;
 var sales_volume_flag = true;
 var new_product_flag = true;
 var my_price_flag = true;
-var scrollPage = 20;
+var myclassId = 0;
+var myPageSize = 20;
+var myPage = 1;
+var condition = 1;
 Page({
     /**
      * 页面的初始数据
@@ -27,26 +31,15 @@ Page({
      */
     onLoad: function (options) {
         var that = this;
+        myclassId = options.classid;
         // 动态设置页面标题
         if (options.classname){
             wx.setNavigationBarTitle({
                 title: options.classname
             });
         }
-        // 通过类别id获取商品
-        wx.request({
-            url: getApp().globalData.baseUrl+'redwine/goods/getGoodsByClass',
-            data: { classId: options.classid, page: scrollPage },
-            method:'POST',
-            header: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
-            success: function (res) {
-                that.setData({
-                    goods: res.data.data
-                });
-            }
-        });
+        // 通过类别id获取商品列表
+        getGoods(myPageSize, 1,that);
     },
 
     /**
@@ -102,10 +95,11 @@ Page({
      * 添加到购物车按钮
      */
     addToCart:function(e){
-        // 获取id
+        // 获取id price num
         var id = e.currentTarget.dataset.id;
+        var price = e.currentTarget.dataset.price;
         // 调用 加入购物车 全局方法
-        util.addToCartFun(id);
+        util.addToCartFun(id,price,1);
     },
 
     /**
@@ -117,13 +111,22 @@ Page({
             that.setData({
                 zonghe_png:'../../images/xia.png'
             });
+            getGoods(myPageSize, 1, that);
+            condition = 1;
             multiple_flag = false;
         } else {
             that.setData({
                 zonghe_png: '../../images/shang.png'
             });
+            getGoods(myPageSize, 1, that);
+            condition = 1;
             multiple_flag = true;
         }
+        that.setData({
+            xiaoliang_png: '../../images/ping.png',
+            xinpin_png: '../../images/ping.png',
+            jiage_png: '../../images/ping.png'
+        });
     },
 
     /**
@@ -135,14 +138,22 @@ Page({
             that.setData({
                 xiaoliang_png: '../../images/xia.png'
             });
+            getGoods(myPageSize, 2, that);
+            condition = 2;
             sales_volume_flag = false;
         } else {
             that.setData({
                 xiaoliang_png: '../../images/shang.png'
             });
+            getGoods(myPageSize, 3, that);
+            condition = 3;
             sales_volume_flag = true;
         }
-        
+        that.setData({
+            zonghe_png: '../../images/ping.png',
+            xinpin_png: '../../images/ping.png',
+            jiage_png: '../../images/ping.png'
+        });
     },
     
     /**
@@ -154,14 +165,22 @@ Page({
             that.setData({
                 xinpin_png: '../../images/xia.png'
             });
+            getGoods(myPageSize, 4, that);
+            condition = 4;
             new_product_flag = false;
         } else {
             that.setData({
                 xinpin_png: '../../images/shang.png'
             });
+            getGoods(myPageSize, 5, that);
+            condition = 5;
             new_product_flag = true;
         }
-     
+        that.setData({
+            zonghe_png: '../../images/ping.png',
+            xiaoliang_png: '../../images/ping.png',
+            jiage_png: '../../images/ping.png'
+        });
     },
     /**
      * 价格排序
@@ -172,47 +191,53 @@ Page({
             that.setData({
                 jiage_png: '../../images/xia.png'
             });
+            getGoods(myPageSize, 6, that);
+            condition = 6;
             my_price_flag = false;
         } else {
             that.setData({
                 jiage_png: '../../images/shang.png'
             });
+            getGoods(myPageSize, 7, that);
+            condition = 7;
             my_price_flag = true;
         }
-        
+        that.setData({
+            zonghe_png: '../../images/ping.png',
+            xiaoliang_png: '../../images/ping.png',
+            xinpin_png: '../../images/ping.png'
+        });
     },
 
     /**
      * 滚动到底部触发
      */
     scrollToLower:function(){
-        scrollPage += 20;
-        // wx.request({
-        //     url: 'http://192.168.3.25:8080/',
-        //     data: { classId: options.classid, page: scrollPage},
-        //     method:'POST',
-        //     header: {
-        //         'content-type': 'application/x-www-form-urlencoded'
-        //     },
-        //     success: function (res) {
-        //         that.setData({
-        //             goods: res.data.data
-        //         });
-        //     }
-        // });
+        var that = this;
+        myPageSize += 20;
+        getGoods(myPageSize, condition, that);
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     
 });
+
+/**
+ * 获取商品列表
+ */
+function getGoods(myScrollPage,mySort,that){
+    console.log(myclassId, myPage, myPageSize, mySort);
+    wx.request({
+        url: app.globalData.getGoodsByClassUrl,
+        data: { classId: myclassId, page: myPage, pageSize: myPageSize, condition: mySort },
+        method: 'POST',
+        header: {
+            'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function (res) {
+            // console.log(res.data.data.PageInfo);
+            that.setData({
+                goods: res.data.data.PageInfo.list
+            });
+        }
+    });
+}

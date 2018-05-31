@@ -1,10 +1,12 @@
 {
     "pages":[
+        
+        "pages/goods_cate/goods_cate",
         "pages/stock_detail/stock_detail",
         "pages/goods_stock/goods_stock",
         "pages/goods_competitive/goods_competitive",
         "pages/seckill/seckill",
-        "pages/goods_cate/goods_cate",
+        "pages/all_comment/all_comment",
         "pages/goods_list/goods_list",
         "pages/goods_detail/goods_detail",
         

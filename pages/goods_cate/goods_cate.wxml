@@ -37,7 +37,8 @@
                     data-classid="{{goodsClass.id}}" 
                     data-classname = "{{goodsClass.name}}"
                 >
-                    <image src="{{goodsClass.classImg}}" />
+                    <!-- <image src="{{goodsClass.classImg}}" /> -->
+                    <image src="../../images/class_bg.png" />
                     <text>{{goodsClass.name}}</text> 
                 </view>
              </block>

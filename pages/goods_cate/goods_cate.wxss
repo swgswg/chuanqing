@@ -67,13 +67,13 @@ page{
     border: 1px solid red;
 }
 .goods-class{
-    width:548rpx;
-
-    padding-top: 36rpx;
-    box-sizing: border-box;
     display: flex;     
     flex-wrap:wrap;      
-    justify-content: space-around;     
+    justify-content:flex-start;  
+    width:548rpx;
+    padding-top: 36rpx;
+    box-sizing: border-box;
+    margin-left:30rpx;  
 }
 .goods-class-each{
     position: relative;
@@ -81,11 +81,10 @@ page{
     height: 120rpx;
     margin-right: 55rpx;   
     margin-bottom: 60rpx;       
-    /* float: left;  */
+    float: left;   
     border-radius: 50%;
-    text-align: center;
+    text-align: center; 
     line-height: 120rpx;
-    /* border: 1px solid red;  */
 }
 .goods-class-each image{
     width: 120rpx;
@@ -98,6 +97,7 @@ page{
     left: 0;
     width: 120rpx;
     height: 120rpx;
+    font-size:25rpx;
     color: #fff;
 
 }

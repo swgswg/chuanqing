@@ -1,6 +1,6 @@
 // pages/goods_cate/goods_cate.js
 var input_value = '';
-var app = getApp();
+const app = getApp();
 Page({
 
     /**
@@ -8,11 +8,11 @@ Page({
      */
     data: {
         goodsGroup:[
-            { id: 1, name: '品牌' },
-            { id: 2, name: '颜色' },
-            { id: 3, name: '类型' },
-            { id: 4, name: '品种' },
-            { id: 5, name: '国家' },
+            // { id: 1, name: '品牌' },
+            // { id: 2, name: '颜色' },
+            // { id: 3, name: '类型' },
+            // { id: 4, name: '品种' },
+            // { id: 5, name: '国家' },
         ],
         current_id:1,
         goodsClass:[]
@@ -25,7 +25,7 @@ Page({
         var that = this;
         // 获取分类组
         wx.request({
-            url: app.globalData.baseUrl+'redwine/goodsGroup/getGroup',
+            url: app.globalData.getGroupUrl,
             method: 'POST',
             data: {},
             success: function (res) {
@@ -37,7 +37,7 @@ Page({
         });
         // 获取分类类别
         wx.request({
-            url: app.globalData.baseUrl +'redwine/goodsClass/getGoodsClass',
+            url: app.globalData.getGoodsClassUrl,
             method:'POST',
             data: { groupId: 1},
             header: {
@@ -119,7 +119,7 @@ Page({
         });
         // 获取类别
         wx.request({
-            url: app.globalData.baseUrl+'redwine/goodsClass/getGoodsClass',
+            url: app.globalData.getGoodsClassUrl,
             method: 'POST',
             data: {groupId:id},
             header: {
@@ -165,7 +165,7 @@ Page({
         // 获取类别id
         var id = e.currentTarget.dataset.classid;
         var classname = e.currentTarget.dataset.classname;
-        console.log(id,classname);
+        // console.log(id,classname);
         wx.navigateTo({
             url: '../goods_list/goods_list?classid=' + id + '&classname=' + classname
         });

@@ -1,5 +1,6 @@
 // pages/goods_detail/goods_detail.js
 var util = require('../../utils/util.js');
+const app = getApp();
 Page({
 
     /**
@@ -7,21 +8,29 @@ Page({
      */
     data: {
         goodsInfo:{
-            id:1,
-            goods_name: '路易拉菲2009男爵古堡干红葡萄酒红酒礼盒木盒装750ml * 2',
-            goods_img: [
-                '../../images/swiper.png',
-                '../../images/swiper.png',
-                '../../images/swiper.png'
-            ],
-            goods_price:'119.00',
-            member_price:'99.00'
+            // id:1,
+            // gname: '路易拉菲2009男爵古堡干红葡萄酒红酒礼盒木盒装750ml * 2',
+            // picture: [
+            //     '../../images/swiper.png',
+            //     '../../images/swiper.png',
+            //     '../../images/swiper.png'
+            // ],
+            // price:'119.00',
+            // member_price:'99.00'
         },
         goods_num:1,  
         imgUrls: [
             '../../images/swiper.png',
             '../../images/swiper.png',
             '../../images/swiper.png'
+        ],
+        commentInfo:[
+            // {
+            //     img:'../../images/swiper.png,../../images/swiper.png,../../images/swiper.png',
+            //     detail:
+            //     userName:
+            //     total:
+            // }
         ],
         commentImg: [
             '../../images/comment-img.png',
@@ -30,12 +39,12 @@ Page({
             '../../images/comment-img.png'
         ],
         youLike:[
-            { img: '../../images/youlike.png', name: '拉菲尚品波尔多', price: "¥108.00" },
-            { img: '../../images/youlike.png', name: '拉菲尚品波尔多', price: "¥108.00" },
-            { img: '../../images/youlike.png', name: '拉菲尚品波尔多', price: "¥108.00" },
-            { img: '../../images/youlike.png', name: '拉菲尚品波尔多', price: "¥108.00" },
-            { img: '../../images/youlike.png', name: '拉菲尚品波尔多', price: "¥108.00" },
-            { img: '../../images/youlike.png', name: '拉菲尚品波尔多', price: "¥108.00" }
+            { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
+            { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
+            { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
+            { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
+            { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
+            { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" }
         ]
     },
 
@@ -43,21 +52,55 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        // console.log(options.id);
         var that = this;
-        // 获取商品传过来的id,发送请求获取商品信息
+        // 获取商品信息
         wx.request({
-            url: getApp().globalData.getGoodsDetailUrl,
+            url: app.globalData.getGoodsDetailUrl,
             method:'POST', 
-            data: {goods_id: options.id},
+            data: { id: options.id },
             header: {
                 'content-type': 'application/x-www-form-urlencoded'
             },
             success: function (res) {
+                // console.log(res);
                 that.setData({
-                    goodsInfo:{}
+                    goodsInfo:res.data.data
                 });
             }
         });
+        // 获取商品关联的评论
+        wx.request({
+            url: app.globalData.QueryCommentUrl,
+            method: 'POST',
+            data: { goodsId: options.id, page:1, pageSize:2 },
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+                // res.data.data.list.img = res.data.data.list.img.split(',')
+                that.setData({
+                    // goodsInfo:res.data.data
+                });
+            }
+        });
+        // 获取猜你喜欢
+        wx.request({
+            url: app.globalData.getGoodsBySaleCountUrl,
+            method: 'POST',
+            data: { id: options.id },
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+                console.log(res.data)
+                that.setData({
+                    youLike:res.data.data
+                });
+            }
+        });
+
+
     },
 
     /**
@@ -117,15 +160,15 @@ Page({
 
     },
     // 增加数量
-    addCount(e) {
-    let num = this.data.goods_num;
-    num = num + 1;
-    this.setData({
-        goods_num: num
-    });
+    addCount:function(e) {
+        let num = this.data.goods_num;
+        num = num + 1;
+        this.setData({
+            goods_num: num
+        });
     },
     // 减少数量
-    minusCount(e) {
+    minusCount: function(e) {
         let num = this.data.goods_num;
         if (num <= 1) {
             return false;
@@ -141,10 +184,40 @@ Page({
      * 添加到购物车按钮
      */
     addToCart: function (e) {
-        // 获取id
         var id = e.currentTarget.dataset.id;
+        var num = this.data.goods_num;
+        var totalPrice = num * (this.data.goodsInfo.price);
+        // console.log(id,num,totalPrice);
         // 调用 加入购物车 全局方法
-        util.addToCartFun(id);
+        util.addToCartFun(id,totalPrice,num);
+    },
+
+    /**
+     * 加入收藏
+     */
+    joinTheCollection:function(e){
+        var id = e.currentTarget.dataset.goodsId;
+        wx.request({
+            url: app.globalData.insertCollectionUrl,
+            method: 'POST',
+            // data: { goodsId: id ,userId:, myType:1},
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+               
+            }
+        });
+    },
+
+    /**
+     * 查看全部评论
+     */
+    viewAllComment:function(){
+        var that = this;
+        wx:wx.navigateTo({
+            url: '/page/all_comment/all_comment?goodsId='+that.data.goodsIngo.id
+        });
     }
 
 
