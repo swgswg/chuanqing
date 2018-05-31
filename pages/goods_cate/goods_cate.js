@@ -1,5 +1,6 @@
 // pages/goods_cate/goods_cate.js
 var input_value = '';
+var app = getApp();
 Page({
 
     /**
@@ -22,24 +23,26 @@ Page({
      */
     onLoad: function (options) {
         var that = this;
+        // 获取分类组
         wx.request({
-            url: 'http://192.168.3.25:8080/redwine/goodsGroup/getGroup',
-            data: {},
+            url: app.globalData.baseUrl+'redwine/goodsGroup/getGroup',
             method: 'POST',
+            data: {},
             success: function (res) {
                 // { groupId: 1, name: "法国", id: 1, classImg: "1.jpg" }
                 that.setData({
-                    goodsGroup: res.data.data
+                    goodsGroup: res.data.data,
                 });
             }
         });
+        // 获取分类类别
         wx.request({
-            url: 'http://192.168.3.25:8080/redwine/goodsClass/getGoodsClass',
-            data: { groupId: 1 },
+            url: app.globalData.baseUrl +'redwine/goodsClass/getGoodsClass',
+            method:'POST',
+            data: { groupId: 1},
             header: {
                 'content-type': 'application/x-www-form-urlencoded'
             },
-            method: 'POST',
             success: function (res) {
                 that.setData({
                     goodsClass: res.data.data
@@ -114,45 +117,44 @@ Page({
         that.setData({
             current_id:id
         });
-        // 发送请求,获取类别
+        // 获取类别
         wx.request({
-            url: 'http://192.168.3.25:8080/redwine/goodsClass/getGoodsClass',
+            url: app.globalData.baseUrl+'redwine/goodsClass/getGoodsClass',
+            method: 'POST',
             data: {groupId:id},
             header: {
                 'content-type': 'application/x-www-form-urlencoded'
             },
-            method:'POST',
             success: function (res) {
                 that.setData({
                     goodsClass:res.data.data
                 });
             }
         });
-
     },
 
     /**
      * 搜索框失去焦点时
      */
-    input_blur:function(e){        
+    inputBlur:function(e){        
         input_value = e.detail.value;
     },
 
     /**
      * 搜索商品
      */
-    search_goods:function(){
+    searchGoods:function(){
         var input_val = input_value;
-        my_search(input_val);
+        mySearch(input_val);
     },
     /**
      * 点击完成按钮时触发
      */
-    input_confirm:function(e){
+    inputConfirm:function(e){
         // 获取输入的值
         var val = e.detail.value;
         // 搜索
-        my_search(val);
+        mySearch(val);
     },
 
     /**
@@ -176,7 +178,7 @@ Page({
 /**
  * 搜索的方法
  */
-function my_search(val) {
+function mySearch(val) {
     console.log(val);
 }
 

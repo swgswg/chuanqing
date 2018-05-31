@@ -34,7 +34,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    baseUrl:'http://39.107.70:8080/',
   }
 
 })

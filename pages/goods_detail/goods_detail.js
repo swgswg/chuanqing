@@ -44,10 +44,14 @@ Page({
      */
     onLoad: function (options) {
         var that = this;
-        // 获取商品闯过来的id,发送请求获取商品信息
+        // 获取商品传过来的id,发送请求获取商品信息
         wx.request({
-            url: '', 
+            url: getApp().globalData.getGoodsDetailUrl,
+            method:'POST', 
             data: {goods_id: options.id},
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
             success: function (res) {
                 that.setData({
                     goodsInfo:{}

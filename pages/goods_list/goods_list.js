@@ -34,19 +34,19 @@ Page({
             });
         }
         // 通过类别id获取商品
-        // wx.request({
-        //     url: 'http://192.168.3.25:8080/redwine/goods/getGoodsByClass',
-        //     data: { classId: options.classid, page: scrollPage },
-        //     method:'POST',
-        //     header: {
-        //         'content-type': 'application/x-www-form-urlencoded'
-        //     },
-        //     success: function (res) {
-        //         that.setData({
-        //             goods: res.data.data
-        //         });
-        //     }
-        // });
+        wx.request({
+            url: getApp().globalData.baseUrl+'redwine/goods/getGoodsByClass',
+            data: { classId: options.classid, page: scrollPage },
+            method:'POST',
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+                that.setData({
+                    goods: res.data.data
+                });
+            }
+        });
     },
 
     /**
@@ -124,8 +124,6 @@ Page({
             });
             multiple_flag = true;
         }
-     
-
     },
 
     /**

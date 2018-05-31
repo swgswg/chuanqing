@@ -1,14 +1,14 @@
 <!--搜索start  -->
 <view class="search">
     <view class="form">
-        <image class="btn" src="/images/icon_search.png" bindtap="search_goods"></image>
+        <image class="btn" src="/images/icon_search.png" bindtap="searchGoods"></image>
         <input class="input" type="text"  placeholder="输入商品名称"  
             confirm-type="search" 
-            bindblur="input_blur" 
-            bindconfirm="input_confirm" 
+            bindblur="inputBlur" 
+            bindconfirm="inputConfirm" 
         />       
     </view>
-    <image src="../../images/lindang.png" bindtap="search_goods" />
+    <image src="../../images/lindang.png" bindtap="searchGoods" />
 </view>
 <!--搜索end  -->
 <view class="group_class">
@@ -24,9 +24,11 @@
         <!--分类组end  -->
     </view>
     <view class="adv_class">
+    
         <!--广告start  -->
         <image class="adv" src=''></image>
         <!--广告end  -->
+
         <!--类别start  -->
         <view class="goods-class">
             <block wx:for="{{goodsClass}}" wx:for-item="goodsClass">
@@ -35,7 +37,7 @@
                     data-classid="{{goodsClass.id}}" 
                     data-classname = "{{goodsClass.name}}"
                 >
-                    <image src="../../images/class_bg.png" />
+                    <image src="{{goodsClass.classImg}}" />
                     <text>{{goodsClass.name}}</text> 
                 </view>
              </block>
