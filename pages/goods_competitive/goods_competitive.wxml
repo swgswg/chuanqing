@@ -1,4 +1,3 @@
-<!--pages/goods_competitive/goods_competitive.wxml-->
 <view>
     <image class="adv" src="../../images/goods_competitive.png"></image>
 </view>
@@ -21,7 +20,4 @@
             </view>
         </scroll-view>
     </view>
-
-
-
 </view>

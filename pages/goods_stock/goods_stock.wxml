@@ -1,21 +1,24 @@
 <view>
-    <image src="../../images/goods_competitive.png" style='width:100%;height:300rpx'></image>
+    <image class="adv" src="../../images/goods_competitive.png"></image>
 </view>
 <view class="hot-selling">
-    <view class="rexiao">库存</view>
-    <view class="goods-list" wx:for="{{[1,2,3,4]}}">
-        <view class="goods-info">
-            <navigator url="../stock_detail/stock_detail?id={{}}">
-                <view class="goods-img">
-                    <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
+    <view class="rexiao">热销榜</view>
+    <view class="goods-seckill">
+        <scroll-view scroll-y="true" style='width:100%;;height:100%'>
+            <view class="goods-list">
+                <view class="goods-info" catchtap='info' wx:for="{{[1,2,3,4,5,6]}}">
+                    <view class="goods-img">
+                        <image src='../../images/hongjiu.png'></image>
+                    </view>
+                    <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒</view>
+                    <view style='font-size:26rpx;color:#999;margin:12rpx 0 0 20rpx;'>库存:100</view>
+                    <view class="price-cart">
+                        <view class="maichujia">¥39.00</view>
+                        <view class="huaxianjia">¥79.00</view>
+                        
+                    </view>
                 </view>
-            </navigator>
-            <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒</view>
-            <view class="stock">库存: 100</view>
-            <view class="price-cart">
-                <view>¥39.00</view>
-                <view class="del-price">¥39.00</view>
             </view>
-        </view>
+        </scroll-view>
     </view>
 </view>
