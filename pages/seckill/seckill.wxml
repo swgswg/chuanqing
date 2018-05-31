@@ -3,7 +3,7 @@
 </view>
 <view class="container">
     <view class="goods-seckill">
-    <scroll-view scroll-y="true" style='width:100%;;height:100%'>
+        <scroll-view scroll-y="true" style='width:100%;;height:100%'>
             <view class="goods-list">
                 <view class="goods-info" catchtap='info' wx:for="{{[1,2,3,4,5,6]}}">
                     <view class="goods-img">

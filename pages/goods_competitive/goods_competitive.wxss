@@ -1,35 +1,53 @@
-/* pages/goods_competitive/goods_competitive.wxss */
+.adv{
+    width: 100%;
+    height: 340rpx;
+}
 .hot-selling {
     background-color: #f0f0f0;
 }
 .hot-selling .rexiao {
     width: 100%;
-    height: 80rpx;
-    /* border: 1px solid red; */
+    height: 80rpx; 
+    box-sizing: border-box; 
     text-align: center;
     line-height: 80rpx;
 }
-
+.goods-seckill {
+    /* margin-top: 340rpx; */
+    padding:0 20rpx;
+    box-sizing: border-box;
+    width: 100%;
+    height: 775rpx;
+}
 .goods-list{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; 
+    flex-direction: row; 
+    flex-wrap: wrap;  
+    justify-content: space-around;
     width: 100%;
     /* background-color: red; */
 }
 .goods-info {
-    width: 45%;
-    height: 480rpx;
-    margin: 15rpx;
-    /* border: 1px solid red; */
+    float: left;
+    width: 345rpx;
+    height: 430rpx;
+    margin-bottom: 20rpx;
+    /* margin:0 0 20rpx 20rpx; */
     background-color: #fff;
 }
 .goods-img{
+    margin-top: 16rpx;
     text-align: center;
+}
+.goods-img image{
+    width: 313rpx;
+    height: 244rpx;
+    border: 1px solid red;
 }
 .goods-name{
     padding:0 20rpx;
-    font-size: 28rpx;
+     font-size: 26rpx; 
+    color: #333;
     /* overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap; */
@@ -38,6 +56,5 @@
     display: flex;
     justify-content:space-between;
     padding: 20rpx;
-    color: #ee5353;
-
+    align-items: center;
 }
