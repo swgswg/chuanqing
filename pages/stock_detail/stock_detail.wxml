@@ -1,15 +1,15 @@
 <view class="containers">
-    <!--轮播图start  -->
-        <view class="swiper">
-            <swiper indicator-dots="true" autoplay="true" circular="true">
-                <block wx:for="{{goodsInfo.goods_img}}">
-                    <swiper-item>
-                        <image src="{{item}}" />
-                    </swiper-item>
-                </block>
-            </swiper>
-        </view>
-    <!--轮播图end  -->
+  <!--轮播图start  -->
+<view class="swiper">
+    <swiper indicator-dots="true" autoplay="true" circular="true" indicator-color="rgba(207,209,210,0.8)" indicator-active-color="#efe5c4">
+        <block wx:for="{{goodsInfo.goods_img}}">
+            <swiper-item>
+                <image src="{{item}}" />
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<!--轮播图end  -->
     <view class="goods-name">
         {{goodsInfo.goods_name}}
     </view>
@@ -34,42 +34,40 @@
     </view>
     <view class="msg">有货,预计3天内到达</view>
     <view class="jianju" style="height:20rpx;background-color:#eee"></view>
-    <view class="comment">
-        <view>商品评价 (385)</view>
-        <view style='color:red;'>查看全部 
-            <view style='float:right;color:#aaa;margin-left:8rpx;'> 〉</view>
-        </view>
+   <view class="comment">
+    <view>商品评价 (385)</view>
+    <view style='font-size:24rpx;color:#cf000d;'>查看全部 
+        <image src="../../images/fanhui.png" style='float:right;width:14rpx;height:26rpx;;margin:3rpx 0 0 10rpx;' />
     </view>
-    <view>
-        <view class="short-comment">一坛好酒</view>
-        <view class="long-comment">
-            东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
-            东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
-        </view>
-        <view class="comment-img">
-            <block wx:for="{{commentImg}}">
-                <image src="{{item}}" />
-            </block>
-        </view>
+</view>
+<view style="border-bottom:4rpx solid #eee;">
+    <view class="short-comment">一坛好酒</view>
+    <view class="long-comment">
+        东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
+        东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
     </view>
+    <view class="comment-img">
+        <block wx:for="{{commentImg}}">
+            <image src="{{item}}" />
+        </block>
+    </view>
+</view>
     <view class="jianju" style="height:100rpx;"></view>
     <view class="bottom-btn">
         <view class="custom-service">
-            <view class=""><image src='../../images/kefu.png'></image></view>
+            <image src='../../images/kefu.png' />
             <view style="margin-top:-10rpx;">在线客服</view>
         </view>
         <view bindtap='application_for_repurchase' class="custom-service">
-            <view class=""><image src='../../images/huigou.png'></image></view>
+            <image src='../../images/huigou.png' />
             <view style="margin-top:-10rpx;">申请回购</view>
         </view>
         <navigator url="../commit_order/commit_order?id={{goodsInfo.id}}">
             <view bindtap="self_extraction" class="custom-service ziti">
-                <!-- <view class=""><image src='../../images/huigou.png'></image></view> -->
                 <view>自提</view>
             </view>
         </navigator>
          <view bindtap='immediate_sales' class="custom-service immediate-sale">
-            <!-- <view class=""><image src='../../images/huigou.png'></image></view> -->
             <view>立即出售</view>
         </view>
     </view>
