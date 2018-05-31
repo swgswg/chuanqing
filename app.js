@@ -68,6 +68,8 @@ App({
     QueryCommentUrl: baseUrl +'redwine/order/QueryComment',
     insertCollectionUrl: baseUrl +'redwine/collection/insertCollection',
     getGoodsBySaleCountUrl: baseUrl + 'redwine/goods/getGoodsBySaleCount',
+    getAddrByDefaultUrl: baseUrl + 'redwine/addr/getAddrByDefault',
+
     userLoginUrl: baseUrl+ 'redwine/user/userLogin'
   }
 

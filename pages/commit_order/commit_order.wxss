@@ -5,21 +5,26 @@ page{
     position: relative;
     width: 100%;
     height: 170rpx;
-    background-color: #fff;
-    font-size: 30rpx;
-    padding: 20rpx;
+    padding: 32rpx 20rpx;
     box-sizing: border-box;
-    /* border:1px solid red; */
+    font-size: 30rpx;
+    color: #333;
+    background-color: #fff;
+    /* border:1px solid red;f  */
 }
 .consignee .consignee-font2{
-    margin-top: 20rpx;
+    margin-top: 30rpx;
     font-size: 25rpx;
     color: #aaa;
 }
-.consignee .consignee-btn{
+.consignee .consignee-img{
     position: absolute;
     top: 40%;
     left: 95%;
+}
+.consignee .consignee-img image{
+    width: 13rpx;
+    height: 24rpx;
 }
 .myorder_each{
     /* height: 220rpx;  */
@@ -28,9 +33,8 @@ page{
 .goods-info{
     position: relative;
     width: 100%;
-     height: 160rpx; 
-    /* background-color: #eee; */
-     /* border: 1px solid red;  */
+    height: 160rpx; 
+    border-bottom: 1rpx solid #eee;   
 }
 .goods-info view{
     position: absolute;
@@ -47,12 +51,13 @@ page{
 }
 .goods-info .goods-name{
     position: absolute;
-    top: 30rpx;
-    left: 180rpx;
-    width:400rpx;
+    top: 33rpx;
+    left: 170rpx;
+    width:434rpx;
     height: 100rpx;
-    font-size: 25rpx; 
-    /* border: 1px solid red; */
+    font-size: 24rpx;
+    color: #333; 
+     /* border: 1px solid red;  */
 }
 .goods-price{
     position: absolute;
@@ -60,7 +65,8 @@ page{
     right: 20rpx;
     width: 100rpx;
     height: 150rpx;
-    font-size: 28rpx;
+    font-size: 24rpx;
+    color: #ed0000;
     /* border: 1px solid red;  */
 }
 .goods-price .buy-price{
@@ -68,18 +74,19 @@ page{
     right: 0;
     color: red;
 }
-.goods-price .huaxian-price{
+ .goods-price .huaxian-price{
     position: absolute;
     top: 40rpx;
     right: 0;
     text-decoration: line-through;
     font-size: 25rpx;
     color: #aaa;
-}
+} 
 .goods-price .buy-number{
     top: 75rpx;
     right: 0;
-    color: #aaa;
+    font-size:24rpx;
+    color: #ccc;
 }
 .order-summary{
     width: 100%;
@@ -95,11 +102,13 @@ page{
 .invoice-information{
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     width: 100%;
-    height: 50rpx;
+    height: 80rpx;
     margin-top:20rpx; 
     padding: 20rpx;
     font-size: 30rpx;
+    color:#666;
     line-height: 50rpx;
     background-color: #fff; 
      /* border:1px solid red;  */
@@ -118,8 +127,8 @@ page{
     background-color: #fff;
 }
 .remarks textarea{
-    width: 94%;
-    height: 150rpx;
+    width: 710rpx;
+    height: 160rpx;
     border-radius: 15rpx;
     font-size: 25rpx;
     padding: 20rpx;
@@ -131,13 +140,15 @@ page{
     padding: 20rpx;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 30rpx;
+    color: #666;
     background-color: #fff;
     border-bottom: 1rpx solid #eee;
 }
 .goods-total-font2{
-    font-size: 25rpx;
-    color: red;
+    font-size: 24rpx;
+    color: #ed0000;
 }
 .qurenziti{
     position: fixed;
@@ -145,26 +156,27 @@ page{
     left: 0;
     z-index: 9999;
     width: 100%;
-    height: 150rpx;
-    font-size: 35rpx;
+    height: 98rpx;
+    font-size: 36rpx;
     background-color: #fff;
 }
 .qurenziti .qurenziti-font{
     display: inline-block;
     width: 450rpx;
-    height: 100rpx;
+    height: 98rpx;
     padding: 20rpx;
+    color:#333;
     box-sizing: border-box;
-    /* border: 1px solid red; */
+}
+.qurenziti .qurenziti-font text{
+    color:#ed0000;
 }
 .qurenziti .qurenziti-btn{
     display: inline-block;
     width: 300rpx;
-    height: 100rpx; 
+    height: 98rpx; 
     text-align: center;
-    line-height: 90rpx; 
-    /* font-size: 35rpx; */
-    /* border: 1px solid red; */
+    line-height: 90rpx;
     background-color: #ce000d;
     color: #fff;
 }

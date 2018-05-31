@@ -1,4 +1,5 @@
-// pages/all_comment/all_comment.js
+const app = getApp();
+var myPageSize = 20;
 Page({
 
     /**
@@ -12,15 +13,18 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        var that = this;
         wx.request({
-            url: getApp().globalData.getAllCommetnUrl,
+            url: app.globalData.QueryCommentUrl,
             method: 'POST',
-            // data: { goodsId: id ,userId:, myType:1},
+            data: { goodsId: id, page: 1, pageSize: myPageSize},
             header: {
                 'content-type': 'application/x-www-form-urlencoded'
             },
             success: function (res) {
-
+                that.setData({
+                    allComment:res.data.data
+                });
             }
         });           
     },
@@ -72,5 +76,36 @@ Page({
      */
     onShareAppMessage: function () {
     
+    },
+
+
+    /**
+     * 滚动到底部，触发 scrolltolower 事件
+     */
+    getCommet:function(){
+        // var that = this;
+        // myPageSize += 20;
+        // wx.request({
+        //     url: app.globalData.QueryCommentUrl,
+        //     method: 'POST',
+        //     data: { goodsId: id, page: 1, pageSize: myPageSize },
+        //     header: {
+        //         'content-type': 'application/x-www-form-urlencoded'
+        //     },
+        //     success: function (res) {
+        //         that.setData({
+        //             allComment: res.data.data
+        //         });
+        //     }
+        // });    
     }
+
+
+
+
+
+
+
+
+    
 })

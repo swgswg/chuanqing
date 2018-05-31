@@ -1,9 +1,9 @@
 <view style="margin-top:20rpx;">
     <block wx:for="{{commit_order}}">
         <view class="consignee">
-            <view class="consignee-font1">收货人： {{item.consignee}}<text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text> {{item.consignee_tel}}</view>
+            <view class="consignee-font1">收货人： {{item.consignee}}<text style='margin-left:80rpx;'>{{item.consignee_tel}}</text> </view>
             <view class="consignee-font2">{{item.consignee_addr}}</view>
-            <view class="consignee-btn"> 〉</view>
+            <view class="consignee-img"><image src="../../images/fanhui.png" /></view>
         </view>
         <view style="margin-top:20rpx;">
             <view sytle="width:100%;background-color:#fff;">
@@ -25,7 +25,6 @@
                             </view>
                         </view>
                     </view>
-                    <view style="width:100%;border:2rpx solid #eee;"></view>
                 </block>
             </view>
         </view>
@@ -45,7 +44,7 @@
             <view class="goods-total-font2">¥{{item.goods_total}}</view>
         </view>
         <view class="qurenziti">
-            <view class="qurenziti-font">商品总价<text style='color:red;'> ¥{{item.goods_total}}</text></view>
+            <view class="qurenziti-font">商品总价<text> ¥{{item.goods_total}}</text></view>
             <view class="qurenziti-btn">{{btnText}}</view>
         </view>
     </block>

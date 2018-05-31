@@ -11,7 +11,7 @@ page{
     width: 50rpx;
     height: 50rpx;
     border-radius: 50%;
-    background-color: #000;
+    background-color: #aaa;
 }
 .user-name{
     margin-left:30rpx;

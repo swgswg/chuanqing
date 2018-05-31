@@ -48,6 +48,23 @@ function getPrevPageUrl() {
     return url
 }
 
+// function getPrevPage() {
+//     //获取加载的页面
+//     var pages = getCurrentPages();
+//     //获取上一级页面的对象
+//     var porevPage = pages[pages.length - 2];
+//     if (porevPage) {
+//         // //获取上一级页面的url
+//         var url = prevPage.route;
+//         if (url == 'pages/cart/cart') {
+//             this.setData({
+//                 btnText: '提交订单'
+//             });
+//         }
+//     }
+// }
+
+
 /**
  * 加入购物车
  * @param id 商品id
@@ -81,9 +98,10 @@ function addToCartFun(id,price,num){
 }
 
 module.exports = {
-  formatTime: formatTime,
-  getCurrentPageUrl: getCurrentPageUrl,
-  getCurrentPageUrlWithArgs: getCurrentPageUrlWithArgs,
-  getPrevPageUrl: getPrevPageUrl,
-  addToCartFun: addToCartFun
+    formatTime: formatTime,
+    getCurrentPageUrl: getCurrentPageUrl,
+    getCurrentPageUrlWithArgs: getCurrentPageUrlWithArgs,
+    getPrevPageUrl: getPrevPageUrl,
+    addToCartFun: addToCartFun,
+
 }

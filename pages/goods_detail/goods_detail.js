@@ -19,11 +19,6 @@ Page({
             // member_price:'99.00'
         },
         goods_num:1,  
-        imgUrls: [
-            '../../images/swiper.png',
-            '../../images/swiper.png',
-            '../../images/swiper.png'
-        ],
         commentInfo:[
             // {
             //     img:'../../images/swiper.png,../../images/swiper.png,../../images/swiper.png',
@@ -32,19 +27,15 @@ Page({
             //     total:
             // }
         ],
-        commentImg: [
-            '../../images/comment-img.png',
-            '../../images/comment-img.png',
-            '../../images/comment-img.png',
-            '../../images/comment-img.png'
-        ],
+        
+        address : {},
         youLike:[
-            { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
-            { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
-            { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
-            { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
-            { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
-            { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" }
+            // { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
+            // { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
+            // { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
+            // { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
+            // { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
+            // { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" }
         ]
     },
 
@@ -99,8 +90,29 @@ Page({
                 });
             }
         });
-
-
+        // 获取用户的默认地址
+        wx.request({
+            url: app.globalData.getAddrByDefaultUrl,
+            method: 'POST',
+            data: { user_id: userId },
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+                console.log(res.data)
+                if(res.data.status == 1){
+                    that.setData({
+                        address: res.data.data
+                    });
+                } else {
+                    wx.showToast({
+                        title: res.data.message,
+                        icon: 'none',
+                        mask:true
+                    })
+                } 
+            }
+        });
     },
 
     /**
@@ -152,13 +164,6 @@ Page({
 
     },
 
-    /**
-     * 立即购买按钮
-     */
-    immediatePurchase: function(){
-        // 获取商品id 数量
-
-    },
     // 增加数量
     addCount:function(e) {
         let num = this.data.goods_num;
@@ -178,7 +183,6 @@ Page({
             goods_num: num
         });
     },
-
 
     /**
      * 添加到购物车按钮
@@ -218,7 +222,19 @@ Page({
         wx:wx.navigateTo({
             url: '/page/all_comment/all_comment?goodsId='+that.data.goodsIngo.id
         });
-    }
+    },
 
+    /**
+    * 立即购买
+    */
+    immediatePurchase: function () {
+        var goodsId = this.data.goodsInfo.id;
+        var num = this.data.goods_num;
+        var totalPrice = this.data.goodsInfo.price*num;
+        wx: wx.navigateTo({
+            // url: '/pages/commit_order/commit_order?goodsId='+goodsId+'&num='+num+'&totalPrice='+totalPrice,
+            url: '/pages/commit_order/commit_order'
+        })
+    }
 
 })

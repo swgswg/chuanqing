@@ -74,8 +74,8 @@
 </view> -->
 
 
- <view class="jianju" style="height:20rpx;background-color:#eee"></view> 
- <view style='margin-top:30rpx;'> 
+<view class="jianju" style="height:20rpx;background-color:#eee"></view> 
+<view style='margin-top:30rpx;'> 
     <view class="guess">猜你喜欢</view>
     <view class="youlike">
         <block wx:for="{{youLike}}">
@@ -86,7 +86,7 @@
             </view>
         </block>
     </view>
- </view> 
+</view> 
 <view style="clear:both"></view>
 <view class="jianju" style="height:20rpx;background-color:#eee"></view>
 <view>
@@ -123,6 +123,6 @@
         <view bindtap='addToCart' data-id="{{goodsInfo.id}}">加入购物车</view>
     </view>
         <view class="custom-service immediate-sale">
-        <view bindtap='immediatePurchase' data-id="{{goodsInfo.id}}">立即购买</view>
+        <view bindtap='immediatePurchase'>立即购买</view>
     </view>
 </view>
