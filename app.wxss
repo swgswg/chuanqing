@@ -79,3 +79,35 @@ radio .wx-radio-input.wx-radio-input-checked::before{
     width:100rpx;
     height: 100rpx;
 }
+/*数量加减样式  */
+.number{
+    width: 100%;
+    height: 50rpx;
+    padding: 20rpx;
+    font-size: 40rpx;
+    line-height: 50rpx;
+    color: #777;
+    /* border: 1px solid red;  */
+}
+.jian,.num,.jia{
+    width: 50rpx;
+    height: 50rpx;
+    border: 2rpx solid #ccc;
+    text-align: center;
+    line-height: 50rpx; 
+     font-size: 50rpx; 
+    float: left; 
+}
+.jian{
+    margin-left:30rpx;
+    border-radius: 5rpx 0 0 5rpx; 
+}
+.jia{
+    border-radius: 0 5rpx 5rpx 0;
+}
+.num{
+    width: 80rpx;
+    border-left:0;
+    border-right:0;
+    font-size: 30rpx;
+}

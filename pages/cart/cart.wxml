@@ -1,6 +1,7 @@
 <view style='position:relative;padding-bottom:100rpx;box-sizing: border-box;'>
     <view class="edit" bindtap='cartEdit'>{{editText}}</view>
-     <block wx:if="{{hasList == false}}"> 
+    <!--购物车空 start  -->
+     <block wx:if="{{!hasList}}"> 
         <view class="cart-empty">
             <view>
                 <image src="../../images/icon_cart_empty.png"></image>
@@ -11,76 +12,83 @@
             </view>
         </view>
      </block>
-     <view style='width:100%;height:900rpx;'>
-     <scroll-view scroll-y="ture" style='width:100%;height:100%;'> 
-     <block wx:if="{{hasList == true}}"> 
-        <view style="margin-top:20rpx;">
-            <block wx:for="{{carts}}"> 
-                <view class="buy-goods">
-                    <view class="checkbox">
-                            <checkbox checked='{{item.selected}}' bindtap="selectList" data-index="{{index}}" />
-                    </view>
-                    <view class="goods-img">
-                        <!-- 点击商品图片可跳转到商品详情 -->
-                        <navigator url="../goods_detail/goods_detail?id={{item.id}}">
-                            <image src="{{item.goods_img}}"></image>
-                        </navigator>
-                    </view>
-                    <view class="goods-name">
-                        {{item.goods_name}}
-                    </view>
-                    <view class="goods-pricee">
-                        ¥{{item.goods_price}}
-                    </view>
-                    <view class="number">
-                        <view class="jian" bindtap="minusCount" data-index="{{index}}">-</view>
-                        <view class="num">{{item.num}}</view>
-                        <view class="jia"  bindtap="addCount" data-index="{{index}}">+</view>
-                    </view>
-                    <view class="tishi">单次购买满50瓶成为经销商享更多优惠</view>      
+    <!--购物车空 end  -->
+     
+    <view style='width:100%;height:900rpx;'>
+        <scroll-view scroll-y style='width:100%;height:100%;'> 
+            <!--商品 start  -->
+            <block wx:if="{{hasList == true}}"> 
+                <view style="margin-top:20rpx;">
+                    <block wx:for="{{carts}}" wx:key="{{item.id}}"> 
+                        <view class="buy-goods">
+                            <view class="checkbox">
+                                <checkbox checked='{{item.selected}}' bindtap='selectList' data-index="{{index}}" />
+                            </view>
+                            <view class="goods-img">
+                                <!-- 点击商品图片可跳转到商品详情 -->
+                                <navigator url="../goods_detail/goods_detail?id={{item.id}}">
+                                    <image src="{{item.goods_img}}"></image>
+                                </navigator>
+                            </view>
+                            <view class="goods-name">
+                                {{item.goods_name}}
+                            </view>
+                            <view class="goods-pricee">
+                                ¥{{item.goods_price}}
+                            </view>
+                            <view class="number">
+                                <view class="jian" bindtap="minusCount" data-index="{{index}}">-</view>
+                                <view class="num">
+                                    <input bindinput='inputNum' bindblur='blurNum' bindconfirm='blurNum'
+                                        value="{{item.num}}" 
+                                        data-index="{{index}}" type="number"/>
+                                    </view>
+                                <view class="jia"  bindtap="addCount" data-index="{{index}}">+</view>
+                            </view>
+                            <view class="tishi">单次购买满50瓶成为经销商享更多优惠</view>      
+                        </view>
+                    </block> 
                 </view>
             </block> 
-        </view>
-     </block> 
-    <!-- 猜你喜欢start  -->
-    <view hidden="{{youlike_hidden}}">
-        <view class="youlike">
-            <view class="youlike-line1"></view>
-            <view class="youlike-font">猜你喜欢</view>
-            <view class="youlike-line2"></view>
-        </view>
-        <view style="display:flex;flex-wrap:wrap">
-            <block wx:for="{{[1,2,3]}}">
-                <view class="goods-info">
-                    <view class="goods-img">
-                        <!-- 点击商品图片可跳转到商品详情 -->
-                        <!-- <navigator url="../goods_detail/goods_detail?id={{item.id}}"> -->
-                            <image src="../../images/youlike.png"></image>
-                        <!-- </navigator> -->
-                    </view>
-                    <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒礼盒木盒装750ml*2</view>
-                    <view class="goods-price">¥39.00</view>
+            <!--商品 end  -->
+            
+            <!-- 猜你喜欢start  -->
+            <view hidden="{{youlike_hidden}}">
+                <view class="youlike">
+                    <view class="youlike-line1"></view>
+                    <view class="youlike-font">猜你喜欢</view>
+                    <view class="youlike-line2"></view>
                 </view>
-            </block>
-        </view>
-    </view>
-    <!-- 猜你喜欢end  -->
-    </scroll-view>
+                <view style="display:flex;flex-wrap:wrap">
+                    <block wx:for="{{[1,2,3]}}" wx:key="id">
+                        <view class="goods-info">
+                            <view class="goods-img">
+                                <!-- 点击商品图片可跳转到商品详情 -->
+                                <!-- <navigator url="../goods_detail/goods_detail?id={{item.id}}"> -->
+                                    <image src="../../images/youlike.png"></image>
+                                <!-- </navigator> -->
+                            </view>
+                            <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒礼盒木盒装750ml*2</view>
+                            <view class="goods-price">¥39.00</view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <!-- 猜你喜欢end  -->
+        </scroll-view>
     </view>
      <view class="commit-cart" hidden="{{!editStatus}}">
         <view class="commit-cart-quanxuan">
             <checkbox checked='{{selectAllStatus}}' bindtap="selectAll" />全选
         </view>
-         <view class="commit-cart-heji">合计:<text style="color:red;">¥{{totalPrice}}</text></view>
-        <navigator url='../commit_order/commit_order'>
-            <view class="commit-cart-jiesuan">结算</view>
-        </navigator> 
+        <view class="commit-cart-heji">合计:<text style="color:red;">¥{{totalPrice}}</text></view>
+        <view bindtap='settleAccounts' class="commit-cart-jiesuan">结算</view>
     </view> 
     <view class="cart-edit" hidden="{{editStatus}}">
         <view class="commit-cart-quanxuan">
             <checkbox checked='{{selectAllStatus}}' bindtap="selectAll" />全选
         </view>
-        <view class="commit-cart-yirushoucang">移入收藏</view>
-        <view class="commit-cart-jiesuan"  bindtap="deleteList">删除商品</view>
+        <view bindtap='addCollection' class="commit-cart-yirushoucang">移入收藏</view>
+        <view bindtap="deleteList" class="commit-cart-jiesuan">删除商品</view>
     </view>
 </view>

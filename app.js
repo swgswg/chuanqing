@@ -1,5 +1,5 @@
 //app.js
-var baseUrl = 'http://192.168.3.25:8080/';
+var baseUrl = 'http://39.107.70:8080/';
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -13,29 +13,29 @@ App({
     //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
     //   }
     // )}
-      wx.login({
-          success: function (res) {
-              if (res.code) {
-                  //发起网络请求
-                  wx.request({
-                      url: 'http://192.168.3.25:8080/redwine/user/userLogin',
-                      method: 'POST',
-                      data: {code: res.code},
-                      header: {
-                          'content-type': 'application/x-www-form-urlencoded'
-                      },
-                      success: function (data) {
-                          console.log(data);
-                        //   that.setData({
-                        //       goodsInfo: {}
-                        //   });
-                      }
-                  })
-              } else {
-                  console.log('登录失败！' + res.errMsg)
-              }
-          }
-      });
+    //   wx.login({
+    //       success: function (res) {
+    //           if (res.code) {
+    //               //发起网络请求
+    //               wx.request({
+    //                   url: 'http://192.168.3.25:8080/redwine/user/userLogin',
+    //                   method: 'POST',
+    //                   data: {code: res.code},
+    //                   header: {
+    //                       'content-type': 'application/x-www-form-urlencoded'
+    //                   },
+    //                   success: function (data) {
+    //                       console.log(data);
+    //                     //   that.setData({
+    //                     //       goodsInfo: {}
+    //                     //   });
+    //                   }
+    //               })
+    //           } else {
+    //               console.log('登录失败！' + res.errMsg)
+    //           }
+    //       }
+    //   });
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -59,6 +59,7 @@ App({
   },
   globalData: {
     userInfo: null,
+    buyGoods:[],
     baseUrl:'http://192.168.3.25:8080/',
     getAllCommetnUrl:baseUrl+'redwine/order/QueryComment',
     getGroupUrl:baseUrl+'redwine/goodsGroup/getGroup',
@@ -69,7 +70,11 @@ App({
     insertCollectionUrl: baseUrl +'redwine/collection/insertCollection',
     getGoodsBySaleCountUrl: baseUrl + 'redwine/goods/getGoodsBySaleCount',
     getAddrByDefaultUrl: baseUrl + 'redwine/addr/getAddrByDefault',
-
+    getCartsUrl: baseUrl + 'redwine/carts/getCarts',
+    deleteCartsUrl: baseUrl + 'redwine/carts/deleteCarts',
+    InsertOrderUrl: baseUrl + 'redwine/order/InsertOrder',
+    getAddrUrl: baseUrl + 'redwine/addr/getAddr',
+   
     userLoginUrl: baseUrl+ 'redwine/user/userLogin'
   }
 

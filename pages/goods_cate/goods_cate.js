@@ -28,6 +28,9 @@ Page({
             url: app.globalData.getGroupUrl,
             method: 'POST',
             data: {},
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
             success: function (res) {
                 // { groupId: 1, name: "法国", id: 1, classImg: "1.jpg" }
                 that.setData({
