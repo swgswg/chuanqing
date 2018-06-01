@@ -1,12 +1,12 @@
 <view class="header">
     <navigator url="../news/news">
         <view class="xiaoxi">
-            <image src="../../images/email.png" style="width:50rpx;height:50rpx;"></image>
+            <image src="../../images/xiaoxi.png" style="width:40rpx;height:40rpx;"></image>
         </view>
     </navigator>
     <navigator url='../intercalate/intercalate'>
         <view class="shehzhi">
-            <image src="../../images/gear_09.png" style="width:50rpx;height:50rpx;"></image>
+            <image src="../../images/shezhi.png" style="width:40rpx;height:40rpx;"></image>
         </view>
     </navigator>
     <navigator url="../users/users/users">
@@ -49,21 +49,21 @@
 <view class="jianju" style="background-color:#eee;margin-top:20rpx;height:20rpx;"></view>
 <view class="three-caozuo">
     <navigator url="../browse_footprint/browse_footprint">
-        <view class="four-wait-each">
+        <view class="three-caozuo-each">
             <view><image src="../../images/zuji.png"></image></view>
             <view class="four-wait-each-font">浏览足迹</view>
         </view>
     </navigator>
-    <view class="four-wait-each">
+    <view class="three-caozuo-each">
         <view><image src="../../images/tihuo.png"></image></view>
         <view class="four-wait-each-font">提货</view>
     </view>
-    <view class="four-wait-each">
-        <view><image src="../../images/kefu.png"></image></view>
+    <view class="three-caozuo-each">
+        <view><image src="../../images/kefu2.png"></image></view>
         <view class="four-wait-each-font">客服</view>
     </view>
 </view>
-<view class="jianju" style="height:80rpx;"></view>
+<!-- <view class="jianju" style="height:80rpx;"></view> -->
 <view class="bottom">
     <view class="bottom-ad">
         <navigator url='/pages/trader/trader1/trader'>

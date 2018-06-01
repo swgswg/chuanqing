@@ -1,5 +1,6 @@
 {
     "pages":[
+        "pages/myinfo/myinfo",
         "pages/commit_order/commit_order",
         "pages/self_extraction/self_extraction",
         "pages/cart/cart",
@@ -13,7 +14,7 @@
         "pages/goods_competitive/goods_competitive",
         "pages/seckill/seckill",
         "pages/goods_list/goods_list",
-        "pages/myinfo/myinfo",
+        
         "pages/index/index",
         "pages/cart_edit/cart_edit",
         "pages/news/news",

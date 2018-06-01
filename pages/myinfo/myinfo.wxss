@@ -1,14 +1,11 @@
 .header{
     width: 100%;
-    height: 450rpx;
+    /* height: 100%; */
     background-color: #000;
-    padding-top: 20rpx; 
+    padding-top: 20rpx;
 }
 .shehzhi{
     float: right;
-    /* margin-right: 20rpx;
-    margin-left: 20rpx; */
-
 }
 .xiaoxi{
     float: right;
@@ -21,50 +18,49 @@
     margin-top: 100rpx; 
     width: 100%;
     height: 180rpx;
-    /* border-radius: 50%;  */
-    /* overflow: hidden;  */
-    /* border: 1px solid red;  */
 }
 .profile image{
-    width: 180rpx;
-    height: 180rpx;
+    width: 163rpx;
+    height: 163rpx;
     border-radius: 50%; 
 }
 .nickname {
     position: absolute;
-    top: 20rpx;
-    left: 220rpx;
+    top: 30rpx;
+    left: 203rpx;
     font-size: 30rpx;
-    color: #eee;
+    color: #fff;
 }
 .header .ad {
     margin-top: 20rpx;
     text-align: center;
 }
 .header .ad image{
-    width: 90%;
-    height: 150rpx;
+    width: 655rpx;
+    height: 115rpx;
 }
 .myorder-font{
     display: flex;
     justify-content:space-between;
-    padding: 20rpx;
+    width: 100%;
+    height: 90rpx;
+    padding: 33rpx 20rpx;
     box-sizing: border-box;
 }
 .myorder-font-1{
     font-size: 30rpx;
-    color: #666;
+    color: #333;
 }
 .myorder-font-2{
     font-size: 25rpx;
     color: #999;
 }
-.line{
-    margin-left: 20rpx;
+ .line{
+    margin: 20rpx 0 0 20rpx;
     width: 93%;
-    height: 4rpx;
-    background-color: #ddd;
-}
+    height: 2rpx;
+    background-color: #ccc;
+} 
 .four-wait{
     display: flex;
     justify-content:space-around;
@@ -72,26 +68,34 @@
 .four-wait-each{
     position: relative;
     text-align: center;
-    width: 100rpx;
+    width: 178rpx;
     height: 100rpx;
-    margin-top: 40rpx; 
-    /* line-height: 100rpx; */
-    /* border: 1px solid red; */
+    margin-top: 30rpx; 
 }
 .four-wait-each image{
-    width: 56rpx; 
-    height: 48rpx;
+    width: 50rpx; 
+    height: 50rpx;
 }
 .four-wait-each-font{
-    font-size: 25rpx;
+    font-size: 24rpx;
+    color: #333;
 }
 .three-caozuo{
     display: flex;
     justify-content:space-around;
+    padding-bottom:50rpx;
+    box-sizing: border-box;
 }
-.three-caozuo .four-wait-each image{
-    width: 70rpx; 
-    height: 70rpx;
+.three-caozuo-each{
+    width: 236rpx;
+    height: 130rpx;
+    margin-top:50rpx;
+    text-align: center;
+}
+.three-caozuo .three-caozuo-each image{
+    width: 56rpx; 
+    height: 56rpx;
+    margin-top: 12rpx;
 }
 .bottom{
     width: 100%;
@@ -103,8 +107,8 @@
 }
 .bottom-ad image{
     margin-top: 20rpx;
-    width: 90%;
-    height: 200rpx;
+    width: 710rpx;
+    height: 180rpx;
 }
 .membership-privilege{
     margin-top: 20rpx;
@@ -116,29 +120,27 @@
 }
 .membership-privilege-scroll{
     position: relative;
-    width: 200rpx;
-    height: 220rpx;
+    width: 160rpx;
+    height: 200rpx;
     display: inline-block;
     margin-right: 10rpx; 
-    /* border: 1px solid red; */
 }
 .membership-privilege-scroll image{
-    width: 200rpx;
-    height: 220rpx;
+    width: 160rpx;
+    height: 200rpx;
     z-index: 1;
 }
 .membership-privilege-scroll view{
     position: absolute;
-    top: 180rpx;
+    top: 160rpx;
     left: 0rpx;
     width: 100%;
     height: 40rpx;
     text-align: center;
     line-height: 40rpx;
-    font-size: 25rpx;
+    font-size: 24rpx;
     color: #fff;
-    background-color: #999;
-    opacity: 0.9;
-    /* border: 1px solid red; */
+    background-color: #666;
+    opacity: 0.5;
     z-index: 9999;
 }
