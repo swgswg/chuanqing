@@ -1,4 +1,5 @@
 <view style="margin-top:20rpx;">
+
     <navigator url="../sales_promotion/sales_promotion">
         <view class="lianxikefu">
             <image src="../../images/cuxiaotongzhi.png"></image>
@@ -6,6 +7,7 @@
             <view class="lianxikefu-font2">促销活动会显示在这里</view>
         </view>
     </navigator>
+
     <view class="lianxikefu">
         <image src="../../images/jiangjiatongzhi.png"></image>
         <view class="lianxikefu-font1">降价通知</view>

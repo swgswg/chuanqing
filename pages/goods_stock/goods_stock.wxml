@@ -2,6 +2,7 @@
     <image class="adv" src="../../images/goods_competitive.png"></image>
 </view>
 <view class="hot-selling">
+
     <view class="rexiao">热销榜</view>
     <view class="goods-seckill">
         <scroll-view scroll-y="true" style='width:100%;;height:100%'>
@@ -15,7 +16,6 @@
                     <view class="price-cart">
                         <view class="maichujia">¥39.00</view>
                         <view class="huaxianjia">¥79.00</view>
-                        
                     </view>
                 </view>
             </view>

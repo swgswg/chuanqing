@@ -5,14 +5,13 @@
 
     <!-- -->
     <view class="form">
-      <input class="input"  placeholder="输入商品名称" bindinput="bindKeywordInput" confirm-type="search" bindconfirm="bindKeywordConfirm"/>
       <image class="btn" src="../../../images/icon_search.png" bindtap="bindSearchTap"></image>
+      <input class="input"  placeholder="输入商品名称" bindinput="bindKeywordInput" confirm-type="search" bindconfirm="bindKeywordConfirm"/>
+
     </view>
 
-    <!--  -->
-    <view style='clear:both'></view>
     <view catchtap='activity'  class='sha'>
-        <image src='../../../images/bj.png' style='width:640rpx;height:100rpx;'></image>
+        <image src='../../../images/bj.png' style='width:600rpx;height:270rpx;'></image>
     </view> 
 
   </view>  
@@ -34,11 +33,11 @@
   <view class="content">
     <!--内容 1  -->
     <view>
-      <view class="c1"><image src='../../../images/c1.png' style='width:300rpx;height:320rpx;'></image></view>
+      <view class="c1"><image src='../../../images/c1.png' style='width:300rpx;height:330rpx;'></image></view>
 
       <view class="cc">
-        <view class="c2"><image src='../../../images/c2.png' style='width:300rpx;height:150rpx;'></image></view>
-        <view class="c3"><image src='../../../images/c3.png' style='width:300rpx;height:150rpx;'></image></view>
+        <view class="c2"><image src='../../../images/c2.png' style='width:380rpx;height:150rpx;'></image></view>
+        <view class="c3"><image src='../../../images/c3.png' style='width:380rpx;height:150rpx;'></image></view>
       </view>
 
     </view>
@@ -62,7 +61,7 @@
     <block wx:for="{{recommend}}">
       <navigator url="">
         <view class='z2'>
-          <view><image src='{{item.img}}' style='width:300rpx;height:350rpx;'></image></view>
+          <view class='pic'><image src='{{item.img}}' style='width:280rpx;height:350rpx;'></image></view>
           <view class='name'>{{item.name}}</view>
           <view class="miaosu">{{item.content}}</view>
           <view class="price">{{item.prices}}</view>

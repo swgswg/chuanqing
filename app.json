@@ -1,20 +1,20 @@
 {
     "pages":[
-        
+        "pages/trader/index/index",
         "pages/commit_order/commit_order",
         "pages/goods_detail/goods_detail",
         "pages/all_comment/all_comment",
+       
+        "pages/login/login",
         "pages/goods_cate/goods_cate",
         "pages/stock_detail/stock_detail",
         "pages/goods_stock/goods_stock",
         "pages/goods_competitive/goods_competitive",
         "pages/seckill/seckill",
         "pages/goods_list/goods_list",
-        
         "pages/myinfo/myinfo",
         "pages/index/index",
         "pages/cart/cart",
-        
         "pages/cart_edit/cart_edit",
         "pages/news/news",
         "pages/myorder/myorder",
@@ -23,16 +23,15 @@
         "pages/browse_footprint/browse_footprint",
         "pages/comment/comment",
         "pages/sales_promotion/sales_promotion",
+        "pages/address/address/address",
         "pages/trader/sell/sell",
         "pages/trader/user/user",
         "pages/trader/tixian/tixian",
         "pages/trader/trader1/trader",
         "pages/trader/note/note",
-        "pages/trader/index/index",
         "pages/address/add/add",
         "pages/address/insert/insert",
         "pages/address/address1/address1",
-        "pages/address/address/address",
         "pages/users/nechen/nechen",
         "pages/users/users/users",
         "pages/trader/huigou/huigou", 

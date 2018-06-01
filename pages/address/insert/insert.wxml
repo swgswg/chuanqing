@@ -15,17 +15,22 @@
   <view>
     <view>
       <!-- 设置默认框 -->
-      <label class="radio" class="check">
-      <radio value="" checked=""/>
-      </label>
-      <text class="bianji">默认地址</text>
+      <view>
+          <checkbox-group name="checkbox" class="check">
+            <label><checkbox value="checkbox1"/></label>
+          </checkbox-group>
+            <text class="bianji">默认地址</text>
+      </view>
+
          <navigator url="" style='float:left;'>
             <!--编辑  -->
-           <text decode="{{true}}"  class="bianji" >&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;编辑</text>
+             <image src='../../../images/18.png' class='del' style='margin-left:250rpx;'></image>                 
+           <text decode="{{true}}"  class="bianji"  >编辑</text>
         </navigator>
       <!--删除  -->
         <navigator url=""  style='float:left;'>
-          <text decode="{{true}}"  class="bianji" > &nbsp;&nbsp; 删除</text>
+          <image src='../../../images/del.png' class='del'></image>
+          <text decode="{{true}}"  class="bianji" >删除</text>
         </navigator>      
     </view>  
   </view>

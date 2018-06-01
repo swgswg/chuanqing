@@ -1,9 +1,11 @@
 
 /*图片样式  */
 .picture{
-  width:40%;
+  width: 160rpx;
+  height: 160rpx;
   float:left; 
-  margin-left:30rpx
+  margin-left:20rpx;
+  /* margin-top: 20rpx; */
 }
 
 /*距离顶部  */
@@ -17,28 +19,34 @@
 .xia{
   height: 2rpx;
   width:100%;
+  margin-top:20rpx;
   background: #ddd;
 }
 
 /*内容  */
 .content{
   width:60%;
-  height:250rpx;
+  height:200rpx;
+  /* margin-top: 35rpx; */
 }
 
 .name{
-  font-size: 30rpx;
-  margin-top:30rpx;
+  font-size: 24rpx;
+  margin-top:35rpx;
+  color: #333333;
+  margin-left:230rpx; 
 }
 
 .price{
-  font-size: 30rpx;
+  font-size: 24rpx;
   color:red;
-   margin-top:25rpx;
+  margin-top:20rpx;
+  margin-left:230rpx;  
 }
 
 .text{
-  font-size: 30rpx;
+  font-size: 20rpx;
   color:#ddd;
-  margin-top:25rpx;
+  margin-top:20rpx;
+  margin-left:230rpx; 
 }

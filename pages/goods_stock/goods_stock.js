@@ -8,6 +8,13 @@ Page({
   
   },
 
+  // 库存详情
+  kcinfo: function(){
+    wx.navigateTo({
+      url: '/pages/stock_detail/stock_detail'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

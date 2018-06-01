@@ -5,27 +5,35 @@ page{
 
 /*温馨提示总边框  */
 .waibain{
-  width:80%;
+  width:630rpx;
   height:400rpx;
-  margin-left: 80rpx;
-  margin-top: 240rpx;
+  margin-left: 65rpx;
+  margin-top: 457rpx;
   background: white;
   border-radius:20rpx; 
 }
 
 /*提示  */
 .tishi{
+  margin-left: 250rpx;
+  line-height: 150rpx;
+}
+.ti2{
+  margin-left: 140rpx;
+  color: #bcbcbc;
+}
+.ti3{
   margin-left: 230rpx;
-  line-height: 140rpx;
+  color: #bcbcbc;
 }
 
 /*按钮  */
 .bt{
   width:50%;
-  height: 140rpx;
+  height: 90rpx;
   text-align: center;
   float: left;
-  margin-top:90rpx; 
+  margin-top:100rpx; 
 }
 /*俩边框的距离  */
 .juli{
@@ -38,6 +46,11 @@ page{
   line-height: 900rpx;
   margin-left: 200rpx;
   font-size: 30rpx;
+}
+
+.px{
+  margin-top: 50rpx;
+  margin-left: 60rpx;
 }
 
 /*添加新地址  */

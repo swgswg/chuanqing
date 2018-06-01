@@ -2,18 +2,29 @@
   <!--头部呢称  -->
  
   <view class="head">
+    <view style='height:30rpx;'>
+      <navigator url='/pages/news/news'>
+            <view class='xinxi'><image src='../../../images/email.png' style="width:50rpx;height:40rpx;margin-right:40rpx;float:right;" ></image></view>
+      </navigator>
+      <navigator url='/pages/intercalate/intercalate'>
+            <view class='shezhi'><image src='../../../images/gear_09.png' style="width:50rpx;height:40rpx;float:right;margin-right:25rpx;" ></image></view>
+      </navigator>
+
+    </view>
     <view class="file"><image src=""></image></view>
     <navigator url='/pages/users/users/users'>
       <view class="nechen">还没有设置呢称 </view>
      </navigator>  
     <view class="img"><image src="../../../images/tou.png"style="width:50rpx;height:40rpx;" ></image></view>
+
   </view>
 
   <!--查看订单  -->
   <navigator url='/pages/myorder/myorder'>
-  <view style='display:flex;justify-content:flex-start;' >
-  <text class="ding"> 查看全部订</text>
-  <image src='../../../images/icon_right.png' style='width:30rpx;height:30rpx;margin-left:30rpx;margin-top:15rpx;'></image>
+  <view style='display:flex;justify-content:flex-start;height:85rpx;' >
+  <text class='my'>我的订单</text>
+  <text class="ding"> 查看全部订单</text>
+  <image src='../../../images/float.png' style='width:20rpx;height:20rpx;margin-left:15rpx;margin-top:30rpx;'></image>
   </view>
   </navigator>
 
@@ -49,34 +60,40 @@
     <navigator url='/pages/browse_footprint/browse_footprint'>
       <view class="tu">
           <view><image src='../../../images/zu.png' class="biao"></image></view>
-          <view class="font">浏览足迹</view>
+          <view class="font2">浏览足迹</view>
       </view>
     </navigator>
 
     <view  class="tu">
       <view><image src='../../../images/can.png' class="biao"></image></view>
-      <view class="font">商品收藏</view>
+      <view class="font2">商品收藏</view>
     </view>  
 
     <view  class="tu">
       <view><image src='../../../images/kefu.png' class="biao"></image></view>
-      <view class="font">客服</view>
+      <view class="font2">客服</view>
     </view>  
 
-    <view  class="tu">
-      <view><image src='../../../images/xiao.png' class="biao"></image></view>
-      <view class="font">正在销售</view>
-    </view>  
+    <navigator url='/pages/trader/sell/sell'>
+      <view  class="tu">
+        <view><image src='../../../images/xiao.png' class="biao"></image></view>
+        <view class="font2">正在销售</view>
+      </view>  
+    </navigator>
 
-    <view  class="tu">
-      <view><image src='../../../images/ku.png' class="biao"></image></view>
-      <view class="font">我的库存</view>
-    </view>  
+    <navigator url='/pages/goods_stock/goods_stock'>
+      <view  class="tu">
+        <view><image src='../../../images/ku.png' class="biao"></image></view>
+        <view class="font2">我的库存</view>
+      </view>  
+    </navigator>
 
-    <view  class="tu">
-      <view><image src='../../../images/ye.png' class="biao"></image></view>
-      <view class="font">销售业绩</view>
-    </view>  
+    <navigator url='/pages/trader/note/note'>
+      <view  class="tu">
+        <view><image src='../../../images/ye.png' class="biao"></image></view>
+        <view class="font2">销售业绩</view>
+      </view>  
+    </navigator>
 
     <view style='clear:both'></view>
   <!--会员尊享  -->

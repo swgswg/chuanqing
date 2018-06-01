@@ -5,9 +5,9 @@
     <view class="tishi">温馨提示</view>
     
     <!--内容  -->
-    <view>
-      <view style='margin-left:50px;'>您还没有创建收货地址</view>
-      <view style='margin-left:75px;'>是否立即创建</view>
+    <view class="">
+      <view class='ti2'>您还没有创建收货地址</view>
+      <view class='ti3'>是否立即创建</view>
     </view>
 
     <!--按钮  -->
