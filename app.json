@@ -1,5 +1,6 @@
 {
     "pages":[
+        
         "pages/commit_order/commit_order",
         "pages/goods_detail/goods_detail",
         "pages/all_comment/all_comment",
