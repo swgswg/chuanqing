@@ -13,9 +13,10 @@ page{
 /*收货人  */
 .user{
   width:100%;
-  margin-left: 25rpx;
-  line-height: 70rpx;
+  margin-left: 40rpx;
+  line-height: 72rpx;
   font-size: 30rpx;
+  color: #333333;
 }
 
 /*地址  */
@@ -23,7 +24,8 @@ page{
   width:100%;
   margin-left: 25rpx;
   line-height: 70rpx;
-  font-size: 30rpx;
+  font-size: 26rpx;
+  color: #666666;
 }
 
 /*边距  */
@@ -37,25 +39,36 @@ page{
 /*编辑  */
 .bianji{
     font-size: 30rpx;
-    margin-left: 5rpx;
-    line-height: 90rpx;
+    margin-left: 10rpx; 
+    line-height: 80rpx;
+    float: left;
 }
 
 /*选框按钮  */
 .check{
   color:red;
   margin-left: 30rpx;
+  float: left;
+  margin-top: 10rpx;
+}
+/*删除图标  */
+.del{
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 25rpx;
+  margin-left: 20rpx; 
+  float: left;
 }
 
 /*添加新地址  */
 .insert{
-  width:80%;
+  width:700rpx;
   height: 80rpx;
   background: red;
-  line-height: 70rpx; 
-  margin-left: 80rpx;
+  line-height: 70rpx;
+  margin-left: 30rpx;
+  margin-top:800rpx; 
   color:white;
   text-align: center;
   border-radius:10rpx; 
-  margin-top: 700rpx;
 }

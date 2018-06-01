@@ -4,7 +4,7 @@
 <view class="hot-selling">
     <view class="rexiao">库存</view>
     <view class="goods-list">
-            <view class="goods-info">
+            <view class="goods-info" catchtap='kcinfo'>
                 <view class="goods-img">
                     <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>
                 </view>
@@ -15,6 +15,7 @@
                     <view class="del-price">¥39.00</view>
                 </view>
             </view>
+
             <view class="goods-info">
                 <view class="goods-img">
                     <image style="width:300rpx; height: 300rpx;"  src='../../images/hongjiu.png'></image>

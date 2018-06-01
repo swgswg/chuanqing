@@ -1,5 +1,8 @@
 {
     "pages":[
+        "pages/trader/index/index",
+        "pages/login/login",
+
         "pages/goods_cate/goods_cate",
         "pages/index/index",
         "pages/cart/cart",
@@ -7,7 +10,7 @@
         "pages/stock_detail/stock_detail",
         "pages/goods_detail/goods_detail",
         "pages/commit_order/commit_order",
-        
+     
         "pages/cart_edit/cart_edit",
         "pages/news/news",
         "pages/myorder/myorder",
@@ -20,17 +23,17 @@
         "pages/goods_stock/goods_stock",
         "pages/goods_competitive/goods_competitive",
         "pages/seckill/seckill",
-
+        "pages/address/address/address",
         "pages/trader/sell/sell",
         "pages/trader/user/user",
         "pages/trader/tixian/tixian",
         "pages/trader/trader1/trader",
         "pages/trader/note/note",
-        "pages/trader/index/index",
+
         "pages/address/add/add",
         "pages/address/insert/insert",
         "pages/address/address1/address1",
-        "pages/address/address/address",
+
         "pages/users/nechen/nechen",
         "pages/users/users/users",
         "pages/trader/huigou/huigou", 

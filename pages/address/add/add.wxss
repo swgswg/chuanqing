@@ -5,7 +5,7 @@ page{
 
 /*距离顶部边距  */
 .juli{
-  height: 30rpx;
+  height: 20rpx;
   width: 100%;
 }
 /*from页面  */
@@ -27,9 +27,17 @@ page{
 
 .text{
   padding-top: 20rpx;
-  font-size: 20rpx;
+  font-size: 30rpx;
   width: 300rpx;
+  color: #333333;
 }
+
+.dayu{
+  width:30rpx;
+  height: 30rpx;
+  margin-left: 85rpx;
+}
+
 /*边框线  */
 .kuandu{
   height: 5rpx;
@@ -38,12 +46,12 @@ page{
 
 /*保存  */
 .insert{
-  width:80%;
+  width:90%;
   height: 80rpx;
   background: red;
   line-height: 70rpx;
-  margin-left: 80rpx;
-  margin-top:450rpx; 
+  margin-left: 40rpx;
+  margin-top:650rpx; 
   color:white;
   text-align: center;
   border-radius:10rpx; 

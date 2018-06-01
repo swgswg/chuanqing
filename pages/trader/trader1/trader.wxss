@@ -4,20 +4,20 @@ page{
 
 /*文字  */
 .text{
-  height: 550rpx;
+  /* height: 550rpx; */
   margin-top:20rpx;
   background: white;
 }
 
 /*申请开通  */
 .kai{
-  width:90%;
-  /* height: 80rpx; */
-  background: red;
-  line-height: 70rpx;
-  margin-left: 35rpx;
-  margin-top:100rpx; 
-  color:white;
-  text-align: center;
-  border-radius:10rpx; 
+   width:90%;
+   height: 80rpx; 
+   background: red;
+   line-height: 70rpx;
+   margin-left: 35rpx;
+   margin-top:250rpx;  
+   color:white;
+   text-align: center;
+   border-radius:10rpx;  
 }

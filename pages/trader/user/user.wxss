@@ -30,12 +30,17 @@
 }
 
 /*查看全部订单  */
+.my{
+  font-size: 30rpx;
+  margin-top: 20rpx;
+   margin-left:40rpx; 
+}
 .ding{
-  color:#ddd;
+  color:#b6b6b6;
   height:50rpx;
   font-size: 25rpx;
-  margin-top: 15rpx;
-  margin-left:450rpx;
+  margin-top: 26rpx;
+  margin-left:350rpx;
 }
 
 /*分割线  */
@@ -50,19 +55,24 @@
 .zhen{
   width:20%;
   float:left;
-  margin-left: 35rpx;
+  margin-left: 36rpx;
   margin-top: 20rpx;
 }
 /*图标  */
 .biao{
-  width:80rpx;
-  height:80rpx;
-
+  width:100rpx;
+  height:100rpx;
 }
 
 /*字体设置  */
 .font{
   font-size:30rpx;
+  line-height: 50rpx;
+}
+
+.font2{
+  font-size:30rpx;
+  line-height: 100rpx;
 }
 
 /*图标整体 2  */
@@ -76,22 +86,18 @@
 /*会员尊享  */
 .huiyuan{
   margin-top: 50rpx; 
-  height:450rpx;
+  /* height:450rpx; */
   background: #ddd;
 }
 
 /*字体  */
 .zun{
-  height:50rpx;
+  height:50rpx; 
   margin-left: 300rpx;
-  line-height: 100rpx;
+  line-height: 70rpx;
 }
 
 /*滚动会员  */
-.gun{
- 
-}
-
 .membership-privilege-scroll{
 position: relative;
 width: 200rpx;

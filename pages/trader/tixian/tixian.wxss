@@ -1,4 +1,4 @@
-page{
+  page{
   background: #ddd;
 }
 
@@ -8,33 +8,31 @@ page{
   line-height: 100rpx;
   margin-top: 20rpx;
   background: white;
+  font-size: 30rpx;
+  color: #333333;
 }
 
 /*提现的额度  */
-.tixian{
-  width:30%;
-  height:100rpx;
-  line-height: 100rpx;
-  background: white;
-  color: red;
-  float: left;
-}
+
 
 .number{
   width:100%;
   height:100rpx;
   margin-top: 15rpx;
   background: white;
+  font-size: 30rpx; 
   color: red;
+  line-height: 500rpx;
+  float: right;
 }
 
 /*确认提现  */
 .submit{
-  width:90%;
+  width:710rpx;
   height: 80rpx;
   background: red;
   line-height: 70rpx;
-  margin-left: 35rpx;
+  margin-left: 20rpx;
   margin-top:250rpx; 
   color:white;
   text-align: center;

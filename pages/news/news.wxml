@@ -1,7 +1,9 @@
 <view style="margin-top:20rpx;">
     <view class="lianxikefu">
         <image src="../../images/cuxiaotongzhi.png"></image>
-        <view class="lianxikefu-font1">促销活动</view>
+        <navigator url='/pages/sales_promotion/sales_promotion'>
+             <view class="lianxikefu-font1">促销活动</view>
+        </navigator>
         <view class="lianxikefu-font2">促销活动会显示在这里</view>
     </view>
     <view class="lianxikefu">
