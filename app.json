@@ -1,5 +1,6 @@
 {
     "pages":[
+        "pages/goods_list/goods_list",
         "pages/commit_order/commit_order",
         "pages/goods_detail/goods_detail",
         "pages/all_comment/all_comment",
@@ -8,7 +9,7 @@
         "pages/goods_stock/goods_stock",
         "pages/goods_competitive/goods_competitive",
         "pages/seckill/seckill",
-        "pages/goods_list/goods_list",
+       
         
         "pages/myinfo/myinfo",
         "pages/index/index",
