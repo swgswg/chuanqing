@@ -2,39 +2,44 @@ page{
      background-color: #eee; 
 }
 .four-btn{
-    margin-top: 20rpx;
+    /* margin-top: 20rpx; */
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+     justify-content: space-around; 
     background-color: #fff;
     width: 100%;
-    height: 100rpx;
+    height: 80rpx;
     text-align: center;
-    line-height: 100rpx;
+    line-height: 80rpx; 
+    border-top:2rpx solid #eee;
 }
 .four-btn view{
-    width: 160rpx;
+    width: 142rpx;
+    height: 80rpx;
     font-size: 30rpx;
+    color:#666;
 }
 .clickbtn{
     border-bottom:4rpx solid red;
-    color: red; 
+    color:#ce000d;
 }
 .order-time-status{
-    margin-top: 20rpx;
     display: flex;
     justify-content:space-between;
+    width: 100%;
+    /* height: 62rpx; */
+    margin-top: 20rpx;
     padding: 20rpx;
     box-sizing: border-box;
+    font-size: 24rpx;
     background-color: #fff;
-     /* border: 1px solid red;  */
+      /* border: 1px solid red;   */
 }
 .order-time{
-    font-size: 28rpx;
     color: #666;
 }
 .order-status{
-    font-size: 28rpx;
-    color: red;
+    color: #ec2525;
 }
 .myorder_each{
     /* height: 220rpx;  */
@@ -43,7 +48,7 @@ page{
 .goods-info{
     position: relative;
     width: 100%;
-     height: 190rpx; 
+    height: 154rpx; 
     /* background-color: #eee; */
      /* border: 1px solid red;  */
 }
@@ -51,28 +56,29 @@ page{
     position: absolute;
 }
 .goods-info .goods-img{
-    top: 20rpx;
+    top: 6rpx;
     left: 20rpx;
-    /* width:100rpx;
-    height: 100rpx;  */
+    width:142rpx;
+    height: 142rpx;  
 }
 .goods-info .goods-img image{
-    width:150rpx;
-    height: 150rpx;
+    width:142rpx;
+    height: 142rpx;
 }
 .goods-info .goods-name{
     position: absolute;
     top: 20rpx;
-    left: 210rpx;
+    left: 202rpx;
     width:400rpx;
     height: 100rpx;
-    font-size: 25rpx; 
+    font-size: 24rpx;
+    color: #666; 
     /* border: 1px solid red; */
 }
 .guige{
     position: absolute;
-    top: 100rpx;
-    color: #bbb;
+    top: 80rpx;
+    color: #999;
 }
 .goods-price{
     position: absolute;
@@ -86,7 +92,7 @@ page{
 .goods-price .buy-price{
       position: absolute; 
       right: 0;
-     color: red;
+     color: #ec2525;
 }
 .goods-price .huaxian-price{
     position: absolute;
@@ -94,46 +100,48 @@ page{
     right: 0;
     text-decoration: line-through;
     font-size: 25rpx;
-    color: #aaa;
+    color: #999;
 }
 .goods-price .buy-number{
     top: 75rpx;
     right: 0;
-    color: #aaa;
+    color: #999;
 }
 .order-summary{
     width: 100%;
-    height: 80rpx;
-    margin-top: -30rpx;
+     height: 100rpx; 
+     margin-top: -30rpx; 
     background-color: #fff;
-    padding-top: 25rpx;
-    padding-left: 225rpx;
+     padding-top: 30rpx;
+     padding-right: 20rpx;  
     box-sizing: border-box;
-    font-size: 30rpx;
+    font-size: 24rpx;
+    text-align: right;
+    color: #666;
     /* border:1px solid red; */
 }
 .order-btn{
     display: flex;
     justify-content:flex-end;
+    align-items: center;
     width: 100%;
-    height: 100rpx;
-    padding-top: 20rpx; 
+    height: 80rpx;
+    padding-right: 20rpx; 
     box-sizing: border-box;
     font-size: 30rpx;
     background-color: #fff;
     border: 4rpx solid #eee; 
 }
 .order-btn1,.order-btn2{
-     width: 140rpx;
-     height: 40rpx;
-     text-align: center;
-     line-height: 40rpx;
-     border-radius: 20rpx;
-     font-size: 25rpx;
-     border: 1px solid #aaa;
-     margin-right: 20rpx;
-     color: #999;
-     
+    width: 138rpx;
+    height: 40rpx;
+    margin-left: 36rpx;
+    font-size: 24rpx;
+    text-align: center;
+    line-height: 40rpx;
+    border-radius: 20rpx;    
+    color: #999;
+    border: 1px solid #aaa;         
 }
 .order-btn2{
     color: red;

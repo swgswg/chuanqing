@@ -1,13 +1,15 @@
 <view class="four-btn">
-    <view class="clickbtn">全部</view>
-    <view>待发货</view>
-    <view>待收货</view>
-    <view>待评价</view>
+    <view bindtap='allOrders' class="{{current_orderStatus == 1 ? 'clickbtn': ''}}">全部</view>
+    <view bindtap='toBeShipped' class="{{current_orderStatus == 2 ? 'clickbtn': ''}}">待发货</view>
+    <view bindtap='toBeReceived' class="{{current_orderStatus == 3 ? 'clickbtn': ''}}">待收货</view>
+    <view bindtap='toBeEvaluated' class="{{current_orderStatus == 4 ? 'clickbtn': ''}}">待评价</view>
 </view>
-<view>
-    <block wx:for="{{myorder}}">
-        <view sytle="width:100%;background-color:#fff;">
-            <!-- <block wx:if="{{item.order_status == '2'}}"> -->
+
+<scroll-view scroll-y style="width:100%;height:1120rpx;">
+    <view>
+        <block wx:for="{{myorder}}" wx:key="{{userId}}">
+            <view sytle="width:100%;background-color:#fff;">
+                <!-- 订单状态 start  -->
                 <view class="order-time-status">
                     <view class="order-time">{{item.order_time}}</view>
                     <!-- <view class="order-status">{{item.order_status }}</view> -->
@@ -15,7 +17,10 @@
                     <view class="order-status" wx:if="{{item.order_status == '2'}}">卖家已发货</view>
                     <view class="order-status" wx:if="{{item.order_status == '3'}}">交易成功</view>
                 </view>
-                <block wx:for="{{item.order_goods}}" wx:for-item="vv">
+                <!-- 订单状态 end  -->
+                
+                <!-- 订单商品 start  -->                
+                <block wx:for="{{item.order_goods}}" wx:for-item="vv" wx:key="{{vv.id}}">
                     <view class="myorder_each">
                         <view class="goods-info">
                             <view class="goods-img">
@@ -42,24 +47,31 @@
                     <view style="width:100%;border:2rpx solid #eee;"></view>
                     <view style="height:20rpx;background-color:#fff"></view>
                 </block>
-                <view class="order-summary">共{{item.order_goods.length}}件商品 合计:¥{{item.order_total}}(含运费¥0.00)</view>
+                <!-- 订单商品 end  -->                
                 
+                <view class="order-summary">共{{item.order_goods.length}}件商品 合计:¥{{item.order_total}}(含运费¥0.00)</view>
+                <!--服务按钮 start  -->
                 <view class="order-btn" wx:if="{{item.order_status == '1'}}">
-                    <view class="order-btn2">提醒发货</view>
+                    <view bindtap='reminderDelivery' data-orderid="{{item.id}}" class="order-btn2">提醒发货</view>
                 </view>
                 <view class="order-btn" wx:if="{{item.order_status == '2'}}">
-                    <view class="order-btn1">查看物流</view>
-                    <view class="order-btn2">确认收货</view>
+                    <!-- <view bindtap='checkLogistics' data-orderid="{{item.id}}" class="order-btn1"> -->
+                    <view data-orderid="{{item.id}}" class="order-btn1">                 
+                        <navigator url='/pages/'>查看物流</navigator>
+                    </view>
+                    <view bindtap='confirmReceipt' data-orderid="{{item.id}}" class="order-btn2">确认收货</view>
                 </view>
                 <view class="order-btn" wx:if="{{item.order_status == '3'}}">
-                    <view class="order-btn1">
-                        <navigator url='/pages/after_sale/after_sale'> 申请售后 </navigator>
+                    <!-- <view bindtap='applicationAfterSale' data-orderid="{{item.id}}" class="order-btn1"> -->
+                    <view data-orderid="{{item.id}}" class="order-btn1">
+                        <navigator url='/pages/after_sale/after_sale?orderId={{item.id}}'> 申请售后 </navigator>
                     </view>
-                    <view class="order-btn2">
-                         <navigator url='/pages/comment/comment'>  评价 </navigator>
+                    <view bindtap='insertComment' data-orderid="{{item.id}}" class="order-btn2">
+                            <navigator url='/pages/comment/comment?orderId={{item.id}}'>  评价 </navigator>
                     </view>
                 </view>
-            <!-- </block> -->
-        </view>
-    </block>
-</view>
+                <!--服务按钮 end  -->            
+            </view>
+        </block>
+    </view>
+</scroll-view>

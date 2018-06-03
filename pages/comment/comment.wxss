@@ -3,54 +3,81 @@ page{
 }
 .comment{
     margin-top: 20rpx;
-     height: 580rpx; 
+    height: 580rpx; 
     background-color: #fff;
 }
 .goods-info{
-    position: relative;
+    display: flex;
+    justify-content: flex-start;
     width: 100%;
-    height: 140rpx;
-    /* border: 1px solid red; */
-}
-.goods-info view{
-    position: absolute;
-}
-.goods-info .goods-img{
-    top: 20rpx;
-    left: 20rpx;
-    width:100rpx;
-    height: 100rpx; 
+    padding: 20rpx; 
+    box-sizing: border-box;
 }
 .goods-info .goods-name{
-    top: 20rpx;
-    left: 140rpx;
-    width:550rpx;
-    height: 100rpx;
-    font-size: 28rpx; 
+    width:560rpx; 
+    margin-left: 30rpx; 
+    font-size: 24rpx;
+    color: #666;
 }
 .goods-info .goods-img image{
-    width:100rpx;
-    height: 100rpx;
+    width:80rpx;
+    height: 80rpx;
 }
 .mycomment{
-     margin-left: 20rpx; 
-    padding: 10rpx; 
-    width: 90%;
-    height: 200rpx;
-    border:1px solid #eee;
+    padding: 20rpx;
+    box-sizing: border-box;  
+    width: 100%;
+    /* height: 200rpx; */
     font-size: 25rpx;
+    /* border: 1px solid red; */
 }
 .mycomment textarea{
-    width: 100%;
+    width: 710rpx;
     height: 200rpx;
+    padding: 10rpx;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    border:1px solid #eee; 
 }
 .addimage{
-    width: 150rpx;
-    height: 150rpx;
-    margin:20rpx;
-    border: 1px dashed #ccc;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 50rpx;  
+    padding: 20rpx;
+    box-sizing: border-box;
+    /* border: 1px dashed #ccc;  */
 }
 .addimage image{
-    width: 150rpx;
-    height: 150rpx;
+    width: 130rpx;
+    height: 130rpx;
+    /* margin-right: 20rpx; */
+}
+.addimage-each{
+    position: relative;
+    width: 130rpx;
+    height: 130rpx;
+    margin-right: 10rpx; 
+    border: 1px dashed #ccc;  
+    
+}
+.addimage-each image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* border: 1px solid red; */
+}
+.addimage-each .cancle{
+    position: absolute;
+    top: -15rpx;
+    left: 105rpx;
+    width: 40rpx;
+    height: 40rpx;
+    font-size:30rpx;
+    text-align: center;
+    line-height: 40rpx; 
+    border-radius: 50rpx;
+    /* border: 1px solid red; */
+    background-color: #aaa;
+    opacity: 0.5;
 }

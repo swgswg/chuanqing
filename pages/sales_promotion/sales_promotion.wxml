@@ -1,6 +1,24 @@
-<view class="news">
-    <view><image src="../../images/xiajiang.png"></image></view>
-    <view class="news-font">你关注的智利红酒魅力干红降价了少时诵诗书所所</view>
-    <view class="news-time">15:25</view>
-</view>
-<view style="clear:both;"></view>
+<scroll-view bindscrolltolower='scrollToLower' scroll-y style="width:100%;height:1200rpx;">
+    <block wx:for="{{[1,2,3,4]}}" wx:key="{{item.id}}">
+        <view class="each">
+            <view class="date">15:25</view>
+            <view class="content">
+                <view class="title">
+                    <image class="title-img" src="../../images/jintian.png" />
+                    <view class="title-name">你关注的智利红酒魅力干红降价了</view>
+                </view>
+                <view class="news">
+                    <image class="news-img" src="../../images/comment-img.png" />
+                    <view class="news-text">你关注的智利红酒魅力干红降价了你关注的智利红酒魅力干红降价了</view>
+                </view>
+                <view class="detail-btn">
+                    <view>查看详情</view>
+                    <image class="detail-btn-img" src="../../images/chakanxiangqing.png"></image>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="under-loading" >
+        <image src="../../images/under-loading.gif" />
+    </view>
+</scroll-view>

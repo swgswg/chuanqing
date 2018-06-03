@@ -4,7 +4,7 @@ page{
 .lianxikefu{
     position: relative;
     width: 100%;
-    height: 160rpx;
+    height: 152rpx;
     background-color: #fff;
     border-top: 2rpx solid #eee; 
 }
@@ -12,8 +12,8 @@ page{
     position: absolute;
     top: 30rpx;
     left: 40rpx;
-    width: 100rpx;
-    height: 100rpx;
+    width: 90rpx;
+    height: 90rpx;
 }
 .lianxikefu view{
     position: absolute;
@@ -22,8 +22,9 @@ page{
 }
 .lianxikefu-font1{
     top: 40rpx;
+    color:#666;
 }
 .lianxikefu-font2{
     top:80rpx;
-    color: #bbb; 
+    color: #999; 
 }

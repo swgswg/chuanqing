@@ -60,7 +60,7 @@ App({
   globalData: {
     userInfo: null,
     buyGoods:[],
-    baseUrl:'http://192.168.3.25:8080/',
+    globalDataBaseUrl: baseUrl,
     getAllCommetnUrl:baseUrl+'redwine/order/QueryComment',
     getGroupUrl:baseUrl+'redwine/goodsGroup/getGroup',
     getGoodsClassUrl: baseUrl +'redwine/goodsClass/getGoodsClass',
@@ -74,7 +74,9 @@ App({
     deleteCartsUrl: baseUrl + 'redwine/carts/deleteCarts',
     InsertOrderUrl: baseUrl + 'redwine/order/InsertOrder',
     getAddrUrl: baseUrl + 'redwine/addr/getAddr',
-   
+    QueryOrderUrl: baseUrl + 'redwine/order/QueryOrder',
+    InsertCommentUrl: baseUrl + '/redwine/order/InsertComment',
+
     userLoginUrl: baseUrl+ 'redwine/user/userLogin'
   }
 

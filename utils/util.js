@@ -97,11 +97,104 @@ function addToCartFun(id,price,num){
     });
 }
 
+
+/**
+ * wx.request二次封装
+ */
+function myWxRequest(myurl,mydata,mysufun){
+    wx.request({
+        url: myurl,
+        method: 'POST',
+        data: mydata,
+        header: {
+            'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function (res) {
+           if(res.status == 1){
+               mysufun(res);
+           } else {
+               wx.showToast({
+                   icon:'none',
+                   title: '您的网络太差'
+               });
+           }
+        }
+    });
+}
+
+/**
+ * 格式化时间戳 
+ */
+function formatDate(time, format = 'YY-MM-DD hh:mm:ss') {
+    var date = new Date(time);
+
+    var year = date.getFullYear(),
+        month = date.getMonth() + 1,//月份是从0开始的
+        day = date.getDate(),
+        hour = date.getHours(),
+        min = date.getMinutes(),
+        sec = date.getSeconds();
+    var preArr = Array.apply(null, Array(10)).map(function (elem, index) {
+        return '0' + index;
+    });////开个长度为10的数组 格式为 00 01 02 03
+
+    var newTime = format.replace(/YY/g, year)
+        .replace(/MM/g, preArr[month] || month)
+        .replace(/DD/g, preArr[day] || day)
+        .replace(/hh/g, preArr[hour] || hour)
+        .replace(/mm/g, preArr[min] || min)
+        .replace(/ss/g, preArr[sec] || sec);
+
+    return newTime;
+    // console.log(formatDate(1527253460000));//2017-05-12 10:05:44
+    // console.log(formatDate(1527253460000, 'YY年MM月DD日'));//2017年05月12日
+    // console.log(formatDate(1527253460000, '今天是YY/MM/DD hh:mm:ss'));//今天是2017/05/12 10:07:45
+}
+
+/**
+ * 上传文件
+ */
+function myUploadFile(myurl, sufun){
+    wx.chooseImage({
+        success: function (res) {
+            var tempFilePaths = res.tempFilePaths
+            const uploadTask = wx.uploadFile({
+                url: myurl, 
+                filePath: tempFilePaths[0],
+                name: 'file',
+                formData: {
+                    'user': 'test'
+                },
+                success: function (res) {
+                    if(res.status == 1){
+                        sufun(res);
+                    } else {
+                        wx.showToast({
+                            icon: 'none',
+                            title: '上传失败'
+                        });
+                    }
+                    
+                }
+            });
+            // uploadTask.onProgressUpdate((res) => {
+            //     console.log('上传进度', res.progress)
+            //     console.log('已经上传的数据长度', res.totalBytesSent)
+            //     console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
+            // })
+            // uploadTask.abort() // 取消上传任务
+        }
+    })
+}
+
+
 module.exports = {
     formatTime: formatTime,
     getCurrentPageUrl: getCurrentPageUrl,
     getCurrentPageUrlWithArgs: getCurrentPageUrlWithArgs,
     getPrevPageUrl: getPrevPageUrl,
     addToCartFun: addToCartFun,
-
+    myWxRequest: myWxRequest,
+    formatDate: formatDate,
+    myUploadFile: myUploadFile
 }
