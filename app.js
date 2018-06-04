@@ -1,5 +1,5 @@
 //app.js
-var baseUrl = 'http://39.107.70.80:8080/';
+var baseUrl = 'http://192.168.3.89:8080/';
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -59,7 +59,9 @@ App({
   },
   globalData: {
     userInfo: null,
-    buyGoods:[],
+    buyGoods:null,
+    userId:1,
+    payInfo:null,
     globalDataBaseUrl: baseUrl,
     getAllCommetnUrl:baseUrl+'redwine/order/QueryComment',
     getGroupUrl:baseUrl+'redwine/goodsGroup/getGroup',
@@ -76,7 +78,10 @@ App({
     getAddrUrl: baseUrl + 'redwine/addr/getAddr',
     QueryOrderUrl: baseUrl + 'redwine/order/QueryOrder',
     InsertCommentUrl: baseUrl + '/redwine/order/InsertComment',
+    insertCartsUrl: baseUrl + 'redwine/carts/insertCarts',
+    updateCartsUrl: baseUrl + 'redwine/carts/updateCarts',
 
+    
     userLoginUrl: baseUrl+ 'redwine/user/userLogin'
   }
 

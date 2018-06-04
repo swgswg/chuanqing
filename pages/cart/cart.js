@@ -1,6 +1,8 @@
 // pages/cart/cart.js
+var util = require('../../utils/util.js');
 const app = getApp();
 var flag = true;
+var mypageSize = 10;
 Page({
 
     
@@ -21,57 +23,42 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        /**
-         * 显示购物车
-         */
-        // wx.request({
-        //     // url: app.globalData.getCartsUrl,
-        //     method: 'POST',
-        //     // data: { page:1,pageSize: ,userId:},
-        //     header: {
-        //         'content-type': 'application/x-www-form-urlencoded'
-        //     },
-        //     success: function (res) {
-        //         if(res.status == 1){
-        //             if ( res.data.data.list.lenght== 0){
-        //                 that.setData({
-        //                     hasList: false,
-        //                 });
-        //             } else {
-        //                 that.setData({
-        //                     hasList: true,
-        //                     carts: res.data.data.list
-        //                 });
-        //             }
-        //         } else {
-        //             wx.showToast({
-        //                 title: '您的网络太差'
-        //             });
-        //         }
-        //     }
-        // });
+   
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-    
+        var that = this;
+        // 显示购物车
+        util.myWxRequest(app.globalData.getCartsUrl, { page: 1, pageSize: mypageSize,userId: app.globalData.userId}, function (res) {
+            // { cartsPrice: 1, gid: 3, price: 99, num: 1, name: "王朝干红", price: 99, specification:"750ml", status:0 }
+            let mycarts = res.data.data;
+            console.log(mycarts);
+            let len = mycarts.lenght;
+            if (len == 0) {
+                that.setData({
+                    hasList: false,
+                });
+            } else {
+                for(let i=0; i<len;i++){
+                    mycarts[i].selected = false;
+                }
+                that.setData({
+                    hasList: true,
+                    carts: mycarts
+                });
+            }
+        });
+
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.setData({
-            hasList: true,
-            carts: [
-                { id:1, goods_name: '路易拉菲2009男爵古堡干红葡萄酒礼盒木盒装750ml*2', goods_img: '../../images/hongjiu.png', num: 1, goods_price: 39.00, selected: false },
-                { id: 2, goods_name: '路易拉菲2009男爵古堡干红葡萄酒礼盒木盒装750ml*2', goods_img: '../../images/hongjiu.png', num: 2, goods_price: 139.00, selected: false },
-                { id: 3, goods_name: '路易拉菲2009男爵古堡干红葡萄酒礼盒木盒装750ml*2', goods_img: '../../images/hongjiu.png', num: 1, goods_price: 39.00, selected: false },
-                { id: 4, goods_name: '路易拉菲2009男爵古堡干红葡萄酒礼盒木盒装750ml*2', goods_img: '../../images/hongjiu.png', num: 1, goods_price: 39.00, selected: false }
-            ]
-        })
+
     },
 
     /**
@@ -110,6 +97,27 @@ Page({
     },
     
     /**
+     * 点击显示更多
+     */
+    showMore:function(){
+        let that = this;
+        mypageSize += 10;
+        util.myWxRequest(app.globalData.getCartsUrl, { page: 1, pageSize: mypageSize, userId: app.globalData.userId }, function (res) {
+            let carts = res.data.data;
+            if (carts.length == 0) {
+                that.setData({
+                    hasList: false,
+                });
+            } else {
+                that.setData({
+                    hasList: true,
+                    carts: carts
+                });
+            }
+        });
+    },
+
+    /**
      * 计算总价
      */
     getTotalPrice:function(){
@@ -120,7 +128,7 @@ Page({
         for (let i = 0; i < carts.length; i++) {         
             if (carts[i].selected) { 
                 // 判断选中才会计算价格
-                total += carts[i].num * carts[i].goods_price;     // 所有价格加起来
+                total += carts[i].num * carts[i].price;     // 所有价格加起来
             }
         }
         // 最后赋值到data中渲染到页面
@@ -176,7 +184,14 @@ Page({
         let carts = this.data.carts;
         let num = parseInt(carts[index].num);
         num = num + 1;
+        // 最大数量不能大于库存
         carts[index].num = num;
+        // 修改购物车商品数量
+        let cartsPrice = carts[index].price * num;
+        console.log(cartsPrice);
+        util.myWxRequest(app.globalData.updateCartsUrl, { id: carts[index].cid, cartsPrice: cartsPrice, num: num}, function(res){
+
+        });
         this.setData({
             carts: carts
         });
@@ -192,6 +207,14 @@ Page({
         }
         num = num - 1;
         carts[index].num = num;
+        let cartsPrice = carts[index].price * num;
+        console.log(cartsPrice);
+        util.myWxRequest(app.globalData.updateCartsUrl, { id: carts[index].cid, cartsPrice: cartsPrice, num: num}, function(res){
+
+        });
+        this.setData({
+            carts: carts
+        });
         this.setData({
             carts: carts
         });
@@ -216,7 +239,16 @@ Page({
     blurNum:function(e){
         const index = e.currentTarget.dataset.index;
         let carts = this.data.carts;
-        carts[index].num = e.detail.value;
+        let num = e.detail.value;
+        carts[index].num = num;
+        let cartsPrice = carts[index].price * num;
+        console.log(cartsPrice);
+        util.myWxRequest(app.globalData.updateCartsUrl, { id: carts[index].cid, cartsPrice: cartsPrice, num: num},function(res){
+           
+        });
+        this.setData({
+            carts: carts
+        });
         this.setData({
             carts: carts
         });
@@ -266,28 +298,23 @@ Page({
      * 删除商品
      */
     deleteList: function() {
-        var carts = this.data.carts;
-        for (var i = carts.length - 1; i >= 0; i--) {
+        let carts = this.data.carts;
+        let mycid = [];
+        for (let i = carts.length - 1; i >= 0; i--) {
             if (carts[i].selected) {
                 // 判断选中才会执行删除
+                mycid.push( carts[i].cid);
                 carts.splice(i, 1);
-                console.log(carts[i]);
-                // 同步删除数据库
-                wx.request({
-                    url: app.globalData.deleteCartsUrl,
-                    method: 'POST',
-                    data: { id:cart[i].id },
-                    header: {
-                        'content-type': 'application/x-www-form-urlencoded'
-                    },
-                    success: function (res) {
-                        that.setData({
-                            goodsInfo: {}
-                        });
-                    }
-                });
             }
-        }        
+        } 
+        console.log(mycid);
+        // 同步删除数据库
+        util.myWxRequest(app.globalData.deleteCartsUrl, { cid: mycid  }, function (res) {
+            wx.showToast({
+                icon:'success',
+                title: '删除成功'
+            });
+        })    
         this.setData({
             carts: carts
         });
@@ -308,30 +335,18 @@ Page({
      */
     addCollection:function(){
         var carts = this.data.carts;
+        let mycollection = [];
         for (var i = carts.length - 1; i >= 0; i--) {
             if (carts[i].selected) {
+                mycollection.push(carts[i].gid);
                 carts.splice(i, 1);
-                wx.request({
-                    url: app.globalData.insertCollectionUrl,
-                    method: 'POST',
-                    data: { id: cart[i].id },
-                    header: {
-                        'content-type': 'application/x-www-form-urlencoded'
-                    },
-                    success: function (res) {
-                        if(res.status == 1){
-                            wx.showToast({
-                                title: '收藏成功'
-                            });
-                        } else {
-                            wx.showToast({
-                                title: '网络加载失败'
-                            });
-                        }
-                    }
-                });
             }
         }
+        util.myWxRequest(app.globalData.insertCollectionUrl, { identify: mycollection , userId: app.globalData.userId, mytype:1}, function(res){
+            wx.showToast({
+                title: '收藏成功'
+            });
+        });
         this.setData({
             carts: carts
         });
@@ -351,26 +366,36 @@ Page({
      * 结算
      */
     settleAccounts:function(){
-        var that = this;
-        var carts = that.data.carts;
-        var len = carts.length - 1;
-        var buy_goods = {};
+        let that = this;
+        let carts = that.data.carts;
+        let len = carts.length - 1;
+        let buy_goods = {};
+        let mycid = [];
         for (var i = len; i >= 0; i--) {
             if (carts[i].selected) {
-               buy_goods[i] = carts[i];
-               carts.splice(i, 1);
+                buy_goods[i] = carts[i];
+                mycid.push(carts[i].cid);
+                carts.splice(i, 1);
             }
         }
+        // 同步删除数据库
+        util.myWxRequest(app.globalData.deleteCartsUrl, { cid: mycid }, function (res) {
+            wx.showToast({
+                icon:'success',
+                title: '删除成功'
+            });
+        });
         this.setData({
             carts: carts
         });
         if (that.data.totalPrice > 0){
-            buy_goods.totalPrice = that.data.totalPrice;
-            app.globalData.buyGoods = buy_goods;
-            console.log(app.globalData.buyGoods);
-            wx.navigateTo({
+            let totalPrice = that.data.totalPrice;
+            // app.globalData.buyGoods = { goodsId: mygoodsId, num: mynum, price: myprice };
+            app.globalData.buyGoods = { goods_info: buy_goods, goods_total: totalPrice, transportation_expenses: '0.00', receipt: '', msg:''};
+            // console.log(app.globalData.buyGoods);
+            wx: wx.navigateTo({
                 url: '/pages/commit_order/commit_order'
-            });
+            })
         } else {
             wx.showToast({
                 icon:'none',

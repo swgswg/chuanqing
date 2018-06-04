@@ -88,45 +88,45 @@ Page({
      */
     onLoad: function (options) {
         // 获取订单
-        let myurl = app.globalData.QueryOrderUrl;
-        switch (options.orderStatus){
-            // 全部
-            case 1: 
-                mydata = {
-                    page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
-                }
-            break;
-            // 待发货
-            case 2:
-                mydata = {
-                    page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
-                }
-            break;
-            // 待收货
-            case 3:
-                mydata = {
-                    page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
-                }
-            break;
-            // 待评价
-            case 4:
-                mydata = {
-                    page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
-                }
-            break;
-            // 默认为 全部
-            default:
-                mydata = {
-                    page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
-                }
-            break;
-        }
-        util.myWxRequest(myurl, mydata, function (res) {
-            that.setData({
-                myorder: res.data.data.list
+        if(options){
+            switch (options.orderStatus){
+                // 全部
+                case 1: 
+                    mydata = {
+                        page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
+                    }
+                break;
+                // 待发货
+                case 2:
+                    mydata = {
+                        page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
+                    }
+                break;
+                // 待收货
+                case 3:
+                    mydata = {
+                        page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
+                    }
+                break;
+                // 待评价
+                case 4:
+                    mydata = {
+                        page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
+                    }
+                break;
+                // 默认为 全部
+                default:
+                    mydata = {
+                        page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
+                    }
+                break;
+            }
+            util.myWxRequest(app.globalData.QueryOrderUrl, mydata, function (res) {
+                that.setData({
+                    myorder: res.data.data.list
+                });
             });
-        });
-
+        }
     },
 
     /**

@@ -24,36 +24,49 @@ Page({
      */
     onLoad: function (options) {
         var that = this;
-        // util.myWxRequest(myurl, mydata, mysufun);
+        
         // 获取分类组
-        wx.request({
-            url: app.globalData.getGroupUrl,
-            method: 'POST',
-            data: {},
-            header: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
-            success: function (res) {
-                // { groupId: 1, name: "法国", id: 1, classImg: "1.jpg" }
-                that.setData({
-                    goodsGroup: res.data.data,
-                });
-            }
+        util.myWxRequest(app.globalData.getGroupUrl, {}, function(res){
+            that.setData({
+                goodsGroup: res.data.data,
+                current_id: res.data.data[0].id
+            });
         });
+        // wx.request({
+        //     url: app.globalData.getGroupUrl,
+        //     method: 'POST',
+        //     data: {},
+        //     header: {
+        //         'content-type': 'application/x-www-form-urlencoded'
+        //     },
+        //     success: function (res) {
+        //         // { groupId: 1, name: "法国", id: 1, classImg: "1.jpg" }
+        //         that.setData({
+        //             goodsGroup: res.data.data,
+        //         });
+        //     }
+        // });
+
         // 获取分类类别
-        wx.request({
-            url: app.globalData.getGoodsClassUrl,
-            method:'POST',
-            data: { groupId: 1},
-            header: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
-            success: function (res) {
-                that.setData({
-                    goodsClass: res.data.data
-                });
-            }
+        let groupid = that.data.current_id;
+        util.myWxRequest(app.globalData.getGoodsClassUrl, { groupId: groupid}, function (res) {
+            that.setData({
+                goodsClass: res.data.data,
+            });
         });
+        // wx.request({
+        //     url: app.globalData.getGoodsClassUrl,
+        //     method:'POST',
+        //     data: { groupId: 1},
+        //     header: {
+        //         'content-type': 'application/x-www-form-urlencoded'
+        //     },
+        //     success: function (res) {
+        //         that.setData({
+        //             goodsClass: res.data.data
+        //         });
+        //     }
+        // });
     },
 
     /**
@@ -123,19 +136,24 @@ Page({
             current_id:id
         });
         // 获取类别
-        wx.request({
-            url: app.globalData.getGoodsClassUrl,
-            method: 'POST',
-            data: {groupId:id},
-            header: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
-            success: function (res) {
-                that.setData({
-                    goodsClass:res.data.data
-                });
-            }
+        util.myWxRequest(app.globalData.getGoodsClassUrl, { groupId: id }, function (res) {
+            that.setData({
+                goodsClass: res.data.data,
+            });
         });
+        // wx.request({
+        //     url: app.globalData.getGoodsClassUrl,
+        //     method: 'POST',
+        //     data: {groupId:id},
+        //     header: {
+        //         'content-type': 'application/x-www-form-urlencoded'
+        //     },
+        //     success: function (res) {
+        //         that.setData({
+        //             goodsClass:res.data.data
+        //         });
+        //     }
+        // });
     },
 
     /**

@@ -1,5 +1,6 @@
 {
     "pages":[
+        "pages/pay_success/pay_success",
         "pages/goods_cate/goods_cate",
         "pages/goods_list/goods_list",
         "pages/myinfo/myinfo",

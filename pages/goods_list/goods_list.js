@@ -1,6 +1,6 @@
 // pages/goods_list/goods_list.js
-const app = getApp();
 var util = require('../../utils/util.js');
+const app = getApp();
 var multiple_flag = true;
 var sales_volume_flag = true;
 var new_product_flag = true;
@@ -95,11 +95,13 @@ Page({
      * 添加到购物车按钮
      */
     addToCart:function(e){
-        // 获取id price num
-        var id = e.currentTarget.dataset.id;
-        var price = e.currentTarget.dataset.price;
+        let mygoodsId = e.currentTarget.dataset.id;
+        let myuserId = 1;
+        let mynum = 1;
+        let mycartsPrice = e.currentTarget.dataset.price;
         // 调用 加入购物车 全局方法
-        util.addToCartFun(id,price,1);
+        // console.log(mygoodsId, myuserId, mynum, mycartsPrice);
+        util.addToCartFun(mygoodsId, myuserId, mynum, mycartsPrice);
     },
 
     /**
@@ -222,22 +224,28 @@ Page({
 });
 
 /**
- * 获取商品列表
+ * 排序时获取商品列表
  */
 function getGoods(myScrollPage,mySort,that){
-    console.log(myclassId, myPage, myPageSize, mySort);
-    wx.request({
-        url: app.globalData.getGoodsByClassUrl,
-        data: { classId: myclassId, page: myPage, pageSize: myPageSize, condition: mySort },
-        method: 'POST',
-        header: {
-            'content-type': 'application/x-www-form-urlencoded'
-        },
-        success: function (res) {
-            // console.log(res.data.data.PageInfo);
-            that.setData({
-                goods: res.data.data.PageInfo.list
-            });
-        }
+    // console.log(myclassId, myPage, myPageSize, mySort);
+    let mydata = { classId: myclassId, page: myPage, pageSize: myPageSize, condition: mySort };
+    util.myWxRequest(app.globalData.getGoodsByClassUrl, mydata, function(res){
+        that.setData({
+            goods: res.data.data.PageInfo.list
+        });
     });
+    // wx.request({
+    //     url: app.globalData.getGoodsByClassUrl,
+    //     data: { classId: myclassId, page: myPage, pageSize: myPageSize, condition: mySort },
+    //     method: 'POST',
+    //     header: {
+    //         'content-type': 'application/x-www-form-urlencoded'
+    //     },
+    //     success: function (res) {
+    //         // console.log(res.data.data.PageInfo);
+    //         that.setData({
+    //             goods: res.data.data.PageInfo.list
+    //         });
+    //     }
+    // });
 }
