@@ -1,4 +1,5 @@
 // pages/goods_cate/goods_cate.js
+var util = require('../../utils/util.js');
 var input_value = '';
 const app = getApp();
 Page({
@@ -23,6 +24,7 @@ Page({
      */
     onLoad: function (options) {
         var that = this;
+        // util.myWxRequest(myurl, mydata, mysufun);
         // 获取分类组
         wx.request({
             url: app.globalData.getGroupUrl,

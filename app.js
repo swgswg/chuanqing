@@ -1,5 +1,5 @@
 //app.js
-var baseUrl = 'http://39.107.70:8080/';
+var baseUrl = 'http://39.107.70.80:8080/';
 App({
   onLaunch: function () {
     // 展示本地存储能力
