@@ -48,18 +48,29 @@
             <view bindtap='commitOrder' class="qurenziti-btn">提交订单</view>
         </view>
     
-    <!--支付 start  -->
-    <!-- <view class="payment">
-        <view class="pay-way" hidden='{{payment}}'>
-            <block wx:for="{{[1,2,3]}}" wx:key="{{item.id}}">
-                <view class='payment-each'>
-                    <image src="../../images/lingqiang.png" />
-                    零钱(剩余¥562.35)
+</view>
+<!--支付方式 start  -->
+<view class="payment" hidden='{{payment}}'>
+    <view class="pay-way">
+        <view class="change-way">更换支付方式</view>
+        <radio-group bindchange="slecetPay">
+        <block wx:for="{{[1,2,3]}}" wx:key="{{item.id}}">
+            <view class="pay-way-each">
+                <view class='pay-way-each-a'>
+                    <image class="pay-way-img" src="../../images/lingqian.png" />
+                    <view class="pay-way-name">零钱(剩余¥562.35)</view>    
                 </view>
-            </block>
-            <view class="add-pay">添加新卡支付</view>
-        </view>
-    </view> -->
-    <!--支付 end  -->
+                <view><radio value="" checked=""/>{{item.value}}</view>
+            </view>
+        </block>
+        </radio-group>
+        <view bindtap='addNewPay' class="add-pay">添加新卡支付</view>
+    </view>
+</view> 
+<!--支付方式 end  -->
+
+<!--输入支付密码 start  -->
+<view class="payment" hidden='{{enterPaymentPassword}}'>
     
 </view>
+<!--输入支付密码 end  -->

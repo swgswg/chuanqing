@@ -23,7 +23,8 @@ Page({
         },
         receipt:'',
         msg: '',
-        payment : true
+        payment : true,
+        enterPaymentPassword:true
     },
 
     /**
@@ -184,12 +185,11 @@ Page({
      */
     commitOrder:function(){
         var that = this;
-        // 支付
-        // this.setData({
-        //     payment: false
-        // });
+        // 显示支付方式
+        that.setData({
+            payment: false
+        });
         let commit_order = that.data.commit_order;
-       
         let goodsInfo = commit_order.goodsInfo;
         let len = goodsInfo.length;
         let goodsId = '';
@@ -217,6 +217,18 @@ Page({
         });
     },
 
+    /**
+     * 支付订单
+     */
+    slecetPay:function(){
+
+    },
+    /**
+     * 添加新的支付方式
+     */
+    addNewPay:function(){
+
+    }
     
 
 })

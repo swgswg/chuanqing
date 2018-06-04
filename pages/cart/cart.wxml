@@ -50,9 +50,11 @@
                     </block> 
                 </view>
             </block> 
+            <block wx:if="{{hasList}}"> 
              <view bindtap='showMore' class="dianjijiazai">
                 点击显示更多
             </view>
+            </block>
             <!--商品 end  -->
             
             <!-- 猜你喜欢start  -->

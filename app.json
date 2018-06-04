@@ -1,13 +1,14 @@
 {
     "pages":[
-        "pages/pay_success/pay_success",
+        "pages/commit_order/commit_order",
         "pages/goods_cate/goods_cate",
         "pages/goods_list/goods_list",
         "pages/myinfo/myinfo",
         "pages/comment/comment",
         "pages/self_extraction/self_extraction",
-        "pages/commit_order/commit_order",
+       
         "pages/news/news",
+        "pages/pay_success/pay_success",
         "pages/browse_footprint/browse_footprint",
         "pages/sales_promotion/sales_promotion",
         "pages/after_sale/after_sale",
