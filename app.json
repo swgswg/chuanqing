@@ -1,19 +1,23 @@
 {
     "pages":[
-        "pages/commit_order/commit_order",
+        "pages/comment/comment",
         "pages/goods_cate/goods_cate",
+        "pages/cart/cart",
+        "pages/pay_success/pay_success",
+        
+        "pages/commit_order/commit_order",
+        
         "pages/goods_list/goods_list",
         "pages/myinfo/myinfo",
-        "pages/comment/comment",
+        
         "pages/self_extraction/self_extraction",
-       
         "pages/news/news",
-        "pages/pay_success/pay_success",
+        
         "pages/browse_footprint/browse_footprint",
         "pages/sales_promotion/sales_promotion",
         "pages/after_sale/after_sale",
         "pages/myorder/myorder",
-        "pages/cart/cart",
+        
         "pages/trader/index/index",
         "pages/goods_detail/goods_detail",
         "pages/all_comment/all_comment",

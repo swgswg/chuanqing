@@ -23,7 +23,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-   
+
     },
 
     /**
@@ -33,9 +33,9 @@ Page({
         var that = this;
         // 显示购物车
         util.myWxRequest(app.globalData.getCartsUrl, { page: 1, pageSize: mypageSize,userId: app.globalData.userId}, function (res) {
-            // { cartsPrice: 1, gid: 3, price: 99, num: 1, name: "王朝干红", price: 99, specification:"750ml", status:0 }
+            //0：{ cartsPrice: 4999,cid:14, gid: 2,goodsDetail:"好喝的红酒", img:'',name: "王朝干红", price: 4999, num: 1, specification:"750ml*6", status:0 }
             let mycarts = res.data.data;
-            console.log(mycarts);
+            // console.log(mycarts);
             let len = mycarts.lenght;
             if (len == 0) {
                 that.setData({
@@ -128,13 +128,14 @@ Page({
         for (let i = 0; i < carts.length; i++) {         
             if (carts[i].selected) { 
                 // 判断选中才会计算价格
-                total += carts[i].num * carts[i].price;     // 所有价格加起来
+                total += parseInt(carts[i].num) * carts[i].price;     // 所有价格加起来
+                // total += carts[i].cartsPrice;
             }
         }
         // 最后赋值到data中渲染到页面
         this.setData({                               
             carts: carts,
-            totalPrice: total.toFixed(2)
+            totalPrice: total
         });
     },
 
@@ -151,7 +152,6 @@ Page({
         var selected = carts[index].selected; 
         // 改变状态       
         carts[index].selected = !selected;   
-               
         this.setData({
             carts: carts
         });
@@ -178,7 +178,11 @@ Page({
          // 重新获取总价
         this.getTotalPrice();                              
     },
-    // 增加数量
+    
+    
+    /**
+     * 增加数量
+     */
     addCount:function(e) {
         const index = e.currentTarget.dataset.index;
         let carts = this.data.carts;
@@ -188,7 +192,7 @@ Page({
         carts[index].num = num;
         // 修改购物车商品数量
         let cartsPrice = carts[index].price * num;
-        console.log(cartsPrice);
+        // 同步修改数据库
         util.myWxRequest(app.globalData.updateCartsUrl, { id: carts[index].cid, cartsPrice: cartsPrice, num: num}, function(res){
 
         });
@@ -197,7 +201,10 @@ Page({
         });
         this.getTotalPrice();
     },
-    // 减少数量
+    
+    /**
+     * 减少数量
+     */
     minusCount:function(e) {
         const index = e.currentTarget.dataset.index;
         let carts = this.data.carts;
@@ -208,12 +215,9 @@ Page({
         num = num - 1;
         carts[index].num = num;
         let cartsPrice = carts[index].price * num;
-        console.log(cartsPrice);
+        // 同步修改数据库
         util.myWxRequest(app.globalData.updateCartsUrl, { id: carts[index].cid, cartsPrice: cartsPrice, num: num}, function(res){
 
-        });
-        this.setData({
-            carts: carts
         });
         this.setData({
             carts: carts
@@ -239,22 +243,21 @@ Page({
     blurNum:function(e){
         const index = e.currentTarget.dataset.index;
         let carts = this.data.carts;
-        let num = e.detail.value;
+        let num = parseInt(e.detail.value);
         carts[index].num = num;
         let cartsPrice = carts[index].price * num;
-        console.log(cartsPrice);
         util.myWxRequest(app.globalData.updateCartsUrl, { id: carts[index].cid, cartsPrice: cartsPrice, num: num},function(res){
            
         });
         this.setData({
             carts: carts
         });
-        this.setData({
-            carts: carts
-        });
         this.getTotalPrice();
     },
-    // 编辑按钮
+    
+    /**
+     * 编辑按钮
+     */
     cartEdit: function(){
         if (flag) {
             var editText = '完成';
@@ -276,7 +279,9 @@ Page({
         this.cleanSelectAll();
     },
 
-    // 清除所有选中
+    /**
+     * 清除所有选中
+     */
     cleanSelectAll:function() {
         // 是否全选状态
         let selectAllStatus = this.data.selectAllStatus;
@@ -307,9 +312,8 @@ Page({
                 carts.splice(i, 1);
             }
         } 
-        console.log(mycid);
         // 同步删除数据库
-        util.myWxRequest(app.globalData.deleteCartsUrl, { cid: mycid  }, function (res) {
+        util.myWxRequest(app.globalData.deleteCartsUrl, { id: mycid  }, function (res) {
             wx.showToast({
                 icon:'success',
                 title: '删除成功'
@@ -334,9 +338,10 @@ Page({
      * 移入收藏
      */
     addCollection:function(){
-        var carts = this.data.carts;
+        let carts = this.data.carts;
+        let len = carts.length;
         let mycollection = [];
-        for (var i = carts.length - 1; i >= 0; i--) {
+        for (var i = len - 1; i >= 0; i--) {
             if (carts[i].selected) {
                 mycollection.push(carts[i].gid);
                 carts.splice(i, 1);
@@ -344,6 +349,7 @@ Page({
         }
         util.myWxRequest(app.globalData.insertCollectionUrl, { identify: mycollection , userId: app.globalData.userId, mytype:1}, function(res){
             wx.showToast({
+                icon:'success',
                 title: '收藏成功'
             });
         });
@@ -369,29 +375,25 @@ Page({
         let that = this;
         let carts = that.data.carts;
         let len = carts.length - 1;
-        let buy_goods = {};
+        let buy_goods = [];
         let mycid = [];
+        let j = 0;
         for (var i = len; i >= 0; i--) {
             if (carts[i].selected) {
-                buy_goods[i] = carts[i];
+                buy_goods[j] = carts[i];
+                j++;
                 mycid.push(carts[i].cid);
                 carts.splice(i, 1);
             }
         }
         // 同步删除数据库
-        util.myWxRequest(app.globalData.deleteCartsUrl, { cid: mycid }, function (res) {
-            wx.showToast({
-                icon:'success',
-                title: '删除成功'
-            });
-        });
+        // util.myWxRequest(app.globalData.deleteCartsUrl, { id: mycid }, function(res){});
         this.setData({
             carts: carts
         });
         if (that.data.totalPrice > 0){
             let totalPrice = that.data.totalPrice;
-            // app.globalData.buyGoods = { goodsId: mygoodsId, num: mynum, price: myprice };
-            app.globalData.buyGoods = { goods_info: buy_goods, goods_total: totalPrice, transportation_expenses: '0.00', receipt: '', msg:''};
+            app.globalData.buyGoods = { goodsInfo: buy_goods, soldPrice: totalPrice, transportation_expenses: '0.00', receipt: '', msg:''};
             // console.log(app.globalData.buyGoods);
             wx: wx.navigateTo({
                 url: '/pages/commit_order/commit_order'

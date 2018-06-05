@@ -31,7 +31,7 @@
                                 </navigator>
                             </view>
                             <view class="goods-name">
-                                {{item.name}}
+                                {{item.name}} {{item.specification}}
                             </view>
                             <view class="goods-pricee">
                                 ¥{{item.price}}

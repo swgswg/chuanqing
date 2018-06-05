@@ -1,7 +1,7 @@
 // pages/goods_cate/goods_cate.js
 var util = require('../../utils/util.js');
-var input_value = '';
 const app = getApp();
+var input_value = '';
 Page({
 
     /**
@@ -32,20 +32,6 @@ Page({
                 current_id: res.data.data[0].id
             });
         });
-        // wx.request({
-        //     url: app.globalData.getGroupUrl,
-        //     method: 'POST',
-        //     data: {},
-        //     header: {
-        //         'content-type': 'application/x-www-form-urlencoded'
-        //     },
-        //     success: function (res) {
-        //         // { groupId: 1, name: "法国", id: 1, classImg: "1.jpg" }
-        //         that.setData({
-        //             goodsGroup: res.data.data,
-        //         });
-        //     }
-        // });
 
         // 获取分类类别
         let groupid = that.data.current_id;
@@ -54,19 +40,7 @@ Page({
                 goodsClass: res.data.data,
             });
         });
-        // wx.request({
-        //     url: app.globalData.getGoodsClassUrl,
-        //     method:'POST',
-        //     data: { groupId: 1},
-        //     header: {
-        //         'content-type': 'application/x-www-form-urlencoded'
-        //     },
-        //     success: function (res) {
-        //         that.setData({
-        //             goodsClass: res.data.data
-        //         });
-        //     }
-        // });
+      
     },
 
     /**
@@ -141,19 +115,7 @@ Page({
                 goodsClass: res.data.data,
             });
         });
-        // wx.request({
-        //     url: app.globalData.getGoodsClassUrl,
-        //     method: 'POST',
-        //     data: {groupId:id},
-        //     header: {
-        //         'content-type': 'application/x-www-form-urlencoded'
-        //     },
-        //     success: function (res) {
-        //         that.setData({
-        //             goodsClass:res.data.data
-        //         });
-        //     }
-        // });
+
     },
 
     /**
@@ -167,8 +129,8 @@ Page({
      * 搜索商品
      */
     searchGoods:function(){
-        var input_val = input_value;
-        mySearch(input_val);
+        let val = input_value;
+        mySearch(val);
     },
     /**
      * 点击完成按钮时触发
@@ -192,7 +154,8 @@ Page({
         wx.navigateTo({
             url: '../goods_list/goods_list?classid=' + id + '&classname=' + classname
         });
-    }
+    },
+
     
 
 });
@@ -201,7 +164,7 @@ Page({
  * 搜索的方法
  */
 function mySearch(val) {
-    console.log(val);
+    wx: wx.navigateTo({
+        url: '/pages/goods_list/goods_list?goodsName=' + val,
+    })
 }
-
-

@@ -224,11 +224,11 @@ Page({
     immediatePurchase: function () {
         let mynum = this.data.goods_num;
         let mygoodsInfo = {};
-        mygoodsInfo.goodsId = this.data.goodsInfo.id;  // 商品id
-        mygoodsInfo.goodsName = this.data.goodsInfo.gname;  // 商品名称
+        mygoodsInfo.gid = this.data.goodsInfo.id;  // 商品id
+        mygoodsInfo.name = this.data.goodsInfo.gname;  // 商品名称
         mygoodsInfo.num = mynum; // 商品数量
         mygoodsInfo.price = this.data.goodsInfo.price; // 商品价格
-        mygoodsInfo.goodsImg = '../../images/hongjiu.png';  // 商品图片
+        mygoodsInfo.img = '../../images/hongjiu.png';  // 商品图片
         let mysoldPrice = this.data.goodsInfo.price * mynum;  // 商品总价
         mygoodsInfo = [mygoodsInfo];
         app.globalData.buyGoods = { goodsInfo: mygoodsInfo, soldPrice: mysoldPrice};

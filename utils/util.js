@@ -82,28 +82,7 @@ function addToCartFun(mygoodsId, myuserId, mynum, mycartsPrice){
             mask: true
         });
     });
-    // wx.request({
-    //     url: getApp().globalData.baseUrl +'redwine/carts/insertCarts',
-    //     method:'POST',
-    //     data: { goodsId: id, cartsPrice:price, num:num },
-    //     success: function(res){
-    //         if(res.status == 1){
-    //             wx.showToast({
-    //                 title: res.msg,
-    //                 icon: 'succes',
-    //                 duration: 1000,
-    //                 mask: true
-    //             });
-    //         } else {
-    //             wx.showToast({
-    //                 title: '重新加入购物车',
-    //                 image:'../../images/fail3.png',
-    //                 duration: 1000,
-    //                 mask: true
-    //             });
-    //         }
-    //     }
-    // });
+
 }
 
 
@@ -155,9 +134,16 @@ function formatDate(time, format = 'YY-MM-DD hh:mm:ss') {
         .replace(/ss/g, preArr[sec] || sec);
 
     return newTime;
-    // console.log(formatDate(1527253460000));//2017-05-12 10:05:44
+    // console.log(formatDate(new Date().getTime()));//2017-05-12 10:05:44
     // console.log(formatDate(1527253460000, 'YY年MM月DD日'));//2017年05月12日
     // console.log(formatDate(1527253460000, '今天是YY/MM/DD hh:mm:ss'));//今天是2017/05/12 10:07:45
+}
+
+/**
+ * m-n之间的随机数
+ */
+function rand(m, n) {
+    return Math.ceil(Math.random() * (n - m + 1)) + (m - 1);
 }
 
 /**
@@ -205,5 +191,6 @@ module.exports = {
     addToCartFun: addToCartFun,
     myWxRequest: myWxRequest,
     formatDate: formatDate,
-    myUploadFile: myUploadFile
+    myUploadFile: myUploadFile,
+    rand: rand
 }

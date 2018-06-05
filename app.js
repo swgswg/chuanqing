@@ -80,7 +80,7 @@ App({
     InsertCommentUrl: baseUrl + '/redwine/order/InsertComment',
     insertCartsUrl: baseUrl + 'redwine/carts/insertCarts',
     updateCartsUrl: baseUrl + 'redwine/carts/updateCarts',
-
+    getGoodsByConditionUrl: baseUrl + 'redwine/goods/getGoodsByCondition',
     
     userLoginUrl: baseUrl+ 'redwine/user/userLogin'
   }

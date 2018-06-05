@@ -38,7 +38,7 @@ Page({
 
         // 获取选择地址
         if(options.address){
-            util.myWxRequest(app.globalData.getAddrUrl, { userId: app.globalData.userId, page: 1, pageSize: 1 }, function (res) {
+            util.myWxRequest(app.globalData.getAddrUrl, { user_id: app.globalData.userId, page: 1, pageSize: 1 }, function (res) {
                 that.setData({
                     address: res.data.data
                 });
@@ -51,35 +51,22 @@ Page({
             that.setData({
                 commit_order: commit_order
             });
-
-            // 通过商品id获取商品信息
-            // util.myWxRequest(app.globalData.getGoodsDetailUrl, { goodsId: buygoods.goodsId }, function (res) {
-            //     // console.log(res);
-            //     goods = res.data.data;
-            //     good.goods_number = buygoods.num;
-            //     goodsInfo.push(goods);
-            //     commit_order = { goods_total: buygoods.price, transportation_expenses: '0.00', goodsInfo: goodsInfo, receipt: '', msg: '' }
-            //     that.setData({
-            //         commit_order: commit_order
-            //     });
-            // });
-            // 通过用户id获取默认地址
             util.myWxRequest(app.globalData.getAddrByDefaultUrl, { user_id: app.globalData.userId }, function (res) {
                 // console.log(res);
                 that.setData({
                     address: res.data.data
                 });
             });
-        }
 
-        // 通过购物车传过来的
-        if (prevUrl == 'pages/cart/cart' || prevUrl == '/pages/cart/cart') {
+        } else if (prevUrl == 'pages/cart/cart' || prevUrl == '/pages/cart/cart') {
+            // 通过购物车传过来的
             let buygoods = app.globalData.buyGoods;
             that.setData({
                 commit_order: buygoods
             });
             // 通过用户id获取默认地址
             util.myWxRequest(app.globalData.getAddrByDefaultUrl, { user_id: app.globalData.userId }, function (res) {
+                // console.log(res);
                 that.setData({
                     address: res.data.data
                 });
@@ -92,21 +79,21 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        var that = this;
-        // 获取默认地址
-        wx.request({
-            url: app.globalData.getAddrByDefaultUrl,
-            method: 'POST',
-            // data: {userId:},
-            header: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
-            success: function (res) {
-                that.setData({
-                    address: res.data.data
-                });
-            }
-        });
+        // var that = this;
+        // // 获取默认地址
+        // wx.request({
+        //     url: app.globalData.getAddrByDefaultUrl,
+        //     method: 'POST',
+        //     // data: {userId:},
+        //     header: {
+        //         'content-type': 'application/x-www-form-urlencoded'
+        //     },
+        //     success: function (res) {
+        //         that.setData({
+        //             address: res.data.data
+        //         });
+        //     }
+        // });
     },
 
     /**
@@ -186,31 +173,38 @@ Page({
     commitOrder:function(){
         var that = this;
         // 显示支付方式
-        that.setData({
-            payment: false
-        });
+        // that.setData({
+        //     payment: false
+        // });
         let commit_order = that.data.commit_order;
         let goodsInfo = commit_order.goodsInfo;
         let len = goodsInfo.length;
-        let goodsId = '';
+        let gid = '';
         let num = '';
         let price = '';
-        let cartsId = '';
+        let cid = '';
         for(let i=0; i < len; i++){
-            goodsId += goodsInfo[i].goodsId + ',';
+            gid += goodsInfo[i].gid + ',';
             num += goodsInfo[i].num + ',';
             price += goodsInfo[i].price + ',';
-            if (goodsInfo[i].cartsId){
-                cartsId += goodsInfo[i].cartsId + ',';
+            if (goodsInfo[i].cid){
+                cid += goodsInfo[i].cid + ',';
             }
         }
-        goodsId = goodsId.slice(0, goodsId.lastIndexOf(','));
+        gid = gid.slice(0, gid.lastIndexOf(','));
         num = num.slice(0, num.lastIndexOf(','));
         price = price.slice(0, price.lastIndexOf(','));
-
-        let mydata = { goodsId: goodsId, num: num, userId: app.globalData.userId, soldPrice: commit_order.soldPrice, status: 1, price: price, cartsId: cartsId }
+        cid = cid.slice(0, cid.lastIndexOf(','));
+        let mystatus = 0;
+        if(cid){
+           mystatus =1;
+        } else {
+            mystatus = 0;
+        }
+        console.log(that.data.address.id)
+        let mydata = { goodsId: gid, num: num, userId: app.globalData.userId, soldPrice: commit_order.soldPrice, status: mystatus, price: price, cartsId: cid, addrId: that.data.address.id}
         util.myWxRequest(app.globalData.InsertOrderUrl, mydata, function (res) {
-            console.log('ok');
+            app.globalData.buyGoods = '';
             wx.navigateTo({
                 url: '/pages/pay_success/pay_success'
             })

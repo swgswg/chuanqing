@@ -1,6 +1,8 @@
 // pages/myorder/myorder.js
 var util = require('../../utils/util.js');
 const app = getApp();
+var page = 1;
+var pageSize = 20;
 Page({
 
     /**

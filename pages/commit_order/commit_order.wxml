@@ -6,15 +6,15 @@
         </view>
         <view style="margin-top:20rpx;">
             <view sytle="width:100%;background-color:#fff;">
-                <block wx:for="{{commit_order.goodsInfo}}" wx:for-item="goods" wx:key="{{goods.goodsId}}">
+                <block wx:for="{{commit_order.goodsInfo}}" wx:for-item="goods" wx:key="{{goods.cid}}">
                     <view class="myorder_each">
                         <view class="goods-info">
                             <view class="goods-img">
-                                <image src="{{goods.goodsImg}}"></image>
+                                <image src="{{goods.img}}"></image>
                             </view>
                             <view class="goods-name">
                                 <view>
-                                    {{goods.goodsName}}
+                                    {{goods.name}}
                                 </view>
                             </view>
                             <view class="goods-price">
