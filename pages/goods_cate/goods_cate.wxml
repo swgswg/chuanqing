@@ -15,7 +15,7 @@
     <view class="left_group">
         <!--分类组start  -->
         <view class="goods_group">
-            <block wx:for="{{goodsGroup}}">
+            <block wx:for="{{goodsGroup}}" wx:key="{{item.id}}">
                 <view class="good_group_each {{item.id==current_id ? '.active' : ''}}"
                     bindtap="goodsGroup" data-index="{{item.id}}" data-id="{{item.id}}"
                 >{{item.name}}</view>
@@ -31,7 +31,7 @@
 
         <!--类别start  -->
         <view class="goods-class">
-            <block wx:for="{{goodsClass}}" wx:for-item="goodsClass">
+            <block wx:for="{{goodsClass}}" wx:for-item="goodsClass" wx:key="{{goodsClass.id}}">
                 <view class="goods-class-each" 
                     bindtap='classToGoods' 
                     data-classid="{{goodsClass.id}}" 

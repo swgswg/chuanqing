@@ -152,7 +152,7 @@ page{
     position: fixed;
     top: 1105rpx;
     left: 0;
-    z-index: 9999;
+    z-index: 999;
     width: 100%;
     height: 98rpx;
     font-size: 36rpx;
@@ -177,4 +177,70 @@ page{
     line-height: 90rpx;
     background-color: #ce000d;
     color: #fff;
+}
+.payment{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 1210rpx;
+    background-color: #ccc;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 9999;
+
+}
+.payment .pay-way{
+    display: flex;
+    flex-direction: column;
+    width: 665rpx;
+    height: 568rpx;
+    padding: 0 25rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    z-index: 99999;
+}
+.change-way{
+    width: 100%;
+    height: 109rpx; 
+    /* text-align: left; */
+    line-height: 109rpx;
+    border-bottom: 3rpx solid #aaa; 
+}
+.pay-way-each{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%;
+    height: 112rpx;
+    padding-left:52rpx; 
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #ddd; 
+}
+.pay-way-each-a{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.pay-way-img{
+    width: 68rpx;
+    height: 68rpx;
+    /* border: 1px solid red; */
+}
+.pay-way-name{
+    margin-left: 9rpx;
+    font-size: 32rpx;
+    color:#333;
+}
+.add-pay{
+    width: 100%;
+    height: 112rpx;
+    padding-left:52rpx;
+    box-sizing: border-box; 
+    text-align: left;
+    line-height: 112rpx;
+
 }
