@@ -6,8 +6,7 @@ require('./sha1.js');
 const Crypto = require('./crypto.js');
 var utils = require('../utils/util.js');
 
-// const uploadFile = function (filePath, fileW, objectId, successCB, errorCB) {
-const uploadFile = function (filePath, fileDir, successCB, errorCB) {
+const uploadFile = function (filePath, successCB, errorCB) {
     if (!filePath || filePath.length < 9) {
         wx.showModal({
             title: '上传…错误',
@@ -16,16 +15,13 @@ const uploadFile = function (filePath, fileDir, successCB, errorCB) {
         });
         return;
     }
-
-    // const aliyunFileKey = fileW+filePath.replace('wxfile://', '');
-    //const aliyunFileKey = filePath.replace('wxfile://', '');
-	// const aliyunFileKey = filePath.replace('http://tmp', '');
+    // 生成时间数
     let now = utils.formatDate(new Date().getTime(), 'YYMMDDhhmmss');
+    // 生成随机数
     let rand = utils.rand(1111,9999);
-	const aliyunFileKey = now + rand + filePath.slice(filePath.lastIndexOf('.'));
-    // console.log(aliyunFileKey);
-
-    //const aliyunFileKey = fileW + '' + (new Date().getTime()) + '_' + objectId + '.mp4';
+	// 拼接文件名
+    const aliyunFileKey = now + rand + filePath.slice(filePath.lastIndexOf('.'));
+    // 阿里云OOS地址
     const aliyunServerURL = env.aliyunServerURL;
     const accessid = env.accessid;
     const policyBase64 = getPolicyBase64();
