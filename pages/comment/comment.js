@@ -1,6 +1,7 @@
-// pages/comment/comment.js
-var util = require('../../utils/util.js');
+var env = require('../../weixinFileToaliyun/env.js');
 var uploadAliyun = require('../../weixinFileToaliyun/uploadAliyun.js');
+var util = require('../../utils/util.js');
+
 Page({
 
     /**
@@ -85,20 +86,6 @@ Page({
     /**
      * 添加图片
      */
-    // addImg:function(){
-    //     var that = this;
-    //     var myurl = '';
-    //     var newsrc = that.data.src;
-    //     util.myUploadFile(myurl, function(res){
-    //         // console.log(res.data);
-    //         newsrc.push(res.data);
-    //         console.log(newsrc);
-    //         that.setData({
-    //             src: newsrc
-    //         });
-    //     });
-    // },
-
     addImg:function(){
         let that = this;
         let newsrc = that.data.src;
@@ -107,18 +94,25 @@ Page({
             sizeType: ['original', 'compressed'], 
             sourceType: ['album', 'camera'], 
             success: function (res) {
-                // console.log(res);
-                var tempFilePaths = res.tempFilePaths;
-                var filePath = tempFilePaths[0];
-                var fileW = '/images/';
-                uploadAliyun(filePath, fileW, function (aliyunFileKey){
-                    // console.log(aliyunFileKey);
-                    newsrc.push('http://jiaoyuvideo.oss-cn-beijing.aliyuncs.com/' + aliyunFileKey);
-                    console.log(newsrc);
-                    that.setData({
-                        src: newsrc
-                    });
-                }, function(){});
+                let tempFilePaths = res.tempFilePaths; 
+                // 临时文件路径
+                let filePath = tempFilePaths[0]; 
+                let ext = filePath.slice(filePath.lastIndexOf('.'));
+                let extArr = ['png', 'jpg', 'jpeg', 'gif'];
+                if (extArr.indexOf(ext) != -1) {
+                    // 上传文件
+                    uploadAliyun(filePath, function (aliyunFileKey) {
+                        newsrc.push(env.aliyunServerURL + aliyunFileKey);
+                        that.setData({
+                            src: newsrc
+                        });
+                    }, function () { });
+                } else {
+                    wx.showToast({
+                        title: '图片格式不正确',
+                        icon: 'none'
+                    })
+                }
             }   
         })   
     },
@@ -144,12 +138,12 @@ Page({
         var commentDetail = this.data.commentDetail;
         var myurl = getApp().globalData.InsertCommentUrl;
         var mydata = { 
-            userId: userId, 
-            goodsId: this.data.goodsInfo.id,
-            detail: detail,
-            describes: describes,
-            logistics: logistics,
-            QoS: QoS,
+            userId: userId,  // 用户id
+            goodsId: this.data.goodsInfo.id, // 商品id 
+            detail: this.data.commentDetail, // 评论内容
+            describes: '',  // 描述相符
+            logistics: '',  // 物流服务
+            QoS: '',  // 服务态度
             img: this.data.src.join(',')
         };
         util.myWxRequest(myurl, mydata, function(res){

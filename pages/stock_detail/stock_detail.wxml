@@ -2,7 +2,7 @@
   <!--轮播图start  -->
 <view class="swiper">
     <swiper indicator-dots="true" autoplay="true" circular="true" indicator-color="rgba(207,209,210,0.8)" indicator-active-color="#efe5c4">
-        <block wx:for="{{goodsInfo.goods_img}}">
+        <block wx:for="{{goodsInfo.picture}}" wx:key="{{item.id}}">
             <swiper-item>
                 <image src="{{item}}" />
             </swiper-item>
@@ -11,47 +11,56 @@
 </view>
 <!--轮播图end  -->
     <view class="goods-name">
-        {{goodsInfo.goods_name}}
+        {{goodsInfo.gname}}
     </view>
     <view class="price-cart">
-        <view>¥{{goodsInfo.goods_price}}</view>
-        <view class="member-price">会员价: {{goodsInfo.member_price}}</view>
+        <view>¥{{goodsInfo.price}}</view>
+        <!-- <view class="member-price">会员价: {{goodsInfo.member_price}}</view> -->
     </view>
     <view class="stock">
-        <view>库存: {{goodsInfo.stock}}</view>
-        <view class="selling">出售中: {{goodsInfo.selling}}</view>
+        <view>库存: {{goodsInfo.possession.possession}}</view>
+        <view class="selling">出售中: {{goodsInfo.stock.snum}}</view>
     </view>
     <view class="jianju" style="height:20rpx;background-color:#eee"></view>
     <view class="number">
         <view style="float:left;font-size:35rpx;">数量</view>
         <view class="jian" bindtap="minusCount" data-index="{{index}}">-</view>
-        <view class="num">{{goods_num}}</view>
+        <view class="num">
+            <input bindinput='inputNum' bindblur='blurNum' bindconfirm='blurNum'
+                value="{{goods_num}}" 
+                data-index="{{index}}" type="number"/>
+        </view>
         <view class="jia"  bindtap="addCount" data-index="{{index}}">+</view>
     </view>
     <view class="address">
-        送至: 北京 北京市 西城区 明月小区208
+        送至: {{address.addrCity}} {{address.addrDetail}}
         <view> 〉</view>
     </view>
     <view class="msg">有货,预计3天内到达</view>
     <view class="jianju" style="height:20rpx;background-color:#eee"></view>
    <view class="comment">
-    <view>商品评价 (385)</view>
-    <view style='font-size:24rpx;color:#cf000d;'>查看全部 
+    <view>商品评价 ({{goodsInfo.count}})</view>
+    <view bindtap='viewAllComment' style='font-size:24rpx;color:#cf000d;'>查看全部 
         <image src="../../images/fanhui.png" style='float:right;width:14rpx;height:26rpx;;margin:3rpx 0 0 10rpx;' />
     </view>
 </view>
+
+<!-- 评论 start  -->
+<block wx:for="{{goodsInfo.comment}}" wx:key="{{item.id}}">
 <view style="border-bottom:4rpx solid #eee;">
-    <view class="short-comment">一坛好酒</view>
+    <view class="short-comment">{{item.Name}}</view>
     <view class="long-comment">
-        东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
-        东西收到了东西收到了东西收到了东西收到了东西收到了东西收到了
+        {{item.detail}}
     </view>
     <view class="comment-img">
-        <block wx:for="{{commentImg}}">
-            <image src="{{item}}" />
+        <block wx:for="{{item.img}}" wx:for-item="img" wx:key="{{img.id}}">
+            <image src="{{img}}" />
         </block>
     </view>
 </view>
+</block>
+<!-- 评论 end  -->
+
     <view class="jianju" style="height:100rpx;"></view>
     <view class="bottom-btn">
         <view class="custom-service">
@@ -77,7 +86,7 @@
         <view bindtap='cancel_repurchase' class="covering-layer"></view>
             <view class="application-for-repurchase">
             <radio-group  bindchange='radio_change'> 
-                <block wx:for="{{repurchaseReason}}">
+                <block wx:for="{{repurchaseReason}}" wx:key="{{item.id}}">
                     <view class="application-for-repurchase-each">
                     <radio color="red" value='{{item.key}}' checked='{{item.checked}}'/>{{item.value}}</view>
                 </block>
@@ -91,15 +100,19 @@
     <view hidden="{{immediate_sale_hidden}}"> 
         <view bindtap='cancel_sale' class="covering-layer"></view>
         <view class="immediate-sales">
-            <image src='{{goodsInfo.goods_img[0]}}'></image>
+            <image src='{{goodsInfo.picture[0].img}}'></image>
             <view class="immediate-sale-text1">
-                <text style='color:red'>¥<text style='font-size:40rpx;'>{{goodsInfo.goods_price}}</text></text> 
-                <text style='margin-left:30rpx;font-size:27rpx;color:#b49f80'>会员价：{{goodsInfo.member_price}}</text>
+                <text style='color:red'>¥<text style='font-size:40rpx;'>{{goodsInfo.price}}</text></text> 
+                <!-- <text style='margin-left:30rpx;font-size:27rpx;color:#b49f80'>会员价：{{goodsInfo.member_price}}</text> -->
             </view>
-            <view class="immediate-sale-text2">{{goodsInfo.goods_name}}</view>
+            <view class="immediate-sale-text2">{{goodsInfo.gname}}</view>
             <view class="number">
                 <view class="jian" bindtap="minusCount" data-index="{{index}}">-</view>
-                <view class="num">{{goods_num}}</view>
+                <view class="num">
+                     <input bindinput='inputNum' bindblur='blurNum' bindconfirm='blurNum'
+                        value="{{goods_num}}" 
+                        data-index="{{index}}" type="number"/>
+                </view>
                 <view class="jia"  bindtap="addCount" data-index="{{index}}">+</view>
             </view>
             <button bindtap='confirmation_of_sale' 

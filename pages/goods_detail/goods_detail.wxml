@@ -31,41 +31,43 @@
     <view class="jia"  bindtap="addCount" data-index="{{index}}">+</view>
 </view>
 <view class="address">
-    送至: 北京 北京市 西城区 明月小区208
-    <navigator url="">
+    送至: {{address.addrCity}} {{address.addrDetail}}
+    <navigator url="/pages/address/insert/insert?userId={{address.user_id}}&goodsId={{goodsInfo.id}}">
         <view> 〉</view>
     </navigator>
 </view>
 <view class="msg">有货,预计3天内到达</view>
 <view class="jianju" style="height:20rpx;background-color:#eee"></view>
+
+<!--商品评价 start  -->
 <view class="comment">
-    <view>商品评价 ({{commentInfo.total}})</view>
+    <view>商品评价 ({{goodsInfo.count}})</view>
     <view bindtap='viewAllComment'  style='font-size:24rpx;color:#cf000d;'>查看全部 
         <image src="../../images/fanhui.png" style='float:right;width:14rpx;height:26rpx;;margin:3rpx 0 0 10rpx;' />
     </view>
 </view>
-<block wx:for="{{commentInfo.list}}" wx:key="{{item.id}}">
+<block wx:for="{{commentInfo}}" wx:key="{{item.goodsId}}">
     <view style="border-bottom:4rpx solid #eee;">
-        <view class="short-comment">{{item.userName}}</view>
+        <view class="short-comment">{{item.uname}}</view>
         <view class="long-comment">
             {{item.detail}}
         </view>
         <view class="comment-img">
-            <block wx:for="{{item.img}}" wx:for-item="img">
+            <block wx:for="{{item.img}}" wx:for-item="img" wx:key="{{item.id}}">
                 <image src="{{img}}" />
             </block>
         </view>
     </view>
 </block>
-
-
+<!--商品评价 end  -->
 
 <view class="jianju" style="height:20rpx;background-color:#eee"></view> 
+<!--猜你喜欢 start  -->
 <view style='margin-top:30rpx;'> 
     <view class="guess">猜你喜欢</view>
     <view class="youlike">
-        <block wx:for="{{youLike}}" wx:key="{{youLike.id}}">
-            <view class="youlike-each">
+        <block wx:for="{{youLike}}" wx:key="{{item.id}}">
+            <view bindtap='clickToGoodsDetail' data-id='{{item.id}}' class="youlike-each">
                 <image src="{{item.img}}"></image>
                 <view>{{item.gname}}</view>
                 <view style='color:#333;'>¥{{item.price}}</view>
@@ -73,6 +75,8 @@
         </block>
     </view>
 </view> 
+<!--猜你喜欢 start  -->
+
 <view style="clear:both"></view>
 <view class="jianju" style="height:20rpx;background-color:#eee"></view>
 <view>
@@ -84,7 +88,7 @@
         <view>瓶塞: 木塞</view>
         <view>香味: 水果味</view>
         <view>葡萄品种: 赤霞珠</view>
-        <view>净含量: 750ml*2</view>
+        <view>净含量: {{goodsInfo.specification}}</view>
         <view>箱规: 1*2</view>
     </view>
 </view>

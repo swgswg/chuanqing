@@ -42,10 +42,10 @@ function getCurrentPageUrlWithArgs() {
 
 /*获取上一页url*/
 function getPrevPageUrl() {
-    var pages = getCurrentPages() //获取加载的页面
-    var prevPage = pages[pages.length - 2] //获取上一级页面的对象
-    var url = prevPage.route //上一个页面url
-    return url
+    let pages = getCurrentPages(); //获取加载的页面
+    let prevPage = pages[pages.length - 2]; //获取上一级页面的对象
+    let url = prevPage.route; //上一个页面url
+    return url;
 }
 
 // function getPrevPage() {

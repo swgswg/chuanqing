@@ -36,41 +36,36 @@ Page({
         let commit_order = {};
         let prevUrl = util.getPrevPageUrl();
 
-        // 获取选择地址
-        if(options.address){
-            util.myWxRequest(app.globalData.getAddrUrl, { user_id: app.globalData.userId, page: 1, pageSize: 1 }, function (res) {
-                that.setData({
-                    address: res.data.data
-                });
-            });
-        }
-
         // 通过商品详情传过来的
-        if (prevUrl == 'pages/goods_detail/goods_detail' || prevUrl == '/pages/goods_detail/goods_detail'){
+        if (prevUrl == 'pages/goods_detail/goods_detail' || prevUrl == 'pages/address/insert/insert'){
             let commit_order = app.globalData.buyGoods;
             that.setData({
                 commit_order: commit_order
             });
-            util.myWxRequest(app.globalData.getAddrByDefaultUrl, { user_id: app.globalData.userId }, function (res) {
-                // console.log(res);
-                that.setData({
-                    address: res.data.data
-                });
-            });
-
+           
         } else if (prevUrl == 'pages/cart/cart' || prevUrl == '/pages/cart/cart') {
             // 通过购物车传过来的
             let buygoods = app.globalData.buyGoods;
             that.setData({
                 commit_order: buygoods
-            });
-            // 通过用户id获取默认地址
-            util.myWxRequest(app.globalData.getAddrByDefaultUrl, { user_id: app.globalData.userId }, function (res) {
-                // console.log(res);
+            }); 
+        }
+
+        // 获取地址
+        if (app.globalData.buyGoods.addressId){
+            // 通过地址id获取地址
+            util.myWxRequest(app.globalData.getAddrByIdUrl, { id: app.globalData.buyGoods.addressId }, function (res) {
                 that.setData({
                     address: res.data.data
                 });
-            });
+            });   
+        } else {
+            // 获取默认地址
+            util.myWxRequest(app.globalData.getAddrByDefaultUrl, { user_id: app.globalData.userId }, function (res) {
+                that.setData({
+                    address: res.data.data
+                });
+            }); 
         }
         
     },
@@ -79,31 +74,14 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        // var that = this;
-        // // 获取默认地址
-        // wx.request({
-        //     url: app.globalData.getAddrByDefaultUrl,
-        //     method: 'POST',
-        //     // data: {userId:},
-        //     header: {
-        //         'content-type': 'application/x-www-form-urlencoded'
-        //     },
-        //     success: function (res) {
-        //         that.setData({
-        //             address: res.data.data
-        //         });
-        //     }
-        // });
+    
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        // prevPageUrl = util.getPrevPageUrl();
-        // if (prevPageUrl == '/pages/address/insert/insert'){
-            
-        // }
+        
     },
 
     /**
@@ -179,10 +157,10 @@ Page({
         let commit_order = that.data.commit_order;
         let goodsInfo = commit_order.goodsInfo;
         let len = goodsInfo.length;
-        let gid = '';
-        let num = '';
-        let price = '';
-        let cid = '';
+        let gid = '';  // 商品id
+        let num = '';  // 商品数量
+        let price = ''; // 商品价格
+        let cid = '';  // 商品购物车id
         for(let i=0; i < len; i++){
             gid += goodsInfo[i].gid + ',';
             num += goodsInfo[i].num + ',';
@@ -197,11 +175,10 @@ Page({
         cid = cid.slice(0, cid.lastIndexOf(','));
         let mystatus = 0;
         if(cid){
-           mystatus =1;
+           mystatus =1; 
         } else {
             mystatus = 0;
         }
-        console.log(that.data.address.id)
         let mydata = { goodsId: gid, num: num, userId: app.globalData.userId, soldPrice: commit_order.soldPrice, status: mystatus, price: price, cartsId: cid, addrId: that.data.address.id}
         util.myWxRequest(app.globalData.InsertOrderUrl, mydata, function (res) {
             app.globalData.buyGoods = '';

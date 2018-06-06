@@ -8,7 +8,7 @@
         <view class="order-info-font2">您购买的商品已存入库开始自动售卖您购买的商品已存入库开始自动售卖您购买的商品已存入库开始自动售卖您购买的商品已存入库开始自动售卖您购买的商品已存入库开始自动售卖</view>
     </view>
     <view class='btn'>
-        <view bindtap='backFirstPage' class='btn1'>返回首页</view>
+        <view catchtap='backFirstPage' class='btn1'>返回首页</view>
         <view bindtap='viewOrder' class="btn2">查看订单</view>
     </view>
 </view>

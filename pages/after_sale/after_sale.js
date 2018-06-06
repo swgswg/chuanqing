@@ -1,4 +1,6 @@
 // pages/after_sale/after_sale.js
+const app = getApp();
+var utils = require('../../utils/util.js');
 Page({
 
     /**
@@ -7,7 +9,7 @@ Page({
     data: {
         goodsInfo:{
             img:'../../images/comment-img.png',
-            name:'奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红酒葡萄酒',
+            gname:'奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红酒葡萄酒',
             specification:'750ml 6*1箱'
         }
     },
@@ -16,7 +18,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-    
+        let that = this;
+        // 获取商品信息
+        utils.myWxRequest(app.globalData.getGoodsDetailUrl, {id:options.goodsId}, function(res){
+            that.setData({
+                goodsInfo:res.data.data
+            });
+        });
     },
 
     /**

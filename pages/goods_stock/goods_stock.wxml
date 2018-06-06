@@ -5,17 +5,17 @@
 
     <view class="rexiao">热销榜</view>
     <view class="goods-seckill">
-        <scroll-view scroll-y="true" style='width:100%;;height:100%'>
+        <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style='width:100%;;height:100%'>
             <view class="goods-list">
-                <view class="goods-info" catchtap='info' wx:for="{{[1,2,3,4,5,6]}}">
-                    <view class="goods-img">
-                        <image src='../../images/hongjiu.png'></image>
+                <view class="goods-info" catchtap='info' wx:for="{{stock}}" wx:key="{{item.gId}}">
+                    <view bindtap='stockDetail' data-gid='{{item.gId}}' class="goods-img">
+                        <image src='{{item.img}}'></image>
                     </view>
-                    <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒</view>
-                    <view style='font-size:26rpx;color:#999;margin:12rpx 0 0 20rpx;'>库存:100</view>
+                    <view class="goods-name">{{item.gname}}</view>
+                    <view style='font-size:26rpx;color:#999;margin:12rpx 0 0 20rpx;'>库存:{{item.possession}}</view>
                     <view class="price-cart">
-                        <view class="maichujia">¥39.00</view>
-                        <view class="huaxianjia">¥79.00</view>
+                        <view class="maichujia">¥{{item.price}}</view>
+                        <!-- <view class="huaxianjia">¥79.00</view> -->
                     </view>
                 </view>
             </view>

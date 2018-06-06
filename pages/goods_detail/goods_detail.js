@@ -8,75 +8,54 @@ Page({
      * 页面的初始数据
      */
     data: {
-        goodsInfo:{
-            // id:1,
-            // gname: '路易拉菲2009男爵古堡干红葡萄酒红酒礼盒木盒装750ml * 2',
-            // picture: [
-            //     '../../images/swiper.png',
-            //     '../../images/swiper.png',
-            //     '../../images/swiper.png'
-            // ],
-            // price:'119.00',
-            // member_price:'99.00'
-        },
+        goodsInfo:{},
         goods_num:1,  
-        commentInfo:[
-            // {
-            //     img:'../../images/swiper.png,../../images/swiper.png,../../images/swiper.png',
-            //     detail:
-            //     userName:
-            //     total:
-            // }
-        ],
-        
+        commentInfo:[],
         address : {},
-        youLike:[
-            // { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
-            // { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
-            // { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
-            // { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
-            // { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" },
-            // { img: '../../images/youlike.png', gname: '拉菲尚品波尔多', price: "¥108.00" }
-        ]
+        youLike:[]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(options.id);
-        var that = this;
+        let that = this;
+        let goods_id = '';
         // 获取商品信息
         util.myWxRequest(app.globalData.getGoodsDetailUrl, { id: options.id }, function(res){
-            // console.log(res.data);
+            let goodsInfo = res.data.data;
+            let commentInfo = goodsInfo.comment;
+            for(let i = 0; i < commentInfo.length; i++){
+                commentInfo[i].img = commentInfo[i].img.split(',');
+            }
             that.setData({
-                goodsInfo:res.data.data,
-                commentInfo: res.data.data.comment
+                goodsInfo: goodsInfo,
+                commentInfo: commentInfo
             });
         });
-
-        // 获取商品关联的评论
-        // util.myWxRequest(app.globalData.QueryCommentUrl, { goodsId: options.id, page: 1, pageSize: 2 }, function (res) {
-        //     // console.log(res.data);
-        //     that.setData({
-        //         commentInfo: res.data.data
-        //     });
-        // });
   
         // 获取猜你喜欢
-        util.myWxRequest(app.globalData.getGoodsBySaleCountUrl, { id: options.id }, function (res) {
+        util.myWxRequest(app.globalData.getGoodsBySaleCountUrl, { }, function (res) {
             that.setData({
                 youLike: res.data.data
             });
         });
 
-        // 获取用户的默认地址
-        util.myWxRequest(app.globalData.getAddrByDefaultUrl, { user_id: myuserId }, function (res) {
-            that.setData({
-                address: res.data.data
+        if ( options.addrId ){
+            // 换地址 getAddrByIdUrl
+            util.myWxRequest(app.globalData.getAddrByIdUrl, { id: options.addrId }, function (res) {
+                that.setData({
+                    address: res.data.data
+                });
             });
-        });
-      
+        } else {
+            // 获取用户的默认地址
+            util.myWxRequest(app.globalData.getAddrByDefaultUrl, { user_id: myuserId }, function (res) {
+                that.setData({
+                    address: res.data.data
+                });
+            });
+        }
     },
 
     /**
@@ -172,6 +151,32 @@ Page({
         });
     },
 
+
+    /**
+     * 猜你喜欢
+     */
+    clickToGoodsDetail:function(e){
+        let that = this;
+        let goodsId = e.currentTarget.dataset.id;
+        // 获取点击商品详情
+        util.myWxRequest(app.globalData.getGoodsDetailUrl, { id: goodsId }, function (res) {
+            let goodsInfo = res.data.data;
+            let commentInfo = goodsInfo.comment;
+            for (let i = 0; i < commentInfo.length; i++) {
+                commentInfo[i].img = commentInfo[i].img.split(',');
+            }
+            that.setData({
+                goodsInfo: goodsInfo,
+                commentInfo: commentInfo
+            });
+            wx.pageScrollTo({
+                scrollTop: 0,
+                duration: 100
+            });
+        });
+
+    },
+
     /**
      * 添加到购物车
      */
@@ -214,7 +219,7 @@ Page({
     viewAllComment:function(){
         var that = this;
         wx:wx.navigateTo({
-            url: '/page/all_comment/all_comment?goodsId='+that.data.goodsIngo.id
+            url: '/pages/all_comment/all_comment?goodsId='+that.data.goodsInfo.id
         });
     },
 
@@ -229,9 +234,10 @@ Page({
         mygoodsInfo.num = mynum; // 商品数量
         mygoodsInfo.price = this.data.goodsInfo.price; // 商品价格
         mygoodsInfo.img = '../../images/hongjiu.png';  // 商品图片
+        let addrId = this.data.address.id;
         let mysoldPrice = this.data.goodsInfo.price * mynum;  // 商品总价
         mygoodsInfo = [mygoodsInfo];
-        app.globalData.buyGoods = { goodsInfo: mygoodsInfo, soldPrice: mysoldPrice};
+        app.globalData.buyGoods = { goodsInfo: mygoodsInfo, soldPrice: mysoldPrice, addressId: addrId};
         // console.log(app.globalData.buyGoods);
         wx.navigateTo({
             // url: '/pages/commit_order/commit_order?goodsId='+goodsId+'&num='+num+'&totalPrice='+totalPrice,

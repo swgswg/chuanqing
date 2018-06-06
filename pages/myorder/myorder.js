@@ -89,43 +89,48 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let mydata = null;
+        let that = this;
         // 获取订单
         if(options){
             switch (options.orderStatus){
                 // 全部
                 case 1: 
                     mydata = {
-                        page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
+                        page: page, pageSize: pageSize, userId: app.globalData.userId,
                     }
                 break;
                 // 待发货
                 case 2:
                     mydata = {
-                        page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
+                        page: page, pageSize: pageSize, userId: app.globalData.userId
                     }
                 break;
                 // 待收货
                 case 3:
                     mydata = {
-                        page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
+                        page: page, pageSize: pageSize, userId: app.globalData.userId
                     }
                 break;
                 // 待评价
                 case 4:
                     mydata = {
-                        page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
+                        page: page, pageSize: pageSize, userId: app.globalData.userId
                     }
                 break;
                 // 默认为 全部
                 default:
                     mydata = {
-                        page: page, pageSize: pageSize, userId: userId, goodsName: goodsName
+                        page: page, pageSize: pageSize, userId: app.globalData.userId
                     }
                 break;
             }
             util.myWxRequest(app.globalData.QueryOrderUrl, mydata, function (res) {
+                console.log(res.data.data.PageInfo.list);
+                let order = res.data.data.PageInfo.list;
+                console.log(order);
                 that.setData({
-                    myorder: res.data.data.list
+                    myorder: res.data.data.PageInfo.list
                 });
             });
         }

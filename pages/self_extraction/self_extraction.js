@@ -1,5 +1,5 @@
 // pages/commit_order/commit_order.js
-var util = require('../../utils/util.js');
+var utils = require('../../utils/util.js');
 const app = getApp();
 Page({
 
@@ -8,31 +8,14 @@ Page({
      */
     data: {
         address: {
-            addrCity: '所在地区',
-            receiveName: '收货人姓名',
-            user_id: '收货人编号',
-            phone: '收货人电话',
-            addrDetail: '详细地址',
-            id: '地址编号'
+            // addrCity: '所在地区',
+            // receiveName: '收货人姓名',
+            // user_id: '收货人编号',
+            // phone: '收货人电话',
+            // addrDetail: '详细地址',
+            // id: '地址编号'
         },
-        commit_order: {
-            goods_total: '432.00',
-            transportation_expenses: '0.00',
-            goods_info: [
-                {
-                    goods_img: '../../images/hongjiu.png',
-                    goods_name: '路易拉菲2009男爵古堡干红葡萄酒礼盒木盒装750ml*2',
-                    goods_price: '36.00',
-                    goods_number: 12
-                },
-                {
-                    goods_img: '../../images/hongjiu.png',
-                    goods_name: '路易拉菲2009男爵古堡干红葡萄酒礼盒木盒装750ml*2',
-                    goods_price: '36.00',
-                    goods_number: 12
-                }
-            ]
-        },
+        order: null,
         receipt: '',
         msg: ''
 
@@ -42,52 +25,32 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        // 获取选择地址
-        if (options.address) {
-            wx.request({
-                url: app.globalData.getAddrByDefaultUrl,
-                method: 'POST',
-                // data: {userId:,page:1,pageSize:1},
-                header: {
-                    'content-type': 'application/x-www-form-urlencoded'
-                },
-                success: function (res) {
-                    that.setData({
-                        address: res.data.data.list
-                    });
-                }
+        let that = this;
+        // console.log(app.globalData.buyGoods);
+        // 获取订单信息
+        that.setData({
+            order: app.globalData.buyGoods
+        });
+        // 地址信息
+        utils.myWxRequest(app.globalData.getAddrByIdUrl, { id: app.globalData.buyGoods.addressId }, function (res) {
+            that.setData({
+                address: res.data.data
             });
-        }
+        });
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        // 获取默认地址
-        wx.request({
-            url: app.globalData.getAddrByDefaultUrl,
-            method: 'POST',
-            // data: {userId:},
-            header: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
-            success: function (res) {
-                that.setData({
-                    address: res.data.data
-                });
-            }
-        });
+        
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        // prevPageUrl = util.getPrevPageUrl();
-        // if (prevPageUrl == '/pages/address/insert/insert'){
-
-        // }
+        
     },
 
     /**
@@ -130,7 +93,7 @@ Page({
      */
     selectAddress: function () {
         wx.navigateTo({
-            // url: '/pages/address/insert/insert?userId='+;
+            url: '/pages/address/insert/insert?userId=' + app.globalData.userId
         })
     },
 
@@ -155,18 +118,22 @@ Page({
      * 提交订单
      */
     commitOrder: function () {
-        wx.request({
-            url: app.globalData.InsertOrderUrl,
-            method: 'POST',
-            data: { goodsId: goodsId, num: num, userId: userId, soldPrice: soldPrice, status: status, price: price, cartsId: cartsId },
-            header: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
-            success: function (res) {
-                if (res.status == 1) {
-                    // 跳转到支付页面
-                }
-            }
+        var that = this;
+        let commit_order = that.data.order;
+        // console.log(commit_order);
+        let goodsInfo = commit_order.goodsInfo[0];
+        console.log(that.data.address);
+        let gid = goodsInfo.gid;  // 商品id
+        let num = goodsInfo.num;  // 商品数量
+        let price = goodsInfo.price; // 商品价格
+        let mystatus = 0;  // 没有购物车编号
+        let mydata = { goodsId: gid, num: num, userId: app.globalData.userId, soldPrice: commit_order.soldPrice, status: mystatus, price: price, addrId: that.data.address.id }
+        // console.log(mydata)
+        utils.myWxRequest(app.globalData.InsertOrderUrl, mydata, function (res) {
+            app.globalData.buyGoods = '';
+            wx.navigateTo({
+                url: '/pages/pay_success/pay_success'
+            })
         });
     },
 

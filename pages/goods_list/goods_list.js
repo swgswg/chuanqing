@@ -249,7 +249,6 @@ function getGoods(myurl,val,myPageSize,mySort,that,status){
         // 通过类别查询
         mydata = { classId: val, page: myPage, pageSize: myPageSize, condition: mySort };
         util.myWxRequest(myurl, mydata, function (res) {
-            console.log(res.data.data);
             that.setData({
                 goods: res.data.data.PageInfo.list
                 // goods: res.data.data

@@ -1,4 +1,3 @@
-
 const env = require('./env.js');
 const Base64 = require('./Base64.js');
 require('./hmac.js');
@@ -6,8 +5,13 @@ require('./sha1.js');
 const Crypto = require('./crypto.js');
 var utils = require('../utils/util.js');
 
-// const uploadFile = function (filePath, fileW, objectId, successCB, errorCB) {
-const uploadFile = function (filePath, fileDir, successCB, errorCB) {
+/**
+ *  上传文件到阿里云
+ * @param filePath  文件路径
+ * @param successCB  上传成功执行的方法
+ * @param errorCB   上传失败执行的方法
+ */
+const uploadFile = function (filePath, successCB, errorCB) {
     if (!filePath || filePath.length < 9) {
         wx.showModal({
             title: '上传…错误',
@@ -17,15 +21,13 @@ const uploadFile = function (filePath, fileDir, successCB, errorCB) {
         return;
     }
 
-    // const aliyunFileKey = fileW+filePath.replace('wxfile://', '');
-    //const aliyunFileKey = filePath.replace('wxfile://', '');
-	// const aliyunFileKey = filePath.replace('http://tmp', '');
+    // 当前时间
     let now = utils.formatDate(new Date().getTime(), 'YYMMDDhhmmss');
+    // 四位随机数
     let rand = utils.rand(1111,9999);
-	const aliyunFileKey = now + rand + filePath.slice(filePath.lastIndexOf('.'));
-    // console.log(aliyunFileKey);
+	// 上传文件名
+    const aliyunFileKey = now + rand + filePath.slice(filePath.lastIndexOf('.'));
 
-    //const aliyunFileKey = fileW + '' + (new Date().getTime()) + '_' + objectId + '.mp4';
     const aliyunServerURL = env.aliyunServerURL;
     const accessid = env.accessid;
     const policyBase64 = getPolicyBase64();

@@ -110,8 +110,9 @@
 }
 .comment-img{
     display: flex;
-    justify-content:space-around;
-     margin-bottom:30rpx;  
+    justify-content:flex-start;
+    margin-right: 5rpx;
+    margin-bottom:30rpx;  
     padding: 0 10rpx;
 }
 .comment-img image{

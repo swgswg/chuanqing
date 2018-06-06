@@ -16,19 +16,7 @@
                 <image src="{{item}}"></image>
                 <view catchtap='cancleImg' data-src='{{index}}' class="cancle">X</view>
             </view>
-        </block>
-        <!-- <view hidden='{{src2 ? false:true }}' class="addimage-each">
-            <image src="{{src2}}"></image>
-            <view bindtap='cancleImg' data-src='{{index}}' class="cancle">X</view>
-        </view>
-        <view hidden='{{src3 ? false:true }}' class="addimage-each">
-            <image src="{{src3}}"></image>
-            <view bindtap='cancleImg' data-src='{{index}}' class="cancle">X</view>
-        </view>
-        <view hidden='{{src4 ? false:true }}' class="addimage-each">
-            <image src="{{src4}}"></image>
-            <view bindtap='cancleImg' data-src='{{index}}' class="cancle">X</view>
-        </view>  -->   
+        </block>  
         <image bindtap='addImg' hidden="{{src.length >= 4 ? true : false}}"  src="../../images/addimage.png"></image>  
     </view>
     <button bindtap='publishComment' type='default'>确定</button>

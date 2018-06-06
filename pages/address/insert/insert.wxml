@@ -1,16 +1,17 @@
 <view>
 
 <view class="body" wx:for="{{array}}" wx:key="{{item.id}}">
+<view bindtap='selectAddr' data-addrid='{{item.id}}'>
   <!--收货人  -->
   <view class="user">
-  <text decode="{{true}}" space="{{true}}">{{item.receiveName}} &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  {{item.phone}}</text>
-  </view>
+    <text decode="{{true}}" space="{{true}}">{{item.receiveName}} &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  {{item.phone}}</text>
+</view>
 
   <!--收货地址  -->
    <view class="add">{{item.addrCity}}{{item.addrDetail}}</view> 
   <!--边距线  -->
   <view class="bianju"></view> 
-
+</view>
   <!--编辑  -->
   <view>
     <view>

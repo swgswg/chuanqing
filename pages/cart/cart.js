@@ -95,7 +95,15 @@ Page({
     onShareAppMessage: function () {
     
     },
-    
+
+    /**
+     * 去逛逛
+     */
+    goShopping:function(){
+        wx.switchTab({
+            url: '/pages/trader/index/index'
+        })
+    },
     /**
      * 点击显示更多
      */
@@ -386,7 +394,7 @@ Page({
                 carts.splice(i, 1);
             }
         }
-        // 同步删除数据库
+        // 同步删除购物车数据库
         // util.myWxRequest(app.globalData.deleteCartsUrl, { id: mycid }, function(res){});
         this.setData({
             carts: carts
@@ -394,7 +402,6 @@ Page({
         if (that.data.totalPrice > 0){
             let totalPrice = that.data.totalPrice;
             app.globalData.buyGoods = { goodsInfo: buy_goods, soldPrice: totalPrice, transportation_expenses: '0.00', receipt: '', msg:''};
-            // console.log(app.globalData.buyGoods);
             wx: wx.navigateTo({
                 url: '/pages/commit_order/commit_order'
             })

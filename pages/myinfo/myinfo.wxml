@@ -73,7 +73,7 @@
     <view class="membership-privilege">
         <view class="membership-privilege-font">会员尊享</view>
          <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
-            <block wx:for="{{membershipPrivilege}}">
+            <block wx:for="{{membershipPrivilege}}" wx:key="{{membershipPrivilege.id}}">
                 <view class="membership-privilege-scroll">
                     <image src="{{item.img}}"></image>
                     <view>{{item.price}}</view>

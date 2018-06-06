@@ -68,9 +68,9 @@ Page({
      * 返回首页
      */
     backFirstPage:function(){
-        wx.navigateTo({
+        wx.switchTab({
             url: '/pages/trader/index/index'
-        });
+        })
     },
 
     /**

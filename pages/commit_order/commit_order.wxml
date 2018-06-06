@@ -1,7 +1,7 @@
 <view style="margin-top:20rpx;">
         <view class="consignee">
             <view class="consignee-font1">收货人： {{address.receiveName}}<text style='margin-left:80rpx;'>{{address.phone}}</text> </view>
-            <view class="consignee-font2">{{address.addrDetail}}</view>
+            <view class="consignee-font2">{{address.addrCity}} {{address.addrDetail}}</view>
             <view bindtap='selectAddress' class="consignee-img"><image src="../../images/fanhui.png" /></view>
         </view>
         <view style="margin-top:20rpx;">

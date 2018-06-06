@@ -8,7 +8,8 @@
             </view>
             <view class="cart-empty-font1">购物车空空如也</view>
             <view class="cart-empty-font2">
-                <navigator url="/pages/trader/index/index">去逛逛</navigator>
+                <!-- <navigator url="/pages/trader/index/index">去逛逛</navigator> -->
+                <view  bindtap='goShopping'>去逛逛</view>
             </view>
         </view>
      </block>

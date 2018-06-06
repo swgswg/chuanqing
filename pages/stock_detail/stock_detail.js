@@ -1,4 +1,5 @@
-// pages/stock_detail/stock_detail.js
+const utils = require('../../utils/util.js');
+const app = getApp();
 var repurchaseReason_index = 0;  // 回购原因的索引
 Page({
 
@@ -6,31 +7,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        goodsInfo: {
-            id: 1,
-            goods_name: '路易拉菲2009男爵古堡干红葡萄酒红酒礼盒木盒装750ml * 2',
-            goods_img: [
-                '../../images/swiper.png',
-                '../../images/swiper.png',
-                '../../images/swiper.png'
-            ],
-            goods_price: '119.00',
-            member_price: '99.00',
-            stock:155,
-            selling:150
-        },
+        goodsInfo: {},
         goods_num: 1, 
-        imgUrls: [
-            '../../images/swiper.png',
-            '../../images/swiper.png',
-            '../../images/swiper.png'
-        ],
-        commentImg:[
-            '../../images/comment-img.png',
-            '../../images/comment-img.png',
-            '../../images/comment-img.png',
-            '../../images/comment-img.png'
-        ],
         repurchaseReason:[
             { key: 1, value: '回购原因1', checked: true },
             { key: 2, value: '回购原因2', checked: false },
@@ -46,7 +24,31 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        // 获取商品id
+        let gid = options.gid;
+        // 获取商品详情
+        let that = this;
+        // 获取商品信息
+        utils.myWxRequest(app.globalData.getGoodsDetailByStockUrl, { id: gid, userId:app.globalData.userId }, function (res) {
+            // console.log(res);
+            let goodsInfo = res.data.data;
+            console.log(goodsInfo);
+            let commentInfo = goodsInfo.comment;
+            for (let i = 0; i < commentInfo.length; i++) {
+                commentInfo[i].img = commentInfo[i].img.split(',');
+            }
+            that.setData({
+                goodsInfo: goodsInfo,
+                commentInfo: commentInfo
+            });
+        });
 
+        // 获取默认地址
+        utils.myWxRequest(app.globalData.getAddrByDefaultUrl, { user_id: app.globalData.userId }, function (res) {
+            that.setData({
+                address: res.data.data
+            });
+        });
     },
 
     /**
@@ -97,17 +99,37 @@ Page({
     onShareAppMessage: function () {
 
     },
+    // // 增加数量
+    // addCount(e) {
+    //     let num = this.data.goods_num;
+    //     num = num + 1;
+    //     this.setData({
+    //         goods_num: num
+    //     });
+    // },
+    // // 减少数量
+    // minusCount(e) {
+    //     let num = this.data.goods_num;
+    //     if (num <= 1) {
+    //         return false;
+    //     }
+    //     num = num - 1;
+    //     this.setData({
+    //         goods_num: num
+    //     });
+    // },
+
     // 增加数量
-    addCount(e) {
-        let num = this.data.goods_num;
+    addCount: function (e) {
+        let num = parseInt(this.data.goods_num);
         num = num + 1;
         this.setData({
             goods_num: num
         });
     },
     // 减少数量
-    minusCount(e) {
-        let num = this.data.goods_num;
+    minusCount: function (e) {
+        let num = parseInt(this.data.goods_num);
         if (num <= 1) {
             return false;
         }
@@ -116,7 +138,39 @@ Page({
             goods_num: num
         });
     },
+    /**
+     * 修改商品数量
+     */
+    inputNum: function (e) {
+        var that = this;
+        // console.log(e.detail.value);
+        if (e.detail.value == '') {
+            that.setData({
+                goods_num: 1
+            });
+        } else {
+            that.setData({
+                goods_num: e.detail.value
+            });
+        }
+    },
+    blurNum: function (e) {
+        // console.log(e.detail.value);
+        var that = this;
+        that.setData({
+            goods_num: e.detail.value
+        });
+    },
 
+    /**
+    * 查看全部评论
+    */
+    viewAllComment: function () {
+        var that = this;
+        wx: wx.navigateTo({
+            url: '/pages/all_comment/all_comment?goodsId=' + that.data.goodsInfo.id
+        });
+    },
 
     /**
      * 申请回购
@@ -167,7 +221,22 @@ Page({
      * 自提按钮
      */
     self_extraction:function(){
-
+        let mynum = this.data.goods_num;
+        let mygoodsInfo = {};
+        mygoodsInfo.gid = this.data.goodsInfo.id;  // 商品id
+        mygoodsInfo.name = this.data.goodsInfo.gname;  // 商品名称
+        mygoodsInfo.num = mynum; // 商品数量
+        mygoodsInfo.price = this.data.goodsInfo.price; // 商品价格
+        mygoodsInfo.img = '../../images/hongjiu.png';  // 商品图片
+        let addrId = this.data.address.id;
+        let mysoldPrice = this.data.goodsInfo.price * mynum;  // 商品总价
+        mygoodsInfo = [mygoodsInfo];
+        app.globalData.buyGoods = { goodsInfo: mygoodsInfo, soldPrice: mysoldPrice, addressId: addrId };
+        // console.log(app.globalData.buyGoods);
+        wx.navigateTo({
+            // url: '/pages/commit_order/commit_order?goodsId='+goodsId+'&num='+num+'&totalPrice='+totalPrice,
+            url: '/pages/self_extraction/self_extraction'
+        })
     },
 
     /**
