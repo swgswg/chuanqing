@@ -1,4 +1,7 @@
 // pages/trader/index/index.js
+var util = require('../../../utils/util.js');
+const app = getApp();
+
 Page({
 
   /**
@@ -6,7 +9,7 @@ Page({
    */
   data: {
   //国家循环
-  country:[
+  goodsGroup:[
     { imgs: '../../../images/c4.png', name: '法国' }, 
     { imgs: '../../../images/c4.png', name: '法国' },
     { imgs: '../../../images/c4.png', name: '法国' },
@@ -44,17 +47,26 @@ Page({
     })
   },
 
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    var that=this
+    //  国家页面  获取分类组
+    util.myWxRequest(app.globalData.getGroupUrl, {}, function (res) {
+      that.setData({
+        goodsGroup: res.data.data,
+        current_id: res.data.data[0].id
+      });
+    });
   
   },
 

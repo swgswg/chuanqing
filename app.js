@@ -59,9 +59,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    buyGoods:null,
+    buyGoods:[],
     userId:1,
-    payInfo:null,
     globalDataBaseUrl: baseUrl,
     getAllCommetnUrl:baseUrl+'redwine/order/QueryComment',
     getGroupUrl:baseUrl+'redwine/goodsGroup/getGroup',
@@ -77,12 +76,30 @@ App({
     InsertOrderUrl: baseUrl + 'redwine/order/InsertOrder',
     getAddrUrl: baseUrl + 'redwine/addr/getAddr',
     QueryOrderUrl: baseUrl + 'redwine/order/QueryOrder',
-    InsertCommentUrl: baseUrl + '/redwine/order/InsertComment',
-    insertCartsUrl: baseUrl + 'redwine/carts/insertCarts',
-    updateCartsUrl: baseUrl + 'redwine/carts/updateCarts',
-    getGoodsByConditionUrl: baseUrl + 'redwine/goods/getGoodsByCondition',
-    
-    userLoginUrl: baseUrl+ 'redwine/user/userLogin'
+    InsertCommentUrl: baseUrl + 'redwine/order/InsertComment',
+    userLoginUrl: baseUrl+ 'redwine/user/userLogin',
+  //修改个人信息
+    updateUserInfoUrl: baseUrl + 'redwine/userInfo/updateUserInfo',
+  // 修改呢称
+    updateUserInfoNickName: baseUrl + 'redwine/userInfo/updateUserInfoNickName',
+  //修改性别
+    updateUserInfoSex: baseUrl + 'redwine/userInfo/updateUserInfoSex',
+  //修改生日
+    updateUserInfoBirth: baseUrl +  'redwine/userInfo/updateUserInfoBirth', 
+  // 添加地址
+    addAddrUrl: baseUrl + 'redwine/addr/addAddr',
+  //删除地址
+    deleteAddrUrl: baseUrl + 'redwine/addr/deleteAddr',
+  //获取具体地址
+  getAddrByIdUrl: baseUrl + 'redwine/addr/getAddrById',
+  // 修改地址
+  updateAddrUrl: baseUrl + 'redwine/addr/updateAddr',
+  //获取地址
+    getAddrUrl: baseUrl + 'redwine/addr/getAddr',
+  //设置默认
+    updateAddrDefault: baseUrl + 'redwine/addr/updateAddrDefault' ,
+  // 首页，国家图标
+    getGroupUrl: baseUrl + 'redwine/goodsGroup/getGroup'
   }
 
 })

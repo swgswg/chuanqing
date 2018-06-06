@@ -8,7 +8,7 @@
             </view>
             <view class="cart-empty-font1">购物车空空如也</view>
             <view class="cart-empty-font2">
-                <navigator url="/pages/trader/index/index">去逛逛</navigator>
+                <navigator url="/pages/index/index">去逛逛</navigator>
             </view>
         </view>
      </block>
@@ -19,22 +19,22 @@
             <!--商品 start  -->
             <block wx:if="{{hasList == true}}"> 
                 <view style="margin-top:20rpx;">
-                    <block wx:for="{{carts}}" wx:key="{{item.cid}}"> 
+                    <block wx:for="{{carts}}" wx:key="{{item.id}}"> 
                         <view class="buy-goods">
                             <view class="checkbox">
                                 <checkbox checked='{{item.selected}}' bindtap='selectList' data-index="{{index}}" />
                             </view>
                             <view class="goods-img">
                                 <!-- 点击商品图片可跳转到商品详情 -->
-                                <navigator url="../goods_detail/goods_detail?id={{item.gid}}">
-                                    <image src="{{item.img}}"></image>
+                                <navigator url="../goods_detail/goods_detail?id={{item.id}}">
+                                    <image src="{{item.goods_img}}"></image>
                                 </navigator>
                             </view>
                             <view class="goods-name">
-                                {{item.name}} {{item.specification}}
+                                {{item.goods_name}}
                             </view>
                             <view class="goods-pricee">
-                                ¥{{item.price}}
+                                ¥{{item.goods_price}}
                             </view>
                             <view class="number">
                                 <view class="jian" bindtap="minusCount" data-index="{{index}}">-</view>
@@ -42,7 +42,7 @@
                                     <input bindinput='inputNum' bindblur='blurNum' bindconfirm='blurNum'
                                         value="{{item.num}}" 
                                         data-index="{{index}}" type="number"/>
-                                </view>
+                                    </view>
                                 <view class="jia"  bindtap="addCount" data-index="{{index}}">+</view>
                             </view>
                             <view class="tishi">单次购买满50瓶成为经销商享更多优惠</view>      
@@ -50,11 +50,6 @@
                     </block> 
                 </view>
             </block> 
-            <block wx:if="{{hasList}}"> 
-             <view bindtap='showMore' class="dianjijiazai">
-                点击显示更多
-            </view>
-            </block>
             <!--商品 end  -->
             
             <!-- 猜你喜欢start  -->

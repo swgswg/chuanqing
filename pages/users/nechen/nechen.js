@@ -1,4 +1,7 @@
 // pages/users/nechen/nechen.js
+var util = require('../../../utils/util.js');
+const app = getApp();
+
 Page({
 
   /**
@@ -6,6 +9,20 @@ Page({
    */
   data: {
   
+  },
+  formSubmit: function (e) {
+    var date = e.detail.value.input
+    util.myWxRequest(app.globalData.updateUserInfoNickName, { userId: app.globalData.userId, nickName:date }, function (res) {
+      wx.showToast({
+        icon: 'success',
+        title: '修改成功'
+      });
+      wx.navigateTo({
+        url: '/pages/users/users/users?nechen=' + e.detail.value.input
+      })
+    });
+
+
   },
 
   /**

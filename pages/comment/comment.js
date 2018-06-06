@@ -1,6 +1,5 @@
 // pages/comment/comment.js
 var util = require('../../utils/util.js');
-var uploadAliyun = require('../../weixinFileToaliyun/uploadAliyun.js');
 Page({
 
     /**
@@ -85,44 +84,19 @@ Page({
     /**
      * 添加图片
      */
-    // addImg:function(){
-    //     var that = this;
-    //     var myurl = '';
-    //     var newsrc = that.data.src;
-    //     util.myUploadFile(myurl, function(res){
-    //         // console.log(res.data);
-    //         newsrc.push(res.data);
-    //         console.log(newsrc);
-    //         that.setData({
-    //             src: newsrc
-    //         });
-    //     });
-    // },
-
     addImg:function(){
-        let that = this;
-        let newsrc = that.data.src;
-        wx.chooseImage({
-            count: 1, 
-            sizeType: ['original', 'compressed'], 
-            sourceType: ['album', 'camera'], 
-            success: function (res) {
-                // console.log(res);
-                var tempFilePaths = res.tempFilePaths;
-                var filePath = tempFilePaths[0];
-                var fileW = '/images/';
-                uploadAliyun(filePath, fileW, function (aliyunFileKey){
-                    // console.log(aliyunFileKey);
-                    newsrc.push('http://jiaoyuvideo.oss-cn-beijing.aliyuncs.com/' + aliyunFileKey);
-                    console.log(newsrc);
-                    that.setData({
-                        src: newsrc
-                    });
-                }, function(){});
-            }   
-        })   
+        var that = this;
+        var myurl = '';
+        var newsrc = that.data.src;
+        util.myUploadFile(myurl, function(res){
+            // console.log(res.data);
+            newsrc.push(res.data);
+            console.log(newsrc);
+            that.setData({
+                src: newsrc
+            });
+        });
     },
-
 
     /**
      * 删除图片

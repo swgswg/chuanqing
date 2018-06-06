@@ -22,7 +22,7 @@
  <!--商品列表 start  -->
 <view class="goods-list">
     <scroll-view scroll-y="true" style='width:100%;height:100%;' bindscrolltolower="scrollToLower">
-        <view class="goods-list-all" wx:for="{{goods}}" wx:key="{{item.id}}">
+        <view class="goods-list-all" wx:for="{{goods}}">
             <view class="goods-list-each">
                 <navigator url='../goods_detail/goods_detail?id={{item.id}}'>  
                     <image class="goods-img" src="{{item.img}}" />
@@ -34,7 +34,7 @@
                 </view>
             </view>
         </view>
-         <view class="under-loading">
+         <view class="under-loading" >
             <image src="../../images/under-loading.gif" />
         </view>
     </scroll-view>

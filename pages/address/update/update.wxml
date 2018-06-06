@@ -7,14 +7,14 @@
     <!--基本设置  -->
     <view class="shezhi" style="display:flex;">
       <label><text decode="{{true}}">收货人&nbsp;&nbsp;&nbsp;</text></label>
-      <input name="receiveName" class='text' />
+      <input name="receiveName" value='{{arrays.receiveName}}' class='text' />
     </view>
      <!--底边框  -->
     <view class="kuandu"></view>
 
     <view class="shezhi" style="display:flex;">
       <label><text decode="{{true}}">联系电话&nbsp;&nbsp;&nbsp;</text></label>
-      <input name="phone" class='text' />
+      <input name="phone"value="{{arrays.phone}}" class='text' />
     </view>
      <!--底边框  -->
     <view class="kuandu"></view>
@@ -22,7 +22,7 @@
     <view class='shezhi' style='display:flex'>
     <label><text decode="{{true}}">所在地区&nbsp;&nbsp;&nbsp;</text></label>
     <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-       <input name="addrCity" value="{{diqu}}  " class='text' /> 
+       <input name="addrCity" value="{{arrays.addrCity}}  " class='text' /> 
        <view style='margin-left:180px;margin-top:-33px;color:#ddd;'> <image src='../../../images/float.png' class='dayu'></image> </view>
     </picker>  
     </view>
@@ -32,22 +32,12 @@
 
     <view class="shezhi" style="display:flex;">
       <label><text decode="{{true}}">详细地址&nbsp;&nbsp;&nbsp;</text></label>
-      <input name="addrDetail" class='text' />
+      <input name="addrDetail" value='{{arrays.addrDetail}}' class='text' />
     </view>
-     <!--底边框  -->
-    <view style='width:100%;height:10px;background:#ddd;'></view>
-
-    <view class="shezhi" style="display:flex;">
-      <label><text decode="{{true}}">设置默认地址&nbsp;&nbsp;&nbsp;</text></label>
-    <!-- 设置默认框 -->
-      <checkbox-group name="checkbox" > 
-      <label><checkbox value="true" style='margin-left:180px;' /></label>
-      </checkbox-group> 
-    </view>
-
+    
     <!--保存  -->
     <view >
-          <button class='insert' formType="submit">保存</button>
+          <button class='insert' formType="submit" data-id='{{arrays.id}}'>保存</button>
     </view>
   </form>
   </view>

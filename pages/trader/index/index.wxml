@@ -19,7 +19,7 @@
   <!--国家  -->
   <view class="">
     <!--国家循环  -->
-    <block wx:for="{{country}}">
+    <block wx:for="{{ goodsGroup}}">
       <view class="guojia">
         <view class='tubiao'><image src="{{item.imgs}}" style='width:125rpx;height:125rpx;border-radius:80%;'></image></view>
         <view class="zi">{{item.name}}</view>
@@ -59,7 +59,7 @@
 
   <!--相关推荐循环  -->
     <block wx:for="{{recommend}}">
-      <navigator url="">
+      <navigator url="/pages/goods_detail/goods_detail">
         <view class='z2'>
           <view class='pic'><image src='{{item.img}}' style='width:280rpx;height:350rpx;'></image></view>
           <view class='name'>{{item.name}}</view>

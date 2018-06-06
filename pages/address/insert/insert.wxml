@@ -1,13 +1,13 @@
 <view>
 
-<view class="body">
+<view class="body" wx:for="{{array}}" wx:key="{{item.id}}">
   <!--收货人  -->
   <view class="user">
-  <text decode="{{true}}" space="{{true}}">收货人 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  1888888888</text>
+  <text decode="{{true}}" space="{{true}}">{{item.receiveName}} &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  {{item.phone}}</text>
   </view>
 
   <!--收货地址  -->
-   <view class="add">天津市滨海新区洞庭路汇融大厦</view> 
+   <view class="add">{{item.addrCity}}{{item.addrDetail}}</view> 
   <!--边距线  -->
   <view class="bianju"></view> 
 
@@ -16,22 +16,22 @@
     <view>
       <!-- 设置默认框 -->
       <view>
-          <checkbox-group name="checkbox" class="check">
-            <label><checkbox value="checkbox1"/></label>
+          <checkbox-group name="checkbox" class="check" data-id="{{item.id}}" bindtap="moren">
+            <label><checkbox checked="{{item.is_default==1 ? true : '' }}" value="checkbox1"/></label>
           </checkbox-group>
             <text class="bianji">默认地址</text>
       </view>
 
-         <navigator url="" style='float:left;'>
+         <navigator url="/pages/address/update/update?id={{item.id}}" style='float:left;'>
             <!--编辑  -->
              <image src='../../../images/18.png' class='del' style='margin-left:250rpx;'></image>                 
            <text decode="{{true}}"  class="bianji"  >编辑</text>
         </navigator>
       <!--删除  -->
-        <navigator url=""  style='float:left;'>
+        <view style='float:left;'  >
           <image src='../../../images/del.png' class='del'></image>
-          <text decode="{{true}}"  class="bianji" >删除</text>
-        </navigator>      
+          <text decode="{{true}}"  class="bianji" bindtap='deletes'  data-id="{{item.id}}">删除</text>
+        </view>      
     </view>  
   </view>
 

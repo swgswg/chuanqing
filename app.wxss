@@ -115,17 +115,3 @@ radio .wx-radio-input.wx-radio-input-checked::before{
     border-right:0;
     font-size: 30rpx;
 }
-/**
-* <view class="dianjijiazai">
-*   点击显示更多
-* </view>
-*/
-.dianjijiazai{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top:20rpx; 
-    width:100%;
-    height: 60rpx;
-    font-size:24rpx;
-}

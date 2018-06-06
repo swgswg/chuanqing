@@ -1,4 +1,5 @@
 <view style="margin-top:20rpx;">
+     <!-- <block wx:for="{{commit_order}}">  -->
         <view class="consignee">
             <view class="consignee-font1">收货人： {{address.receiveName}}<text style='margin-left:80rpx;'>{{address.phone}}</text> </view>
             <view class="consignee-font2">{{address.addrDetail}}</view>
@@ -6,21 +7,21 @@
         </view>
         <view style="margin-top:20rpx;">
             <view sytle="width:100%;background-color:#fff;">
-                <block wx:for="{{commit_order.goodsInfo}}" wx:for-item="goods" wx:key="{{goods.cid}}">
+                <block wx:for="{{commit_order.goods_info}}" wx:for-item="vv" wx:key="{{vv.id}}">
                     <view class="myorder_each">
                         <view class="goods-info">
                             <view class="goods-img">
-                                <image src="{{goods.img}}"></image>
+                                <image src="{{vv.goods_img}}"></image>
                             </view>
                             <view class="goods-name">
                                 <view>
-                                    {{goods.name}}
+                                    {{vv.goods_name}}
                                 </view>
                             </view>
                             <view class="goods-price">
-                                <view class="buy-price">¥{{goods.price}}</view>
+                                <view class="buy-price">¥{{vv.goods_price}}</view>
                                 <view class="huaxian-price"></view>
-                                <view class="buy-number">x{{goods.num}}</view>
+                                <view class="buy-number">x{{vv.goods_number}}</view>
                             </view>
                         </view>
                     </view>
@@ -36,41 +37,16 @@
         </view>
         <view class="goods-total"> 
             <view class="goods-total-font1">商品总价</view>
-            <view class="goods-total-font2">¥{{commit_order.soldPrice}}</view>
+            <view class="goods-total-font2">¥{{commit_order.goods_total}}</view>
         </view>
         <view class="goods-total" style='margin-top:0;'> 
             <view class="goods-total-font1">运费</view>
-            <!-- <view class="goods-total-font2">¥{{commit_order.transportation_expenses}}</view> -->
-             <view class="goods-total-font2">¥0.00</view> 
+            <view class="goods-total-font2">¥{{commit_order.transportation_expenses}}</view>
         </view>
         <view class="qurenziti">
-            <view class="qurenziti-font">总计<text> ¥{{commit_order.soldPrice}}</text></view>
-            <view bindtap='commitOrder' class="qurenziti-btn">提交订单</view>
+            <view class="qurenziti-font">总计<text> ¥{{parseFloat(commit_order.goods_total) + parseFloat(commit_order.transportation_expenses)}}</text></view>
+            <view bindtap='commitOrder' class="qurenziti-btn">提价订单</view>
         </view>
-    
+     <!-- </block>  -->
 </view>
-<!--支付方式 start  -->
-<view class="payment" hidden='{{payment}}'>
-    <view class="pay-way">
-        <view class="change-way">更换支付方式</view>
-        <radio-group bindchange="slecetPay">
-        <block wx:for="{{[1,2,3]}}" wx:key="{{item.id}}">
-            <view class="pay-way-each">
-                <view class='pay-way-each-a'>
-                    <image class="pay-way-img" src="../../images/lingqian.png" />
-                    <view class="pay-way-name">零钱(剩余¥562.35)</view>    
-                </view>
-                <view><radio value="" checked=""/>{{item.value}}</view>
-            </view>
-        </block>
-        </radio-group>
-        <view bindtap='addNewPay' class="add-pay">添加新卡支付</view>
-    </view>
-</view> 
-<!--支付方式 end  -->
-
-<!--输入支付密码 start  -->
-<view class="payment" hidden='{{enterPaymentPassword}}'>
     
-</view>
-<!--输入支付密码 end  -->
