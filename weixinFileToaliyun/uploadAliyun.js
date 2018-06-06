@@ -7,7 +7,7 @@ const Crypto = require('./crypto.js');
 var utils = require('../utils/util.js');
 
 // const uploadFile = function (filePath, fileW, objectId, successCB, errorCB) {
-const uploadFile = function (filePath, fileW, successCB, errorCB) {
+const uploadFile = function (filePath, fileDir, successCB, errorCB) {
     if (!filePath || filePath.length < 9) {
         wx.showModal({
             title: '上传…错误',
