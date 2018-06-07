@@ -1,10 +1,13 @@
 // pages/trader/sell/sell.js
+var util = require('../../../utils/util.js');
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    // data:"",
       sell:[
         { name:'路易拉菲2009男爵古堡干红葡萄酒红盒礼盒木盒750ml*2',price: '￥888', selling: 155, sells: '50', see: '888' },
         { name:'路易拉菲2009男爵古堡干红葡萄酒红盒礼盒木盒750ml*2',price: '￥888', selling: 155, sells: '50', see: '888' },
@@ -25,7 +28,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    var that=this
+    util.myWxRequest(app.globalData.getIsSaleUrl, { userId: app.globalData.userId}, function (res) {
+        console.log(res.data.data)
+        that.setData({
+          data: res.data.data
+        });  
+      }); 
   },
 
   /**

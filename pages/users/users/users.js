@@ -1,7 +1,8 @@
 // pages/users/users/users.js
 var util = require('../../../utils/util.js');
 const app = getApp();
-
+var env = require('../../../weixinFileToaliyun/env.js');
+var uploadAliyun = require('../../../weixinFileToaliyun/uploadAliyun.js');
 
 Page({
 
@@ -94,22 +95,51 @@ Page({
           var tempFilePaths = res.tempFilePaths
         }
       })
+      this.setData({
+        immediate_sale_hidden: true
+      });
     },
 
   // 本地上传
     local: function(){
-      var that=this
+      let that = this;      
       wx.chooseImage({
-        count: 1, // 默认9
-        sizeType: ['original', 'compressed'], 
-        sourceType: ['album'],
-        success: function (res) {
-          // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-          var tempFilePaths = res.tempFilePaths
-          that.setData({
-            img: tempFilePaths
-          })
-        }
+        count: 1,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['album', 'camera'],
+          // 上传文件
+          success: function (res) {
+            let tempFilePaths = res.tempFilePaths;
+            // 临时文件路径
+            let filePath = tempFilePaths[0];
+            let ext = filePath.slice(filePath.lastIndexOf('.'));
+            let extArr = ['png', 'jpg', 'jpeg', 'gif'];
+            if (extArr.indexOf(ext) != -1) {
+              // 上传文件
+              uploadAliyun(filePath, function (aliyunFileKey) {
+                  let newsrc = env.aliyunServerURL + aliyunFileKey;
+                  // console.log(env.aliyunServerURL);
+                  that.setData({
+                      img: newsrc
+                  });
+                  // 头像上传数据库
+                  util.myWxRequest(app.globalData.updateUserInfoPhotoUrl, { photo: aliyunFileKey }, function (res) {
+                      wx.showToast({
+                        icon: 'success',
+                        title: '修改成功'
+                      });
+                  })
+              }, function () { });
+            } else {
+              wx.showToast({
+                title: '图片格式不正确',
+                icon: 'none'
+              })
+            }
+        that.setData({
+          immediate_sale_hidden: true
+        })
+          }
       })
     },
     
@@ -124,6 +154,23 @@ Page({
         immediate_sale_hidden: true
       });
     },
+
+
+  // 地址管理
+  guanli: function(){
+    util.myWxRequest(app.globalData.getAddrUrl, { user_id: app.globalData.userId}, function (res) {
+        var length = res.data.data.length
+          if (length>0){
+            wx.navigateTo({
+              url: '/pages/address/insert/insert'
+            })
+          } else{
+            wx.navigateTo({
+              url: '/pages/address/address/address'
+            })
+          }
+    });
+  },
 
 
   /**

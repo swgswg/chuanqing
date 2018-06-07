@@ -68,7 +68,7 @@ page{
   background: red;
   line-height: 70rpx;
   margin-left: 30rpx;
-  margin-top:800rpx; 
+  margin-bottom:30rpx; 
   color:white;
   text-align: center;
   border-radius:10rpx; 

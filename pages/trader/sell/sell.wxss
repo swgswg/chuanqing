@@ -5,7 +5,7 @@
   height: 160rpx;
   float:left; 
   margin-left:20rpx;
-  /* margin-top: 20rpx; */
+   margin-top: -10rpx;  
 }
 
 /*距离顶部  */
