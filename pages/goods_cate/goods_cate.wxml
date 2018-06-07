@@ -11,6 +11,7 @@
     <image src="../../images/lindang.png" bindtap="searchGoods" />
 </view>
 <!--搜索end  -->
+
 <view class="group_class">
     <view class="left_group">
         <!--分类组start  -->
@@ -44,6 +45,7 @@
              </block>
         </view>
         <!--类别end  -->
-        
     </view>
 </view>
+<import src="../../template/template.wxml"/>
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>

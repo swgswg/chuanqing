@@ -62,6 +62,7 @@ App({
         userInfo: null,
         buyGoods:null,
         userId:1,
+        vipLevel: 1,
         payInfo:null,
         globalDataBaseUrl: baseUrl,
         // 获取所有评论
@@ -93,6 +94,7 @@ App({
         getCountUrl: baseUrl + 'redwine/dealer/getCount',
         // 库存详情
         getGoodsDetailByStockUrl: baseUrl + 'redwine/goods/getGoodsDetailByStock',
+        insertOwnOrderUrl: baseUrl+'redwine/dealer/insertOwnOrder',
         //修改个人信息
         updateUserInfoUrl: baseUrl + 'redwine/userInfo/updateUserInfo',
         // 修改呢称

@@ -1,5 +1,6 @@
 // pages/goods_cate/goods_cate.js
 var util = require('../../utils/util.js');
+var template = require('../../template/template.js');
 const app = getApp();
 var input_value = '';
 Page({
@@ -24,7 +25,7 @@ Page({
      */
     onLoad: function (options) {
         var that = this;
-        
+        template.tabbar("tabBar", 1, this, app.globalData.vipLevel); //0表示第一个tabbar
         // 获取分类组
         util.myWxRequest(app.globalData.getGroupUrl, {}, function(res){
             that.setData({

@@ -72,3 +72,5 @@
 
 
 </view>
+<import src="../../../template/template.wxml"/>
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>

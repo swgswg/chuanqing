@@ -124,12 +124,12 @@ Page({
         let goodsInfo = commit_order.goodsInfo[0];
         console.log(that.data.address);
         let gid = goodsInfo.gid;  // 商品id
-        let num = goodsInfo.num;  // 商品数量
+        let amount = goodsInfo.amount;  // 商品数量
         let price = goodsInfo.price; // 商品价格
         let mystatus = 0;  // 没有购物车编号
-        let mydata = { goodsId: gid, num: num, userId: app.globalData.userId, soldPrice: commit_order.soldPrice, status: mystatus, price: price, addrId: that.data.address.id }
+        let mydata = { goodsId: gid, amount: amount, userId: app.globalData.userId, soldPrice: commit_order.soldPrice, status: mystatus, price: price, addrId: that.data.address.id }
         // console.log(mydata)
-        utils.myWxRequest(app.globalData.InsertOrderUrl, mydata, function (res) {
+        utils.myWxRequest(app.globalData.insertOwnOrderUrl, mydata, function (res) {
             app.globalData.buyGoods = '';
             wx.navigateTo({
                 url: '/pages/pay_success/pay_success'

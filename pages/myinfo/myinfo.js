@@ -1,5 +1,6 @@
 // pages/myinfo/myinfo.js
 var util = require('../../utils/util.js');
+var template = require('../../template/template.js');
 const app = getApp();
 Page({
 
@@ -21,7 +22,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        
+        template.tabbar("tabBar", 3, this, app.globalData.vipLevel); //0表示第一个tabbar
     },
 
     /**

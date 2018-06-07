@@ -1,6 +1,7 @@
 {
     "pages":[
-        "pages/template/template",
+        
+        
         "pages/trader/index/index",
         "pages/goods_stock/goods_stock",
         "pages/self_extraction/self_extraction",
@@ -17,7 +18,7 @@
         "pages/address/address/address",      
         "pages/intercalate/intercalate",      
         "pages/cart_edit/cart_edit",
-        "pages/index/index",      
+             
         "pages/seckill/seckill",
         "pages/goods_competitive/goods_competitive",      
         "pages/address/update/update",
@@ -31,7 +32,6 @@
         "pages/browse_footprint/browse_footprint",      
         "pages/news/news",      
         "pages/commit_order/commit_order",      
-           
         "pages/comment/comment",      
         "pages/myinfo/myinfo",
         "pages/goods_list/goods_list",
@@ -39,46 +39,17 @@
         "pages/address/address1/address1",
         "pages/users/nechen/nechen",
         "pages/trader/huigou/huigou",
+        "pages/index/index",
         "pages/logs/logs"  
     ],
+
     "window":{
         "backgroundTextStyle":"light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "redWind",
         "navigationBarTextStyle":"black"
     },
-    "tabBar": {
-        "color": "#2c2c2c",
-        "selectedColor": "#d81e06",
-        "backgroundColor": "#fafafa",
-        "borderStyle": "white",
-        "list": [
-            {
-                "pagePath": "pages/trader/index/index",
-                "text": "首页",
-                "iconPath": "images/icon_home.png",
-                "selectedIconPath": "images/icon_home_active.png"
-            },
-            {
-                "pagePath": "pages/goods_cate/goods_cate",
-                "text": "分类",
-                "iconPath": "images/icon_catalog.png",
-                "selectedIconPath": "images/icon_catalog_active.png"
-            },
-            {
-                "pagePath": "pages/cart/cart",
-                "text": "购物车",
-                "iconPath": "images/icon_cart.png",
-                "selectedIconPath": "images/icon_cart_active.png"
-            },
-            {
-                "pagePath": "pages/myinfo/myinfo",
-                "text": "我的",
-                "iconPath": "images/icon_member.png",
-                "selectedIconPath": "images/icon_member_active.png"
-            }
-        ]
-    },
+   
     "networkTimeout": {
         "request": 10000,
         "downloadFile": 10000

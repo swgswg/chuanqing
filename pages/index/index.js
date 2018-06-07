@@ -1,7 +1,7 @@
-8//index.js
+//index.js
 //获取应用实例
 const app = getApp()
-
+var template = require('../../template/template.js');
 Page({
   data: {
     motto: 'Hello World',
@@ -16,6 +16,7 @@ Page({
     })
   },
   onLoad: function () {
+      template.tabbar("tabBar", 0, this,1);//0表示第一个tabbar
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

@@ -1,5 +1,6 @@
 // pages/cart/cart.js
 var util = require('../../utils/util.js');
+var template = require('../../template/template.js');
 const app = getApp();
 var flag = true;
 var mypageSize = 10;
@@ -23,7 +24,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        template.tabbar("tabBar", 2, this, app.globalData.vipLevel); //0表示第一个tabbar
     },
 
     /**
