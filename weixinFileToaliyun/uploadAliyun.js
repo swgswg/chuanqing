@@ -5,6 +5,7 @@ require('./sha1.js');
 const Crypto = require('./crypto.js');
 var utils = require('../utils/util.js');
 
+
 /**
  *  上传文件到阿里云
  * @param filePath  文件路径
@@ -21,13 +22,13 @@ const uploadFile = function (filePath, successCB, errorCB) {
         return;
     }
 
-    // 当前时间
+    // 生成时间数
     let now = utils.formatDate(new Date().getTime(), 'YYMMDDhhmmss');
-    // 四位随机数
+    // 生成随机数
     let rand = utils.rand(1111,9999);
-	// 上传文件名
+	// 拼接文件名
     const aliyunFileKey = now + rand + filePath.slice(filePath.lastIndexOf('.'));
-
+    // 阿里云OOS地址
     const aliyunServerURL = env.aliyunServerURL;
     const accessid = env.accessid;
     const policyBase64 = getPolicyBase64();
