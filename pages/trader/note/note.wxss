@@ -101,7 +101,7 @@ page{
 /*交易记录  */
 .zongti2{
   width:100%;
-  height:360rpx;
+  height:320rpx;
   background: white;
 }
 
@@ -116,7 +116,7 @@ page{
 .name{
   font-size: 26rpx;
   color: #666666;
-   margin-top:10rpx; 
+   margin-top:20rpx; 
   width:85%;
 }
 /*名称  */

@@ -58,48 +58,56 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
-    buyGoods:[],
-    userId:1,
-    globalDataBaseUrl: baseUrl,
-    getAllCommetnUrl:baseUrl+'redwine/order/QueryComment',
-    getGroupUrl:baseUrl+'redwine/goodsGroup/getGroup',
-    getGoodsClassUrl: baseUrl +'redwine/goodsClass/getGoodsClass',
-    getGoodsByClassUrl: baseUrl +'redwine/goods/getGoodsByClass',
-    getGoodsDetailUrl: baseUrl +'redwine/goods/getGoodsDetail',
-    QueryCommentUrl: baseUrl +'redwine/order/QueryComment',
-    insertCollectionUrl: baseUrl +'redwine/collection/insertCollection',
-    getGoodsBySaleCountUrl: baseUrl + 'redwine/goods/getGoodsBySaleCount',
-    getAddrByDefaultUrl: baseUrl + 'redwine/addr/getAddrByDefault',
-    getCartsUrl: baseUrl + 'redwine/carts/getCarts',
-    deleteCartsUrl: baseUrl + 'redwine/carts/deleteCarts',
-    InsertOrderUrl: baseUrl + 'redwine/order/InsertOrder',
-    getAddrUrl: baseUrl + 'redwine/addr/getAddr',
-    QueryOrderUrl: baseUrl + 'redwine/order/QueryOrder',
-    InsertCommentUrl: baseUrl + 'redwine/order/InsertComment',
-    userLoginUrl: baseUrl+ 'redwine/user/userLogin',
-  //修改个人信息
-    updateUserInfoUrl: baseUrl + 'redwine/userInfo/updateUserInfo',
-  // 修改呢称
-    updateUserInfoNickName: baseUrl + 'redwine/userInfo/updateUserInfoNickName',
-  //修改性别
-    updateUserInfoSex: baseUrl + 'redwine/userInfo/updateUserInfoSex',
-  //修改生日
-    updateUserInfoBirth: baseUrl +  'redwine/userInfo/updateUserInfoBirth', 
-  // 添加地址
-    addAddrUrl: baseUrl + 'redwine/addr/addAddr',
-  //删除地址
-    deleteAddrUrl: baseUrl + 'redwine/addr/deleteAddr',
-  //获取具体地址
-  getAddrByIdUrl: baseUrl + 'redwine/addr/getAddrById',
-  // 修改地址
-  updateAddrUrl: baseUrl + 'redwine/addr/updateAddr',
-  //获取地址
-    getAddrUrl: baseUrl + 'redwine/addr/getAddr',
-  //设置默认
-    updateAddrDefault: baseUrl + 'redwine/addr/updateAddrDefault' ,
-  // 首页，国家图标
-    getGroupUrl: baseUrl + 'redwine/goodsGroup/getGroup'
+      userInfo: null,
+      buyGoods:null,
+      userId:1,
+      dealerCode:'pingtai',
+      payInfo:null,
+      globalDataBaseUrl: baseUrl,
+      getAllCommetnUrl:baseUrl+'redwine/order/QueryComment',
+      getGroupUrl:baseUrl+'redwine/goodsGroup/getGroup',
+      getGoodsClassUrl: baseUrl +'redwine/goodsClass/getGoodsClass',
+      getGoodsByClassUrl: baseUrl +'redwine/goods/getGoodsByClass',
+      getGoodsDetailUrl: baseUrl +'redwine/goods/getGoodsDetail',
+      QueryCommentUrl: baseUrl +'redwine/order/QueryComment',
+      insertCollectionUrl: baseUrl +'redwine/collection/insertCollection',
+      getGoodsBySaleCountUrl: baseUrl + 'redwine/goods/getGoodsBySaleCount',
+      getAddrByDefaultUrl: baseUrl + 'redwine/addr/getAddrByDefault',
+      getCartsUrl: baseUrl + 'redwine/carts/getCarts',
+      deleteCartsUrl: baseUrl + 'redwine/carts/deleteCarts',
+      InsertOrderUrl: baseUrl + 'redwine/order/InsertOrder',
+      getAddrUrl: baseUrl + 'redwine/addr/getAddr',
+      QueryOrderUrl: baseUrl + 'redwine/order/QueryOrder',
+      InsertCommentUrl: baseUrl + '/redwine/order/InsertComment',
+      insertCartsUrl: baseUrl + 'redwine/carts/insertCarts',
+      updateCartsUrl: baseUrl + 'redwine/carts/updateCarts',
+      getGoodsByConditionUrl: baseUrl + 'redwine/goods/getGoodsByCondition',
+      //修改个人信息
+      updateUserInfoUrl: baseUrl + 'redwine/userInfo/updateUserInfo',
+      // 修改呢称
+      updateUserInfoNickName: baseUrl + 'redwine/userInfo/updateUserInfoNickName',
+      //修改性别
+      updateUserInfoSex: baseUrl + 'redwine/userInfo/updateUserInfoSex',
+      //修改生日
+      updateUserInfoBirth: baseUrl +  'redwine/userInfo/updateUserInfoBirth',
+      // 修改头像
+      updateUserInfoPhotoUrl: baseUrl + 'redwine/userInfo/updateUserInfoPhoto',
+      // 获取所有地址列表
+      getAddrUrl: baseUrl +'redwine/addr/getAddr',
+      // 添加地址
+      addAddrUrl: baseUrl + 'redwine/addr/addAddr',
+      //删除地址
+      deleteAddrUrl: baseUrl + 'redwine/addr/deleteAddr',
+      //获取具体地址
+      getAddrByIdUrl: baseUrl + 'redwine/addr/getAddrById',
+      // 修改地址
+      updateAddrUrl: baseUrl + 'redwine/addr/updateAddr',
+      //设置默认
+      updateAddrDefault: baseUrl + 'redwine/addr/updateAddrDefault',
+      // 正在销售页面
+      getIsSaleUrl: baseUrl + 'redwine/dealer/getIsSale',
+      // 订单明细
+      getsaleTrackUrl: baseUrl + 'redwine/saleTrack/getsaleTrack'
   }
 
 })

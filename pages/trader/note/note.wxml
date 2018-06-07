@@ -20,7 +20,7 @@
     <view class="padd"></view>
     <view class="content">
       <view>
-      <text decode='{{true}}' space='{{true}}' style='color:red;line-height:90rpx;font-size:30rpx;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥284.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥248.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+      <text decode='{{true}}' space='{{true}}' style='color:red;line-height:90rpx;font-size:30rpx;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥{{yprice}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥{{yprice}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
       </view>
       <view>
       <text decode='{{true}}' space='{{true}}' style='font-size:30rpx;' >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本月成交额&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总成交额&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
@@ -40,25 +40,20 @@
           </view>
       </view>
 
-      <!--下划线  -->
-      <view class="xia"></view>
-
       <!--具体记录  -->
-      <view class="zongti2">
-        <view class="picture"><image src="../../../images/1.png" style='width:150rpx;height:150rpx;'></image></view>
-        <view class='name'>葡萄酒葡萄酒葡萄酒葡萄酒葡萄酒葡萄酒葡萄酒葡萄酒</view>
+      <view class="zongti2" wx:for="{{order}}" wx:key="{{item.id}}" >
+        <!--下划线  -->
+        <view class="xia"></view>
+        <view class="picture"><image src="{{item.img}}" style='width:150rpx;height:150rpx;'></image></view>
+        <view class='name'>{{item.name}}{{item.specification}}{{item.goodsDetail}}</view>
         <view style='clear:both'></view>
         <!--金额  -->
         <view> 
-          <text decode='{{true}}' space='{{true}}' class="text">&nbsp;&nbsp;&nbsp;付款金额&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成交预估收入&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提成</text>
+          <text decode='{{true}}' space='{{true}}' class="text">&nbsp;&nbsp;&nbsp;￥{{item.num*item.price}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成交预估收入&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提成</text>
         </view>
-        <view>
-          <text decode='{{true}}' space='{{true}}' class="text2">&nbsp;&nbsp;&nbsp;￥139.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;139.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6%</text>
-        </view>
-
         <!--时间  -->
         <view class='jsdate'>
-          <text decode='{{true}}' space='{{true}}'>2018-05-08&nbsp;&nbsp;14:45:10&nbsp;&nbsp;&nbsp;结算</text>
+          <text decode='{{true}}' space='{{true}}'>{{times}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;结算</text>
         </view>
       </view>
     </view>

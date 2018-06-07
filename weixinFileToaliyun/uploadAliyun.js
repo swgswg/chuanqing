@@ -6,8 +6,7 @@ require('./sha1.js');
 const Crypto = require('./crypto.js');
 var utils = require('../utils/util.js');
 
-// const uploadFile = function (filePath, fileW, objectId, successCB, errorCB) {
-const uploadFile = function (filePath, fileDir, successCB, errorCB) {
+const uploadFile = function (filePath, successCB, errorCB) {
     if (!filePath || filePath.length < 9) {
         wx.showModal({
             title: '上传…错误',
@@ -17,15 +16,11 @@ const uploadFile = function (filePath, fileDir, successCB, errorCB) {
         return;
     }
 
-    // const aliyunFileKey = fileW+filePath.replace('wxfile://', '');
-    //const aliyunFileKey = filePath.replace('wxfile://', '');
-	// const aliyunFileKey = filePath.replace('http://tmp', '');
     let now = utils.formatDate(new Date().getTime(), 'YYMMDDhhmmss');
     let rand = utils.rand(1111,9999);
-	const aliyunFileKey = now + rand + filePath.slice(filePath.lastIndexOf('.'));
+	  const aliyunFileKey = now + rand + filePath.slice(filePath.lastIndexOf('.'));
     // console.log(aliyunFileKey);
-
-    //const aliyunFileKey = fileW + '' + (new Date().getTime()) + '_' + objectId + '.mp4';
+    
     const aliyunServerURL = env.aliyunServerURL;
     const accessid = env.accessid;
     const policyBase64 = getPolicyBase64();

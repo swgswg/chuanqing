@@ -1,10 +1,15 @@
 {
     "pages":[
-        "pages/trader/index/index",
-        "pages/users/users/users",      
-        "pages/trader/user/user",      
-        "pages/address/add/add",      
         "pages/address/insert/insert",
+        "pages/users/users/users",      
+        "pages/trader/note/note",      
+        "pages/trader/tixian/tixian",      
+        "pages/trader/index/index",      
+        "pages/trader/sell/sell",  
+     
+        "pages/trader/user/user",
+        "pages/address/add/add",      
+
         "pages/goods_cate/goods_cate",        
         "pages/stock_detail/stock_detail",              
         "pages/address/address/address",      
@@ -17,8 +22,7 @@
         "pages/address/update/update",
         "pages/login/login",
         "pages/all_comment/all_comment",      
-        "pages/goods_detail/goods_detail",      
-     
+        "pages/goods_detail/goods_detail",
         "pages/cart/cart",      
         "pages/myorder/myorder",      
         "pages/after_sale/after_sale",      
@@ -30,17 +34,10 @@
         "pages/comment/comment",      
         "pages/myinfo/myinfo",
         "pages/goods_list/goods_list",
-
-        "pages/trader/sell/sell",
-
-        "pages/trader/tixian/tixian",
         "pages/trader/trader1/trader",
-        "pages/trader/note/note",
-
 
         "pages/address/address1/address1",
         "pages/users/nechen/nechen",
-
          "pages/trader/huigou/huigou",
         "pages/logs/logs"  
     ],

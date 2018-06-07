@@ -5,26 +5,26 @@
 
 
   <!--循环出  -->
-  <block wx:for="{{sell}}">
-  <navigator url=''>
-    <view style='height:220rpx;'>
-      <!--图片  -->
-        <view class='picture'>
-          <image src="../../../images/1.png" class='picture'></image>
-        </view>
+   <block wx:for="{{data}}" wx:key="{{item.gId}}"> 
+      <navigator url=''>
+        <view style='height:220rpx;'>
+          <!--图片  -->
+            <view class='picture'>
+              <image src="{{item.pimg}}" class='picture'></image>
+            </view>
 
-      <!--内容  -->
+          <!--内容  -->
 
-        <view calss="content">
-            <view class="name"> {{item.name}}</view>
-            <view class="price"> {{item.price}}</view>
-            <view class="text"><text decode='{{true}}' space='true'>销售中:{{item.selling}} 已售:{{item.sells}} 库存:{{item.see}}</text></view> 
-        </view>
+            <view calss="content">
+                <view class="name"> {{item.gname}}</view>
+                <view class="price"> {{item.price}}</view>
+                <view class="text"><text decode='{{true}}' space='true'>销售中:{{item.snum}} 已售:{{item.stnum}} 库存:{{item.snum}}</text></view> 
+            </view>
 
-      <!--下划线  -->
-        <view class="xia"></view>
-      </view>
-    </navigator>  
-    </block>
+          <!--下划线  -->
+            <view class="xia"></view>
+          </view>
+      </navigator>  
+     </block> 
 
  </view> 

@@ -59,9 +59,9 @@
   <!--地址管理  -->
   <view class="address"style='width:100;'>
   <label>
-  <navigator url="/pages/address/address/address">
-    <view >地址管理</view>
-  </navigator>
+  <!-- <navigator url="/pages/address/address/address"> -->
+    <view  bindtap='guanli'>地址管理</view>
+  <!-- </navigator> -->
   </label>
   </view>
   
@@ -74,10 +74,10 @@
           <view class='xia'></view>
           <view class="ben" bindtap='local'>本地选择</view>
           <view class='xia2'></view>
-          <view class='esc'  catchtap=' cancel_sale'>取消</view>
+          <view class='esc'  catchtap='cancel_sale'>取消</view>
         </view>
     </view>
-
+    
   </form>
   </view>
 </view>
