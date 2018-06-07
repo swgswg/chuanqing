@@ -1,7 +1,7 @@
 {
     "pages":[
-
         "pages/goods_stock/goods_stock",
+        "pages/self_extraction/self_extraction",
         "pages/trader/index/index",
         "pages/users/users/users",      
         "pages/trader/user/user",      
@@ -30,7 +30,7 @@
         "pages/browse_footprint/browse_footprint",      
         "pages/news/news",      
         "pages/commit_order/commit_order",      
-        "pages/self_extraction/self_extraction",      
+           
         "pages/comment/comment",      
         "pages/myinfo/myinfo",
         "pages/goods_list/goods_list",

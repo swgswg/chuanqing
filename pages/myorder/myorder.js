@@ -126,9 +126,9 @@ Page({
                 break;
             }
             util.myWxRequest(app.globalData.QueryOrderUrl, mydata, function (res) {
-                console.log(res.data.data.PageInfo.list);
+                console.log(res.data);
                 let order = res.data.data.PageInfo.list;
-                console.log(order);
+                // console.log(order);
                 that.setData({
                     myorder: res.data.data.PageInfo.list
                 });

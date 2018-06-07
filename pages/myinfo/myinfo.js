@@ -21,6 +21,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
+        var that= this;
         // 会员尊享
         util.myWxRequest(app.globalData.getGoodsBySaleCountUrl, { }, function (res) {
             that.setData({

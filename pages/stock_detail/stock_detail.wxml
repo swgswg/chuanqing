@@ -48,7 +48,7 @@
 <!-- 评论 start  -->
 <block wx:for="{{goodsInfo.comment}}" wx:key="{{item.id}}">
 <view style="border-bottom:4rpx solid #eee;">
-    <view class="short-comment">{{item.Name}}</view>
+    <view class="short-comment">{{item.uname}}</view>
     <view class="long-comment">
         {{item.detail}}
     </view>
@@ -60,7 +60,6 @@
 </view>
 </block>
 <!-- 评论 end  -->
-
     <view class="jianju" style="height:100rpx;"></view>
     <view class="bottom-btn">
         <view class="custom-service">

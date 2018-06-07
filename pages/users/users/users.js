@@ -52,7 +52,7 @@ Page({
     util.myWxRequest(app.globalData.updateUserInfoSex, { userId:app.globalData.userId, sex:date }, function (res) {
       wx.showToast({
         icon: 'success',
-        title: '删除成功'
+        title: '修改成功'
       });
     });
     this.setData({
