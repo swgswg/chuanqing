@@ -1,10 +1,11 @@
 {
     "pages":[
+        "pages/trader/index/index",     
         "pages/address/insert/insert",
         "pages/users/users/users",      
         "pages/trader/note/note",      
         "pages/trader/tixian/tixian",      
-        "pages/trader/index/index",      
+    
         "pages/trader/sell/sell",  
      
         "pages/trader/user/user",
