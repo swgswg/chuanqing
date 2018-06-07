@@ -1,5 +1,5 @@
 //app.js
-var baseUrl = 'http://192.168.3.89:8080/';
+var baseUrl = 'http://192.168.3.23:8080/';
 App({
     onLaunch: function () {
         // 展示本地存储能力
@@ -64,13 +64,18 @@ App({
         userId:1,
         payInfo:null,
         globalDataBaseUrl: baseUrl,
+        // 获取所有评论
         getAllCommetnUrl:baseUrl+'redwine/order/QueryComment',
+        // 获取商品组
         getGroupUrl:baseUrl+'redwine/goodsGroup/getGroup',
+        // 获取商品类
         getGoodsClassUrl: baseUrl +'redwine/goodsClass/getGoodsClass',
         getGoodsByClassUrl: baseUrl +'redwine/goods/getGoodsByClass',
-        // 根据id获取商品详情
+        // 获取商品详情
         getGoodsDetailUrl: baseUrl +'redwine/goods/getGoodsDetail',
+        // 查询单个商品的评论
         QueryCommentUrl: baseUrl +'redwine/order/QueryComment',
+        // 加入收藏
         insertCollectionUrl: baseUrl +'redwine/collection/insertCollection',
         getGoodsBySaleCountUrl: baseUrl + 'redwine/goods/getGoodsBySaleCount',
         // 获取默认地址

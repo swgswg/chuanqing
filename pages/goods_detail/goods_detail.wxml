@@ -15,7 +15,8 @@
 </view>
 
 <view class="price-cart">
-    <view>¥{{goodsInfo.price}}</view>
+    <view hidden="{{changePrice}}">¥{{goodsInfo.price}}</view>
+    <view hidden="{{!changePrice}}">¥{{goodsInfo.dealerPrice}}</view>
     <!-- <view class="member-price">会员价：{{goodsInfo.member_price}}</view> -->
 </view>
 

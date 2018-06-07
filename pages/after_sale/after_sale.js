@@ -19,12 +19,16 @@ Page({
      */
     onLoad: function (options) {
         let that = this;
-        // 获取商品信息
-        utils.myWxRequest(app.globalData.getGoodsDetailUrl, {id:options.goodsId}, function(res){
-            that.setData({
-                goodsInfo:res.data.data
-            });
+        let goodsInfo = { id: options.goodsId, gname: options.goodsName, img: options.goodsImg, specification: options.specification };
+        that.setData({
+            goodsInfo: goodsInfo
         });
+        // 获取商品信息
+        // utils.myWxRequest(app.globalData.getGoodsDetailUrl, {id:options.goodsId}, function(res){
+        //     that.setData({
+        //         goodsInfo:res.data.data
+        //     });
+        // });
     },
 
     /**

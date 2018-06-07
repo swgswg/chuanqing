@@ -1,73 +1,74 @@
 <view class="four-btn">
-    <view bindtap='allOrders' class="{{current_orderStatus == 1 ? 'clickbtn': ''}}">全部</view>
-    <view bindtap='toBeShipped' class="{{current_orderStatus == 2 ? 'clickbtn': ''}}">待发货</view>
-    <view bindtap='toBeReceived' class="{{current_orderStatus == 3 ? 'clickbtn': ''}}">待收货</view>
-    <view bindtap='toBeEvaluated' class="{{current_orderStatus == 4 ? 'clickbtn': ''}}">待评价</view>
+    <view bindtap='allOrders'     data-mystatus="{{all_order}}" class="{{current_orderStatus == all_order ?  'clickbtn' : ''}}">全部</view>
+    <view bindtap='toBeShipped'   data-mystatus="{{to_be_shipped}}" class="{{current_orderStatus == to_be_shipped ? 'clickbtn': ''}}">待发货</view>
+    <view bindtap='toBeReceived' data-mystatus="{{to_be_received}}"  class="{{current_orderStatus == to_be_received ? 'clickbtn': ''}}">待收货</view>
+    <view bindtap='toBeEvaluated' data-mystatus="{{to_be_evaluated}}" class="{{current_orderStatus == to_be_evaluated ? 'clickbtn': ''}}">待评价</view>
 </view>
-
 <scroll-view scroll-y style="width:100%;height:1120rpx;">
     <view>
-        <block wx:for="{{myorder}}" wx:key="{{item.id}}">
+        <block wx:for="{{myorder}}" wx:key="{{item.uuid}}">
             <view sytle="width:100%;background-color:#fff;">
                 <!-- 订单状态 start  -->
                 <view class="order-time-status">
                     <view class="order-time">{{item.createTime}}</view>
                     <!-- <view class="order-status">{{item.order_status }}</view> -->
-                    <view class="order-status" wx:if="{{item.status == '1'}}">卖家未发货</view>
-                    <view class="order-status" wx:if="{{item.status == '2'}}">卖家已发货</view>
-                    <view class="order-status" wx:if="{{item.status == '3'}}">交易成功</view>
+                    <view class="order-status" wx:if="{{item.status == to_be_shipped}}">卖家未发货</view>
+                    <view class="order-status" wx:if="{{item.status == to_be_received}}">卖家已发货</view>
+                    <view class="order-status" wx:if="{{item.status == accomplish}}">交易成功</view>
                 </view>
                 <!-- 订单状态 end  -->
-                
-                <!-- 订单商品 start  -->                
-                <!-- <block wx:for="{{item.order_goods}}" wx:for-item="vv" wx:key="{{vv.id}}"> -->
+                <!-- 订单商品 start  -->   
+                 <block wx:for="{{item.goods}}" wx:for-item="goods" wx:key="{{goods.goodsId}}">              
                     <view class="myorder_each">
                         <view class="goods-info">
                             <view class="goods-img">
                                 <!-- <image src="../../images/comment-img.png"></image> -->
-                                <image src="{{goodsImg}}"></image>
+                                <image src="{{goods.goodsImg}}"></image>
                             </view>
                             <view class="goods-name">
                                 <view>
                                     <!-- 奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红酒葡萄酒 -->
-                                    {{goodsName}}
+                                    {{goods.goodsName}}
                                 </view>
                                 <view class="guige">
-                                    商品规格: {{specification}}
+                                    商品规格: {{goods.specification}} 
                                 </view>
                             </view>
                             <view class="goods-price">
-                                <view class="buy-price">¥{{price}}</view>
-                                <view class="huaxian-price">¥{{vv.goods_yuanjia}}</view>
-                                <view class="buy-number">x{{num}}</view>
+                                <view class="buy-price">¥{{goods.price}}</view>
+                                <!-- <view class="huaxian-price">¥{{vv.goods_yuanjia}}</view> -->
+                                <view class="buy-number">x{{goods.num}}</view>
                             </view>
                         </view>
                     </view>
                     <view style="height:20rpx;background-color:#fff"></view>
                     <view style="width:100%;border:2rpx solid #eee;"></view>
                     <view style="height:20rpx;background-color:#fff"></view>
-                <!-- </block> -->
+                 </block> 
                 <!-- 订单商品 end  -->                
                 
-                <view class="order-summary">共{{item.order_goods.length}}件商品 合计:¥{{item.order_total}}(含运费¥0.00)</view>
+                <view class="order-summary">共{{item.goodsnum}}件商品 合计:¥{{item.sumPrice}}(含运费¥0.00)</view>
+
                 <!--服务按钮 start  -->
-                <view class="order-btn" wx:if="{{item.order_status == '1'}}">
-                    <view bindtap='reminderDelivery' data-orderid="{{item.id}}" class="order-btn2">提醒发货</view>
+                <view class="order-btn" wx:if="{{item.status == to_be_shipped}}">
+                    <view bindtap='reminderDelivery' data-orderid="{{item.uuid}}" class="order-btn2">提醒发货</view>
                 </view>
-                <view class="order-btn" wx:if="{{item.order_status == '2'}}">
+                <view class="order-btn" wx:if="{{item.status == to_be_received}}">
                     <!-- <view bindtap='checkLogistics' data-orderid="{{item.id}}" class="order-btn1"> -->
-                    <view data-orderid="{{item.id}}" class="order-btn1">                 
+                    <view data-orderid="{{item.uuid}}" class="order-btn1">                 
                         <navigator url='/pages/'>查看物流</navigator>
                     </view>
                     <view bindtap='confirmReceipt' data-orderid="{{item.id}}" class="order-btn2">确认收货</view>
                 </view>
-                <view class="order-btn" wx:if="{{item.order_status == '3'}}">
+                <view class="order-btn" wx:if="{{item.status == accomplish}}">
                     <!-- <view bindtap='applicationAfterSale' data-orderid="{{item.id}}" class="order-btn1"> -->
-                    <view data-orderid="{{item.id}}" class="order-btn1">
-                        <navigator url='/pages/after_sale/after_sale?orderId={{item.id}}'> 申请售后 </navigator>
+                    <view bindtap='afterSaleBtn' data-index="{{index}}" class="order-btn1">
+                        申请售后
+                        <!-- <navigator url='/pages/after_sale/after_sale?orderId={{item.id}}'>申请售后</navigator> -->
                     </view>
-                    <view bindtap='insertComment' data-orderid="{{item.id}}" class="order-btn2">
-                            <navigator url='/pages/comment/comment?orderId={{item.id}}'>  评价 </navigator>
+                    <view bindtap='insertCommentBtn' data-index="{{index}}" class="order-btn2">
+                        评价
+                            <!-- <navigator url='/pages/comment/comment?orderId={{item.id}}'>评价</navigator> -->
                     </view>
                 </view>
                 <!--服务按钮 end  -->            
@@ -75,3 +76,42 @@
         </block>
     </view>
 </scroll-view>
+
+<!--评价售后 start  -->
+<view class='commet-sale' hidden='{{commet_afterSale}}'>
+    <!-- 订单商品 start  -->   
+    <block wx:for="{{myorder[index]}}" wx:for-item="goods" wx:key="{{goods.id}}">              
+        <view class="myorder_each">
+            <view class="goods-info">
+                <view class="goods-img">
+                        <image src="../../images/comment-img.png"></image> 
+                    <!-- <image src="{{goods.goodsImg}}"></image> -->
+                </view>
+                <view class="goods-name">
+                    <view>
+                        <!-- 奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红酒葡萄酒 -->
+                        <!-- {{goods.goodsName}} -->
+                    </view>
+                    <view class="guige">
+                        商品规格: {{goods.specification}} 
+                    </view>
+                </view>
+                <view class="goods-price">
+                    <view class="buy-price">¥{{goods.price}}</view>
+                    <!-- <view class="huaxian-price">¥{{vv.goods_yuanjia}}</view> -->
+                    <view class="buy-number">x{{goods.num}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="order-btn" style='border-bottom:1rpx solid #aaa;margin-bottom:10rpx;'>
+            <view data-goodsid="{{goods.id}}"  data-index="index" class="order-btn1">
+                <navigator url='/pages/after_sale/after_sale?godosrId={{goods.id}}&goodsImg={{goods.goodsImg}}&goodsName={{goods.goodsName}}&specification={{goods.specification}}'>申请售后</navigator>
+            </view>
+            <view  data-goodsid="{{goods.id}}" data-index="index" class="order-btn2">
+                <navigator url='/pages/comment/comment?goodsId={{goods.id}}&goodsImg={{goods.goodsImg}}&goodsName={{goods.goodsName}}'>评价</navigator>
+            </view>
+        </view>
+    </block> 
+    <!-- 订单商品 end  -->   
+</view>  
+<!--评价售后 end  -->

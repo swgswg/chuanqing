@@ -9,10 +9,12 @@ Page({
      */
     data: {
         goodsInfo:{},
-        goods_num:1,  
+        goods_num:1,
+        goods_price:0,  
         commentInfo:[],
         address : {},
-        youLike:[]
+        youLike:[],
+        changePrice:false
     },
 
     /**
@@ -23,6 +25,7 @@ Page({
         let goods_id = '';
         // 获取商品信息
         util.myWxRequest(app.globalData.getGoodsDetailUrl, { id: options.id }, function(res){
+            console.log(res);
             let goodsInfo = res.data.data;
             let commentInfo = goodsInfo.comment;
             for(let i = 0; i < commentInfo.length; i++){
@@ -109,14 +112,18 @@ Page({
 
     // 增加数量
     addCount:function(e) {
+        let that = this;
         let num = parseInt(this.data.goods_num);
         num = num + 1;
         this.setData({
             goods_num: num
         });
+        // 购买商品达到一定数量,单价优惠
+        judgeGoodsNum(num, that);
     },
     // 减少数量
     minusCount: function(e) {
+        let that = this;
         let num = parseInt(this.data.goods_num);
         if (num <= 1) {
             return false;
@@ -125,30 +132,44 @@ Page({
         this.setData({
             goods_num: num
         });
+        // 购买商品达到一定数量,单价优惠
+        judgeGoodsNum(num, that);
     },
 
     /**
      * 修改商品数量
      */
     inputNum: function (e) {
-        var that = this;
-        // console.log(e.detail.value);
-        if (e.detail.value == '') {
-            that.setData({
-                goods_num: 1
-            });
-        } else {
+        let that = this;
+        // if (e.detail.value == '') {
+        //     that.setData({
+        //         goods_num: 1
+        //     });
+        // } else {
             that.setData({
                 goods_num: e.detail.value
             });
-        }
+        // }
+        let num = that.data.goods_num;
+        // 购买商品达到一定数量,单价优惠
+        judgeGoodsNum(num, that);
+
     },
     blurNum: function (e) {
-        // console.log(e.detail.value);
-        var that = this;
-        that.setData({
-            goods_num: e.detail.value
-        });
+        let that = this;
+        let num = e.detail.value;
+    
+        if (/^[1-9]+[0-9]*]*$/.test(num)) {
+            that.setData({
+                goods_num: num
+            });
+        } else {
+            that.setData({
+                goods_num:1
+            });
+        }
+        // 购买商品达到一定数量,单价优惠
+        judgeGoodsNum(num, that);
     },
 
 
@@ -232,10 +253,10 @@ Page({
         mygoodsInfo.gid = this.data.goodsInfo.id;  // 商品id
         mygoodsInfo.name = this.data.goodsInfo.gname;  // 商品名称
         mygoodsInfo.num = mynum; // 商品数量
-        mygoodsInfo.price = this.data.goodsInfo.price; // 商品价格
+        mygoodsInfo.price = this.data.goods_price; // 商品价格
         mygoodsInfo.img = '../../images/hongjiu.png';  // 商品图片
-        let addrId = this.data.address.id;
-        let mysoldPrice = this.data.goodsInfo.price * mynum;  // 商品总价
+        let addrId = this.data.address.id;  // 地址id
+        let mysoldPrice = this.data.goods_price * mynum;  // 商品总价
         mygoodsInfo = [mygoodsInfo];
         app.globalData.buyGoods = { goodsInfo: mygoodsInfo, soldPrice: mysoldPrice, addressId: addrId};
         // console.log(app.globalData.buyGoods);
@@ -243,6 +264,24 @@ Page({
             // url: '/pages/commit_order/commit_order?goodsId='+goodsId+'&num='+num+'&totalPrice='+totalPrice,
             url: '/pages/commit_order/commit_order'
         })
-    }
+    }, 
 
 })
+function judgeGoodsNum(num, that) {
+    console.log(num);
+    let dealerTerm = that.data.goodsInfo.dealerTerm;
+    let price = that.data.goodsInfo.price;
+    let dealerPrice = that.data.goodsInfo.dealerPrice;
+
+    if (num >= dealerTerm) {
+        that.setData({
+            changePrice: true,
+            goods_price: dealerPrice
+        });
+    } else if (num < that.data.goodsInfo.dealerTerm) {
+        that.setData({
+            changePrice: false,
+            goods_price: price
+        });
+    }
+}

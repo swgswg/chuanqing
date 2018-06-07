@@ -7,6 +7,13 @@ Page({
      * 页面的初始数据
      */
     data: {
+        all_order: -1,
+        pending_payment: 0,
+        to_be_shipped: 1,
+        to_be_received: 2,
+        to_be_evaluated: 3,
+        self_extraction: 4,
+        accomplish: 5,
         membershipPrivilege:[]
     },
 

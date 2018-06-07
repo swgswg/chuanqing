@@ -4,7 +4,7 @@
             <image src="{{goodsInfo.img}}"></image>
         </view>
         <view class="goods-name">
-           {{goodsInfo.name}}
+           {{goodsInfo.gname}}
         </view>
     </view>
     <view class="mycomment">

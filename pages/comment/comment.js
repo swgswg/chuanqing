@@ -1,7 +1,7 @@
 var env = require('../../weixinFileToaliyun/env.js');
 var uploadAliyun = require('../../weixinFileToaliyun/uploadAliyun.js');
 var util = require('../../utils/util.js');
-
+const app = getApp();
 Page({
 
     /**
@@ -11,7 +11,7 @@ Page({
         goodsInfo:{
             id:1,
             img:'../../images/comment-img.png',
-            name:'奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红酒葡萄酒'
+            gname:'奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红酒葡萄酒'
         },
         commentDetail: '',
         commentImg: '',
@@ -22,7 +22,17 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-    
+        let that = this;
+        let goodsInfo = { id: options.goodsId, gname: options.goodsName, img: options.goodsImg};
+        that.setData({
+            goodsInfo: goodsInfo
+        });
+        // 根据商品id,获取商品详情
+        // myWxRequest(app.globalData.getGoodsDetailUrl, { id: options.goodsId }, function(res){
+        //     that.setData({
+        //         goodsInfo:res.data.data
+        //     });
+        // });
     },
 
     /**
@@ -153,7 +163,7 @@ Page({
             });
             setTimeout(function(){
                 wx.navigateTo({
-                    url: '',
+                    url: '/pages/myorder/myorder',
                 })
             },1500);
             

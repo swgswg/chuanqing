@@ -1,5 +1,5 @@
  <view class="after-sale"> 
-    <view class="goods-info">
+    <view class="goods-info" data-id="{{goodsInfo.id}}">
         <view class="goods-img">
             <image src="{{goodsInfo.img}}"></image>
         </view>

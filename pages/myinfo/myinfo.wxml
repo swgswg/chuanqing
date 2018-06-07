@@ -22,7 +22,7 @@
 <view class="myorder">
     <view class="myorder-font">
         <view class="myorder-font-1">我的订单</view>
-        <navigator url="../myorder/myorder">
+        <navigator url="/pages/myorder/myorder">
             <view class="myorder-font-2">查看全部由订单 〉</view>
         </navigator>
     </view>
@@ -32,17 +32,25 @@
             <view><image src="../../images/daifukuan.png"></image></view>
             <view class="four-wait-each-font">待付款</view>
         </view>
+        
         <view class="four-wait-each">
-            <view><image src="../../images/daifahuo.png"></image></view>
-            <view class="four-wait-each-font">待发货</view>
+            <navigator url="/pages/myorder/myorder?status={{to_be_shipped}}">
+                <view><image src="../../images/daifahuo.png"></image></view>
+                <view class="four-wait-each-font">待发货</view>
+            </navigator>
+        </view>
+        
+        <view class="four-wait-each">
+            <navigator url="/pages/myorder/myorder?status={{to_be_received}}">
+                <view><image src="../../images/daishouhuo.png"></image></view>
+                <view class="four-wait-each-font">待收货</view>
+            </navigator>
         </view>
         <view class="four-wait-each">
-            <view><image src="../../images/daishouhuo.png"></image></view>
-            <view class="four-wait-each-font">待收货</view>
-        </view>
-        <view class="four-wait-each">
-            <view><image src="../../images/daipingjia.png"></image></view>
-            <view class="four-wait-each-font">待评价</view>
+            <navigator url="/pages/myorder/myorder?status={{to_be_evaluated}}">
+                <view><image src="../../images/daipingjia.png"></image></view>
+                <view class="four-wait-each-font">待评价</view>
+            </navigator>
         </view>
     </view>
 </view>
@@ -54,10 +62,10 @@
             <view class="four-wait-each-font">浏览足迹</view>
         </view>
     </navigator>
-    <view class="three-caozuo-each">
+    <!-- <view class="three-caozuo-each">
         <view><image src="../../images/tihuo.png"></image></view>
         <view class="four-wait-each-font">提货</view>
-    </view>
+    </view> -->
     <view class="three-caozuo-each">
         <view><image src="../../images/kefu2.png"></image></view>
         <view class="four-wait-each-font">客服</view>

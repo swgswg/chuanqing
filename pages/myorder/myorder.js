@@ -1,139 +1,42 @@
 // pages/myorder/myorder.js
-var util = require('../../utils/util.js');
+const util = require('../../utils/util.js');
 const app = getApp();
 var page = 1;
 var pageSize = 20;
+// var all_order = -1;      // 全部
+// var pending_payment = 0; // 待支付
+// var to_be_shipped = 1;   // 待发货
+// var to_be_received = 2;  // 待收货
+// var to_be_evaluated = 3; // 待评价
+// var self_extraction = 4; // 自提
+// var accomplish = 5;      // 已完成
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-            myorder:[
-                {   
-                    id:1,
-                    order_time:'2018-05-08', 
-                    // order_status: '卖家已发货',
-                    order_status: '2',
-                    order_total: '78.00',
-                    order_expressage: '0.00',
-                    order_goods:[
-                        {
-                            goods_img:'../../images/hongjiu.png',
-                            goods_name:'奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红葡萄酒', 
-                            goods_buyprice:'39.00',
-                            goods_yuanjia:'39.00',
-                            goods_guige: '750ml 6*1箱',
-                            goods_number: '1'
-                        },
-                        {
-                            goods_img: '../../images/hongjiu.png',
-                            goods_name: '奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红葡萄酒',
-                            goods_buyprice: '39.00',
-                            goods_yuanjia: '39.00',
-                            goods_guige: '750ml 6*1箱',
-                            goods_number: '1'
-                        }
-                    ]
-                },
-                {
-                    id: 2,
-                    order_time: '2018-05-08',
-                    // order_status: '卖家未发货',
-                    order_status: '1',
-                    order_goods: [
-                        {
-                            goods_img: '../../images/hongjiu.png',
-                            goods_name: '奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红葡萄酒',
-                            goods_buyprice: '39.00',
-                            goods_yuanjia: '39.00',
-                            goods_guige: '750ml 6*1箱',
-                            goods_number: '1'
-                        },
-                        {
-                            goods_img: '../../images/hongjiu.png',
-                            goods_name: '奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红葡萄酒',
-                            goods_buyprice: '39.00',
-                            goods_yuanjia: '39.00',
-                            goods_guige: '750ml 6*1箱',
-                            goods_number: '1'
-                        }
-                    ],
-                    order_total:'78.00',
-                    order_expressage: '0.00'
-                },
-                {
-                    id: 3,
-                    order_time: '2018-05-08',
-                    // order_status: '交易成功',
-                    order_status: '3',
-                    order_goods: [
-                        {
-                            goods_img: '../../images/hongjiu.png',
-                            goods_name: '奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红葡萄酒',
-                            goods_buyprice: '39.00',
-                            goods_yuanjia: '39.00',
-                            goods_guige: '750ml 6*1箱',
-                            goods_number: '1'
-                        }
-                    ],
-                    order_total:'39.00',
-                    order_expressage:'0.00'
-                }
-
-            ],
-            current_orderStatus:1
+        all_order:-1,
+        pending_payment:0,
+        to_be_shipped:1,
+        to_be_received:2,
+        to_be_evaluated:3,
+        self_extraction:4,
+        accomplish:5,
+        myorder:null,
+        current_orderStatus:-1,
+        commet_afterSale:true,
+        index:null
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let mydata = null;
         let that = this;
+        console.log(options.status);
         // 获取订单
-        if(options){
-            switch (options.orderStatus){
-                // 全部
-                case 1: 
-                    mydata = {
-                        page: page, pageSize: pageSize, userId: app.globalData.userId,
-                    }
-                break;
-                // 待发货
-                case 2:
-                    mydata = {
-                        page: page, pageSize: pageSize, userId: app.globalData.userId
-                    }
-                break;
-                // 待收货
-                case 3:
-                    mydata = {
-                        page: page, pageSize: pageSize, userId: app.globalData.userId
-                    }
-                break;
-                // 待评价
-                case 4:
-                    mydata = {
-                        page: page, pageSize: pageSize, userId: app.globalData.userId
-                    }
-                break;
-                // 默认为 全部
-                default:
-                    mydata = {
-                        page: page, pageSize: pageSize, userId: app.globalData.userId
-                    }
-                break;
-            }
-            util.myWxRequest(app.globalData.QueryOrderUrl, mydata, function (res) {
-                console.log(res.data);
-                let order = res.data.data.PageInfo.list;
-                // console.log(order);
-                that.setData({
-                    myorder: res.data.data.PageInfo.list
-                });
-            });
-        }
+        queryOrder(options.status, that);
     },
 
     /**
@@ -189,39 +92,57 @@ Page({
      * 全部
      */
     allOrders:function(e){
-        var that = this;
-        that.setData({
-            current_orderStatus:1
-        });
-        // util.myWxRequest(myurl, mydata, mysufun); 
+        let that = this;
+        let mystatus = e.currentTarget.dataset.mystatus;
+        console.log(mystatus);
+        // 获取订单
+        queryOrder(mystatus, that);
+        
     },
     /**
      * 待发货
      */
     toBeShipped:function(e){
-        var that = this;
-        that.setData({
-            current_orderStatus: 2
-        });
+        let that = this;
+        let mystatus = e.currentTarget.dataset.mystatus;
+        console.log(mystatus);
+        // 获取订单
+        queryOrder(mystatus, that);
     },
 
     /**
      *待收货
      */
     toBeReceived:function(e){
-        var that = this;
-        that.setData({
-            current_orderStatus: 3
-        });
+        let that = this;
+        let mystatus = e.currentTarget.dataset.mystatus;
+        console.log(mystatus);
+        // 获取订单
+        queryOrder(mystatus, that);
+
     },
 
     /**
      * 待评价
      */
     toBeEvaluated:function(e){
+        let that = this;
+        let mystatus = e.currentTarget.dataset.mystatus;
+        console.log(mystatus);
+        // 获取订单
+        queryOrder(mystatus, that);
+
+    },
+
+
+
+    /**
+     * 自提
+     */
+    toBeSelf:function(e){
         var that = this;
         that.setData({
-            current_orderStatus: 4
+            current_orderStatus: that.data.self_extraction
         });
     },
 
@@ -268,36 +189,97 @@ Page({
     },
 
     /**
-     * 申请售后
+     * 申请售后按钮
      */
-    applicationAfterSale:function(e){
-        var orderId = e.currentTarget.dataset.orderid;
+    afterSaleBtn:function(e){
+        var that = this;
+        // 获取索引
+        let index = e.currentTarget.dataset.index;
+        that.setData({
+            index: index,
+            commet_afterSale: false
+        });
     },
 
     /**
-     * 评价
+     * 评价按钮
      */
-    insertComment:function(e){
-        var orderId = e.currentTarget.dataset.orderid;
+    insertCommentBtn:function(e){
+        var that = this;
+        // 获取索引
+        let index = e.currentTarget.dataset.index;
+        that.setData({
+            index: index,
+            commet_afterSale: false
+        });
     }
 
+
 })
-// function selectOrder(myurl,mydata,mysufun){
-//     wx.request({
-//         url: myurl,
-//         method: 'POST',
-//         data: mydata,
-//         header: {
-//             'content-type': 'application/x-www-form-urlencoded'
-//         },
-//         success: function (res) {
-//            if(res.status == 1){
-//                sufun(res);
-//            } else {
-//                wx.showToast({
-//                    title: '您的网络太差'
-//                });
-//            }
-//         }
-//     });
-// }
+
+/**
+ * 根据状态获取订单
+ */
+function queryOrder(mystatus,that){
+    let mydata = null;
+    switch (mystatus) {
+        // 待发货
+        case that.data.to_be_shipped:
+            mydata = {
+                page: page, pageSize: pageSize, userId: app.globalData.userId, stauts: 1
+            }
+            break;
+        // 待收货
+        case that.data.to_be_received:
+            mydata = {
+                page: page, pageSize: pageSize, userId: app.globalData.userId, stauts: 2
+            }
+            break;
+        // 待评价
+        case that.data.to_be_evaluated:
+            mydata = {
+                page: page, pageSize: pageSize, userId: app.globalData.userId, stauts: 3
+            }
+            break;
+        // 自提
+        case that.data.self_extraction:
+            mydata = {
+                page: page, pageSize: pageSize, userId: app.globalData.userId, status: 4
+            }
+            break;
+        // 已完成
+        case that.data.accomplish:
+            mydata = {
+                page: page, pageSize: pageSize, userId: app.globalData.userId, status: 5
+            }
+            break;
+        // 默认为 全部
+        default:
+            mydata = {
+                page: page, pageSize: pageSize, userId: app.globalData.userId
+            }
+            break;
+    }
+    // 获取订单
+    util.myWxRequest(app.globalData.QueryOrderUrl, mydata, function (res) {
+        // 获取订单
+        let order = res.data.data.PageInfo.list;
+        for (let i = 0; i < order.length; i++) {
+            let goods = order[i].goods;
+            let len = goods.length;
+            var sumPrice = 0;
+            for (let j = 0; j < len; j++) {
+                order[i].status = goods[j].status;
+                order[i].createTime = goods[j].createTime;
+                sumPrice += parseInt(goods[j].num) * parseFloat(goods[j].price);
+                order[i].goodsnum = len;
+            }
+            order[i].sumPrice = sumPrice;
+        }
+        that.setData({
+            myorder: order,
+            current_orderStatus: mystatus
+        });
+    });
+
+}
