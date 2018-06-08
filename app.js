@@ -55,6 +55,7 @@ App({
                     })
                 }
             }
+
         })
     },
     globalData: {
@@ -82,6 +83,7 @@ App({
         QueryCommentUrl: baseUrl +'redwine/order/QueryComment',
         // 加入收藏
         insertCollectionUrl: baseUrl +'redwine/collection/insertCollection',
+        // 相关推荐
         getGoodsBySaleCountUrl: baseUrl + 'redwine/goods/getGoodsBySaleCount',
         // 获取默认地址
         getAddrByDefaultUrl: baseUrl + 'redwine/addr/getAddrByDefault',
@@ -125,7 +127,9 @@ App({
         getSaleTrackByMonthkUrl: baseUrl + 'redwine/saleTrack/getSaleTrackByMonth',
         // 下架
         updateStockUrl: baseUrl + 'redwine/goods/updateStock',
-        
 
-    }
+    },
+
+
+
 })

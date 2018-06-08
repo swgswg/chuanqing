@@ -5,9 +5,13 @@
 
     <!-- -->
     <view class="form">
-      <image class="btn" src="../../../images/index.png" bindtap="bindSearchTap"></image>
-      <input class="input"  placeholder="输入商品名称" placeholder-style="color:#ebcdd0"/>
-
+      <image class="btn" src="../../../images/index.png" bindtap="searchGoods"></image>
+      <input class="input" type="text"  placeholder="输入商品名称"  
+            confirm-type="search" 
+            bindblur="inputBlur" 
+            bindconfirm="inputConfirm" 
+            placeholder-style="color:#ebcdd0"
+        />       
     </view>
     <view catchtap='activity'  class='sha'>
         <image src='../../../images/bj.png' style='width:600rpx;height:270rpx;'></image>
@@ -21,7 +25,7 @@
     <block wx:for="{{ goodsGroup}}" wx:key="{{item.id}}">
     <navigator url='../../goods_list/goods_list'>
       <view class="guojia">
-        <view class='tubiao'><image src="{{item.imgs}}" style='width:125rpx;height:125rpx;border-radius:80%;'></image></view>
+        <view class='tubiao'><image src="{{serverUrl}}{{item.imgs}}" style='width:125rpx;height:125rpx;border-radius:80%;'></image></view>
         <view class="zi">{{item.name}}</view>
       </view>
       </navigator>
@@ -34,10 +38,10 @@
   <view class="content">
     <!--内容 1  -->
     <view>
-      <view class="c1"><image src='../../../images/c1.png' style='width:300rpx;height:330rpx;'></image></view>
+      <view class="c1"><image src='{{serverUrl}}1.jpg' style='width:300rpx;height:330rpx;'></image></view>
 
       <view class="cc">
-        <view class="c2"><image src='../../../images/c2.png' style='width:380rpx;height:150rpx;'></image></view>
+        <view class="c2"><image src='{{serverUrl}}1.jpg' style='width:380rpx;height:150rpx;'></image></view>
         <view class="c3"><image src='../../../images/c3.png' style='width:380rpx;height:150rpx;'></image></view>
       </view>
 
@@ -47,7 +51,7 @@
     <block wx:for="{{brand}}" wx:key="{{item.gId}}">
       <!--品牌图标  -->
       <view style='float:left;'>
-          <view class="c4"><image src='{{item.img}}' style='width:80rpx;height:80rpx;'></image></view>
+          <view class="c4"><image src='{{serverUrl}}{{item.img}}' style='width:80rpx;height:80rpx;'></image></view>
       </view>
     </block>
   </view>
@@ -62,7 +66,7 @@
     <block wx:for="{{recommend}}" wx:key="{{item.id}}">
       <navigator url="/pages/goods_detail/goods_detail?id={{item.id}}">
         <view class='z2'>
-          <view class='pic'><image src='{{item.img}}' style='width:280rpx;height:350rpx;'></image></view>
+          <view class='pic'><image src='{{serverUrl}}{{item.img}}' style='width:280rpx;height:350rpx;'></image></view>
           <view class='name'>{{item.gname}}</view>
           <view class="miaosu">{{item.goodsDetail}}</view>
           <view class="price">{{item.price}}</view>

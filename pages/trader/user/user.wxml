@@ -11,7 +11,7 @@
       </navigator>
 
     </view>
-    <view class="file"><image src=""></image></view>
+    <view class="file"><image src="{{serverUrl}}{{img.photo}}" class='pictu'></image></view>
     <navigator url='/pages/users/users/users'>
       <view class="nechen">还没有设置呢称 </view>
      </navigator>  
@@ -21,11 +21,10 @@
 
   <!--查看订单  -->
   <navigator url='/pages/myorder/myorder'>
-  <view style='display:flex;justify-content:flex-start;height:85rpx;' >
-  <text class='my'>我的订单</text>
-  <text class="ding"> 查看全部订单</text>
-  <image src='../../../images/float.png' style='width:20rpx;height:20rpx;margin-left:15rpx;margin-top:30rpx;'></image>
-  </view>
+    <view style='display:flex;justify-content:flex-start;height:85rpx;' >
+    <text class='my'>我的订单</text>
+    <navigator url='/pages/myorder/myorder' style='margin-top:8rpx'><text class="ding">  查看全部订单  〉 </text></navigator>
+    </view>
   </navigator>
 
   <view style='clear:both'></view>
@@ -40,18 +39,24 @@
     </view>
 
     <view  class="zhen">
-      <view><image src='../../../images/fa.png' class="biao"></image></view>
-      <view class="font">待发货</view>
+      <navigator url="/pages/myorder/myorder?status={{to_be_shipped}}">
+        <view><image src='../../../images/fa.png' class="biao"></image></view>
+        <view class="font">待发货</view>
+      </navigator>
     </view>  
 
     <view  class="zhen">
-      <view><image src='../../../images/shou.png' class="biao"></image></view>
-      <view class="font">待收货</view>
+      <navigator url="/pages/myorder/myorder?status={{to_be_received}}">
+        <view><image src='../../../images/shou.png' class="biao"></image></view>
+        <view class="font">待收货</view>
+      </navigator>
     </view>  
 
     <view  class="zhen">
-      <view><image src='../../../images/pings.png' class="biao"></image></view>
-      <view class="font">待评价</view>
+      <navigator url="/pages/myorder/myorder?status={{to_be_evaluated}}">
+        <view><image src='../../../images/pings.png' class="biao"></image></view>
+        <view class="font">待评价</view>
+      </navigator>
     </view>  
     <view style='clear:both;'></view>
     <view style='height:20rpx;background:#ddd;margin-top:15rpx;'></view>
@@ -96,22 +101,6 @@
     </navigator>
 
     <view style='clear:both'></view>
-  <!--会员尊享  -->
-    <view class="huiyuan">
-      <view class="zun">会员尊享</view>
-      <!--滚动会员  -->
-      <view style=' margin-top: 40rpx;'> 
-        <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
-          <block wx:for="{{membershipPrivilege}}" wx:key="{{item.gId}}">
-          <view class="membership-privilege-scroll">
-          <image src="{{item.img}}"></image>
-          <view>{{item.price}}</view>
-          </view>
-          </block>
-        </scroll-view> 
-      </view>
-
-    </view>
   </view>
   <view class='jianju' style='margin-bottom:80rpx;background-color:#eee'></view>
   <import src="../../../template/template.wxml"/>

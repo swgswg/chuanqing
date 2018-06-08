@@ -2,14 +2,10 @@
     "pages":[
         "pages/trader/index/index",
         "pages/after_sale/after_sale",
-        
         "pages/trader/sell/sell",
-        
         "pages/myorder/myorder",
-        
         "pages/not_pay/not_pay",
         "pages/trader/user/user",
-       
         "pages/goods_stock/goods_stock",
         "pages/self_extraction/self_extraction",
         "pages/users/users/users",      
@@ -17,9 +13,7 @@
         "pages/pay_success/pay_success",
         "pages/address/insert/insert",
         "pages/trader/note/note",      
-        "pages/trader/tixian/tixian",      
-         
-
+        "pages/trader/tixian/tixian",
         "pages/goods_cate/goods_cate",        
         "pages/stock_detail/stock_detail",              
         "pages/address/address/address",      
@@ -31,9 +25,7 @@
         "pages/login/login",
         "pages/all_comment/all_comment",      
         "pages/goods_detail/goods_detail",
-        "pages/cart/cart",      
-         
-        
+        "pages/cart/cart",
         "pages/sales_promotion/sales_promotion",      
         "pages/browse_footprint/browse_footprint",      
         "pages/news/news",      

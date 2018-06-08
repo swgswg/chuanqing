@@ -2,6 +2,8 @@
 var util = require('../../../utils/util.js');
 const app = getApp();
 var template = require('../../../template/template.js');
+var input_value = '';
+
 Page({
 
 
@@ -9,9 +11,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  //国家循环
-  goodsGroup:[],
-  // 品牌图标
+      //国家循环
+      goodsGroup:[],
+      // 品牌图标
     brand:[
       { img: '../../../images/c4.png' },
       { img: '../../../images/c4.png' },
@@ -20,39 +22,27 @@ Page({
       { img: '../../../images/c4.png' },
       {img:'../../../images/c4.png'}
     ],
-  // 相关推荐信息
-    recommend: [],
-    // 品牌图标
-    brand:[
-        { img: '../../../images/c4.png' },
-        { img: '../../../images/c4.png' },
-        { img: '../../../images/c4.png' },
-        { img: '../../../images/c4.png' },
-        { img: '../../../images/c4.png' },
-        {img:'../../../images/c4.png'}
-        ],
     // 相关推荐信息
-    recommend: [
-        { img: '../../../images/1.png', name: '拉菲尚品波尔多',content:'好好好好好哈哈哦哦',prices:'￥888' },
-        { img: '../../../images/1.png', name: '拉菲尚品波尔多', content: '好好好好好哈哈哦哦', prices: '￥888' },
-        { img: '../../../images/1.png', name: '拉菲尚品波尔多', content: '好好好好好哈哈哦哦', prices: '￥888' },
-        { img: '../../../images/1.png', name: '拉菲尚品波尔多', content: '好好好好好哈哈哦哦', prices: '￥888' },
-        { img: '../../../images/1.png', name: '拉菲尚品波尔多', content: '好好好好好哈哈哦哦', prices: '￥888' }
-        ]
-    },
+    recommend: [],
+      serverUrl: app.globalData.aliyunServerURL
+  },
 
-    // 活动跳转事件
-    activity: function(){
-        wx.navigateTo({
-        url: '/pages/seckill/seckill'
-        })
-    },
+
+  // 活动跳转事件
+  activity: function(){
+    wx.navigateTo({
+      url: '/pages/seckill/seckill'
+    })
+  },
+
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      template.tabbar("tabBar", 0, this, app.globalData.vipLevel); 
+
+      template.tabbar("tabBar", 0, this, app.globalData.vipLevel);
   },
 
   /**
@@ -78,6 +68,7 @@ Page({
       });
 
   },
+
 
     /**
      * 生命周期函数--监听页面显示
@@ -119,5 +110,34 @@ Page({
      */
     onShareAppMessage: function () {
     
-    }
+    },
+
+
+  /**
+   * 搜索框失去焦点时
+   */
+  inputBlur: function (e) {
+    input_value = e.detail.value;
+  },
+
+  /**
+   * 搜索商品
+   */
+  searchGoods: function () {
+    let val = input_value;
+    mySearch(val);
+  },
+
+
 })
+
+
+/**
+* 搜索的方法
+*/
+function mySearch(val) {
+  wx: wx.navigateTo({
+    url: '/pages/goods_list/goods_list?goodsName=' + val,
+  })
+}
+
