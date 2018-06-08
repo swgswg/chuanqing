@@ -7,7 +7,6 @@
     <view class="form">
       <image class="btn" src="../../../images/index.png" bindtap="bindSearchTap"></image>
       <input class="input"  placeholder="输入商品名称" placeholder-style="color:#ebcdd0"/>
-
     </view>
     <view catchtap='activity'  class='sha'>
         <image src='../../../images/bj.png' style='width:600rpx;height:270rpx;'></image>
