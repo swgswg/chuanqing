@@ -37,8 +37,8 @@ Page({
             undercarriage:false
         });
 
-    },
-
+    })
+  },
     /**
      * 确定下架
      */

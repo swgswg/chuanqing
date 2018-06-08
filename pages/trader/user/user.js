@@ -1,5 +1,4 @@
 // pages/trader/user/user.js
-
 var template = require('../../../template/template.js');
 var util = require('../../../utils/util.js');
 const app = getApp();
@@ -21,7 +20,7 @@ Page({
    */
   onLoad: function (options) {
       console.log(app.globalData.vipLevel);
-      template.tabbar("tabBar", 3, this, app.globalData.vipLevel); 
+      template.tabbar("tabBar", 3, this, app.globalData.vipLevel);
   },
 
   /**
