@@ -37,25 +37,24 @@ App({
         //       }
         //   });
         // 获取用户信息
-    wx.getSetting({
-        success: res => {
-            if (res.authSetting['scope.userInfo']) {
-            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-            wx.getUserInfo({
-                success: res => {
-                // 可以将 res 发送给后台解码出 unionId
-                this.globalData.userInfo = res.userInfo
+        wx.getSetting({
+            success: res => {
+                if (res.authSetting['scope.userInfo']) {
+                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+                    wx.getUserInfo({
+                        success: res => {
+                            // 可以将 res 发送给后台解码出 unionId
+                            this.globalData.userInfo = res.userInfo
 
-                // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-                // 所以此处加入 callback 以防止这种情况
-                if (this.userInfoReadyCallback) {
-                    this.userInfoReadyCallback(res)
+                            // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                            // 所以此处加入 callback 以防止这种情况
+                            if (this.userInfoReadyCallback) {
+                                this.userInfoReadyCallback(res)
+                            }
+                        }
+                    })
                 }
-                }
-            })
             }
-        }
-
         })
     },
     globalData: {
@@ -66,6 +65,7 @@ App({
         // 用户会员等级
         vipLevel: 1,
         payInfo:null,
+        dealerCode:'pingtai',
         globalDataBaseUrl: baseUrl,
         // 获取所有评论
         getAllCommetnUrl:baseUrl+'redwine/order/QueryComment',
@@ -118,8 +118,9 @@ App({
         // 正在销售页面
         getIsSaleUrl: baseUrl + 'redwine/dealer/getIsSale',
         // 订单明细
-        getsaleTrackUrl: baseUrl + 'redwine/saleTrack/getsaleTrack'
+        getsaleTrackUrl: baseUrl + 'redwine/saleTrack/getsaleTrack',
+        // 按月份查找数据
+        getSaleTrackByMonthkUrl: baseUrl + 'redwine/saleTrack/getSaleTrackByMonth'
 
-  }
-
+    }
 })

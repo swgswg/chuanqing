@@ -24,6 +24,8 @@
 .search .input{
   height: 40rpx;
   width: 600rpx;
+  margin-left: 25rpx;
+  color: red;
 }
 
 .search .btn{

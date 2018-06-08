@@ -4,7 +4,11 @@
   <!--内容1  -->
   <view class="content">
     <view class="zhanhu">账户余额</view>
-    <view class="date">《 <text decode='{{true}}' space='{{true}}' >&nbsp;2018年5月&nbsp;</text> 》</view>
+    <view class="date">
+      <view bindtap='back'>《</view>
+      <view><text decode='{{true}}'space='{{true}}' >&nbsp;&nbsp;&nbsp;{{Ytime}}年{{Mtime}}月&nbsp;&nbsp;&nbsp;</text></view>
+      <view bindtap='go'> 》</view>
+    </view>
     
     <view style="clear:both"></view>
     

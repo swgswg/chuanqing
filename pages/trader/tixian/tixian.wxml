@@ -7,7 +7,7 @@
 
 <!--提现金额  -->
 <view class="number">
-<input name="input" placeholder="输入要体现的金额"   placeholder-style="color:red;margin-left:40rpx;margin-top:8rpx;" />
+<input name="input" style='margin-left:45rpx;' placeholder="输入要体现的金额"   placeholder-style="color:red;margin-top:8rpx;" />
 </view>
 
 <!--确认  -->

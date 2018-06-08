@@ -4,22 +4,28 @@ const app = getApp();
 var template = require('../../../template/template.js');
 Page({
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
-    //国家循环
-    goodsGroup:[
-        { imgs: '../../../images/c4.png', name: '法国' }, 
-        { imgs: '../../../images/c4.png', name: '法国' },
-        { imgs: '../../../images/c4.png', name: '法国' },
-        { imgs: '../../../images/c4.png', name: '法国' },
-        { imgs: '../../../images/c4.png', name: '法国' },
-        { imgs: '../../../images/c4.png', name: '法国' },
-        { imgs: '../../../images/c4.png', name: '法国' },
-        { imgs: '../../../images/c4.png', name: '法国' }
-    ],
 
+  /**
+   * 页面的初始数据
+   */
+  data: {
+  //国家循环
+  goodsGroup:[
+  ],
+
+
+  // 品牌图标
+    brand:[
+      { img: '../../../images/c4.png' },
+      { img: '../../../images/c4.png' },
+      { img: '../../../images/c4.png' },
+      { img: '../../../images/c4.png' },
+      { img: '../../../images/c4.png' },
+      {img:'../../../images/c4.png'}
+    ],
+  // 相关推荐信息
+    recommend: []
+  },
 
     // 品牌图标
         brand:[
@@ -47,29 +53,36 @@ Page({
         })
     },
 
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+      console.log(options)
+  },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-        // 调用tarBar模板
-        template.tabbar("tabBar", 0, this, app.globalData.vipLevel); //0表示第一个tabbar
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-        var that= this;
-        //  国家页面  获取分类组
-        util.myWxRequest(app.globalData.getGroupUrl, {}, function (res) {
-            that.setData({
-            goodsGroup: res.data.data,
-            current_id: res.data.data[0].id
-            });
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+      var that=this
+      //  国家页面  获取分类组
+      util.myWxRequest(app.globalData.getGroupUrl, {}, function (res) {
+        that.setData({
+          goodsGroup: res.data.data,
+          current_id: res.data.data[0].id
         });
-    
-    },
+      });
+
+      // 相关推荐  
+      util.myWxRequest(app.globalData.getGoodsBySaleCountUrl, {}, function (res) {
+          var arrays=res.data.data
+          var lengths=res.data.data.length
+          that.setData({
+            recommend: arrays
+          });
+      });
+
+  },
 
     /**
      * 生命周期函数--监听页面显示

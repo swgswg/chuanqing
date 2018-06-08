@@ -22,15 +22,19 @@ page{
   margin-left: 30rpx;
   float: left;
   line-height: 90rpx;
-  font-size:30rpx
+  font-size:30rpx;
 }
 /*日期设置  */
 .date{
-  width:70%;
+  width:60%;
   font-size: 30rpx;
   color:red;
   line-height: 90rpx;
-  font-size:30rpx
+  float: left;
+  display: flex;
+}
+.centers{
+  justify-content:flex-end;
 }
 
 /*金额设置  */

@@ -63,19 +63,21 @@
 }
 /*图标  */
 .biao{
-  width:80rpx;
-  height:80rpx;
+  width:50rpx;
+  height:50rpx;
 }
 
 /*字体设置  */
 .font{
   font-size:30rpx;
   line-height: 50rpx;
+  margin-left: -10rpx;
 }
 
 .font2{
   font-size:30rpx;
   line-height: 100rpx;
+  margin-left: -20rpx;
 }
 
 /*图标整体 2  */
