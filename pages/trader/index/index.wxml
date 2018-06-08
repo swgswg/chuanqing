@@ -64,15 +64,17 @@
 
   <!--相关推荐循环  -->
     <block wx:for="{{recommend}}" wx:key="{{item.id}}">
-      <navigator url="/pages/goods_detail/goods_detail?id={{item.id}}">
-        <view class='z2'>
-          <view class='pic'><image src='{{serverUrl}}{{item.img}}' style='width:280rpx;height:350rpx;'></image></view>
-          <view class='name'>{{item.gname}}</view>
-          <view class="miaosu">{{item.goodsDetail}}</view>
-          <view class="price">{{item.price}}</view>
-        </view>  
-      </navigator>  
+        <navigator url="/pages/goods_detail/goods_detail?id={{item.id}}">
+            <view class='z2'>
+                <view class='pic'><image src='{{serverUrl}}{{item.img}}' style='width:280rpx;height:350rpx;'></image></view>
+                <view class='name'>{{item.gname}}</view>
+                <view class="miaosu">{{item.goodsDetail}}</view>
+                <view class="price">¥{{item.price}}</view>
+            </view>  
+        </navigator>  
     </block>
+    <view style='clear:both;'></view>
+    <view style='width:100%;height:120rpx;'></view>
     <import src="../../../template/template.wxml"/>
-<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>
+    <template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>
 </view>

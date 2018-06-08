@@ -119,8 +119,11 @@ Page({
         this.setData({
             goods_num: num
         });
-        // 购买商品达到一定数量,单价优惠
-        judgeGoodsNum(num, that);
+        // 经销商购买商品达到一定数量,单价优惠
+        // if(that.){
+        //     judgeGoodsNum(num, that);
+        // }
+        
     },
     // 减少数量
     minusCount: function(e) {
@@ -134,7 +137,7 @@ Page({
             goods_num: num
         });
         // 购买商品达到一定数量,单价优惠
-        judgeGoodsNum(num, that);
+        // judgeGoodsNum(num, that);
     },
 
     /**
@@ -153,7 +156,7 @@ Page({
         // }
         let num = that.data.goods_num;
         // 购买商品达到一定数量,单价优惠
-        judgeGoodsNum(num, that);
+        // judgeGoodsNum(num, that);
 
     },
     blurNum: function (e) {
@@ -170,7 +173,7 @@ Page({
             });
         }
         // 购买商品达到一定数量,单价优惠
-        judgeGoodsNum(num, that);
+        // judgeGoodsNum(num, that);
     },
 
 

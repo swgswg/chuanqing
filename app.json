@@ -1,8 +1,12 @@
 {
     "pages":[
+        "pages/stock_detail/stock_detail",
+        
         "pages/trader/index/index",
-        "pages/after_sale/after_sale",
         "pages/trader/sell/sell",
+        
+        "pages/after_sale/after_sale",
+        
         "pages/myorder/myorder",
         "pages/not_pay/not_pay",
         "pages/trader/user/user",
@@ -15,7 +19,7 @@
         "pages/trader/note/note",      
         "pages/trader/tixian/tixian",
         "pages/goods_cate/goods_cate",        
-        "pages/stock_detail/stock_detail",              
+                  
         "pages/address/address/address",      
         "pages/intercalate/intercalate",      
         "pages/cart_edit/cart_edit",

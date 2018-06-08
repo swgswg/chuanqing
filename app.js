@@ -1,5 +1,5 @@
 //app.js
-var baseUrl = 'http://192.168.3.89:8080/';
+var baseUrl = 'http://39.107.70.80:8080/';
 App({
     onLaunch: function () {
         // 展示本地存储能力
@@ -127,7 +127,7 @@ App({
         getSaleTrackByMonthkUrl: baseUrl + 'redwine/saleTrack/getSaleTrackByMonth',
         // 下架
         updateStockUrl: baseUrl + 'redwine/goods/updateStock',
-
+        
     },
 
 

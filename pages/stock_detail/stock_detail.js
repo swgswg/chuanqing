@@ -168,7 +168,7 @@ Page({
     */
     viewAllComment: function () {
         var that = this;
-        wx: wx.navigateTo({
+        wx.navigateTo({
             url: '/pages/all_comment/all_comment?goodsId=' + that.data.goodsInfo.id
         });
     },
@@ -262,6 +262,24 @@ Page({
         this.setData({
             immediate_sale_hidden: true
         });
+    },
+
+    /**
+     * 确认出售
+     */
+    confirmation_of_sale:function(){
+        let that = this;
+        let goods_num = that.data.goods_num;
+        let goods_id = that.data.goodsInfo.id;
+        // utils.myWxRequest(,function(){
+        //     wx.showToast({
+        //         title: '出售成功',
+        //         icon: 'success',
+        //     });
+        //     wx.navigateTo({
+        //         url: '/pages/stock_detail/stock_detail',
+        //     })
+        // })
     }
 
 })

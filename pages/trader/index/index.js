@@ -6,69 +6,64 @@ var input_value = '';
 
 Page({
 
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        //国家循环
+        goodsGroup:[],
+        // 品牌图标
+        brand:[
+        { img: '../../../images/c4.png' },
+        { img: '../../../images/c4.png' },
+        { img: '../../../images/c4.png' },
+        { img: '../../../images/c4.png' },
+        { img: '../../../images/c4.png' },
+        {img:'../../../images/c4.png'}
+        ],
+        // 相关推荐信息
+        recommend: [],
+        serverUrl: app.globalData.aliyunServerURL
+    },
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-      //国家循环
-      goodsGroup:[],
-      // 品牌图标
-    brand:[
-      { img: '../../../images/c4.png' },
-      { img: '../../../images/c4.png' },
-      { img: '../../../images/c4.png' },
-      { img: '../../../images/c4.png' },
-      { img: '../../../images/c4.png' },
-      {img:'../../../images/c4.png'}
-    ],
-    // 相关推荐信息
-    recommend: [],
-      serverUrl: app.globalData.aliyunServerURL
-  },
+    // 活动跳转事件
+    activity: function(){
+        wx.navigateTo({
+        url: '/pages/seckill/seckill'
+        })
+    },
 
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
 
-  // 活动跳转事件
-  activity: function(){
-    wx.navigateTo({
-      url: '/pages/seckill/seckill'
-    })
-  },
+        template.tabbar("tabBar", 0, this, app.globalData.vipLevel);
+    },
 
-
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-      template.tabbar("tabBar", 0, this, app.globalData.vipLevel);
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-      var that=this
-      //  国家页面  获取分类组
-      util.myWxRequest(app.globalData.getGroupUrl, {}, function (res) {
-        that.setData({
-          goodsGroup: res.data.data,
-          current_id: res.data.data[0].id
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+        var that=this
+        //  国家页面  获取分类组
+        util.myWxRequest(app.globalData.getGroupUrl, {}, function (res) {
+            that.setData({
+            goodsGroup: res.data.data,
+            current_id: res.data.data[0].id
+            });
         });
-      });
 
-      // 相关推荐  
-      util.myWxRequest(app.globalData.getGoodsBySaleCountUrl, {}, function (res) {
-          var arrays=res.data.data
-          var lengths=res.data.data.length
-          that.setData({
-            recommend: arrays
-          });
-      });
+        // 相关推荐  
+        util.myWxRequest(app.globalData.getGoodsBySaleCountUrl, {}, function (res) {
+            var arrays=res.data.data
+            // var lengths=res.data.data.length
+            that.setData({
+                recommend: arrays
+            });
+        });
 
-  },
-
+    },
 
     /**
      * 生命周期函数--监听页面显示
@@ -112,22 +107,20 @@ Page({
     
     },
 
+    /**
+     * 搜索框失去焦点时
+     */
+    inputBlur: function (e) {
+        input_value = e.detail.value;
+    },
 
-  /**
-   * 搜索框失去焦点时
-   */
-  inputBlur: function (e) {
-    input_value = e.detail.value;
-  },
-
-  /**
-   * 搜索商品
-   */
-  searchGoods: function () {
-    let val = input_value;
-    mySearch(val);
-  },
-
+    /**
+     * 搜索商品
+     */
+    searchGoods: function () {
+        let val = input_value;
+        mySearch(val);
+    },
 
 })
 

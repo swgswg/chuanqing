@@ -17,7 +17,8 @@
 <view class="price-cart">
     <view hidden="{{changePrice}}">¥{{goodsInfo.price}}</view>
     <view hidden="{{!changePrice}}">¥{{goodsInfo.dealerPrice}}</view>
-    <!-- <view class="member-price">会员价：{{goodsInfo.member_price}}</view> -->
+    <view class="member-price">原价：¥{{goodsInfo.member_price}}</view> 
+    <view wx:if="{{goodsInfo.ismember}}" class="member-price2">经销商价：¥{{goodsInfo.member_price}}</view> 
 </view>
 
 <view class="jianju" style="height:20rpx;background-color:#eee"></view>
