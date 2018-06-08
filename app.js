@@ -107,7 +107,11 @@ App({
       // 正在销售页面
       getIsSaleUrl: baseUrl + 'redwine/dealer/getIsSale',
       // 订单明细
-      getsaleTrackUrl: baseUrl + 'redwine/saleTrack/getsaleTrack'
+      getsaleTrackUrl: baseUrl + 'redwine/saleTrack/getsaleTrack',
+      // 按月份查找数据
+     getSaleTrackByMonthkUrl: baseUrl + 'redwine/saleTrack/getSaleTrackByMonth',
+      // 相关推荐
+    getGoodsBySaleCountUrl: baseUrl +'redwine/goods/getGoodsBySaleCount'
   }
 
 })

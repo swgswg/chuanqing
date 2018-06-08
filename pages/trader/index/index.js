@@ -10,14 +10,6 @@ Page({
   data: {
   //国家循环
   goodsGroup:[
-    { imgs: '../../../images/c4.png', name: '法国' }, 
-    { imgs: '../../../images/c4.png', name: '法国' },
-    { imgs: '../../../images/c4.png', name: '法国' },
-    { imgs: '../../../images/c4.png', name: '法国' },
-    { imgs: '../../../images/c4.png', name: '法国' },
-    { imgs: '../../../images/c4.png', name: '法国' },
-    { imgs: '../../../images/c4.png', name: '法国' },
-    { imgs: '../../../images/c4.png', name: '法国' }
   ],
 
 
@@ -31,13 +23,7 @@ Page({
       {img:'../../../images/c4.png'}
     ],
   // 相关推荐信息
-    recommend: [
-      { img: '../../../images/1.png', name: '拉菲尚品波尔多',content:'好好好好好哈哈哦哦',prices:'￥888' },
-      { img: '../../../images/1.png', name: '拉菲尚品波尔多', content: '好好好好好哈哈哦哦', prices: '￥888' },
-      { img: '../../../images/1.png', name: '拉菲尚品波尔多', content: '好好好好好哈哈哦哦', prices: '￥888' },
-      { img: '../../../images/1.png', name: '拉菲尚品波尔多', content: '好好好好好哈哈哦哦', prices: '￥888' },
-      { img: '../../../images/1.png', name: '拉菲尚品波尔多', content: '好好好好好哈哈哦哦', prices: '￥888' }
-    ]
+    recommend: []
   },
 
   // 活动跳转事件
@@ -52,22 +38,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      console.log(options)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    var that=this
-    //  国家页面  获取分类组
-    util.myWxRequest(app.globalData.getGroupUrl, {}, function (res) {
-      that.setData({
-        goodsGroup: res.data.data,
-        current_id: res.data.data[0].id
+      var that=this
+      //  国家页面  获取分类组
+      util.myWxRequest(app.globalData.getGroupUrl, {}, function (res) {
+        that.setData({
+          goodsGroup: res.data.data,
+          current_id: res.data.data[0].id
+        });
       });
-    });
-  
+
+      // 相关推荐  
+      util.myWxRequest(app.globalData.getGoodsBySaleCountUrl, {}, function (res) {
+          var arrays=res.data.data
+          var lengths=res.data.data.length
+          that.setData({
+            recommend: arrays
+          });
+      });
+
   },
 
   /**

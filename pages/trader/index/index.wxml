@@ -5,11 +5,10 @@
 
     <!-- -->
     <view class="form">
-      <image class="btn" src="../../../images/icon_search.png" bindtap="bindSearchTap"></image>
-      <input class="input"  placeholder="输入商品名称" bindinput="bindKeywordInput" confirm-type="search" bindconfirm="bindKeywordConfirm"/>
+      <image class="btn" src="../../../images/index.png" bindtap="bindSearchTap"></image>
+      <input class="input"  placeholder="输入商品名称" placeholder-style="color:#ebcdd0"/>
 
     </view>
-
     <view catchtap='activity'  class='sha'>
         <image src='../../../images/bj.png' style='width:600rpx;height:270rpx;'></image>
     </view> 
@@ -20,10 +19,12 @@
   <view class="">
     <!--国家循环  -->
     <block wx:for="{{ goodsGroup}}" wx:key="{{item.id}}">
+    <navigator url='../../goods_list/goods_list'>
       <view class="guojia">
         <view class='tubiao'><image src="{{item.imgs}}" style='width:125rpx;height:125rpx;border-radius:80%;'></image></view>
         <view class="zi">{{item.name}}</view>
       </view>
+      </navigator>
     </block>
   
   </view>
@@ -58,13 +59,13 @@
   </view>
 
   <!--相关推荐循环  -->
-    <block wx:for="{{recommend}}" wx:key="{{item.gId}}">
-      <navigator url="/pages/goods_detail/goods_detail">
+    <block wx:for="{{recommend}}" wx:key="{{item.id}}">
+      <navigator url="/pages/goods_detail/goods_detail?id={{item.id}}">
         <view class='z2'>
           <view class='pic'><image src='{{item.img}}' style='width:280rpx;height:350rpx;'></image></view>
-          <view class='name'>{{item.name}}</view>
-          <view class="miaosu">{{item.content}}</view>
-          <view class="price">{{item.prices}}</view>
+          <view class='name'>{{item.gname}}</view>
+          <view class="miaosu">{{item.goodsDetail}}</view>
+          <view class="price">{{item.price}}</view>
         </view>  
       </navigator>  
     </block>
