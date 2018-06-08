@@ -6,7 +6,7 @@
 </view>
 <scroll-view scroll-y style="width:100%;height:1120rpx;">
     <view>
-        <block wx:for="{{myorder}}" wx:key="{{item.uuid}}">
+        <block wx:for="{{myorder}}" wx:if="{{item.status != 0}}" wx:key="{{item.uuid}}">
             <view sytle="width:100%;background-color:#fff;">
                 <!-- 订单状态 start  -->
                 <view class="order-time-status">
@@ -36,7 +36,7 @@
                             </view>
                             <view class="goods-price">
                                 <view class="buy-price">¥{{goods.price}}</view>
-                                <!-- <view class="huaxian-price">¥{{vv.goods_yuanjia}}</view> -->
+                                 <view class="huaxian-price"><text style='color:red;'>{{goods.sta == 1 ? '自提':''}}</text></view> 
                                 <view class="buy-number">x{{goods.num}}</view>
                             </view>
                         </view>

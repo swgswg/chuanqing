@@ -34,7 +34,7 @@ Page({
      */
     onLoad: function (options) {
         let that = this;
-        console.log(options.status);
+        // console.log(options.status);
         // 获取订单
         queryOrder(options.status, that);
     },
@@ -226,31 +226,31 @@ function queryOrder(mystatus,that){
         // 待发货
         case that.data.to_be_shipped:
             mydata = {
-                page: page, pageSize: pageSize, userId: app.globalData.userId, stauts: 1
+                page: page, pageSize: pageSize, userId: app.globalData.userId, stauts: that.data.to_be_shipped
             }
             break;
         // 待收货
         case that.data.to_be_received:
             mydata = {
-                page: page, pageSize: pageSize, userId: app.globalData.userId, stauts: 2
+                page: page, pageSize: pageSize, userId: app.globalData.userId, stauts: that.data.to_be_received
             }
             break;
         // 待评价
         case that.data.to_be_evaluated:
             mydata = {
-                page: page, pageSize: pageSize, userId: app.globalData.userId, stauts: 3
+                page: page, pageSize: pageSize, userId: app.globalData.userId, stauts: that.data.to_be_evaluated
             }
             break;
         // 自提
         case that.data.self_extraction:
             mydata = {
-                page: page, pageSize: pageSize, userId: app.globalData.userId, status: 4
+                page: page, pageSize: pageSize, userId: app.globalData.userId, status: that.data.self_extraction
             }
             break;
         // 已完成
         case that.data.accomplish:
             mydata = {
-                page: page, pageSize: pageSize, userId: app.globalData.userId, status: 5
+                page: page, pageSize: pageSize, userId: app.globalData.userId, status: that.data.accomplish
             }
             break;
         // 默认为 全部
@@ -264,6 +264,7 @@ function queryOrder(mystatus,that){
     util.myWxRequest(app.globalData.QueryOrderUrl, mydata, function (res) {
         // 获取订单
         let order = res.data.data.PageInfo.list;
+        console.log(order);
         for (let i = 0; i < order.length; i++) {
             let goods = order[i].goods;
             let len = goods.length;

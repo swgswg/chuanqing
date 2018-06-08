@@ -113,6 +113,7 @@
 
     </view>
   </view>
-</view>
-<import src="../../../template/template.wxml"/>
+  <view class='jianju' style='margin-bottom:80rpx;background-color:#eee'></view>
+  <import src="../../../template/template.wxml"/>
 <template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>
+</view>

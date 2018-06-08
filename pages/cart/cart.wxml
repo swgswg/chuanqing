@@ -97,6 +97,6 @@
         <view bindtap='addCollection' class="commit-cart-yirushoucang">移入收藏</view>
         <view bindtap="deleteList" class="commit-cart-jiesuan">删除商品</view>
     </view>
+ <import src="../../template/template.wxml"/>
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>   
 </view>
-<import src="../../template/template.wxml"/>
-<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>

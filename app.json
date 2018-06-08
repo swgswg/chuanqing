@@ -1,12 +1,13 @@
 {
     "pages":[
+        "pages/myorder/myorder",
         
-        
+        "pages/not_pay/not_pay",
+        "pages/trader/user/user",
         "pages/trader/index/index",
         "pages/goods_stock/goods_stock",
         "pages/self_extraction/self_extraction",
         "pages/users/users/users",      
-        "pages/trader/user/user",      
         "pages/address/add/add", 
         "pages/pay_success/pay_success",
         "pages/address/insert/insert",
@@ -18,7 +19,6 @@
         "pages/address/address/address",      
         "pages/intercalate/intercalate",      
         "pages/cart_edit/cart_edit",
-             
         "pages/seckill/seckill",
         "pages/goods_competitive/goods_competitive",      
         "pages/address/update/update",
@@ -26,7 +26,7 @@
         "pages/all_comment/all_comment",      
         "pages/goods_detail/goods_detail",
         "pages/cart/cart",      
-        "pages/myorder/myorder",      
+         
         "pages/after_sale/after_sale",      
         "pages/sales_promotion/sales_promotion",      
         "pages/browse_footprint/browse_footprint",      

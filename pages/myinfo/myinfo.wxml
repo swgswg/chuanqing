@@ -1,3 +1,4 @@
+<view>
 <view class="header">
     <navigator url="../news/news">
         <view class="xiaoxi">
@@ -72,13 +73,13 @@
     </view>
 </view>
 <!-- <view class="jianju" style="height:80rpx;"></view> -->
-<view class="bottom">
+<view class="bottom" style='margin-bottom:98rpx;'>
     <view class="bottom-ad">
         <navigator url='/pages/trader/trader1/trader'>
            <image src="../../images/woyaomaijiu.png"></image>
         </navigator>
     </view>
-    <view class="membership-privilege">
+    <view class="membership-privilege" >
         <view class="membership-privilege-font">会员尊享</view>
          <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
             <block wx:for="{{membershipPrivilege}}" wx:key="{{membershipPrivilege.id}}">
@@ -90,5 +91,7 @@
         </scroll-view> 
     </view>
 </view>
+
 <import src="../../template/template.wxml"/>
 <template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>
+</view>

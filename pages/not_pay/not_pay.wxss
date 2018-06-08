@@ -98,7 +98,7 @@ page{
     position: absolute;
     top: 40rpx;
     right: 0;
-    /* text-decoration: line-through; */
+    text-decoration: line-through;
     font-size: 25rpx;
     color: #999;
 }

@@ -1,5 +1,6 @@
 //初始化数据
 function tabbarinit(flag) {
+    // vipLevel 1用户  2经销商
     if(flag == 1){
         return [
             {
