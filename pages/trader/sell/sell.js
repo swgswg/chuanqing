@@ -7,7 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // data:"",
       sell:[
         { name:'路易拉菲2009男爵古堡干红葡萄酒红盒礼盒木盒750ml*2',price: '￥888', selling: 155, sells: '50', see: '888' },
         { name:'路易拉菲2009男爵古堡干红葡萄酒红盒礼盒木盒750ml*2',price: '￥888', selling: 155, sells: '50', see: '888' },
@@ -15,6 +14,7 @@ Page({
         { name:'路易拉菲2009男爵古堡干红葡萄酒红盒礼盒木盒750ml*2',price: '￥888', selling: 155, sells: '50', see: '888' },
         { name:'路易拉菲2009男爵古堡干红葡萄酒红盒礼盒木盒750ml*2',price: '￥888', selling: 155,sells:'50',see:'888'}
       ],
+      serverUrl: app.globalData.aliyunServerURL  
   },
 
   /**

@@ -1,25 +1,17 @@
 // pages/trader/user/user.js
-Page({
+var util = require('../../../utils/util.js');
+const app = getApp();
 
+Page({
   /**
    * 页面的初始数据
    */
     data: {
-      recommend: [
-        { imgs: '../../../images/1.png', content: '法国整箱进口AOP郎迪干红葡萄酒', prices: '¥888' },
-        { imgs: '../../../images/1.png', content: '法国整箱进口AOP郎迪干红葡萄酒', prices: '¥888' },
-        { imgs: '../../../images/1.png', content: '法国整箱进口AOP郎迪干红葡萄酒', prices: '¥888' },
-        { imgs: '../../../images/1.png', content:'法国整箱进口AOP郎迪干红葡萄酒',  prices: '¥888' }
-      ],
-
-      membershipPrivilege: [
-        { img: '../../../images/1.png', price: '¥888' },
-        { img: '../../../images/1.png', price: '¥888' },
-        { img: '../../../images/1.png', price: '¥888' },
-        { img: '../../../images/1.png', price: '¥888' },
-        { img: '../../../images/1.png', price: '¥888' },
-        { img: '../../../images/1.png', price: '¥888' }
-      ]
+      img:"",
+      to_be_shipped: 1,
+      to_be_received: 2,
+      to_be_evaluated: 3,
+      serverUrl: app.globalData.aliyunServerURL
     },
 
   /**
@@ -33,13 +25,19 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    var that=this
+    util.myWxRequest(app.globalData.getUserInfoUrl, { userId: app.globalData.userId}, function (res) {
+        that.setData({
+          img:res.data.data[0]
+        })
+    });
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
   
   },
 

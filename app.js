@@ -60,6 +60,8 @@ App({
   globalData: {
       userInfo: null,
       buyGoods:null,
+      // 阿里云OOS地址
+      aliyunServerURL: 'http://jiaoyuvideo.oss-cn-beijing.aliyuncs.com/',
       userId:1,
       dealerCode:'pingtai',
       payInfo:null,
@@ -82,6 +84,8 @@ App({
       insertCartsUrl: baseUrl + 'redwine/carts/insertCarts',
       updateCartsUrl: baseUrl + 'redwine/carts/updateCarts',
       getGoodsByConditionUrl: baseUrl + 'redwine/goods/getGoodsByCondition',
+      // 查询个人信息
+      getUserInfoUrl: baseUrl +  'redwine/userInfo/getUserInfo',
       //修改个人信息
       updateUserInfoUrl: baseUrl + 'redwine/userInfo/updateUserInfo',
       // 修改呢称
@@ -111,7 +115,7 @@ App({
       // 按月份查找数据
      getSaleTrackByMonthkUrl: baseUrl + 'redwine/saleTrack/getSaleTrackByMonth',
       // 相关推荐
-    getGoodsBySaleCountUrl: baseUrl +'redwine/goods/getGoodsBySaleCount'
+     getGoodsBySaleCountUrl: baseUrl +'redwine/goods/getGoodsBySaleCount'
   }
 
 })

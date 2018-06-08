@@ -9,10 +9,16 @@
 .file{
   width:150rpx;
   height:150rpx;
-  border:1px solid #ddd;
   float:left;
+  border: 1px solid white;
   margin-left:30rpx;
   border-radius:50%;
+  overflow: hidden;
+}
+.pictu{
+  width: 150rpx;
+  height: 150rpx;
+
 }
 
 /*呢称  */
@@ -81,8 +87,8 @@
 .tu{
   width:25%;
   float:left;
-  margin-left: 60rpx;
-  margin-top: 80rpx;
+  margin-left: 63rpx;
+  margin-top: 120rpx;
 }
 
 /*会员尊享  */

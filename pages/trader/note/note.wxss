@@ -24,6 +24,7 @@ page{
   line-height: 90rpx;
   font-size:30rpx;
 }
+
 /*日期设置  */
 .date{
   width:60%;
@@ -35,6 +36,10 @@ page{
 }
 .centers{
   justify-content:flex-end;
+}
+.left{
+  width:20rpx;
+  height: 20rpx;
 }
 
 /*金额设置  */

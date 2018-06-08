@@ -1,12 +1,12 @@
 {
     "pages":[
-        "pages/trader/index/index",      
-        "pages/users/users/users",               
-        "pages/trader/note/note",               
+        "pages/trader/index/index",
+        "pages/trader/user/user",      
+        "pages/trader/note/note",
+        "pages/users/users/users",                    
         "pages/address/insert/insert",   
         "pages/trader/sell/sell",  
         "pages/trader/tixian/tixian",
-        "pages/trader/user/user",
         "pages/address/add/add",      
         "pages/goods_cate/goods_cate",        
         "pages/stock_detail/stock_detail",              
@@ -33,7 +33,6 @@
         "pages/myinfo/myinfo",
         "pages/goods_list/goods_list",
         "pages/trader/trader1/trader",
-
         "pages/address/address1/address1",
         "pages/users/nechen/nechen",
          "pages/trader/huigou/huigou",

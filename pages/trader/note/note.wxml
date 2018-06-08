@@ -5,9 +5,9 @@
   <view class="content">
     <view class="zhanhu">账户余额</view>
     <view class="date">
-      <view bindtap='back'>《</view>
+      <view bindtap='back'><image src='../../../images/left.png' class='left'></image></view>
       <view><text decode='{{true}}'space='{{true}}' >&nbsp;&nbsp;&nbsp;{{Ytime}}年{{Mtime}}月&nbsp;&nbsp;&nbsp;</text></view>
-      <view bindtap='go'> 》</view>
+      <view bindtap='go'><image src='../../../images/right.png' class='left'></image></view>
     </view>
     
     <view style="clear:both"></view>
@@ -16,7 +16,7 @@
     <view >
       <view class="jine">￥3600.00 </view>
       <view class="ti"><navigator url='/pages/trader/tixian/tixian'>提现</navigator> </view>
-      <view class="gou"><navigator url='/pages/trader/tixian/tixian'> 继续购买</navigator></view>
+      <view class="gou"><navigator url='/pages/trader/index/index'> 继续购买</navigator></view>
     </view>
   </view>
 
@@ -48,7 +48,7 @@
       <view class="zongti2" wx:for="{{order}}" wx:key="{{item.id}}" >
         <!--下划线  -->
         <view class="xia"></view>
-        <view class="picture"><image src="{{item.img}}" style='width:150rpx;height:150rpx;'></image></view>
+        <view class="picture"><image src="{{serverUrl}}{{item.img}}" style='width:150rpx;height:150rpx;'></image></view>
         <view class='name'>{{item.name}}{{item.specification}}{{item.goodsDetail}}</view>
         <view style='clear:both'></view>
         <!--金额  -->
@@ -61,5 +61,4 @@
         </view>
       </view>
     </view>
-
 </view>

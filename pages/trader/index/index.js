@@ -1,7 +1,7 @@
 // pages/trader/index/index.js
 var util = require('../../../utils/util.js');
 const app = getApp();
-
+var input_value = '';
 Page({
 
   /**
@@ -11,8 +11,6 @@ Page({
   //国家循环
   goodsGroup:[
   ],
-
-
   // 品牌图标
     brand:[
       { img: '../../../images/c4.png' },
@@ -23,7 +21,8 @@ Page({
       {img:'../../../images/c4.png'}
     ],
   // 相关推荐信息
-    recommend: []
+    recommend: [],
+    serverUrl: app.globalData.aliyunServerURL  
   },
 
   // 活动跳转事件
@@ -38,7 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      console.log(options)
+
   },
 
   /**
@@ -63,6 +62,21 @@ Page({
           });
       });
 
+  },
+
+  /**
+   * 搜索框失去焦点时
+   */
+  inputBlur: function (e) {
+    input_value = e.detail.value;
+  },
+
+  /**
+   * 搜索商品
+   */
+  searchGoods: function () {
+    let val = input_value;
+    mySearch(val);
   },
 
   /**
@@ -107,3 +121,13 @@ Page({
   
   }
 })
+
+
+/**
+* 搜索的方法
+*/
+function mySearch(val) {
+  wx: wx.navigateTo({
+    url: '/pages/goods_list/goods_list?goodsName=' + val,
+  })
+}

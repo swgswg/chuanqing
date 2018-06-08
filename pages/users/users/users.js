@@ -21,6 +21,7 @@ Page({
     img:"",
     covering_layer_hidden: true,
     immediate_sale_hidden: true,
+    serverUrl: app.globalData.aliyunServerURL
   },
 
 // 日期单击事件
@@ -76,7 +77,7 @@ Page({
 
   // 修改图片
   images: function(){
-    util.myWxRequest(app.globalData.updateUserInfoUrl, { userId: app.globalData.userId, photo:this.data.img }, function (res) {
+    util.myWxRequest(app.globalData.updateUserInfoUrl, { userId: app.globalData.userId, photo:this.data.img }, function (res)  {
       wx.showToast({
         icon: 'success',
         title: '修改成功'
@@ -109,12 +110,13 @@ Page({
         sourceType: ['album', 'camera'],
           // 上传文件
           success: function (res) {
+            console.log(res)
             let tempFilePaths = res.tempFilePaths;
             // 临时文件路径
             let filePath = tempFilePaths[0];
             let ext = filePath.slice(filePath.lastIndexOf('.'));
             let extArr = ['png', 'jpg', 'jpeg', 'gif'];
-            if (extArr.indexOf(ext) != -1) {
+            if (extArr.indexOf(ext) != 1) {
               // 上传文件
               uploadAliyun(filePath, function (aliyunFileKey) {
                   let newsrc = env.aliyunServerURL + aliyunFileKey;

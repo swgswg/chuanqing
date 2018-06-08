@@ -10,7 +10,7 @@
         <view style='height:220rpx;'>
           <!--图片  -->
             <view class='picture'>
-              <image src="{{item.pimg}}" class='picture'></image>
+              <image src="{{serverUrl}}{{item.pimg}}" class='picture'></image>
             </view>
 
           <!--内容  -->

@@ -17,7 +17,8 @@ Page({
     // 本月成交额参数
       yprice:'',
     // 时间参数
-      times:""
+      times:"",
+      serverUrl: app.globalData.aliyunServerURL  
   },
 
   /**
