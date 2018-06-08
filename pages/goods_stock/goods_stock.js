@@ -8,7 +8,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        stock:null
+        stock:null,
+        serverUrl: app.globalData.aliyunServerURL
     },
 
     // 库存详情

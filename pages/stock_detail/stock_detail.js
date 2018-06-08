@@ -17,7 +17,8 @@ Page({
             { key: 5, value: '回购原因5', checked: false }
         ],
         covering_layer_hidden:true,
-        immediate_sale_hidden:true
+        immediate_sale_hidden:true,
+        serverUrl: app.globalData.aliyunServerURL
     },
 
     /**

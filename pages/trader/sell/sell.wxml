@@ -5,26 +5,39 @@
 
 
   <!--循环出  -->
-   <view wx:for="{{data}}" wx:key="{{item.gId}}"> 
-      <navigator url=''>
+   <view wx:for="{{sell}}" wx:key="{{item.gId}}"> 
+      
         <view style='height:220rpx;'>
           <!--图片  -->
-            <view class='picture'>
-              <image src="{{item.pimg}}" class='picture'></image>
-            </view>
-
+            <navigator url=''>
+                <view class='picture'>
+                    <image src="{{item.pimg}}" class='picture'></image>
+                </view>
+            </navigator>  
           <!--内容  -->
-
             <view calss="content">
                 <view class="name"> {{item.gname}}</view>
-                <view class="price"> {{item.price}}</view>
+                <view class="price"> ¥{{item.price}}
+                    <view class="number" style='width:300rpx;' hidden='{{undercarriage}}'>
+                        <view class="jian" bindtap="minusCount" data-index="{{index}}">-</view>
+                        <view class="num"> 
+                            <input bindinput='inputNum' bindblur='blurNum' bindconfirm='blurNum'
+                                    value="{{goods_num}}" 
+                                    data-index="{{index}}" type="number"/>
+                        </view>
+                        <view class="jia"  bindtap="addCount" data-index="{{index}}">+</view>
+                    </view>
+                    <view  class='xiajia' hidden='{{!undercarriage}}' bindtap='undercarriage'>下架</view>
+                    <view hidden='{{undercarriage}}' data-index="{{index}}" class='xiajia' bindtap='confirmUndercarriage'>确定</view>
+                    <view hidden='{{undercarriage}}' class='xiajia' bindtap='cancleUndercarriage'>取消</view>
+                </view>
                 <view class="text"><text decode='{{true}}' space='true'>销售中:{{item.snum}} 已售:{{item.stnum}} 库存:{{item.snum}}</text></view> 
             </view>
 
           <!--下划线  -->
             <view class="xia"></view>
           </view>
-      </navigator>  
+      
      </view> 
 
  </view> 

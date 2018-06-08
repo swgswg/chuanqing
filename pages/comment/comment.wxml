@@ -1,7 +1,7 @@
 <view class="comment">
     <view class="goods-info">
         <view class="goods-img">
-            <image src="{{goodsInfo.img}}"></image>
+            <image src="{{serverUrl+goodsInfo.img}}"></image>
         </view>
         <view class="goods-name">
            {{goodsInfo.gname}}

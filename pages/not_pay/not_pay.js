@@ -10,7 +10,8 @@ Page({
      */
     data: {
         myorder: null,
-        pending_payment: 0
+        pending_payment: 0,
+        serverUrl: app.globalData.aliyunServerURL
     },
 
     /**

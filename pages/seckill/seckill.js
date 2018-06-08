@@ -1,11 +1,13 @@
 // pages/seckill/seckill.js
+var utils = require('../../utils/util.js');
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      serverUrl: app.globalData.aliyunServerURL
   },
 
   //  商品详情

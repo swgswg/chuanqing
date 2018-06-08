@@ -38,10 +38,24 @@
 }
 
 .price{
-  font-size: 24rpx;
-  color:red;
-  margin-top:20rpx;
-  margin-left:230rpx;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24rpx;
+    color:red;
+    margin-top:20rpx;
+    margin-left:230rpx;  
+}
+.xiajia{
+    width: 80rpx;
+    height: 40rpx;
+    margin-right:20rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 40rpx;
+    background-color: #cc0000;
+    border-radius: 10rpx;
+    border :1px solid red;
 }
 
 .text{

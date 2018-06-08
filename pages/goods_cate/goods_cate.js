@@ -17,7 +17,8 @@ Page({
             // { id: 5, name: '国家' },
         ],
         current_id:1,
-        goodsClass:[]
+        goodsClass:[],
+        serverUrl: app.globalData.aliyunServerURL 
     },
 
     /**

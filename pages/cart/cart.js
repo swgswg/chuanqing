@@ -17,7 +17,8 @@ Page({
         selectAllStatus: false,  // 全选状态  
         editStatus: true,        // 编辑按钮
         editText:'编辑',          // 编辑还是完成
-        youlike_hidden: false   
+        youlike_hidden: false,
+        serverUrl: app.globalData.aliyunServerURL  
     },
 
     /**

@@ -1,7 +1,7 @@
  <view class="after-sale"> 
     <view class="goods-info" data-id="{{goodsInfo.id}}">
         <view class="goods-img">
-            <image src="{{goodsInfo.img}}"></image>
+            <image src="{{serverUrl+goodsInfo.img}}"></image>
         </view>
         <view class="goods-name">
             <view>

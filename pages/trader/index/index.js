@@ -10,10 +10,7 @@ Page({
    */
   data: {
   //国家循环
-  goodsGroup:[
-  ],
-
-
+  goodsGroup:[],
   // 品牌图标
     brand:[
       { img: '../../../images/c4.png' },
@@ -24,11 +21,9 @@ Page({
       {img:'../../../images/c4.png'}
     ],
   // 相关推荐信息
-    recommend: []
-  },
-
+    recommend: [],
     // 品牌图标
-        brand:[
+    brand:[
         { img: '../../../images/c4.png' },
         { img: '../../../images/c4.png' },
         { img: '../../../images/c4.png' },
@@ -37,7 +32,7 @@ Page({
         {img:'../../../images/c4.png'}
         ],
     // 相关推荐信息
-        recommend: [
+    recommend: [
         { img: '../../../images/1.png', name: '拉菲尚品波尔多',content:'好好好好好哈哈哦哦',prices:'￥888' },
         { img: '../../../images/1.png', name: '拉菲尚品波尔多', content: '好好好好好哈哈哦哦', prices: '￥888' },
         { img: '../../../images/1.png', name: '拉菲尚品波尔多', content: '好好好好好哈哈哦哦', prices: '￥888' },
@@ -57,7 +52,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      console.log(options)
+      template.tabbar("tabBar", 0, this, app.globalData.vipLevel); 
   },
 
   /**

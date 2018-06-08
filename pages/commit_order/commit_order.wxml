@@ -10,7 +10,7 @@
                     <view class="myorder_each">
                         <view class="goods-info">
                             <view class="goods-img">
-                                <image src="{{goods.img}}"></image>
+                                <image src="{{serverUrl+goods.img}}"></image>
                             </view>
                             <view class="goods-name">
                                 <view>

@@ -8,6 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        userInfo:null,
         all_order: -1,
         pending_payment: 0,
         to_be_shipped: 1,
@@ -15,7 +16,8 @@ Page({
         to_be_evaluated: 3,
         self_extraction: 4,
         accomplish: 5,
-        membershipPrivilege:[]
+        membershipPrivilege:[],
+        serverUrl: app.globalData.aliyunServerURL
     },
 
     /**

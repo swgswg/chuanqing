@@ -23,7 +23,7 @@
                         <view class="goods-info">
                             <view class="goods-img">
                                 <!-- <image src="../../images/comment-img.png"></image> -->
-                                <image src="{{goods.goodsImg}}"></image>
+                                <image src="{{serverUrl + goods.goodsImg}}"></image>
                             </view>
                             <view class="goods-name">
                                 <view>
@@ -84,8 +84,8 @@
         <view class="myorder_each">
             <view class="goods-info">
                 <view class="goods-img">
-                        <image src="../../images/comment-img.png"></image> 
-                    <!-- <image src="{{goods.goodsImg}}"></image> -->
+                        <!-- <image src="../../images/comment-img.png"></image>  -->
+                     <image src="{{serverUrl + goods.goodsImg}}"></image> 
                 </view>
                 <view class="goods-name">
                     <view>

@@ -9,7 +9,7 @@
             <view class="goods-list">
                 <view class="goods-info" catchtap='info' wx:for="{{stock}}" wx:key="{{item.gId}}">
                     <view bindtap='stockDetail' data-gid='{{item.gId}}' class="goods-img">
-                        <image src='{{item.img}}'></image>
+                        <image src='{{serverUrl+item.img}}'></image>
                     </view>
                     <view class="goods-name">{{item.gname}}</view>
                     <view style='font-size:26rpx;color:#999;margin:12rpx 0 0 20rpx;'>库存:{{item.possession}}</view>

@@ -27,7 +27,7 @@
     <view class="adv_class">
     
         <!--广告start  -->
-        <image class="adv" src=''></image>
+        <image class="adv" src='' />
         <!--广告end  -->
 
         <!--类别start  -->
@@ -38,8 +38,8 @@
                     data-classid="{{goodsClass.id}}" 
                     data-classname = "{{goodsClass.name}}"
                 >
-                    <!-- <image src="{{goodsClass.classImg}}" /> -->
-                    <image src="../../images/class_bg.png" />
+                     <image src="{{serverUrl+goodsClass.classImg}}" /> 
+                    <!-- <image src="../../images/class_bg.png" /> -->
                     <text>{{goodsClass.name}}</text> 
                 </view>
              </block>

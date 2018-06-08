@@ -64,6 +64,8 @@ App({
         userId:1,
         // 用户会员等级
         vipLevel: 1,
+        // 阿里云OOS地址
+        aliyunServerURL: 'http://jiaoyuvideo.oss-cn-beijing.aliyuncs.com/',
         payInfo:null,
         dealerCode:'pingtai',
         globalDataBaseUrl: baseUrl,
@@ -120,7 +122,10 @@ App({
         // 订单明细
         getsaleTrackUrl: baseUrl + 'redwine/saleTrack/getsaleTrack',
         // 按月份查找数据
-        getSaleTrackByMonthkUrl: baseUrl + 'redwine/saleTrack/getSaleTrackByMonth'
+        getSaleTrackByMonthkUrl: baseUrl + 'redwine/saleTrack/getSaleTrackByMonth',
+        // 下架
+        updateStockUrl: baseUrl + 'redwine/goods/updateStock',
+        
 
     }
 })

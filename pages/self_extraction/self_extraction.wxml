@@ -11,7 +11,7 @@
                     <view class="myorder_each">
                         <view class="goods-info">
                             <view class="goods-img">
-                                <image src="{{vv.img}}"></image>
+                                <image src="{{serverUrl + vv.img}}"></image>
                             </view>
                             <view class="goods-name">
                                 <view>

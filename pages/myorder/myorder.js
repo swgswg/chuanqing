@@ -26,7 +26,8 @@ Page({
         myorder:null,
         current_orderStatus:-1,
         commet_afterSale:true,
-        index:null
+        index:null,
+        serverUrl: app.globalData.aliyunServerURL
     },
 
     /**

@@ -25,7 +25,7 @@
         <view class="goods-list-all" wx:for="{{goods}}" wx:key="{{item.id}}">
             <view class="goods-list-each">
                 <navigator url='../goods_detail/goods_detail?id={{item.id}}'>  
-                    <image class="goods-img" src="{{item.img}}" />
+                    <image class="goods-img" src="{{ serverUrl + item.img}}" />
                     <view class="goods-name">{{item.gname}}</view>
                 </navigator>
                 <view class="goods-price">

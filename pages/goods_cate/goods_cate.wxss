@@ -81,7 +81,8 @@ page{
     height: 120rpx;
     margin-right: 55rpx;   
     margin-bottom: 60rpx;       
-    float: left;   
+    float: left; 
+    overflow: hidden;  
     border-radius: 50%;
     text-align: center; 
     line-height: 120rpx;

@@ -17,8 +17,8 @@ Page({
         },
         order: null,
         receipt: '',
-        msg: ''
-
+        msg: '',
+        serverUrl: app.globalData.aliyunServerURL
     },
 
     /**

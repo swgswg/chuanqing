@@ -11,7 +11,8 @@ Page({
             img:'../../images/comment-img.png',
             gname:'奔富洛神山庄设拉子赤霞珠红葡萄酒750ml进口红酒葡萄酒',
             specification:'750ml 6*1箱'
-        }
+        },
+        serverUrl: app.globalData.aliyunServerURL
     },
 
     /**

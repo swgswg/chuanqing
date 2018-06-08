@@ -16,6 +16,7 @@ Page({
         commentDetail: '',
         commentImg: '',
         src:[],
+        serverUrl: app.globalData.aliyunServerURL  
     },  
 
     /**
@@ -116,6 +117,7 @@ Page({
                         that.setData({
                             src: newsrc
                         });
+
                     }, function () { });
                 } else {
                     wx.showToast({
@@ -146,7 +148,7 @@ Page({
      */
     publishComment: function(e){
         var commentDetail = this.data.commentDetail;
-        var myurl = getApp().globalData.InsertCommentUrl;
+        var myurl = app.globalData.InsertCommentUrl;
         var mydata = { 
             userId: userId,  // 用户id
             goodsId: this.data.goodsInfo.id, // 商品id 
@@ -154,7 +156,7 @@ Page({
             describes: '',  // 描述相符
             logistics: '',  // 物流服务
             QoS: '',  // 服务态度
-            img: this.data.src.join(',')
+            img: this.data.src.join(',') // 评论图片 
         };
         util.myWxRequest(myurl, mydata, function(res){
             wx.showToast({

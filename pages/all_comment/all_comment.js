@@ -8,7 +8,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        allComment: []
+        allComment: [],
+        serverUrl: app.globalData.aliyunServerURL
     },
 
     /**
@@ -16,10 +17,20 @@ Page({
      */
     onLoad: function (options) {
         let that = this;
-        goodsid = options.goodsId;     
-        utils.myWxRequest(app.globalData.QueryCommentUrl, { goodsId: goodsid, page: 1, pageSize: myPageSize }, function(){
+        goodsid = options.goodsId;
+        // console.log(goodsid);     
+        utils.myWxRequest(app.globalData.QueryCommentUrl, { goodsId: goodsid, page: 1, pageSize: myPageSize }, function(res){
+            // console.log(res.data.data.PageInfo.list)
+            let allComment = res.data.data.PageInfo.list;
+            // console.log(allComment.length)
+            for (let i = 0; i < allComment.length; i++){
+                // console.log(allComment[i].img)
+                allComment[i].commentimg = allComment[i].img.split(',');
+                // console.log(allComment[i].commentimg)
+            }
+            console.log(allComment)
             that.setData({
-                allComment: res.data.data.PageInfo.list
+                allComment: allComment
             });
         });
 

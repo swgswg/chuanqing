@@ -24,7 +24,8 @@ Page({
         receipt:'',
         msg: '',
         payment : true,
-        enterPaymentPassword:true
+        enterPaymentPassword:true,
+        serverUrl: app.globalData.aliyunServerURL  
     },
 
     /**

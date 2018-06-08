@@ -5,7 +5,7 @@
         <view class="youlike-all">
             <block wx:for="{{item.info}}" >
                 <view class="youlike">
-                    <image class="youlike-img" src="{{item.img}}"></image>
+                    <image class="youlike-img" src="{{serverUrl+item.img}}"></image>
                     <view class="youlike-name">{{item.name}}</view>
                     <view class="youlike-price">{{item.price}}</view>
                 </view>

@@ -26,7 +26,8 @@ Page({
         zonghe_png:'../../images/ping.png',
         xiaoliang_png:'../../images/ping.png',
         xinpin_png:'../../images/ping.png',
-        jiage_png:'../../images/ping.png'
+        jiage_png:'../../images/ping.png',
+        serverUrl: app.globalData.aliyunServerURL  
     },
 
     /**

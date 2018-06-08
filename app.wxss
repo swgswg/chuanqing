@@ -133,3 +133,20 @@ radio .wx-radio-input.wx-radio-input-checked::before{
 image{
      border: 1rpx solid red; 
 }
+
+/**
+*  画布样式
+*  <canvas canvas-id="canvas1" style="width:200px;height:200px;"></canvas>
+*  <canvas canvas-id="canvas2" style="width:200px;height:200px;"></canvas>
+*  <canvas canvas-id="chartContainer" class="chartContainer"></canvas>
+*/
+ canvas{
+   display: inline-block; 
+} 
+.chartContainer{
+   width: 400px;
+  height: 550px; 
+  margin-top: 100px;
+  margin-left: 0;
+  color: #000;
+}

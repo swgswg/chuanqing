@@ -28,7 +28,7 @@
                             <view class="goods-img">
                                 <!-- 点击商品图片可跳转到商品详情 -->
                                 <navigator url="../goods_detail/goods_detail?id={{item.gid}}">
-                                    <image src="{{item.img}}"></image>
+                                    <image src="{{serverUrl+item.img}}"></image>
                                 </navigator>
                             </view>
                             <view class="goods-name">
@@ -71,6 +71,7 @@
                             <view class="goods-img">
                                 <!-- 点击商品图片可跳转到商品详情 -->
                                 <!-- <navigator url="../goods_detail/goods_detail?id={{item.id}}"> -->
+                                    <!-- <image src="{{serverUrl+item.img}}"></image> -->
                                     <image src="../../images/youlike.png"></image>
                                 <!-- </navigator> -->
                             </view>

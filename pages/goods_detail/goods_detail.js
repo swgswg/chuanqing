@@ -14,7 +14,8 @@ Page({
         commentInfo:[],
         address : {},
         youLike:[],
-        changePrice:false
+        changePrice:false,
+        serverUrl: app.globalData.aliyunServerURL  
     },
 
     /**
