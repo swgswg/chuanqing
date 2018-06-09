@@ -125,6 +125,10 @@ Page({
      */
     inputBlur:function(e){        
         input_value = e.detail.value;
+        let arrayVal = [];
+        arrayVal.push(e.detail.value);
+        // 获取保存用户搜索数据
+        util.getSetStorage(app.globalData.userId, e.detail.value, arrayVal);
     },
 
     /**
@@ -140,6 +144,10 @@ Page({
     inputConfirm:function(e){
         // 获取输入的值
         var val = e.detail.value;
+        let arrayVal = [];
+        arrayVal.push(val);
+        // 获取保存用户搜索数据
+        util.getSetStorage(app.globalData.userId, val, arrayVal);
         // 搜索
         mySearch(val);
     },

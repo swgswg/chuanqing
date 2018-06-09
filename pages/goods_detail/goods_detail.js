@@ -39,11 +39,14 @@ Page({
         });
   
         // 获取猜你喜欢
-        util.myWxRequest(app.globalData.getGoodsBySaleCountUrl, { }, function (res) {
-            that.setData({
-                youLike: res.data.data
-            });
-        });
+        // util.myWxRequest(app.globalData.getGoodsBySaleCountUrl, { }, function (res) {
+        //     that.setData({
+        //         youLike: res.data.data
+        //     });
+        // });
+
+        // 获取猜你喜欢 根据类别来获取商品 
+
 
         if ( options.addrId ){
             // 换地址 getAddrByIdUrl

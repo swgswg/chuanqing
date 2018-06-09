@@ -66,17 +66,17 @@
                     <view class="youlike-line2"></view>
                 </view>
                 <view style="display:flex;flex-wrap:wrap">
-                    <block wx:for="{{[1,2,3]}}" wx:key="id">
+                    <block wx:for="{{youLike}}" wx:key="item.id">
                         <view class="goods-info">
                             <view class="goods-img">
                                 <!-- 点击商品图片可跳转到商品详情 -->
                                 <!-- <navigator url="../goods_detail/goods_detail?id={{item.id}}"> -->
-                                    <!-- <image src="{{serverUrl+item.img}}"></image> -->
-                                    <image src="../../images/youlike.png"></image>
+                                     <image src="{{serverUrl+item.img}}" />
+                                    <!-- <image src="../../images/youlike.png"></image> -->
                                 <!-- </navigator> -->
                             </view>
-                            <view class="goods-name">路易拉菲2009男爵古堡干红葡萄酒礼盒木盒装750ml*2</view>
-                            <view class="goods-price">¥39.00</view>
+                            <view class="goods-name">{{item.gname}}{{item.specification}}</view>
+                            <view class="goods-price">¥{{item.price }}</view>
                         </view>
                     </block>
                 </view>

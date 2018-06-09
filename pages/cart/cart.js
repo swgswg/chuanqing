@@ -1,6 +1,6 @@
 // pages/cart/cart.js
-var util = require('../../utils/util.js');
-var template = require('../../template/template.js');
+const util = require('../../utils/util.js');
+const template = require('../../template/template.js');
 const app = getApp();
 var flag = true;
 var mypageSize = 10;
@@ -17,6 +17,7 @@ Page({
         selectAllStatus: false,  // 全选状态  
         editStatus: true,        // 编辑按钮
         editText:'编辑',          // 编辑还是完成
+        youLike:null,
         youlike_hidden: false,
         serverUrl: app.globalData.aliyunServerURL  
     },
@@ -26,15 +27,9 @@ Page({
      */
     onLoad: function (options) {
         template.tabbar("tabBar", 2, this, app.globalData.vipLevel); //0表示第一个tabbar
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
         var that = this;
         // 显示购物车
-        util.myWxRequest(app.globalData.getCartsUrl, { page: 1, pageSize: mypageSize,userId: app.globalData.userId}, function (res) {
+        util.myWxRequest(app.globalData.getCartsUrl, { page: 1, pageSize: mypageSize, userId: app.globalData.userId }, function (res) {
             //0：{ cartsPrice: 4999,cid:14, gid: 2,goodsDetail:"好喝的红酒", img:'',name: "王朝干红", price: 4999, num: 1, specification:"750ml*6", status:0 }
             let mycarts = res.data.data;
             // console.log(mycarts);
@@ -44,7 +39,7 @@ Page({
                     hasList: false,
                 });
             } else {
-                for(let i=0; i<len;i++){
+                for (let i = 0; i < len; i++) {
                     mycarts[i].selected = false;
                 }
                 that.setData({
@@ -53,6 +48,38 @@ Page({
                 });
             }
         });
+
+        // 猜你喜欢
+        wx.getStorage({
+            key: app.globalData.userId,
+            success: function (res) {
+                let stroge = util.mostValue(res.data); // 获取用户搜索次数最多的商品名称
+                if(stroge == '' || stroge == []){
+                    // 如果没有缓存就按销量来
+                    util.myWxRequest(app.globalData.getGoodsBySaleCountUrl, {}, function (res) {
+                        that.setData({
+                            youLike: res.data.data
+                        });
+                    });
+                } else {
+                    // 根据用户搜索次数最多的商品来
+                    util.myWxRequest(app.globalData.getGoodsByConditionUrl, { name: stroge, page: 1, pageSize: 4 }, function (res) {
+                        that.setData({
+                            youLike: res.data.data.pageInfo.list
+                        });
+                    });
+                }
+                
+                
+            }
+        })
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+        
 
     },
 

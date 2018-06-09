@@ -182,6 +182,58 @@ function myUploadFile(myurl, sufun){
     })
 }
 
+/**
+ * 获取缓存,保存缓存
+ */
+function getSetStorage(userId, val, arrayVal){
+    // 获取用户缓存
+    wx.getStorage({
+        key: userId,
+        success: function (res) {
+            let storageVal = res.data;
+        }
+    });
+    if (storageVal != ''  && Array.isArray(storageVal)) {
+        storageVal.push(val);
+    } else {
+        storageVal = arrayVal;
+    }
+    // 保存缓存
+    wx.setStorage({
+        key: userId,
+        data: storageVal
+    });
+    console.log(storageVal);
+}
+
+/**
+ * 计算数组出现次数最多的元素
+ */
+function mostValue(arr) {
+    if (!Array.isArray(arr)) return;
+    if (arr.length === 1) return 1;
+    let temp = [];//对象数组
+    let i;
+    temp[0] = { value: arr[0], index: 1 };//保存数组元素出现的次数和值
+    arr.sort();
+    for (i = 1; i < arr.length; i++) {
+        if (arr[i] == arr[i - 1]) {
+            temp[temp.length - 1].index++;
+        } else {//不相同则新增一个对象元素
+            temp.push({ index: 1, value: arr[i] });
+        }
+    }
+    temp.sort(function (a, b) {//按照出现次数从大到小排列
+        return a.index < b.index;
+    })
+    // let max = 0;//最多的次数
+    let maxV;//出现最多的元素
+    // let second = 0;//第二多的次数
+    // let secondV;//出现第二多的元素
+    // return { max, maxV, second, secondV };
+    return maxV;
+}
+
 
 module.exports = {
     formatTime: formatTime,
@@ -192,5 +244,7 @@ module.exports = {
     myWxRequest: myWxRequest,
     formatDate: formatDate,
     myUploadFile: myUploadFile,
-    rand: rand
+    rand: rand,
+    getSetStorage: getSetStorage,
+    mostValue: mostValue
 }

@@ -196,7 +196,7 @@ Page({
     confirmation_repurchase:function(e){
         // 获取商品id
         var id = e.currentTarget.dataset.id; 
-
+        
         // 提交
         // wx.request({
         //     url: '',

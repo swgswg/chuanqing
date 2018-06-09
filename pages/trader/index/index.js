@@ -1,7 +1,7 @@
 // pages/trader/index/index.js
-var util = require('../../../utils/util.js');
+const util = require('../../../utils/util.js');
 const app = getApp();
-var template = require('../../../template/template.js');
+const template = require('../../../template/template.js');
 var input_value = '';
 
 Page({
@@ -37,7 +37,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        // 加载页面tarBar模块
         template.tabbar("tabBar", 0, this, app.globalData.vipLevel);
     },
 
@@ -111,9 +111,42 @@ Page({
      * 搜索框失去焦点时
      */
     inputBlur: function (e) {
+        let arrayVal = [];
+        arrayVal.push(e.detail.value);
         input_value = e.detail.value;
+        // 获取用户缓存
+        // wx.getStorage({
+        //     key: app.globalData.userId,
+        //     success: function (res) {
+        //         let storageVal = res.data;
+        //     }
+        // });
+        // if (storageVal != '' && Array.isArray(storageVal)){
+        //     storageVal.push(e.detail.value);
+        // } else {
+        //     storageVal = val;
+        // }
+        // wx.setStorage({
+        //     key: app.globalData.userId,
+        //     data: storageVal
+        // })
+        
+        // 获取保存用户搜索数据
+        util.getSetStorage(app.globalData.userId, e.detail.value, arrayVal);
     },
 
+    /**
+     * 点击完成按钮时触发
+     */
+    inputConfirm:function(e){
+        let arrayVal = [];
+        arrayVal.push(e.detail.value);
+        // 搜索商品
+        mySearch(e.detail.value);
+        // 获取保存用户搜索数据
+        util.getSetStorage(app.globalData.userId, e.detail.value, arrayVal);
+
+    },
     /**
      * 搜索商品
      */

@@ -67,8 +67,12 @@ App({
         vipLevel: 1,
         // 阿里云OOS地址
         aliyunServerURL: 'http://jiaoyuvideo.oss-cn-beijing.aliyuncs.com/',
+        // 支付信息
         payInfo:null,
+        // 经销商
         dealerCode:'pingtai',
+        // 猜你喜欢
+        youLike:null,
         globalDataBaseUrl: baseUrl,
         // 获取所有评论
         getAllCommetnUrl:baseUrl+'redwine/order/QueryComment',
